@@ -1,8 +1,8 @@
 #include "stdafx.h"	
-#include "..\..\..\Minecraft.World\Socket.h"
-#include "..\..\..\Minecraft.World\StringHelpers.h"
+#include "../../../Minecraft.World/Socket.h"
+#include "../../../Minecraft.World/StringHelpers.h"
 #include "PlatformNetworkManagerStub.h"
-#include "..\..\Xbox\Network\NetworkPlayerXbox.h"		// TODO - stub version of this?
+#include "../../Xbox/Network/NetworkPlayerXbox.h"		// TODO - stub version of this?
 
 CPlatformNetworkManagerStub *g_pPlatformNetworkManager;
 
