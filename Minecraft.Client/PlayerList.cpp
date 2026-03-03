@@ -45,7 +45,7 @@ PlayerList::PlayerList(MinecraftServer *server)
 #ifdef __PSVITA__
 	viewDistance = 3;
 #elif defined _LARGE_WORLDS
-	viewDistance = 16;
+	viewDistance = 24;
 #else
 	viewDistance = 10;
 #endif
