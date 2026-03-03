@@ -62,7 +62,7 @@ public:
 	static const int maxMovementHeight = 256;	// 4J added
 
     static const int minBuildHeight = 0;		// 4J - brought forward from 1.2.3
-	static const int maxBuildHeight = 125;		// 4J - brought forward from 1.2.3
+	static const int maxBuildHeight = 256;		// 4J - brought forward from 1.2.3
 	static const int genDepthBits = 7;
 	static const int genDepthBitsPlusFour = genDepthBits + 4;
 	static const int genDepth = 1 << genDepthBits;
