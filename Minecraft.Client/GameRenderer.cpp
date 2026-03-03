@@ -647,7 +647,7 @@ void GameRenderer::getFovAndAspect(float& fov, float& aspect, float a, bool appl
 
 void GameRenderer::setupCamera(float a, int eye)
 {
-	renderDistance = (float)(16 * 16 >> (mc->options->viewDistance));
+	renderDistance = 64 * 64;
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
