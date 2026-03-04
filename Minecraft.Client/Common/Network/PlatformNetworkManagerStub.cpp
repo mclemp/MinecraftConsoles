@@ -730,6 +730,24 @@ void CPlatformNetworkManagerStub::SearchForGames()
 		friendsSessions[0].push_back(info);
 	}
 
+	if (g_Win64MultiplayerJoin && g_Win64MultiplayerIP[0] != 0)
+	{
+		FriendSessionInfo* info = new FriendSessionInfo();
+		wchar_t label[128];
+		swprintf_s(label, L"%S:%d", g_Win64MultiplayerIP, g_Win64MultiplayerPort);
+		size_t nameLen = wcslen(label);
+		info->displayLabel = new wchar_t[nameLen + 1];
+		wcscpy_s(info->displayLabel, nameLen + 1, label);
+		info->displayLabelLength = (unsigned char)nameLen;
+		info->displayLabelViewableStartIndex = 0;
+		info->data.isReadyToJoin = true;
+		info->data.isJoinable = true;
+		strncpy_s(info->data.hostIP, sizeof(info->data.hostIP), g_Win64MultiplayerIP, _TRUNCATE);
+		info->data.hostPort = g_Win64MultiplayerPort;
+		info->sessionId = (SessionID)((unsigned __int64)inet_addr(g_Win64MultiplayerIP) | ((unsigned __int64)g_Win64MultiplayerPort << 32));
+		friendsSessions[0].push_back(info);
+	}
+
 	m_searchResultsCount[0] = (int)friendsSessions[0].size();
 
 	if (m_SessionsUpdatedCallback != NULL)
