@@ -273,7 +273,7 @@ public:
 	static const int	FORCE_DIRTY_CHUNK_CHECK_PERIOD_MS = 250;
 
 #ifdef _LARGE_WORLDS
-	static const int MAX_CONCURRENT_CHUNK_REBUILDS = 9;
+	static const int MAX_CONCURRENT_CHUNK_REBUILDS = 2;
 	static const int MAX_CHUNK_REBUILD_THREADS = MAX_CONCURRENT_CHUNK_REBUILDS - 1;
 	static Chunk permaChunk[MAX_CONCURRENT_CHUNK_REBUILDS];
 	static C4JThread *rebuildThreads[MAX_CHUNK_REBUILD_THREADS];
