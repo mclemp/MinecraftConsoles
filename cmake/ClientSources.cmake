@@ -475,6 +475,7 @@ set(MINECRAFT_CLIENT_SOURCES
   "Windows64/Leaderboards/WindowsLeaderboardManager.cpp"
   "Windows64/Windows64_App.cpp"
   "Windows64/Windows64_Minecraft.cpp"
+  "Windows64/Windows64_Launcher.cpp"
   "Windows64/Windows64_UIController.cpp"
   "Windows64/Network/WinsockNetLayer.cpp"
   "WitchModel.cpp"
