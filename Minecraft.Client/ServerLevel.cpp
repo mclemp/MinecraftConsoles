@@ -115,10 +115,6 @@ ServerLevel::ServerLevel(MinecraftServer *server, shared_ptr<LevelStorage>levelS
 
 	this->tracker = new EntityTracker(this);
 	int r = 24;
-
-	printf("ChunkMap radius = %d\n", r); 
-	fflush(stdout); // forces Visual Studio to show it immediately
-
 	this->chunkMap = new PlayerChunkMap(this, dimension, r);
 
 	mobSpawner = new MobSpawner();
