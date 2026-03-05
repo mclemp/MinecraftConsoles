@@ -222,7 +222,183 @@ void UIScene_SkinSelectMenu::handleInput(int iPad, int key, bool repeat, bool pr
 #endif
 		if(pressed)
 		{
-			InputActionOK(iPad);
+			ui.AnimateKeyPress(iPad, key, repeat, pressed, released);
+			// if the profile data has been changed, then force a profile write
+			// It seems we're allowed to break the 5 minute rule if it's the result of a user action
+			switch(m_packIndex)
+			{
+			case SKIN_SELECT_PACK_DEFAULT:
+				app.SetPlayerSkin(iPad, m_skinIndex);
+				app.SetPlayerCape(iPad, 0);
+				m_currentSkinPath = app.GetPlayerSkinName(iPad);
+				m_originalSkinId = app.GetPlayerSkinId(iPad);
+				setCharacterSelected(true);
+				ui.PlayUISFX(eSFX_Press);
+				break;
+			case SKIN_SELECT_PACK_FAVORITES:
+				if(app.GetPlayerFavoriteSkinsCount(iPad)>0)
+				{		
+					// get the pack number from the skin id
+					wchar_t chars[256];
+					swprintf(chars, 256, L"dlcskin%08d.png", app.GetPlayerFavoriteSkin(iPad,m_skinIndex));
+
+					DLCPack *Pack=app.m_dlcManager.getPackContainingSkin(chars);	
+
+					if(Pack)
+					{
+						DLCSkinFile *skinFile = Pack->getSkinFile(chars);
+						app.SetPlayerSkin(iPad, skinFile->getPath());
+						app.SetPlayerCape(iPad, skinFile->getParameterAsString(DLCManager::e_DLCParamType_Cape));
+						setCharacterSelected(true);
+						m_currentSkinPath = app.GetPlayerSkinName(iPad);
+						m_originalSkinId = app.GetPlayerSkinId(iPad);
+						app.SetPlayerFavoriteSkinsPos(iPad,m_skinIndex);
+					}
+				}
+				break;
+			case SKIN_SELECT_PACK_PLAYER_CUSTOM:
+				if (app.m_customSkinNames.size() > 0)
+				{
+					wstring selectedSkin = app.m_customSkinNames[m_skinIndex];
+					app.SetPlayerSkin(iPad, selectedSkin);
+					app.SetPlayerCape(iPad, L"");
+					setCharacterSelected(true);
+					m_currentSkinPath = app.GetPlayerSkinName(iPad);
+					m_originalSkinId = app.GetPlayerSkinId(iPad);
+					ui.PlayUISFX(eSFX_Press);
+				}
+				break;
+			default:
+				if( m_currentPack != NULL )
+
+				{
+					DLCSkinFile *skinFile = m_currentPack->getSkinFile(m_skinIndex);
+
+					if	(	!skinFile->getParameterAsBool( DLCManager::e_DLCParamType_Free ) // Is this a free skin?
+						&&	!m_currentPack->hasPurchasedFile( DLCManager::e_DLCType_Skin, skinFile->getPath() ) // do we have a license?
+						)
+					{
+						// 4J-PB - check for a patch
+#ifdef __ORBIS__
+						// 4J-PB - Check if there is a patch for the game
+						int errorCode = ProfileManager.getNPAvailability(ProfileManager.GetPrimaryPad());
+
+						bool bPatchAvailable;
+						switch(errorCode)
+						{
+						case SCE_NP_ERROR_LATEST_PATCH_PKG_EXIST:
+						case SCE_NP_ERROR_LATEST_PATCH_PKG_DOWNLOADED:
+							bPatchAvailable=true;
+							break;
+						default:
+							bPatchAvailable=false;
+							break;
+						}
+
+						if(bPatchAvailable)
+						{
+							int32_t ret=sceErrorDialogInitialize();
+							m_bErrorDialogRunning=true;
+							if (  ret==SCE_OK ) 
+							{
+								SceErrorDialogParam param;
+								sceErrorDialogParamInitialize( &param );
+								// 4J-PB - We want to display the option to get the patch now
+								param.errorCode = SCE_NP_ERROR_LATEST_PATCH_PKG_DOWNLOADED;//pClass->m_errorCode;
+								ret = sceUserServiceGetInitialUser( &param.userId );
+								if ( ret == SCE_OK ) 
+								{
+									ret=sceErrorDialogOpen( &param );
+									break;
+								}
+							}
+						}
+#endif
+
+						// no
+						UINT uiIDA[1] = { IDS_OK };
+#ifdef __ORBIS__
+						// Check if PSN is unavailable because of age restriction
+						int npAvailability = ProfileManager.getNPAvailability(iPad);
+						if (npAvailability == SCE_NP_ERROR_AGE_RESTRICTION)
+						{
+							ui.RequestMessageBox(IDS_ONLINE_SERVICE_TITLE, IDS_CONTENT_RESTRICTION, uiIDA, 1, iPad, NULL, NULL, app.GetStringTable());
+						}
+						else
+#endif
+						// We need to upsell the full version
+						if(ProfileManager.IsGuest(iPad))
+						{
+							// can't buy
+							ui.RequestMessageBox(IDS_PRO_GUESTPROFILE_TITLE, IDS_PRO_GUESTPROFILE_TEXT, uiIDA, 1,iPad,NULL,NULL,app.GetStringTable(),NULL,0,false);
+						}
+						// are we online?
+						else if(!ProfileManager.IsSignedInLive(iPad))
+						{
+							showNotOnlineDialog(iPad);
+						}
+						else
+						{
+							// upsell
+#ifdef _XBOX
+							DLC_INFO *pDLCInfo = app.GetDLCInfoForTrialOfferID(m_currentPack->getPurchaseOfferId());
+							ULONGLONG ullOfferID_Full;
+
+							if(pDLCInfo!=NULL)
+							{
+								ullOfferID_Full=pDLCInfo->ullOfferID_Full;
+							}
+							else
+							{
+								ullOfferID_Full=m_currentPack->getPurchaseOfferId();
+							}
+
+							// tell sentient about the upsell of the full version of the skin pack
+							TelemetryManager->RecordUpsellPresented(iPad, eSet_UpsellID_Skin_DLC, ullOfferID_Full & 0xFFFFFFFF);
+#endif
+							bool bContentRestricted=false;
+#if defined(__PS3__) || defined(__PSVITA__)
+							ProfileManager.GetChatAndContentRestrictions(m_iPad,true,NULL,&bContentRestricted,NULL);
+#endif
+							if(bContentRestricted)
+							{
+#if !(defined(_XBOX) || defined(_WIN64)) // 4J Stu - Temp to get the win build running, but so we check this for other platforms
+								// you can't see the store
+								UINT uiIDA[1] = { IDS_CONFIRM_OK };
+								ui.RequestMessageBox(IDS_ONLINE_SERVICE_TITLE, IDS_CONTENT_RESTRICTION, uiIDA, 1, iPad,NULL,this, app.GetStringTable(),NULL,0,false);
+#endif
+							}
+							else
+							{
+								// 4J-PB - need to check for an empty store
+#if defined __ORBIS__ || defined __PSVITA__ || defined __PS3__
+								if(app.CheckForEmptyStore(iPad)==false)
+#endif
+								{
+									this->m_bIgnoreInput = true;
+
+									UINT uiIDA[2] = { IDS_CONFIRM_OK, IDS_CONFIRM_CANCEL };
+									ui.RequestMessageBox(IDS_UNLOCK_DLC_TITLE, IDS_UNLOCK_DLC_SKIN, uiIDA, 2, iPad,&UIScene_SkinSelectMenu::UnlockSkinReturned,this,app.GetStringTable(),NULL,0,false);
+								}
+							}
+						}
+					}
+					else
+					{
+						app.SetPlayerSkin(iPad, skinFile->getPath());
+						app.SetPlayerCape(iPad, skinFile->getParameterAsString(DLCManager::e_DLCParamType_Cape));
+						setCharacterSelected(true);
+						m_currentSkinPath = app.GetPlayerSkinName(iPad);
+						m_originalSkinId = app.GetPlayerSkinId(iPad);
+
+						// push this onto the favorite list
+						AddFavoriteSkin(iPad,GET_DLC_SKIN_ID_FROM_BITMASK(m_originalSkinId));
+					}
+				}
+
+				ui.PlayUISFX(eSFX_Press);
+		break;
+			}
 		}
 		break;
 	case ACTION_MENU_UP:
@@ -435,18 +611,18 @@ void UIScene_SkinSelectMenu::InputActionOK(unsigned int iPad)
 	}
 }
 		break;
-    case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-        if (app.m_customSkinNames.size() > 0)
-        {
-            wstring selectedSkin = app.m_customSkinNames[m_skinIndex];
-            app.SetPlayerSkin(iPad, selectedSkin);
-            app.SetPlayerCape(iPad, L"");
-            setCharacterSelected(true);
-            m_currentSkinPath = app.GetPlayerSkinName(iPad);
-            m_originalSkinId = app.GetPlayerSkinId(iPad);
-            ui.PlayUISFX(eSFX_Press);
-        }
-        break;
+	case SKIN_SELECT_PACK_PLAYER_CUSTOM:
+		if (app.m_customSkinNames.size() > 0)
+		{
+			wstring selectedSkin = app.m_customSkinNames[m_skinIndex];
+			app.SetPlayerSkin(iPad, selectedSkin);
+			app.SetPlayerCape(iPad, L"");
+			setCharacterSelected(true);
+			m_currentSkinPath = app.GetPlayerSkinName(iPad);
+			m_originalSkinId = app.GetPlayerSkinId(iPad);
+			ui.PlayUISFX(eSFX_Press);
+		}
+		break;
 	default:
 		if( m_currentPack != NULL )
 		{
@@ -463,62 +639,17 @@ void UIScene_SkinSelectMenu::InputActionOK(unsigned int iPad)
 				//if(true)
 				if(!m_currentPack->hasPurchasedFile( DLCManager::e_DLCType_Skin, skinFile->getPath() ))
 				{
-#ifdef __ORBIS__
-					// 4J-PB - Check if there is a patch for the game
-					int errorCode = ProfileManager.getNPAvailability(ProfileManager.GetPrimaryPad());
-
-					bool bPatchAvailable;
-					switch(errorCode)
-					{
-					case SCE_NP_ERROR_LATEST_PATCH_PKG_EXIST:
-					case SCE_NP_ERROR_LATEST_PATCH_PKG_DOWNLOADED:
-						bPatchAvailable=true;
-						break;
-					default:
-						bPatchAvailable=false;
-						break;
-					}
-
-					if(bPatchAvailable)
-					{
-						int32_t ret=sceErrorDialogInitialize();
-						m_bErrorDialogRunning=true;
-						if (  ret==SCE_OK ) 
-						{
-							SceErrorDialogParam param;
-							sceErrorDialogParamInitialize( &param );
-							// 4J-PB - We want to display the option to get the patch now
-							param.errorCode = SCE_NP_ERROR_LATEST_PATCH_PKG_DOWNLOADED;//pClass->m_errorCode;
-							ret = sceUserServiceGetInitialUser( &param.userId );
-							if ( ret == SCE_OK ) 
-							{
-								ret=sceErrorDialogOpen( &param );
-								break;
-							}
-						}
-					}
-#endif
-
 					// no
 					UINT uiIDA[1];
 					uiIDA[0]=IDS_OK;
 
-#ifdef __ORBIS__
-					// Check if PSN is unavailable because of age restriction
-					int npAvailability = ProfileManager.getNPAvailability(iPad);
-					if (npAvailability == SCE_NP_ERROR_AGE_RESTRICTION)
-					{
-						ui.RequestErrorMessage(IDS_ONLINE_SERVICE_TITLE, IDS_CONTENT_RESTRICTION, uiIDA, 1, iPad);
-					}
-					else
-#endif
 					// We need to upsell the full version
 					if(ProfileManager.IsGuest(iPad))
 					{
 						// can't buy
-						ui.RequestAlertMessage(IDS_PRO_GUESTPROFILE_TITLE, IDS_PRO_GUESTPROFILE_TEXT, uiIDA, 1,iPad);
+						ui.RequestMessageBox(IDS_PRO_GUESTPROFILE_TITLE, IDS_PRO_GUESTPROFILE_TEXT, uiIDA, 1,iPad,NULL,NULL,app.GetStringTable(),NULL,0,false);
 					}
-#if defined(__PS3__) || defined(__ORBIS__) || defined __PSVITA__
+#if defined(__PS3__) || defined(__ORBIS__)
 					// are we online?
 					else if(!ProfileManager.IsSignedInLive(iPad))
 					{
@@ -550,11 +681,11 @@ void UIScene_SkinSelectMenu::InputActionOK(unsigned int iPad)
 #endif
 						if(bContentRestricted)
 						{
-#if !(defined(_XBOX) || defined(_WINDOWS64) || defined(_XBOX_ONE)) // 4J Stu - Temp to get the win build running, but so we check this for other platforms
+#if !(defined(_XBOX) || defined(_WIN64)) // 4J Stu - Temp to get the win build running, but so we check this for other platforms
 							// you can't see the store
 							UINT uiIDA[1];
 							uiIDA[0]=IDS_CONFIRM_OK;
-							ui.RequestAlertMessage(IDS_ONLINE_SERVICE_TITLE, IDS_CONTENT_RESTRICTION, uiIDA, 1, iPad);
+							ui.RequestMessageBox(IDS_ONLINE_SERVICE_TITLE, IDS_CONTENT_RESTRICTION, uiIDA, 1, ProfileManager.GetPrimaryPad(),NULL,this, app.GetStringTable(),NULL,0,false);
 #endif
 						}
 						else
@@ -568,7 +699,7 @@ void UIScene_SkinSelectMenu::InputActionOK(unsigned int iPad)
 								renableInputAfterOperation = false;
 
 								UINT uiIDA[2] = { IDS_CONFIRM_OK, IDS_CONFIRM_CANCEL };
-								ui.RequestAlertMessage(IDS_UNLOCK_DLC_TITLE, IDS_UNLOCK_DLC_SKIN, uiIDA, 2, iPad,&UIScene_SkinSelectMenu::UnlockSkinReturned,this);
+								ui.RequestMessageBox(IDS_UNLOCK_DLC_TITLE, IDS_UNLOCK_DLC_SKIN, uiIDA, 2, iPad,&UIScene_SkinSelectMenu::UnlockSkinReturned,this,app.GetStringTable(),NULL,0,false);
 							}
 						}
 					}
@@ -597,10 +728,7 @@ void UIScene_SkinSelectMenu::InputActionOK(unsigned int iPad)
 				AddFavoriteSkin(iPad,GET_DLC_SKIN_ID_FROM_BITMASK(m_originalSkinId));
 			}
 
-			if (renableInputAfterOperation)
-			{
-				m_bIgnoreInput = false;
-			}
+			if (renableInputAfterOperation) m_bIgnoreInput = false;
 		}
 
 		ui.PlayUISFX(eSFX_Press);
@@ -758,27 +886,27 @@ void UIScene_SkinSelectMenu::handleSkinIndexChanged()
 				m_bNoSkinsToShow=true;
 			}
 			break;
-        case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-            if (app.m_customSkinNames.size() > 0)
-            {
-                m_selectedSkinPath = app.m_customSkinNames[m_skinIndex];
-                skinName = m_selectedSkinPath;
-                skinOrigin = L"Custom Skins";
+		case SKIN_SELECT_PACK_PLAYER_CUSTOM:
+			if (app.m_customSkinNames.size() > 0)
+			{
+				m_selectedSkinPath = app.m_customSkinNames[m_skinIndex];
+				skinName = m_selectedSkinPath;
+				skinOrigin = L"Custom Skins";
 
-                if (m_selectedSkinPath.compare(m_currentSkinPath) == 0)
-                {
-                    setCharacterSelected(true);
-                }
-                setCharacterLocked(false);
-                m_characters[eCharacter_Current].setVisible(true);
-                m_controlSkinNamePlate.setVisible(true);
-            }
-            else
-            {
-                m_characters[eCharacter_Current].setVisible(false);
-                m_bNoSkinsToShow = true;
-            }
-            break;
+				if (m_selectedSkinPath.compare(m_currentSkinPath) == 0)
+				{
+					setCharacterSelected(true);
+				}
+				setCharacterLocked(false);
+				m_characters[eCharacter_Current].setVisible(true);
+				m_controlSkinNamePlate.setVisible(true);
+			}
+			else
+			{
+				m_characters[eCharacter_Current].setVisible(false);
+				m_bNoSkinsToShow = true;
+			}
+			break;
 		}
 	}
 
@@ -897,15 +1025,15 @@ void UIScene_SkinSelectMenu::handleSkinIndexChanged()
 						}
 					}
 					break;
-                case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-                    if (app.m_customSkinNames.size() > 0)
-                    {
-                        otherSkinPath = app.m_customSkinNames[nextIndex];
-                        otherCapePath = L"";
-                        othervAdditionalSkinBoxes = NULL;
-                        backupTexture = TN_MOB_CHAR;
-                    }
-                    break;
+				case SKIN_SELECT_PACK_PLAYER_CUSTOM:
+					if (app.m_customSkinNames.size() > 0)
+					{
+						otherSkinPath = app.m_customSkinNames[nextIndex];
+						otherCapePath = L"";
+						othervAdditionalSkinBoxes = NULL;
+						backupTexture = TN_MOB_CHAR;
+					}
+					break;
 				default:
 					break;
 				}
@@ -976,17 +1104,16 @@ void UIScene_SkinSelectMenu::handleSkinIndexChanged()
 							backupTexture = TN_MOB_CHAR;
 						}
 					}
-
 					break;
-                case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-                    if (app.m_customSkinNames.size() > 0)
-                    {
-                        otherSkinPath = app.m_customSkinNames[previousIndex];
-                        otherCapePath = L"";
-                        othervAdditionalSkinBoxes = NULL;
-                        backupTexture = TN_MOB_CHAR;
-                    }
-                    break;
+				case SKIN_SELECT_PACK_PLAYER_CUSTOM:
+					if (app.m_customSkinNames.size() > 0)
+					{
+						otherSkinPath = app.m_customSkinNames[previousIndex];
+						otherCapePath = L"";
+						othervAdditionalSkinBoxes = NULL;
+						backupTexture = TN_MOB_CHAR;
+					}
+					break;
 				default:
 					break;
 				}
@@ -1065,13 +1192,13 @@ int UIScene_SkinSelectMenu::getNextSkinIndex(DWORD sourceIndex)
 		}
 
 		break;
-    case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-        ++nextSkin;
-        if (nextSkin >= (int)app.m_customSkinNames.size())
-        {
-            nextSkin = 0;
-        }
-        break;
+	case SKIN_SELECT_PACK_PLAYER_CUSTOM:
+		++nextSkin;
+		if (nextSkin >= (int)app.m_customSkinNames.size())
+		{
+			nextSkin = 0;
+		}
+		break;
 	default:
 		++nextSkin;
 
@@ -1106,16 +1233,16 @@ int UIScene_SkinSelectMenu::getPreviousSkinIndex(DWORD sourceIndex)
 			--previousSkin;
 		}		
 		break;
-    case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-        if (previousSkin == 0)
-        {
-            previousSkin = (int)app.m_customSkinNames.size() - 1;
-        }
-        else
-        {
-            --previousSkin;
-        }
-        break;
+	case SKIN_SELECT_PACK_PLAYER_CUSTOM:
+		if (previousSkin == 0)
+		{
+			previousSkin = (int)app.m_customSkinNames.size() - 1;
+		}
+		else
+		{
+			--previousSkin;
+		}
+		break;
 	default:
 		if(previousSkin==0)
 		{
@@ -1186,22 +1313,14 @@ void UIScene_SkinSelectMenu::handlePackIndexChanged()
 					if(found) m_skinIndex = app.GetPlayerFavoriteSkinsPos(m_iPad);
 				}
 			}
-			break;
-		default:
-			break;
-		}
+		break;
+	default:
+		break;
+	}
+
 	}
 	handleSkinIndexChanged();
 	updatePackDisplay();
-}
-
-std::wstring fakeWideToRealWide(const wchar_t* original)
-{
-	const char* name = reinterpret_cast<const char*>(original);
-	int len = MultiByteToWideChar(CP_UTF8, 0, name, -1, NULL, 0);
-	std::wstring wName(len, 0);
-	MultiByteToWideChar(CP_UTF8, 0, name, -1, &wName[0], len);
-	return wName.c_str();
 }
 
 void UIScene_SkinSelectMenu::updatePackDisplay()
@@ -1211,9 +1330,7 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 	if(m_packIndex >= SKIN_SELECT_MAX_DEFAULTS)
 	{
 		DLCPack *thisPack = app.m_dlcManager.getPack(m_packIndex - SKIN_SELECT_MAX_DEFAULTS, DLCManager::e_DLCType_Skin);
-		// Fix the incorrect string type on title to display correctly
-		setCentreLabel(fakeWideToRealWide(thisPack->getName().c_str()));
-		//setCentreLabel(thisPack->getName().c_str());
+		setCentreLabel(thisPack->getName().c_str());
 	}
 	else
 	{
@@ -1225,9 +1342,9 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 		case SKIN_SELECT_PACK_FAVORITES:				
 			setCentreLabel(app.GetString(IDS_FAVORITES_SKIN_PACK));
 			break;
-        case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-            setCentreLabel(L"Custom Skins");
-            break;
+		case SKIN_SELECT_PACK_PLAYER_CUSTOM:				
+			setCentreLabel(L"Custom Skins");
+			break;
 		}
 	}
 
@@ -1235,9 +1352,7 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 	if(nextPackIndex >= SKIN_SELECT_MAX_DEFAULTS)
 	{
 		DLCPack *thisPack = app.m_dlcManager.getPack(nextPackIndex - SKIN_SELECT_MAX_DEFAULTS, DLCManager::e_DLCType_Skin);
-		// Fix the incorrect string type on title to display correctly
-		setRightLabel(fakeWideToRealWide(thisPack->getName().c_str()));
-		//setRightLabel(thisPack->getName().c_str());
+		setRightLabel(thisPack->getName().c_str());
 	}
 	else
 	{
@@ -1249,9 +1364,9 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 		case SKIN_SELECT_PACK_FAVORITES:				
 			setRightLabel(app.GetString(IDS_FAVORITES_SKIN_PACK));
 			break;
-        case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-            setRightLabel(L"Custom Skins");
-            break;
+		case SKIN_SELECT_PACK_PLAYER_CUSTOM:				
+			setRightLabel(L"Custom Skins");
+			break;
 		}
 	}
 
@@ -1259,9 +1374,7 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 	if(previousPackIndex >= SKIN_SELECT_MAX_DEFAULTS)
 	{
 		DLCPack *thisPack = app.m_dlcManager.getPack(previousPackIndex - SKIN_SELECT_MAX_DEFAULTS, DLCManager::e_DLCType_Skin);
-		// Fix the incorrect string type on title to display correctly
-		setLeftLabel(fakeWideToRealWide(thisPack->getName().c_str()));
-		//setLeftLabel(thisPack->getName().c_str());
+		setLeftLabel(thisPack->getName().c_str());
 	}
 	else
 	{
@@ -1273,9 +1386,9 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 		case SKIN_SELECT_PACK_FAVORITES:				
 			setLeftLabel(app.GetString(IDS_FAVORITES_SKIN_PACK));
 			break;
-        case SKIN_SELECT_PACK_PLAYER_CUSTOM:
-            setLeftLabel(L"Custom Skins");
-            break;
+		case SKIN_SELECT_PACK_PLAYER_CUSTOM:				
+			setLeftLabel(L"Custom Skins");
+			break;
 		}
 	}
 
@@ -1614,18 +1727,7 @@ void UIScene_SkinSelectMenu::showNotOnlineDialog(int iPad)
 	SQRNetworkManager_PS3::AttemptPSNSignIn(NULL, this);		
 
 #elif defined(__PSVITA__)
-	if(CGameNetworkManager::usingAdhocMode() && SQRNetworkManager_AdHoc_Vita::GetAdhocStatus())
-	{
-		// we're in adhoc mode, we really need to ask before disconnecting
-		UINT uiIDA[2];
-		uiIDA[0]=IDS_PRO_NOTONLINE_ACCEPT;
-		uiIDA[1]=IDS_CANCEL;
-		ui.RequestErrorMessage(IDS_PRO_NOTONLINE_TITLE, IDS_PRO_NOTONLINE_TEXT, uiIDA, 2, ProfileManager.GetPrimaryPad(),&UIScene_SkinSelectMenu::MustSignInReturned,NULL);
-	}
-	else
-	{
-		SQRNetworkManager_Vita::AttemptPSNSignIn(NULL, this);		
-	}
+	SQRNetworkManager_Vita::AttemptPSNSignIn(NULL, this);		
 
 #elif defined(__ORBIS__)
 	SQRNetworkManager_Orbis::AttemptPSNSignIn(NULL, this, false, iPad);
@@ -1633,7 +1735,7 @@ void UIScene_SkinSelectMenu::showNotOnlineDialog(int iPad)
 #elif defined(_DURANGO)
 
 	UINT uiIDA[1] = { IDS_CONFIRM_OK };
-	ui.RequestErrorMessage(IDS_PRO_NOTONLINE_TITLE, IDS_PRO_XBOXLIVE_NOTIFICATION, uiIDA, 1, iPad );
+	ui.RequestMessageBox(IDS_PRO_NOTONLINE_TITLE, IDS_PRO_XBOXLIVE_NOTIFICATION, uiIDA, 1, iPad, NULL, NULL, app.GetStringTable() );
 
 #endif
 }
@@ -1696,9 +1798,9 @@ int UIScene_SkinSelectMenu::UnlockSkinReturned(void *pParam,int iPad,C4JStorage:
 						app.Checkout(chSkuID);	
 					}
 				}
+				// need to re-enable input because the user can back out of the store purchase, and we'll be stuck
+				pScene->m_bIgnoreInput = false;
 			}
-			// need to re-enable input because the user can back out of the store purchase, and we'll be stuck
-			pScene->m_bIgnoreInput = false;  // MGH - moved this to outside the pSONYDLCInfo, so we don't get stuck
 #elif defined _XBOX_ONE
 			StorageManager.InstallOffer(1,(WCHAR *)(pScene->m_currentPack->getPurchaseOfferId().c_str()), &RenableInput, pScene, NULL);
 #endif		
@@ -1784,31 +1886,3 @@ void UIScene_SkinSelectMenu::HandleDLCLicenseChange()
 	handleSkinIndexChanged();
 }
 #endif
-
-
-
-
-#ifdef __PSVITA__ 
-int	UIScene_SkinSelectMenu::MustSignInReturned(void *pParam,int iPad,C4JStorage::EMessageResult result)
-{
-	if(result==C4JStorage::EMessage_ResultAccept) 
-	{
-#ifdef __PS3__
-		SQRNetworkManager_PS3::AttemptPSNSignIn(&UIScene_SkinSelectMenu::PSNSignInReturned, pParam,true);
-#elif defined __PSVITA__
-		SQRNetworkManager_Vita::AttemptPSNSignIn(&UIScene_SkinSelectMenu::PSNSignInReturned, pParam,true);
-#elif defined __ORBIS__
-		SQRNetworkManager_Orbis::AttemptPSNSignIn(&UIScene_SkinSelectMenu::PSNSignInReturned, pParam,true);
-#endif
-	}
-	return 0;
-}
-
-int UIScene_SkinSelectMenu::PSNSignInReturned(void* pParam, bool bContinue, int iPad)
-{
-	if( bContinue )
-	{
-	}
-	return 0;
-}
-#endif // __PSVITA__
