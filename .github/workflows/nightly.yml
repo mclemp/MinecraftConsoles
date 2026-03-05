@@ -9,6 +9,7 @@ on:
       - '.gitignore'
       - '*.md'
       - '.github/*.md'
+      - '.vscode/'
 
 jobs:
   build:
