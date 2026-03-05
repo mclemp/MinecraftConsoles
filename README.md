@@ -103,4 +103,6 @@ For more information, see [COMPILE.md](COMPILE.md)
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MLE-MP/MinecraftConsoles&type=date&legend=top-left)](https://www.star-history.com/?spm=a2c6h.12873639.article-detail.7.7b9d7fabjNxTRk#smartcmd/MinecraftConsoles&type=date&legend=top-left)
+## Star History
+
+[![Star History Chart](https://api.star-history.com/image?repos=MLE-MP/MinecraftConsoles&type=date&legend=top-left)](https://www.star-history.com/?repos=MLE-MP%2FMinecraftConsoles&type=date&legend=top-left)
