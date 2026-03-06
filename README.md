@@ -6,9 +6,9 @@
 
 ## Introduction
 
-This project contains the source code of Minecraft Legacy Console Edition v1.6.0560.0 (TU19) from https://archive.org/details/minecraft-legacy-console-edition-source-code, with some fixes and improvements applied
+This project contains the source code of Minecraft Legacy Console Edition v1.6.0560.0 (TU19) from https://archive.org/details/minecraft-legacy-console-edition-source-code, with some fixes and improvements applied, Forked from [MinecraftConsoles](https://github.com/smartcmd/MinecraftConsoles/).
 
-[Nightly Build](https://github.com/smartcmd/MinecraftConsoles/releases/tag/nightly)
+[Nightly Build](https://github.com/MLE-MP/MinecraftConsoles/releases/tag/nightly)
 
 ## Platform Support
 
