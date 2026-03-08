@@ -57,6 +57,7 @@
 #ifdef _MSC_VER
 #pragma comment(lib, "legacy_stdio_definitions.lib")
 #endif
+#include <CommCtrl.h>
 
 HINSTANCE hMyInst;
 LRESULT CALLBACK DlgProc(HWND hWndDlg, UINT Msg, WPARAM wParam, LPARAM lParam);
@@ -1230,6 +1231,8 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 	WinsockNetLayer::SetCustomHostAddress("38.49.215.81", 2054);
 
+	void StartGame(bool servermode, bool nCmdShow);
+
 	if (launchOptions.serverMode) {
 		StartGame(launchOptions.serverMode, nCmdShow);
 	} else {
@@ -1273,24 +1276,24 @@ void StartGame(bool servermode, bool nCmdShow) {
 	MultiByteToWideChar(CP_ACP, 0, g_Win64Username, -1, g_Win64UsernameW, 17);
 
 	// Initialize global strings
-	MyRegisterClass(hMyInst);
+	MyRegisterClass(g_hInst);
 
 	// Perform application initialization:
 	if (!InitInstance(hMyInst, servermode ? SW_HIDE : nCmdShow))
 	{
-		return FALSE;
+		return;
 	}
 
-	hMyInst=hInstance;
+	hMyInst=g_hInst;
 
 	if( FAILED( InitDevice() ) )
 	{
 		CleanupDevice();
-		return 0;
+		return;
 	}
 
 	// Restore fullscreen state from previous session
-	if (LoadFullscreenOption() && !g_isFullscreen || launchOptions.fullscreen)
+	if (LoadFullscreenOption() && !g_isFullscreen)
 	{
 		ToggleFullscreen();
 	}
@@ -1302,7 +1305,7 @@ void StartGame(bool servermode, bool nCmdShow) {
 	{
 		int serverResult = RunHeadlessServer();
 		CleanupDevice();
-		return serverResult;
+		return;
 	}
 
 #if 0
@@ -1361,7 +1364,7 @@ void StartGame(bool servermode, bool nCmdShow) {
 	if (pMinecraft == NULL)
 	{
 		CleanupDevice();
-		return 1;
+		return;
 	}
 
 	//app.TemporaryCreateGameStart();
