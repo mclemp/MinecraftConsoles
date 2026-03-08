@@ -103,10 +103,9 @@ private:
 	DWORD m_packIndex, m_skinIndex;
 	DWORD m_originalSkinId;
 	wstring m_currentSkinPath, m_selectedSkinPath, m_selectedCapePath;
-	wstring m_customSkinPath; // Persistent path for the loaded custom skin — not overwritten on scroll
 	vector<SKIN_BOX *> *m_vAdditionalSkinBoxes;
 
-	bool m_bSlidingSkins, m_bAnimatingMove, m_bUsingCustomSkin;
+	bool m_bSlidingSkins, m_bAnimatingMove;
 	ESkinSelectNavigation m_currentNavigation;
 
 	bool m_bNoSkinsToShow;
@@ -137,11 +136,9 @@ protected:
 	// TODO: This should be pure virtual in this class
 	virtual wstring getMoviePath();
 
-
 public:
 	// INPUT
 	virtual void handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled);
-	void LoadExternalSkin(); // Main function for selecting and loading an external skin via file picker
 
 	virtual void customDraw(IggyCustomDrawCallbackRegion *region);
 
