@@ -4571,7 +4571,7 @@ void Minecraft::start(const wstring& name, const wstring& sid)
 void Minecraft::startAndConnectTo(const wstring& name, const wstring& sid, const wstring& url)
 {
 	bool fullScreen = false;
-	wstring userName = name;
+	wstring userName = "Splitscreen1";
 
 	/* 4J - removed window handling things here
 	final Frame frame = new Frame("Minecraft");
