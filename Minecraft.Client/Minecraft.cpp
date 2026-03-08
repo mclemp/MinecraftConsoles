@@ -5175,9 +5175,3 @@ int Minecraft::MustSignInReturnedPSN(void *pParam, int iPad, C4JStorage::EMessag
 	return 0;
 }
 #endif
-	extern int g_iScreenWidth;
-	extern int g_iScreenHeight;
-	int logicalH = 720;
-	int logicalW = logicalH * g_iScreenWidth / g_iScreenHeight;
-
-	minecraft = new Minecraft(NULL, NULL, NULL, logicalW, logicalH, fullScreen);
