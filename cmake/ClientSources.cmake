@@ -220,6 +220,7 @@ set(MINECRAFT_CLIENT_SOURCES
   "Common/UI/UIScene_LoadOrJoinMenu.cpp"
   "Common/UI/UIScene_MainMenu.cpp"
   "Common/UI/UIScene_MessageBox.cpp"
+  "Common/UI/UIScene_MiniGameSelectMenu.cpp"
   "Common/UI/UIScene_NewUpdateMessage.cpp"
   "Common/UI/UIScene_PauseMenu.cpp"
   "Common/UI/UIScene_QuadrantSignin.cpp"

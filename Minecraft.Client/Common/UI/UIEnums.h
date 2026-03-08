@@ -98,6 +98,7 @@ enum EUIScene
 	eUIScene_BeaconMenu,
 	eUIScene_HorseMenu,
 	eUIScene_FireworksMenu,
+	eUIScene_MiniGameSelectMenu,
 
 #ifdef _XBOX
 //	eUIScene_TransferToXboxOne,

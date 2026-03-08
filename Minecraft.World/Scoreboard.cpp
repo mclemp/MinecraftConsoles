@@ -1,262 +1,292 @@
 #include "stdafx.h"
 
 #include "Scoreboard.h"
+#include "Objective.h"
+#include "ObjectiveCriteria.h"
+#include "Score.h"
+#include "PlayerTeam.h"
 
 Objective *Scoreboard::getObjective(const wstring &name)
 {
+	auto it = objectivesByName.find(name);
+	if(it != objectivesByName.end())
+		return it->second;
 	return NULL;
-	//return objectivesByName.find(name)->second;
 }
 
 Objective *Scoreboard::addObjective(const wstring &name, ObjectiveCriteria *criteria)
 {
-	return NULL;
-//	Objective *objective = getObjective(name);
-//	if (objective != NULL)
-//	{
-//#indef _CONTENT_PACKAGE
-//		__debugbreak();
-//#endif
-//		//throw new IllegalArgumentException("An objective with the name '" + name + "' already exists!");
-//	}
-//
-//	objective = new Objective(this, name, criteria);
-//
-//	vector<Objective *> *criteriaList = objectivesByCriteria.find(criteria)->second;
-//
-//	if (criteriaList == NULL)
-//	{
-//		criteriaList = new vector<Objective *>();
-//		objectivesByCriteria[criteria] = criteriaList;
-//	}
-//
-//	criteriaList->push_back(objective);
-//	objectivesByName[name] = objective;
-//	onObjectiveAdded(objective);
-//
-//	return objective;
+	Objective *objective = getObjective(name);
+	if(objective != NULL)
+		return objective;
+
+	objective = new Objective(this, name, criteria);
+
+	auto it = objectivesByCriteria.find(criteria);
+	vector<Objective *> *criteriaList;
+
+	if(it == objectivesByCriteria.end())
+	{
+		criteriaList = new vector<Objective *>();
+		objectivesByCriteria[criteria] = criteriaList;
+	}
+	else
+	{
+		criteriaList = it->second;
+	}
+
+	criteriaList->push_back(objective);
+	objectivesByName[name] = objective;
+	onObjectiveAdded(objective);
+
+	return objective;
 }
 
 vector<Objective *> *Scoreboard::findObjectiveFor(ObjectiveCriteria *criteria)
 {
-	return NULL;
-	//vector<Objective *> *objectives = objectivesByCriteria.find(criteria)->second;
-
-	//return objectives == NULL ? new vector<Objective *>() : new vector<Objective *>(objectives);
+	auto it = objectivesByCriteria.find(criteria);
+	if(it != objectivesByCriteria.end())
+		return new vector<Objective *>(*it->second);
+	return new vector<Objective *>();
 }
 
 Score *Scoreboard::getPlayerScore(const wstring &name, Objective *objective)
 {
-	return NULL;
-	//unordered_map<Objective *, Score *> *scores = playerScores.find(name)->it;
+	auto playerIt = playerScores.find(name);
+	unordered_map<Objective *, Score *> *scores;
 
-	//if (scores == NULL)
-	//{
-	//	scores = new unordered_map<Objective *, Score *>();
-	//	playerScores.put(name, scores);
-	//}
+	if(playerIt == playerScores.end())
+	{
+		playerScores[name] = unordered_map<Objective *, Score *>();
+		scores = &playerScores[name];
+	}
+	else
+	{
+		scores = &playerIt->second;
+	}
 
-	//Score *score = scores->get(objective);
+	auto scoreIt = scores->find(objective);
+	if(scoreIt == scores->end())
+	{
+		Score *score = new Score(this, objective, name);
+		(*scores)[objective] = score;
+		return score;
+	}
 
-	//if (score == NULL)
-	//{
-	//	score = new Score(this, objective, name);
-	//	scores->put(objective, score);
-	//}
-
-	//return score;
+	return scoreIt->second;
 }
 
 vector<Score *> *Scoreboard::getPlayerScores(Objective *objective)
 {
-	return NULL;
-	//vector<Score *> *result = new vector<Score *>();
+	vector<Score *> *result = new vector<Score *>();
 
-	//for (Map<Objective, Score> scores : playerScores.values())
-	//{
-	//	Score score = scores.get(objective);
-	//	if (score != null) result.add(score);
-	//}
+	for(auto it = playerScores.begin(); it != playerScores.end(); it++)
+	{
+		auto scoreIt = it->second.find(objective);
+		if(scoreIt != it->second.end())
+			result->push_back(scoreIt->second);
+	}
 
-	//Collections.sort(result, Score.SCORE_COMPARATOR);
-
-	//return result;
+	return result;
 }
 
 vector<Objective *> *Scoreboard::getObjectives()
 {
-	return NULL;
-	//return objectivesByName.values();
+	vector<Objective *> *result = new vector<Objective *>();
+	for(auto it = objectivesByName.begin(); it != objectivesByName.end(); it++)
+		result->push_back(it->second);
+	return result;
 }
 
 vector<wstring> *Scoreboard::getTrackedPlayers()
 {
-	return NULL;
-	//return playerScores.keySet();
+	vector<wstring> *result = new vector<wstring>();
+	for(auto it = playerScores.begin(); it != playerScores.end(); it++)
+		result->push_back(it->first);
+	return result;
 }
 
 void Scoreboard::resetPlayerScore(const wstring &player)
 {
-	//unordered_map<Objective *, Score *> *removed = playerScores.remove(player);
-
-	//if (removed != NULL)
-	//{
-	//	onPlayerRemoved(player);
-	//}
+	auto it = playerScores.find(player);
+	if(it != playerScores.end())
+	{
+		playerScores.erase(it);
+		onPlayerRemoved(player);
+	}
 }
 
 vector<Score *> *Scoreboard::getScores()
 {
-	return NULL;
-	//Collection<Map<Objective, Score>> values = playerScores.values();
-	//List<Score> result = new ArrayList<Score>();
+	vector<Score *> *result = new vector<Score *>();
 
-	//for (Map<Objective, Score> map : values)
-	//{
-	//	result.addAll(map.values());
-	//}
+	for(auto it = playerScores.begin(); it != playerScores.end(); it++)
+	{
+		for(auto scoreIt = it->second.begin(); scoreIt != it->second.end(); scoreIt++)
+		{
+			result->push_back(scoreIt->second);
+		}
+	}
 
-	//return result;
+	return result;
 }
 
 vector<Score *> *Scoreboard::getScores(Objective *objective)
 {
-	return NULL;
-	//Collection<Map<Objective, Score>> values = playerScores.values();
-	//List<Score> result = new ArrayList<Score>();
+	vector<Score *> *result = new vector<Score *>();
 
-	//for (Map<Objective, Score> map : values) {
-	//	Score score = map.get(objective);
-	//	if (score != null) result.add(score);
-	//}
+	for(auto it = playerScores.begin(); it != playerScores.end(); it++)
+	{
+		auto scoreIt = it->second.find(objective);
+		if(scoreIt != it->second.end())
+			result->push_back(scoreIt->second);
+	}
 
-	//return result;
+	return result;
 }
 
 unordered_map<Objective *, Score *> *Scoreboard::getPlayerScores(const wstring &player)
 {
-	return NULL;
-	//Map<Objective, Score> result = playerScores.get(player);
-	//if (result == null) result = new HashMap<Objective, Score>();
-	//return result;
+	auto it = playerScores.find(player);
+	if(it != playerScores.end())
+		return &it->second;
+
+	playerScores[player] = unordered_map<Objective *, Score *>();
+	return &playerScores[player];
 }
 
 void Scoreboard::removeObjective(Objective *objective)
 {
-	//objectivesByName.remove(objective.getName());
+	objectivesByName.erase(objective->getName());
 
-	//for (int i = 0; i < DISPLAY_SLOTS; i++) {
-	//	if (getDisplayObjective(i) == objective) setDisplayObjective(i, null);
-	//}
+	for(int i = 0; i < DISPLAY_SLOTS; i++)
+	{
+		if(getDisplayObjective(i) == objective)
+			setDisplayObjective(i, NULL);
+	}
 
-	//List<Objective> objectives = objectivesByCriteria.get(objective.getCriteria());
-	//if (objectives != null) objectives.remove(objective);
+	auto critIt = objectivesByCriteria.find(objective->getCriteria());
+	if(critIt != objectivesByCriteria.end())
+	{
+		auto &objectives = *critIt->second;
+		for(auto it = objectives.begin(); it != objectives.end(); it++)
+		{
+			if(*it == objective)
+			{
+				objectives.erase(it);
+				break;
+			}
+		}
+	}
 
-	//for (Map<Objective, Score> objectiveScoreMap : playerScores.values()) {
-	//	objectiveScoreMap.remove(objective);
-	//}
+	for(auto it = playerScores.begin(); it != playerScores.end(); it++)
+	{
+		it->second.erase(objective);
+	}
 
-	//onObjectiveRemoved(objective);
+	onObjectiveRemoved(objective);
 }
 
 void Scoreboard::setDisplayObjective(int slot, Objective *objective)
 {
-	//displayObjectives[slot] = objective;
+	if(slot >= 0 && slot < DISPLAY_SLOTS)
+		displayObjectives[slot] = objective;
 }
 
 Objective *Scoreboard::getDisplayObjective(int slot)
 {
+	if(slot >= 0 && slot < DISPLAY_SLOTS)
+		return displayObjectives[slot];
 	return NULL;
-	//return displayObjectives[slot];
 }
 
 PlayerTeam *Scoreboard::getPlayerTeam(const wstring &name)
 {
+	auto it = teamsByName.find(name);
+	if(it != teamsByName.end())
+		return it->second;
 	return NULL;
-	//return teamsByName.get(name);
 }
 
 PlayerTeam *Scoreboard::addPlayerTeam(const wstring &name)
 {
-	return NULL;
-	//PlayerTeam team = getPlayerTeam(name);
-	//if (team != null) throw new IllegalArgumentException("An objective with the name '" + name + "' already exists!");
+	PlayerTeam *team = getPlayerTeam(name);
+	if(team != NULL)
+		return team;
 
-	//team = new PlayerTeam(this, name);
-	//teamsByName.put(name, team);
-	//onTeamAdded(team);
+	team = new PlayerTeam(this, name);
+	teamsByName[name] = team;
+	onTeamAdded(team);
 
-	//return team;
+	return team;
 }
 
 void Scoreboard::removePlayerTeam(PlayerTeam *team)
 {
-	//teamsByName.remove(team.getName());
+	teamsByName.erase(team->getName());
 
-	//// [TODO]: Loop through scores, remove.
+	unordered_set<wstring> *players = team->getPlayers();
+	for(auto it = players->begin(); it != players->end(); it++)
+	{
+		teamsByPlayer.erase(*it);
+	}
 
-	//for (String player : team.getPlayers()) {
-	//	teamsByPlayer.remove(player);
-	//}
-
-	//onTeamRemoved(team);
+	onTeamRemoved(team);
 }
 
 void Scoreboard::addPlayerToTeam(const wstring &player, PlayerTeam *team)
 {
-	//if (getPlayersTeam(player) != null) {
-	//	removePlayerFromTeam(player);
-	//}
+	if(getPlayersTeam(player) != NULL)
+		removePlayerFromTeam(player);
 
-	//teamsByPlayer.put(player, team);
-	//team.getPlayers().add(player);
+	teamsByPlayer[player] = team;
+	team->getPlayers()->insert(player);
 }
 
 bool Scoreboard::removePlayerFromTeam(const wstring &player)
 {
+	PlayerTeam *team = getPlayersTeam(player);
+	if(team != NULL)
+	{
+		removePlayerFromTeam(player, team);
+		return true;
+	}
 	return false;
-	//PlayerTeam team = getPlayersTeam(player);
-
-	//if (team != null) {
-	//	removePlayerFromTeam(player, team);
-	//	return true;
-	//} else {
-	//	return false;
-	//}
 }
 
 void Scoreboard::removePlayerFromTeam(const wstring &player, PlayerTeam *team)
 {
-	//if (getPlayersTeam(player) != team) {
-	//	throw new IllegalStateException("Player is either on another team or not on any team. Cannot remove from team '" + team.getName() + "'.");
-	//}
-
-	//teamsByPlayer.remove(player);
-	//team.getPlayers().remove(player);
+	teamsByPlayer.erase(player);
+	team->getPlayers()->erase(player);
 }
 
 vector<wstring> *Scoreboard::getTeamNames()
 {
-	return NULL;
-	//return teamsByName.keySet();
+	vector<wstring> *result = new vector<wstring>();
+	for(auto it = teamsByName.begin(); it != teamsByName.end(); it++)
+		result->push_back(it->first);
+	return result;
 }
 
 vector<PlayerTeam *> *Scoreboard::getPlayerTeams()
 {
-	return NULL;
-	//return teamsByName.values();
+	vector<PlayerTeam *> *result = new vector<PlayerTeam *>();
+	for(auto it = teamsByName.begin(); it != teamsByName.end(); it++)
+		result->push_back(it->second);
+	return result;
 }
 
 shared_ptr<Player> Scoreboard::getPlayer(const wstring &name)
 {
 	return nullptr;
-	//return MinecraftServer.getInstance().getPlayers().getPlayer(name);
 }
 
 PlayerTeam *Scoreboard::getPlayersTeam(const wstring &name)
 {
+	auto it = teamsByPlayer.find(name);
+	if(it != teamsByPlayer.end())
+		return it->second;
 	return NULL;
-	//return teamsByPlayer.get(name);
 }
 
 void Scoreboard::onObjectiveAdded(Objective *objective)
@@ -293,7 +323,7 @@ void Scoreboard::onTeamRemoved(PlayerTeam *team)
 
 wstring Scoreboard::getDisplaySlotName(int slot)
 {
-	switch (slot)
+	switch(slot)
 	{
 	case DISPLAY_SLOT_LIST:
 		return L"list";
@@ -308,21 +338,11 @@ wstring Scoreboard::getDisplaySlotName(int slot)
 
 int Scoreboard::getDisplaySlotByName(const wstring &name)
 {
+	if(name == L"list")
+		return DISPLAY_SLOT_LIST;
+	else if(name == L"sidebar")
+		return DISPLAY_SLOT_SIDEBAR;
+	else if(name == L"belowName")
+		return DISPLAY_SLOT_BELOW_NAME;
 	return -1;
-	//if (name.equalsIgnoreCase("list"))
-	//{
-	//	return DISPLAY_SLOT_LIST;
-	//}
-	//else if (name.equalsIgnoreCase("sidebar"))
-	//{
-	//	return DISPLAY_SLOT_SIDEBAR;
-	//}
-	//else if (name.equalsIgnoreCase("belowName"))
-	//{
-	//	return DISPLAY_SLOT_BELOW_NAME;
-	//}
-	//else
-	//{
-	//	return -1;
-	//}
 }

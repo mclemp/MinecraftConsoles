@@ -805,4 +805,9 @@ set(MINECRAFT_WORLD_SOURCES
   "MapGenerator.cpp"
   "TumbleGenerator.cpp"
   "WallGenerator.cpp"
+  "BlockDegradeRoutine.cpp"
+  "GameStats.cpp"
+  "ClientMasterGameMode.cpp"
+  "GhostGameMode.cpp"
+  "GameModePacket.cpp"
 )

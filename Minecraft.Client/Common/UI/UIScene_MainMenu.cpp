@@ -439,11 +439,7 @@ void UIScene_MainMenu::RunAction(int iPad)
 		RunPlayGame(iPad);
 		break;
 	case eAction_RunMiniGames:
-		if(Minecraft::GetInstance() != NULL)
-		{
-			Minecraft::GetInstance()->SetupMiniGameInstance(MiniGameDef::GetCustomGameModeById(MINIGAME_LOBBY, true), 0);
-		}
-		RunPlayGame(iPad);
+		ui.NavigateToScene(iPad, eUIScene_MiniGameSelectMenu, NULL);
 		break;
 	case eAction_RunLeaderboards:
 		RunLeaderboards(iPad);

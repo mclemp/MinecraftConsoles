@@ -2,6 +2,9 @@
 
 #include "CommonMasterGameMode.h"
 
+class BlockDegradeRoutine;
+class GameStats;
+
 class MasterGameMode : public CommonMasterGameMode
 {
 public:
@@ -54,5 +57,9 @@ public:
 	static void OnRefillChestTimer(MasterGameMode *_this, void *data);
 	static void OnGracePeriodEnd(MasterGameMode *_this, void *data);
 
+	GameStats *GetGameStats() { return m_gameStats; }
+
 	bool m_playersInvulnerable;
+	BlockDegradeRoutine *m_degradeRoutine;
+	GameStats *m_gameStats;
 };

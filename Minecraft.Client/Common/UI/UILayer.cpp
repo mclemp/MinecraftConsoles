@@ -2,6 +2,7 @@
 #include "UI.h"
 #include "UILayer.h"
 #include "UIScene.h"
+#include "UIScene_MiniGameSelectMenu.h"
 
 UILayer::UILayer(UIGroup *parent)
 {
@@ -425,6 +426,9 @@ bool UILayer::NavigateToScene(int iPad, EUIScene scene, void *initData)
 		break;
 	case eUIScene_Timer:
 		newScene = new UIScene_Timer(iPad, initData, this);
+		break;
+	case eUIScene_MiniGameSelectMenu:
+		newScene = new UIScene_MiniGameSelectMenu(iPad, initData, this);
 		break;
 	};
 
