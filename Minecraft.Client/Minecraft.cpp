@@ -4592,7 +4592,12 @@ void Minecraft::startAndConnectTo(const wstring& name, const wstring& sid, const
 	Minecraft *minecraft;
 	// 4J - was new Minecraft(frame, canvas, NULL, 854, 480, fullScreen);
 
-	minecraft = new Minecraft(NULL, NULL, NULL, 1280, 720, fullScreen);
+	extern int g_iScreenWidth;
+	extern int g_iScreenHeight;
+	int logicalH = 720;
+	int logicalW = logicalH * g_iScreenWidth / g_iScreenHeight;
+
+	minecraft = new Minecraft(NULL, NULL, NULL, logicalW, logicalH, fullScreen);
 
 	/* - 4J - removed
 	{
@@ -4642,7 +4647,12 @@ void Minecraft::startAndConnectTo(const wstring& name, const wstring& sid, const
 	minecraft.stop();
 	try {
 	thread.join();
-	} catch (InterruptedException e) {
+} catch (Interrupt	extern int g_iScreenWidth;
+extern int g_iScreenHeight;
+int logicalH = 720;
+int logicalW = logicalH * g_iScreenWidth / g_iScreenHeight;
+
+minecraft = new Minecraft(NULL, NULL, NULL, logicalW, logicalH, fullScreen);edException e) {
 	e.printStackTrace();
 	}
 	System.exit(0);
@@ -5165,4 +5175,9 @@ int Minecraft::MustSignInReturnedPSN(void *pParam, int iPad, C4JStorage::EMessag
 	return 0;
 }
 #endif
+	extern int g_iScreenWidth;
+	extern int g_iScreenHeight;
+	int logicalH = 720;
+	int logicalW = logicalH * g_iScreenWidth / g_iScreenHeight;
 
+	minecraft = new Minecraft(NULL, NULL, NULL, logicalW, logicalH, fullScreen);
