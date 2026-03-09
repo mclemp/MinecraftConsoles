@@ -842,7 +842,7 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 	//            font.draw(str, x + 1, y, 0xffffff);
 	//        }
 
-#ifndef _FINAL_BUILD
+#ifdef _FINAL_BUILD
 	MemSect(31);
     if (minecraft->options->renderDebug)
 	{
@@ -899,10 +899,12 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 		double xBlockPos = floor(minecraft->player->x);
 		double yBlockPos = floor(minecraft->player->y);
 		double zBlockPos = floor(minecraft->player->z);
-        drawString(font, L"x: " + std::to_wstring(minecraft->player->x) + L"/ Head: " + std::to_wstring(static_cast<int>(xBlockPos)) + L"/ Chunk: " + std::to_wstring(minecraft->player->xChunk), iSafezoneXHalf+2, iYPos + 8 * 0, 0xe0e0e0);
-        drawString(font, L"y: " + std::to_wstring(minecraft->player->y) + L"/ Head: " + std::to_wstring(static_cast<int>(yBlockPos)), iSafezoneXHalf+2, iYPos + 8 * 1, 0xe0e0e0);
-        drawString(font, L"z: " + std::to_wstring(minecraft->player->z) + L"/ Head: " + std::to_wstring(static_cast<int>(zBlockPos)) + L"/ Chunk: " + std::to_wstring(minecraft->player->zChunk), iSafezoneXHalf+2, iYPos + 8 * 2, 0xe0e0e0);
-		drawString(font, L"f: " + std::to_wstring(Mth::floor(minecraft->player->yRot * 4.0f / 360.0f + 0.5) & 0x3) + L"/ yRot: " + std::to_wstring(minecraft->player->yRot), iSafezoneXHalf+2, iYPos + 8 * 3, 0xe0e0e0);
+#ifndef _FINAL_BUILD
+        drawString(font, L"X: " + std::to_wstring(minecraft->player->x) + L"/ Head: " + std::to_wstring(static_cast<int>(xBlockPos)) + L"/ Chunk: " + std::to_wstring(minecraft->player->xChunk), debugLeft, iYPos + 8 * 0, 0xe0e0e0);
+        drawString(font, L"Y: " + std::to_wstring(minecraft->player->y) + L"/ Head: " + std::to_wstring(static_cast<int>(yBlockPos)), debugLeft, iYPos + 8 * 1, 0xe0e0e0);
+        drawString(font, L"Z: " + std::to_wstring(minecraft->player->z) + L"/ Head: " + std::to_wstring(static_cast<int>(zBlockPos)) + L"/ Chunk: " + std::to_wstring(minecraft->player->zChunk), debugLeft, iYPos + 8 * 2, 0xe0e0e0);
+		drawString(font, L"Facing: " + std::to_wstring(Mth::floor(minecraft->player->yRot * 4.0f / 360.0f + 0.5) & 0x3) + L"/ yRot: " + std::to_wstring(minecraft->player->yRot), debugLeft, iYPos + 8 * 3, 0xe0e0e0);
+#endif
 		iYPos += 8*4;
 
 		int px = Mth::floor(minecraft->player->x);
