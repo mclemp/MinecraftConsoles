@@ -101,7 +101,7 @@ void UIScene_DebugSetCamera::onDirectEditFinished(UIControl_TextInput* input, UI
 
 bool UIScene_DebugSetCamera::handleMouseClick(F32 x, F32 y)
 {
-	UIScene::handleMouseClick(x, y);
+	
 	return true; // always consume to prevent Iggy re-entry on empty space
 }
 #endif

@@ -108,11 +108,7 @@ void UIScene_AnvilMenu::tick()
 		}
 	}
 #endif
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> f369b442bbf95ec6cc383f73e73c39cc6678f6d3
 	handleTick();
 }
 
@@ -325,21 +321,6 @@ UIControl* UIScene_AnvilMenu::getSection(ESceneSection eSection)
 
 #ifdef _WINDOWS64
 void UIScene_AnvilMenu::getDirectEditInputs(vector<UIControl_TextInput*>& inputs)
-<<<<<<< HEAD
-{
-	inputs.push_back(&m_textInputAnvil);
-}
-
-void UIScene_AnvilMenu::onDirectEditFinished(UIControl_TextInput* input, UIControl_TextInput::EDirectEditResult result)
-{
-	m_itemName = input->getEditBuffer();
-	updateItemName();
-}
-#endif
-
-int UIScene_AnvilMenu::KeyboardCompleteCallback(LPVOID lpParam,bool bRes)
-=======
->>>>>>> f369b442bbf95ec6cc383f73e73c39cc6678f6d3
 {
 	inputs.push_back(&m_textInputAnvil);
 }
@@ -359,24 +340,12 @@ int UIScene_AnvilMenu::KeyboardCompleteCallback(LPVOID lpParam, bool bRes)
 	if (bRes)
 	{
 #ifdef _WINDOWS64
-<<<<<<< HEAD
 		uint16_t pchText[128];
 		ZeroMemory(pchText, 128 * sizeof(uint16_t));
 		Win64_GetKeyboardText(pchText, 128);
 		pClass->setEditNameValue((wchar_t*)pchText);
 		pClass->m_itemName = (wchar_t*)pchText;
 		pClass->updateItemName();
-#else
-=======
->>>>>>> f369b442bbf95ec6cc383f73e73c39cc6678f6d3
-		uint16_t pchText[128];
-		ZeroMemory(pchText, 128 * sizeof(uint16_t));
-		Win64_GetKeyboardText(pchText, 128);
-		pClass->setEditNameValue((wchar_t*)pchText);
-		pClass->m_itemName = (wchar_t*)pchText;
-		pClass->updateItemName();
-<<<<<<< HEAD
-=======
 #else
 		uint16_t pchText[128];
 		ZeroMemory(pchText, 128 * sizeof(uint16_t));
@@ -384,7 +353,6 @@ int UIScene_AnvilMenu::KeyboardCompleteCallback(LPVOID lpParam, bool bRes)
 		pClass->setEditNameValue((wchar_t*)pchText);
 		pClass->m_itemName = (wchar_t*)pchText;
 		pClass->updateItemName();
->>>>>>> f369b442bbf95ec6cc383f73e73c39cc6678f6d3
 #endif
 	}
 	return 0;
@@ -428,7 +396,6 @@ void UIScene_AnvilMenu::handleEditNamePressed()
 	}
 #else
 	InputManager.RequestKeyboard(app.GetString(IDS_TITLE_RENAME), m_textInputAnvil.getLabel(), (DWORD)m_iPad, 30, &UIScene_AnvilMenu::KeyboardCompleteCallback, this, C_4JInput::EKeyboardMode_Default);
-#endif
 #endif
 #endif
 }

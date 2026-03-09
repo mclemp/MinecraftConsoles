@@ -92,7 +92,7 @@ void UIScene_DebugCreateSchematic::onDirectEditFinished(UIControl_TextInput* inp
 
 bool UIScene_DebugCreateSchematic::handleMouseClick(F32 x, F32 y)
 {
-	UIScene::handleMouseClick(x, y);
+	
 	return true; // always consume to prevent Iggy re-entry on empty space
 }
 #endif

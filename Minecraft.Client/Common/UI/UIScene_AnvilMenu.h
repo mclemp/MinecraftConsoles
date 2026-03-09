@@ -59,11 +59,7 @@ protected:
 	virtual void getDirectEditInputs(vector<UIControl_TextInput*>& inputs);
 	virtual void onDirectEditFinished(UIControl_TextInput* input, UIControl_TextInput::EDirectEditResult result);
 #endif
-<<<<<<< HEAD
-	static int KeyboardCompleteCallback(LPVOID lpParam,bool bRes);
-=======
 	static int KeyboardCompleteCallback(LPVOID lpParam, bool bRes);
->>>>>>> f369b442bbf95ec6cc383f73e73c39cc6678f6d3
 	virtual void handleEditNamePressed();
 	virtual void setEditNameValue(const wstring& name);
 	virtual void setEditNameEditable(bool enabled);

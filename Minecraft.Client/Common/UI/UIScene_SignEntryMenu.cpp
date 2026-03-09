@@ -8,7 +8,7 @@
 #include "..\..\..\Minecraft.World\net.minecraft.world.level.h"
 #include "..\..\..\Minecraft.World\net.minecraft.world.level.tile.entity.h"
 
-UIScene_SignEntryMenu::UIScene_SignEntryMenu(int iPad, void *_initData, UILayer *parentLayer) : UIScene(iPad, parentLayer)
+UIScene_SignEntryMenu::UIScene_SignEntryMenu(int iPad, void* _initData, UILayer* parentLayer) : UIScene(iPad, parentLayer)
 {
 	// Setup all the Iggy references we need for this scene
 	initialiseMovie();
@@ -28,12 +28,12 @@ UIScene_SignEntryMenu::UIScene_SignEntryMenu(int iPad, void *_initData, UILayer 
 	m_buttonConfirm.init(app.GetString(IDS_DONE), eControl_Confirm);
 	m_labelMessage.init(app.GetString(IDS_EDIT_SIGN_MESSAGE));
 
-	for(unsigned int i = 0; i<4; ++i)
+	for (unsigned int i = 0; i < 4; ++i)
 	{
 #if TO_BE_IMPLEMENTED
 		// Have to have the Latin alphabet here, since that's what we have on the sign in-game
 		// but because the JAP/KOR/CHN fonts don't have extended European characters, let's restrict those languages to not having the extended character set, since they can't see what they are typing
-		switch(XGetLanguage())
+		switch (XGetLanguage())
 		{
 		case XC_LANGUAGE_JAPANESE:
 		case XC_LANGUAGE_TCHINESE:
@@ -46,15 +46,15 @@ UIScene_SignEntryMenu::UIScene_SignEntryMenu(int iPad, void *_initData, UILayer 
 			break;
 		}
 
-		m_signRows[i].SetText( m_sign->GetMessage(i).c_str() );
+		m_signRows[i].SetText(m_sign->GetMessage(i).c_str());
 		m_signRows[i].SetTextLimit(15);
 		// Set the title and desc for the edit keyboard popup
-		m_signRows[i].SetTitleAndText(IDS_SIGN_TITLE,IDS_SIGN_TITLE_TEXT);
+		m_signRows[i].SetTitleAndText(IDS_SIGN_TITLE, IDS_SIGN_TITLE_TEXT);
 #endif
 		m_textInputLines[i].init(m_sign->GetMessage(i).c_str(), i);
 	}
 
-	parentLayer->addComponent(iPad,eUIComponent_MenuBackground);
+	parentLayer->addComponent(iPad, eUIComponent_MenuBackground);
 }
 
 UIScene_SignEntryMenu::~UIScene_SignEntryMenu()
@@ -65,7 +65,7 @@ UIScene_SignEntryMenu::~UIScene_SignEntryMenu()
 
 wstring UIScene_SignEntryMenu::getMoviePath()
 {
-	if(app.GetLocalPlayerCount() > 1)
+	if (app.GetLocalPlayerCount() > 1)
 	{
 		return L"SignEntryMenuSplit";
 	}
@@ -77,7 +77,7 @@ wstring UIScene_SignEntryMenu::getMoviePath()
 
 void UIScene_SignEntryMenu::updateTooltips()
 {
-	ui.SetTooltips( m_iPad, IDS_TOOLTIPS_SELECT,IDS_TOOLTIPS_BACK);
+	ui.SetTooltips(m_iPad, IDS_TOOLTIPS_SELECT, IDS_TOOLTIPS_BACK);
 }
 
 void UIScene_SignEntryMenu::tick()
@@ -97,7 +97,7 @@ void UIScene_SignEntryMenu::tick()
 		}
 	}
 
-	// UP/DOWN navigation — must happen after tickDirectEdit (so typed chars are consumed)
+	// UP/DOWN navigation ï¿½ must happen after tickDirectEdit (so typed chars are consumed)
 	// and before sign cursor update (so the cursor is correct for this frame's render)
 	// m_bSkipTickNav prevents double-processing when handleInput auto-started editing this frame
 	if (m_iActiveDirectEditLine >= 0 && !m_bSkipTickNav)
@@ -157,36 +157,36 @@ void UIScene_SignEntryMenu::tick()
 		m_sign->SetSelectedLine(-1);
 	}
 
-	if(m_bConfirmed)
+	if (m_bConfirmed)
 	{
 		m_bConfirmed = false;
 
 		// Set the sign text here so we on;y call the verify once it has been set, not while we're typing in to it
-		for(int i=0;i<4;i++)
+		for (int i = 0; i < 4; i++)
 		{
-			wstring temp=m_textInputLines[i].getLabel();
-			m_sign->SetMessage(i,temp);		
+			wstring temp = m_textInputLines[i].getLabel();
+			m_sign->SetMessage(i, temp);
 		}
 
 		m_sign->setChanged();
 
-		Minecraft *pMinecraft=Minecraft::GetInstance();
+		Minecraft* pMinecraft = Minecraft::GetInstance();
 		// need to send the new data
 		if (pMinecraft->level->isClientSide)
 		{
 			shared_ptr<MultiplayerLocalPlayer> player = pMinecraft->localplayers[m_iPad];
-			if(player != NULL && player->connection && player->connection->isStarted())
+			if (player != NULL && player->connection && player->connection->isStarted())
 			{
-				player->connection->send( shared_ptr<SignUpdatePacket>( new SignUpdatePacket(m_sign->x, m_sign->y, m_sign->z, m_sign->IsVerified(), m_sign->IsCensored(), m_sign->GetMessages()) ) );
+				player->connection->send(shared_ptr<SignUpdatePacket>(new SignUpdatePacket(m_sign->x, m_sign->y, m_sign->z, m_sign->IsVerified(), m_sign->IsCensored(), m_sign->GetMessages())));
 			}
 		}
 		ui.CloseUIScenes(m_iPad);
 	}
 }
 
-void UIScene_SignEntryMenu::handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled)
+void UIScene_SignEntryMenu::handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool& handled)
 {
-	if(m_bConfirmed || m_bIgnoreInput) return;
+	if (m_bConfirmed || m_bIgnoreInput) return;
 
 #ifdef _WINDOWS64
 	if (isDirectEditBlocking()) { handled = true; return; }
@@ -194,17 +194,17 @@ void UIScene_SignEntryMenu::handleInput(int iPad, int key, bool repeat, bool pre
 
 	ui.AnimateKeyPress(iPad, key, repeat, pressed, released);
 
-	switch(key)
+	switch (key)
 	{
 	case ACTION_MENU_CANCEL:
-		if(pressed)
+		if (pressed)
 		{
 			// user backed out, so wipe the sign
-			wstring temp=L"";
+			wstring temp = L"";
 
-			for(int i=0;i<4;i++)
+			for (int i = 0; i < 4; i++)
 			{
-				m_sign->SetMessage(i,temp);
+				m_sign->SetMessage(i, temp);
 			}
 
 			navigateBack();
@@ -285,36 +285,12 @@ void UIScene_SignEntryMenu::onDirectEditFinished(UIControl_TextInput* input, UIC
 	}
 }
 
-<<<<<<< HEAD
-bool UIScene_SignEntryMenu::handleMouseClick(F32 x, F32 y)
-{
-	if (m_iActiveDirectEditLine >= 0)
-	{
-		// During direct edit, only the Done button is clickable.
-		// Hit-test it manually — all other clicks are consumed but ignored.
-		m_buttonConfirm.UpdateControl();
-		S32 cx = m_buttonConfirm.getXPos();
-		S32 cy = m_buttonConfirm.getYPos();
-		S32 cw = m_buttonConfirm.getWidth();
-		S32 ch = m_buttonConfirm.getHeight();
-		if (cw > 0 && ch > 0 && x >= cx && x <= cx + cw && y >= cy && y <= cy + ch)
-		{
-			m_textInputLines[m_iActiveDirectEditLine].confirmDirectEdit();
-			m_iActiveDirectEditLine = -1;
-			m_bConfirmed = true;
-		}
-		return true;
-	}
-	return UIScene::handleMouseClick(x, y);
-}
-=======
->>>>>>> f369b442bbf95ec6cc383f73e73c39cc6678f6d3
 #endif
 
-int UIScene_SignEntryMenu::KeyboardCompleteCallback(LPVOID lpParam,bool bRes)
+int UIScene_SignEntryMenu::KeyboardCompleteCallback(LPVOID lpParam, bool bRes)
 {
 	// 4J HEG - No reason to set value if keyboard was cancelled
-	UIScene_SignEntryMenu *pClass=(UIScene_SignEntryMenu *)lpParam;
+	UIScene_SignEntryMenu* pClass = (UIScene_SignEntryMenu*)lpParam;
 	pClass->m_bIgnoreInput = false;
 	if (bRes)
 	{
@@ -338,62 +314,62 @@ void UIScene_SignEntryMenu::handlePress(F64 controlId, F64 childId)
 #ifdef _WINDOWS64
 	if (isDirectEditBlocking()) return;
 #endif
-	switch((int)controlId)
+	switch ((int)controlId)
 	{
 	case eControl_Confirm:
-		{
-			m_bConfirmed = true;
-		}
-		break;
+	{
+		m_bConfirmed = true;
+	}
+	break;
 	case eControl_Line1:
 	case eControl_Line2:
 	case eControl_Line3:
 	case eControl_Line4:
-		{
-			m_iEditingLine = (int)controlId;
+	{
+		m_iEditingLine = (int)controlId;
 #ifdef _WINDOWS64
-			if (g_KBMInput.IsKBMActive())
+		if (g_KBMInput.IsKBMActive())
+		{
+			// Only start editing from keyboard (Enter on focused line), not mouse clicks
+			if (!g_KBMInput.IsMouseButtonPressed(KeyboardMouseInput::MOUSE_LEFT))
 			{
-				// Only start editing from keyboard (Enter on focused line), not mouse clicks
-				if (!g_KBMInput.IsMouseButtonPressed(KeyboardMouseInput::MOUSE_LEFT))
-				{
-					m_iActiveDirectEditLine = m_iEditingLine;
-					m_textInputLines[m_iEditingLine].beginDirectEdit(15);
-				}
+				m_iActiveDirectEditLine = m_iEditingLine;
+				m_textInputLines[m_iEditingLine].beginDirectEdit(15);
 			}
-			else
-			{
-				m_bIgnoreInput = true;
-				UIKeyboardInitData kbData;
-				kbData.title = app.GetString(IDS_SIGN_TITLE);
-				kbData.defaultText = m_textInputLines[m_iEditingLine].getLabel();
-				kbData.maxChars = 15;
-				kbData.callback = &UIScene_SignEntryMenu::KeyboardCompleteCallback;
-				kbData.lpParam = this;
-				ui.NavigateToScene(m_iPad, eUIScene_Keyboard, &kbData, eUILayer_Fullscreen, eUIGroup_Fullscreen);
-			}
-#else
-			m_bIgnoreInput = true;
-#ifdef _XBOX_ONE
-			// 4J-PB - Xbox One uses the Windows virtual keyboard, and doesn't have the Xbox 360 Latin keyboard type, so we can't restrict the input set to alphanumeric. The closest we get is the emailSmtpAddress type.
-			int language = XGetLanguage();
-			switch(language)
-			{
-			case XC_LANGUAGE_JAPANESE:
-			case XC_LANGUAGE_KOREAN:
-			case XC_LANGUAGE_TCHINESE:
-				InputManager.RequestKeyboard(app.GetString(IDS_SIGN_TITLE),m_textInputLines[m_iEditingLine].getLabel(),(DWORD)m_iPad,15,&UIScene_SignEntryMenu::KeyboardCompleteCallback,this,C_4JInput::EKeyboardMode_Email);
-				break;
-			default:
-				InputManager.RequestKeyboard(app.GetString(IDS_SIGN_TITLE),m_textInputLines[m_iEditingLine].getLabel(),(DWORD)m_iPad,15,&UIScene_SignEntryMenu::KeyboardCompleteCallback,this,C_4JInput::EKeyboardMode_Alphabet);
-				break;
-			}
-#else
-			InputManager.RequestKeyboard(app.GetString(IDS_SIGN_TITLE),m_textInputLines[m_iEditingLine].getLabel(),(DWORD)m_iPad,15,&UIScene_SignEntryMenu::KeyboardCompleteCallback,this,C_4JInput::EKeyboardMode_Alphabet);
-#endif
-#endif
 		}
-		break;
+		else
+		{
+			m_bIgnoreInput = true;
+			UIKeyboardInitData kbData;
+			kbData.title = app.GetString(IDS_SIGN_TITLE);
+			kbData.defaultText = m_textInputLines[m_iEditingLine].getLabel();
+			kbData.maxChars = 15;
+			kbData.callback = &UIScene_SignEntryMenu::KeyboardCompleteCallback;
+			kbData.lpParam = this;
+			ui.NavigateToScene(m_iPad, eUIScene_Keyboard, &kbData, eUILayer_Fullscreen, eUIGroup_Fullscreen);
+		}
+#else
+		m_bIgnoreInput = true;
+#ifdef _XBOX_ONE
+		// 4J-PB - Xbox One uses the Windows virtual keyboard, and doesn't have the Xbox 360 Latin keyboard type, so we can't restrict the input set to alphanumeric. The closest we get is the emailSmtpAddress type.
+		int language = XGetLanguage();
+		switch (language)
+		{
+		case XC_LANGUAGE_JAPANESE:
+		case XC_LANGUAGE_KOREAN:
+		case XC_LANGUAGE_TCHINESE:
+			InputManager.RequestKeyboard(app.GetString(IDS_SIGN_TITLE), m_textInputLines[m_iEditingLine].getLabel(), (DWORD)m_iPad, 15, &UIScene_SignEntryMenu::KeyboardCompleteCallback, this, C_4JInput::EKeyboardMode_Email);
+			break;
+		default:
+			InputManager.RequestKeyboard(app.GetString(IDS_SIGN_TITLE), m_textInputLines[m_iEditingLine].getLabel(), (DWORD)m_iPad, 15, &UIScene_SignEntryMenu::KeyboardCompleteCallback, this, C_4JInput::EKeyboardMode_Alphabet);
+			break;
+		}
+#else
+		InputManager.RequestKeyboard(app.GetString(IDS_SIGN_TITLE), m_textInputLines[m_iEditingLine].getLabel(), (DWORD)m_iPad, 15, &UIScene_SignEntryMenu::KeyboardCompleteCallback, this, C_4JInput::EKeyboardMode_Alphabet);
+#endif
+#endif
+	}
+	break;
 	}
 }
 

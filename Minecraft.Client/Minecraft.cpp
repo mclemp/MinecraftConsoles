@@ -4757,6 +4757,9 @@ bool Minecraft::useAmbientOcclusion()
 
 bool Minecraft::renderDebug()
 {
+#ifdef _WINDOWS64
+	return false;
+#endif
 	return (m_instance != NULL && m_instance->options->renderDebug);
 }
 

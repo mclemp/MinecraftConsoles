@@ -340,7 +340,7 @@ typedef XUID GameSessionUID;
 #endif
 
 
-
+/*
 #ifdef _FINAL_BUILD
 #define printf BREAKTHECOMPILE
 #define wprintf BREAKTHECOMPILE
@@ -349,5 +349,5 @@ typedef XUID GameSessionUID;
 #define OutputDebugStringA BREAKTHECOMPILE
 #define OutputDebugStringW BREAKTHECOMPILE
 #endif
-
+*/
 void MemSect(int sect);

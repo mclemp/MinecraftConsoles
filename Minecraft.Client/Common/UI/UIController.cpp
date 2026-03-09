@@ -1065,10 +1065,10 @@ void UIController::tickInput()
 					}
 
 					// Let the scene handle mouse clicks for custom navigation (e.g. crafting slots)
-					if (leftPressed && m_mouseDraggingSliderId < 0)
-					{
-						m_mouseClickConsumedByScene = pScene->handleMouseClick(sceneMouseX, sceneMouseY);
-					}
+					//if (leftPressed && m_mouseDraggingSliderId < 0)
+					//{
+					//	m_mouseClickConsumedByScene = pScene->handleMouseClick(sceneMouseX, sceneMouseY);
+					//}
 				}
 			}
 #endif
