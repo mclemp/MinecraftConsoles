@@ -68,7 +68,7 @@ char g_Win64DedicatedServerBindIP[256] = "";
 
 char g_Win64RelayServerIP[256] = "38.49.215.81";
 wchar_t g_Win64RelayServerIP_Wide[256] = L"38.49.215.81";
-int g_Win64RelayServerPort = 2053;
+int g_Win64RelayServerPort = 2054;
 
 bool WinsockNetLayer::Initialize()
 {
