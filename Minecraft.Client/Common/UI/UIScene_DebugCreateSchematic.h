@@ -59,8 +59,15 @@ protected:
 
 	virtual wstring getMoviePath();
 
+#ifdef _WINDOWS64
+	virtual void getDirectEditInputs(vector<UIControl_TextInput*>& inputs);
+	virtual void onDirectEditFinished(UIControl_TextInput* input, UIControl_TextInput::EDirectEditResult result);
+	virtual bool handleMouseClick(F32 x, F32 y);
+#endif
+
 public:
 	// INPUT
+	virtual void tick();
 	virtual void handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled);
 
 protected:
@@ -68,6 +75,7 @@ protected:
 	virtual void handleCheckboxToggled(F64 controlId, bool selected);
 
 private:
+	UIControl_TextInput* getTextInputForControl(eControls ctrl);
 	static int KeyboardCompleteCallback(LPVOID lpParam,const bool bRes);
 };
 #endif

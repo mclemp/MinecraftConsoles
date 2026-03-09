@@ -96,6 +96,19 @@ void UIScene_AnvilMenu::tick()
 {
 	UIScene_AbstractContainerMenu::tick();
 
+#ifdef _WINDOWS64
+	// Live update: sync item name per-keystroke while editing (like Java edition)
+	if (m_textInputAnvil.isDirectEditing())
+	{
+		const wstring& buf = m_textInputAnvil.getEditBuffer();
+		if (buf != m_itemName)
+		{
+			m_itemName = buf;
+			updateItemName();
+		}
+	}
+#endif
+	
 	handleTick();
 }
 
@@ -306,6 +319,19 @@ UIControl *UIScene_AnvilMenu::getSection(ESceneSection eSection)
 	return control;
 }
 
+#ifdef _WINDOWS64
+void UIScene_AnvilMenu::getDirectEditInputs(vector<UIControl_TextInput*>& inputs)
+{
+	inputs.push_back(&m_textInputAnvil);
+}
+
+void UIScene_AnvilMenu::onDirectEditFinished(UIControl_TextInput* input, UIControl_TextInput::EDirectEditResult result)
+{
+	m_itemName = input->getEditBuffer();
+	updateItemName();
+}
+#endif
+
 int UIScene_AnvilMenu::KeyboardCompleteCallback(LPVOID lpParam,bool bRes)
 {
 	// 4J HEG - No reason to set value if keyboard was cancelled
@@ -314,18 +340,47 @@ int UIScene_AnvilMenu::KeyboardCompleteCallback(LPVOID lpParam,bool bRes)
 
 	if (bRes)
 	{
+#ifdef _WINDOWS64
+		uint16_t pchText[128];
+		ZeroMemory(pchText, 128 * sizeof(uint16_t));
+		Win64_GetKeyboardText(pchText, 128);
+		pClass->setEditNameValue((wchar_t*)pchText);
+		pClass->m_itemName = (wchar_t*)pchText;
+		pClass->updateItemName();
+#else
 		uint16_t pchText[128];
 		ZeroMemory(pchText, 128 * sizeof(uint16_t) );
 		InputManager.GetText(pchText);
 		pClass->setEditNameValue((wchar_t *)pchText);
 		pClass->m_itemName = (wchar_t *)pchText;
 		pClass->updateItemName();
+#endif
 	}
 	return 0;
 }
 
 void UIScene_AnvilMenu::handleEditNamePressed()
 {
+#ifdef _WINDOWS64
+	if (isDirectEditBlocking())
+		return;
+
+	if (g_KBMInput.IsKBMActive())
+	{
+		m_textInputAnvil.beginDirectEdit(30);
+	}
+	else
+	{
+		setIgnoreInput(true);
+		UIKeyboardInitData kbData;
+		kbData.title = app.GetString(IDS_TITLE_RENAME);
+		kbData.defaultText = m_textInputAnvil.getLabel();
+		kbData.maxChars = 30;
+		kbData.callback = &UIScene_AnvilMenu::KeyboardCompleteCallback;
+		kbData.lpParam = this;
+		ui.NavigateToScene(m_iPad, eUIScene_Keyboard, &kbData, eUILayer_Fullscreen, eUIGroup_Fullscreen);
+	}
+#else
 	setIgnoreInput(true);
 #if defined(__PS3__) || defined(__ORBIS__) || defined __PSVITA__
 	int language = XGetLanguage();
@@ -344,6 +399,7 @@ void UIScene_AnvilMenu::handleEditNamePressed()
 #else
 	InputManager.RequestKeyboard(app.GetString(IDS_TITLE_RENAME),m_textInputAnvil.getLabel(),(DWORD)m_iPad,30,&UIScene_AnvilMenu::KeyboardCompleteCallback,this,C_4JInput::EKeyboardMode_Default);
 #endif
+#endif
 }
 
 void UIScene_AnvilMenu::setEditNameValue(const wstring &name)
@@ -357,6 +413,8 @@ void UIScene_AnvilMenu::setEditNameEditable(bool enabled)
 
 void UIScene_AnvilMenu::setCostLabel(const wstring &label, bool canAfford)
 {
+	if (!getMovie()) return;
+
 	IggyDataValue result;
 	IggyDataValue value[2];
 
@@ -375,6 +433,8 @@ void UIScene_AnvilMenu::showCross(bool show)
 {
 	if(m_showingCross != show)
 	{
+		if (!getMovie()) return;
+
 		IggyDataValue result;
 		IggyDataValue value[1];
 
