@@ -40,6 +40,12 @@
 #include "PS3\PS3Extras\ShutdownManager.h"
 #include "PlayerChunkMap.h"
 
+#ifdef _WINDOWS64
+#include "../../Windows64_Launcher.h"
+
+extern float g_sleepPercentage;
+#endif
+
 WeighedTreasureArray ServerLevel::RANDOM_BONUS_ITEMS;
 
 C4JThread* ServerLevel::m_updateThread = NULL;
@@ -364,6 +370,25 @@ void ServerLevel::stopWeather()
 
 bool ServerLevel::allPlayersAreSleeping()
 {
+#ifdef _WINDOWS64
+	int totalPlayers = 0;
+	int sleepingPlayers = 0;
+
+	for (auto& player : players)
+	{
+		totalPlayers++;
+
+		if (player->isSleepingLongEnough())
+			sleepingPlayers++;
+	}
+
+	if (totalPlayers == 0)
+		return false;
+
+	float percentSleeping = (float)sleepingPlayers / totalPlayers;
+
+	return percentSleeping >= g_sleepPercentage;
+#elif
 	if (allPlayersSleeping && !isClientSide)
 	{
 		// all players are sleeping, but have they slept long enough?
@@ -379,6 +404,7 @@ bool ServerLevel::allPlayersAreSleeping()
 		return true;
 	}
 	return false;
+#endif
 }
 
 void ServerLevel::validateSpawn()

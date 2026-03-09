@@ -1024,7 +1024,6 @@ DWORD WINAPI WinsockNetLayer::DiscoveryThreadProc(LPVOID param)
 
 	while (s_discovering)
 	{
-
 		SOCKET sock = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
 		if (sock == INVALID_SOCKET)
 		{
@@ -1120,84 +1119,7 @@ DWORD WINAPI WinsockNetLayer::DiscoveryThreadProc(LPVOID param)
 			}
 		}
 
-		/*struct sockaddr_in senderAddr;
-		int senderLen = sizeof(senderAddr);
-
-		int recvLen = recvfrom(s_discoverySock, recvBuf, sizeof(recvBuf), 0,
-			(struct sockaddr*)&senderAddr, &senderLen);
-
-		if (recvLen == SOCKET_ERROR)
-		{
-			continue;
-		}
-
-		if (recvLen < (int)sizeof(Win64LANBroadcast))
-			continue;
-
-		Win64LANBroadcast* broadcast = (Win64LANBroadcast*)recvBuf;
-		if (broadcast->magic != WIN64_LAN_BROADCAST_MAGIC)
-			continue;
-
-		char senderIP[64];
-		inet_ntop(AF_INET, &senderAddr.sin_addr, senderIP, sizeof(senderIP));
-
-		DWORD now = GetTickCount();
-
-		EnterCriticalSection(&s_discoveryLock);
-
-		bool found = false;
-		for (size_t i = 0; i < s_discoveredSessions.size(); i++)
-		{
-			if (strcmp(s_discoveredSessions[i].hostIP, senderIP) == 0 &&
-				s_discoveredSessions[i].hostPort == (int)broadcast->gamePort)
-			{
-				s_discoveredSessions[i].netVersion = broadcast->netVersion;
-				wcsncpy_s(s_discoveredSessions[i].hostName, 32, broadcast->hostName, _TRUNCATE);
-				s_discoveredSessions[i].playerCount = broadcast->playerCount;
-				s_discoveredSessions[i].maxPlayers = broadcast->maxPlayers;
-				s_discoveredSessions[i].gameHostSettings = broadcast->gameHostSettings;
-				s_discoveredSessions[i].texturePackParentId = broadcast->texturePackParentId;
-				s_discoveredSessions[i].subTexturePackId = broadcast->subTexturePackId;
-				s_discoveredSessions[i].isJoinable = (broadcast->isJoinable != 0);
-				s_discoveredSessions[i].lastSeenTick = now;
-				found = true;
-				break;
-			}
-		}
-
-		if (!found)
-		{
-			Win64LANSession session;
-			memset(&session, 0, sizeof(session));
-			strncpy_s(session.hostIP, sizeof(session.hostIP), senderIP, _TRUNCATE);
-			session.hostPort = (int)broadcast->gamePort;
-			session.netVersion = broadcast->netVersion;
-			wcsncpy_s(session.hostName, 32, broadcast->hostName, _TRUNCATE);
-			session.playerCount = broadcast->playerCount;
-			session.maxPlayers = broadcast->maxPlayers;
-			session.gameHostSettings = broadcast->gameHostSettings;
-			session.texturePackParentId = broadcast->texturePackParentId;
-			session.subTexturePackId = broadcast->subTexturePackId;
-			session.isJoinable = (broadcast->isJoinable != 0);
-			session.lastSeenTick = now;
-			s_discoveredSessions.push_back(session);
-
-			app.DebugPrintf("Win64 LAN: Discovered game \"%ls\" at %s:%d\n",
-				session.hostName, session.hostIP, session.hostPort);
-		}
-
-		for (size_t i = s_discoveredSessions.size(); i > 0; i--)
-		{
-			if (now - s_discoveredSessions[i - 1].lastSeenTick > 5000)
-			{
-				app.DebugPrintf("Win64 LAN: Session \"%ls\" at %s timed out\n",
-					s_discoveredSessions[i - 1].hostName, s_discoveredSessions[i - 1].hostIP);
-				s_discoveredSessions.erase(s_discoveredSessions.begin() + (i - 1));
-			}
-		}
-
-		LeaveCriticalSection(&s_discoveryLock);
-		*/
+		Sleep(8000);
 	}
 
 	return 0;

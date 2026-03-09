@@ -17,7 +17,10 @@
 
 #include "discord_rpc.h"
 
+float g_sleepPercentage = 100;
 int g_autosaveInterval = 120;
+
+bool g_doBoatBreak = true;
 
 DWORD WINAPI DiscordRPCThreadFunc(LPVOID lpParam) {
 
