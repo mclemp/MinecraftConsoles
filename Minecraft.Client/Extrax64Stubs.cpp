@@ -21,7 +21,7 @@
 #include "Windows64\Social\SocialManager.h"
 #include "Windows64\Sentient\DynamicConfigurations.h"
 #include "Windows64\Network\WinsockNetLayer.h"
-#include "Windows64\Windows64_Xuid.h"
+#include "Windows64\Windows64_NameXuid.h"
 #elif defined __PSVITA__
 #include "PSVita\Sentient\SentientManager.h"
 #include "StatsCounter.h"
@@ -201,15 +201,7 @@ DWORD IQNetPlayer::GetCurrentRtt() { return 0; }
 bool IQNetPlayer::IsHost() { return m_isHostPlayer; }
 bool IQNetPlayer::IsGuest() { return false; }
 bool IQNetPlayer::IsLocal() { return !m_isRemote; }
-PlayerUID IQNetPlayer::GetXuid()
-{
-	// Compatibility model:
-	// - Preferred path: use per-player resolved XUID populated from login/add-player flow.
-	// - Fallback path: keep legacy base+smallId behavior for peers/saves still on old scheme.
-	if (m_resolvedXuid != INVALID_XUID)
-		return m_resolvedXuid;
-	return (PlayerUID)(0xe000d45248242f2e + m_smallId);
-}
+PlayerUID IQNetPlayer::GetXuid() { return (PlayerUID)(0xe000d45248242f2e + m_smallId); } // todo: restore to INVALID_XUID once saves support this
 LPCWSTR IQNetPlayer::GetGamertag() { return m_gamertag; }
 int IQNetPlayer::GetSessionIndex() { return m_smallId; }
 bool IQNetPlayer::IsTalking() { return false; }
@@ -235,7 +227,6 @@ void Win64_SetupRemoteQNetPlayer(IQNetPlayer * player, BYTE smallId, bool isHost
 	player->m_smallId = smallId;
 	player->m_isRemote = !isLocal;
 	player->m_isHostPlayer = isHost;
-	player->m_resolvedXuid = INVALID_XUID;
 	swprintf_s(player->m_gamertag, 32, L"Player%d", smallId);
 	if (smallId >= IQNet::s_playerCount)
 		IQNet::s_playerCount = smallId + 1;
@@ -295,13 +286,20 @@ IQNetPlayer* IQNet::GetPlayerByXuid(PlayerUID xuid)
 {
 	for (DWORD i = 0; i < s_playerCount; i++)
 	{
+		// Conventional XUID implementation except for Windows 64.
 		if (!Win64_IsActivePlayer(&m_player[i], i))
 			continue;
 
 		if (m_player[i].GetXuid() == xuid)
 			return &m_player[i];
+
+		// For Windows 64, NameBase XUID is used.
+#ifdef _WINDOWS64
+		PlayerUID nameXuid = Win64NameXuid::ResolvePersistentXuidFromName(m_player[i].GetGamertag());
+		if (nameXuid == xuid)
+			return &m_player[i];
+#endif
 	}
-	// Keep existing stub behavior: return host slot instead of NULL on miss.
 	return &m_player[0];
 }
 DWORD IQNet::GetPlayerCount()
@@ -316,13 +314,7 @@ DWORD IQNet::GetPlayerCount()
 QNET_STATE IQNet::GetState() { return _iQNetStubState; }
 bool IQNet::IsHost() { return s_isHosting; }
 HRESULT IQNet::JoinGameFromInviteInfo(DWORD dwUserIndex, DWORD dwUserMask, const INVITE_INFO * pInviteInfo) { return S_OK; }
-void IQNet::HostGame()
-{
-	_iQNetStubState = QNET_STATE_SESSION_STARTING;
-	s_isHosting = true;
-	// Host slot keeps legacy XUID so old host player data remains addressable.
-	m_player[0].m_resolvedXuid = Win64Xuid::GetLegacyEmbeddedHostXuid();
-}
+void IQNet::HostGame() { _iQNetStubState = QNET_STATE_SESSION_STARTING; s_isHosting = true; }
 void IQNet::ClientJoinGame()
 {
 	_iQNetStubState = QNET_STATE_SESSION_STARTING;
@@ -333,7 +325,6 @@ void IQNet::ClientJoinGame()
 		m_player[i].m_smallId = (BYTE)i;
 		m_player[i].m_isRemote = true;
 		m_player[i].m_isHostPlayer = false;
-		m_player[i].m_resolvedXuid = INVALID_XUID;
 		m_player[i].m_gamertag[0] = 0;
 		m_player[i].SetCustomDataValue(0);
 	}
@@ -348,7 +339,6 @@ void IQNet::EndGame()
 		m_player[i].m_smallId = (BYTE)i;
 		m_player[i].m_isRemote = false;
 		m_player[i].m_isHostPlayer = false;
-		m_player[i].m_resolvedXuid = INVALID_XUID;
 		m_player[i].m_gamertag[0] = 0;
 		m_player[i].SetCustomDataValue(0);
 	}
@@ -602,9 +592,9 @@ void				C_4JProfile::GetXUID(int iPad, PlayerUID * pXuid, bool bOnlineXuid)
 	// - host keeps legacy host XUID for world compatibility
 	// - non-host uses persistent uid.dat-backed XUID
 	if (IQNet::s_isHosting)
-		*pXuid = Win64Xuid::GetLegacyEmbeddedHostXuid();
+		*pXuid = 0xe000d45248242f2e;
 	else
-		*pXuid = Win64Xuid::ResolvePersistentXuid();
+		*pXuid = 0xe000d45248242f2e + WinsockNetLayer::GetLocalSmallId();
 #else
 	* pXuid = 0xe000d45248242f2e + iPad;
 #endif

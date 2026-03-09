@@ -5,9 +5,10 @@
 #include "..\..\Xbox\Network\NetworkPlayerXbox.h"
 #ifdef _WINDOWS64
 #include "..\..\Windows64\Network\WinsockNetLayer.h"
-#include "..\..\Windows64\Windows64_Xuid.h"
 #include "..\..\Minecraft.h"
 #include "..\..\User.h"
+#include "..\..\MinecraftServer.h"
+#include "..\..\PlayerList.h"
 #include <iostream>
 #endif
 
@@ -235,15 +236,33 @@ void CPlatformNetworkManagerStub::DoWork()
 				qnetPlayer->m_smallId = 0;
 				qnetPlayer->m_isRemote = false;
 				qnetPlayer->m_isHostPlayer = false;
-				qnetPlayer->m_resolvedXuid = INVALID_XUID;
 				qnetPlayer->m_gamertag[0] = 0;
 				qnetPlayer->SetCustomDataValue(0);
-				WinsockNetLayer::PushFreeSmallId(disconnectedSmallId);
 				if (IQNet::s_playerCount > 1)
 					IQNet::s_playerCount--;
 			}
+
+			// Always return smallId to the free pool so it can be reused (game may have already cleared the slot).
+			WinsockNetLayer::PushFreeSmallId(disconnectedSmallId);
+			// Clear O(1) socket lookup so GetSocketForSmallId stays fast (s_connections never shrinks).
+			WinsockNetLayer::ClearSocketForSmallId(disconnectedSmallId);
+			// Clear chunk visibility flags for this system so rejoin gets fresh chunk state.
+			SystemFlagRemoveBySmallId((int)disconnectedSmallId);
 		}
 	}
+#endif
+}
+
+bool CPlatformNetworkManagerStub::CanAcceptMoreConnections()
+{
+#ifdef _WINDOWS64
+	MinecraftServer* server = MinecraftServer::getInstance();
+	if (server == NULL) return true;
+	PlayerList* list = server->getPlayerList();
+	if (list == NULL) return true;
+	return (unsigned int)list->players.size() < (unsigned int)list->getMaxPlayers();
+#else
+	return true;
 #endif
 }
 
@@ -356,9 +375,7 @@ void CPlatformNetworkManagerStub::HostGame(int localUsersMask, bool bOnlineGame,
 #ifdef _WINDOWS64
 	IQNet::m_player[0].m_smallId = 0;
 	IQNet::m_player[0].m_isRemote = false;
-	// world host is pinned to legacy host XUID to keep old player data compatibility.
 	IQNet::m_player[0].m_isHostPlayer = true;
-	IQNet::m_player[0].m_resolvedXuid = Win64Xuid::GetLegacyEmbeddedHostXuid();
 	IQNet::s_playerCount = 1;
 #endif
 
@@ -415,8 +432,6 @@ int CPlatformNetworkManagerStub::JoinGame(FriendSessionInfo* searchResult, int l
 	IQNet::m_player[0].m_smallId = 0;
 	IQNet::m_player[0].m_isRemote = true;
 	IQNet::m_player[0].m_isHostPlayer = true;
-	// Remote host still maps to legacy host XUID in mixed old/new sessions.
-	IQNet::m_player[0].m_resolvedXuid = Win64Xuid::GetLegacyEmbeddedHostXuid();
 	wcsncpy_s(IQNet::m_player[0].m_gamertag, 32, searchResult->data.hostName, _TRUNCATE);
 
 	WinsockNetLayer::StopDiscovery();
@@ -432,8 +447,6 @@ int CPlatformNetworkManagerStub::JoinGame(FriendSessionInfo* searchResult, int l
 	IQNet::m_player[localSmallId].m_smallId = localSmallId;
 	IQNet::m_player[localSmallId].m_isRemote = false;
 	IQNet::m_player[localSmallId].m_isHostPlayer = false;
-	// Local non-host identity is the persistent uid.dat XUID.
-	IQNet::m_player[localSmallId].m_resolvedXuid = Win64Xuid::ResolvePersistentXuid();
 
 	Minecraft* pMinecraft = Minecraft::GetInstance();
 	wcscpy_s(IQNet::m_player[localSmallId].m_gamertag, 32, pMinecraft->user->name.c_str());
@@ -581,6 +594,7 @@ CPlatformNetworkManagerStub::PlayerFlags::PlayerFlags(INetworkPlayer *pNetworkPl
 	this->flags = new unsigned char [ count / 8 ];
 	memset( this->flags, 0, count / 8 );
 	this->count = count;
+	this->m_smallId = (pNetworkPlayer && pNetworkPlayer->IsLocal()) ? 256 : (pNetworkPlayer ? (int)pNetworkPlayer->GetSmallId() : -1);
 }
 CPlatformNetworkManagerStub::PlayerFlags::~PlayerFlags()
 {
@@ -609,6 +623,23 @@ void CPlatformNetworkManagerStub::SystemFlagRemovePlayer(INetworkPlayer *pNetwor
 	for( unsigned int i = 0; i < m_playerFlags.size(); i++ )
 	{
 		if( m_playerFlags[i]->m_pNetworkPlayer == pNetworkPlayer )
+		{
+			delete m_playerFlags[i];
+			m_playerFlags[i] = m_playerFlags.back();
+			m_playerFlags.pop_back();
+			return;
+		}
+	}
+}
+
+// Clear chunk flags for a system when they disconnect (by smallId). Call even when we don't find the player,
+// so we always clear and the smallId can be reused without stale "chunk seen" state.
+void CPlatformNetworkManagerStub::SystemFlagRemoveBySmallId(int smallId)
+{
+	if (smallId < 0) return;
+	for (unsigned int i = 0; i < m_playerFlags.size(); i++)
+	{
+		if (m_playerFlags[i]->m_smallId == smallId)
 		{
 			delete m_playerFlags[i];
 			m_playerFlags[i] = m_playerFlags.back();

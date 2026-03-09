@@ -42,9 +42,10 @@
 #include "..\..\Minecraft.World\OldChunkStorage.h"
 #include "Common/PostProcesser.h"
 #include "Network\WinsockNetLayer.h"
-#include "Windows64_Xuid.h"
 
 #include "Xbox/resource.h"
+
+#include "Windows64_Launcher.h"
 
 #ifdef _MSC_VER
 #pragma comment(lib, "legacy_stdio_definitions.lib")
@@ -228,37 +229,7 @@ static Win64LaunchOptions ParseLaunchOptions()
 
 	for (int i = 1; i < argc; ++i)
 	{
-		if (_wcsicmp(argv[i], L"-name") == 0 && (i + 1) < argc)
-		{
-			CopyWideArgToAnsi(argv[++i], g_Win64Username, sizeof(g_Win64Username));
-		}
-		else if (_wcsicmp(argv[i], L"-ip") == 0 && (i + 1) < argc)
-		{
-			char ipBuf[256];
-			CopyWideArgToAnsi(argv[++i], ipBuf, sizeof(ipBuf));
-			if (options.serverMode)
-			{
-				strncpy_s(g_Win64DedicatedServerBindIP, sizeof(g_Win64DedicatedServerBindIP), ipBuf, _TRUNCATE);
-			}
-			else
-			{
-				strncpy_s(g_Win64MultiplayerIP, sizeof(g_Win64MultiplayerIP), ipBuf, _TRUNCATE);
-				g_Win64MultiplayerJoin = true;
-			}
-		}
-		else if (_wcsicmp(argv[i], L"-port") == 0 && (i + 1) < argc)
-		{
-			wchar_t* endPtr = NULL;
-			long port = wcstol(argv[++i], &endPtr, 10);
-			if (endPtr != argv[i] && *endPtr == 0 && port > 0 && port <= 65535)
-			{
-				if (options.serverMode)
-					g_Win64DedicatedServerPort = (int)port;
-				else
-					g_Win64MultiplayerPort = (int)port;
-			}
-		}
-		else if (_wcsicmp(argv[i], L"-fullscreen") == 0)
+		if (_wcsicmp(argv[i], L"-fullscreen") == 0)
 			options.fullscreen = true;
 	}
 
@@ -1048,21 +1019,21 @@ static int RunHeadlessServer()
 	SetupHeadlessServerConsole();
 
 	Settings serverSettings(new File(L"server.properties"));
-	wstring configuredBindIp = serverSettings.getString(L"server-ip", L"");
+	//wstring configuredBindIp = serverSettings.getString(L"server-ip", L"");
 
-	const char* bindIp = "*";
-	if (g_Win64DedicatedServerBindIP[0] != 0)
-	{
-		bindIp = g_Win64DedicatedServerBindIP;
-	}
-	else if (!configuredBindIp.empty())
-	{
-		bindIp = wstringtochararray(configuredBindIp);
-	}
+	//const char* bindIp = "*";
+	//if (g_Win64DedicatedServerBindIP[0] != 0)
+	//{
+	//	bindIp = g_Win64DedicatedServerBindIP;
+	//}
+	//else if (!configuredBindIp.empty())
+	//{
+	//	bindIp = wstringtochararray(configuredBindIp);
+	//}
 
-	const int port = g_Win64DedicatedServerPort > 0 ? g_Win64DedicatedServerPort : serverSettings.getInt(L"server-port", WIN64_NET_DEFAULT_PORT);
+	//const int port = g_Win64DedicatedServerPort > 0 ? g_Win64DedicatedServerPort : serverSettings.getInt(L"server-port", WIN64_NET_DEFAULT_PORT);
 
-	printf("Starting headless server on %s:%d\n", bindIp, port);
+	printf("Starting headless server on Relay Server");
 	fflush(stdout);
 
 	Minecraft* pMinecraft = InitialiseMinecraftRuntime();
@@ -1085,12 +1056,12 @@ static int RunHeadlessServer()
 	app.SetGameHostOption(eGameHostOption_HostCanFly, 1);
 	app.SetGameHostOption(eGameHostOption_HostCanChangeHunger, 1);
 	app.SetGameHostOption(eGameHostOption_HostCanBeInvisible, 1);
-	app.SetGameHostOption(eGameHostOption_MobGriefing, 1);
-	app.SetGameHostOption(eGameHostOption_KeepInventory, 0);
+	app.SetGameHostOption(eGameHostOption_MobGriefing, serverSettings.getBoolean(L"mob-griefing", false) ? 1 : 0);
+	app.SetGameHostOption(eGameHostOption_KeepInventory, serverSettings.getBoolean(L"keep-inventory", false) ? 1 : 0);
 	app.SetGameHostOption(eGameHostOption_DoMobSpawning, 1);
 	app.SetGameHostOption(eGameHostOption_DoMobLoot, 1);
 	app.SetGameHostOption(eGameHostOption_DoTileDrops, 1);
-	app.SetGameHostOption(eGameHostOption_NaturalRegeneration, 1);
+	app.SetGameHostOption(eGameHostOption_NaturalRegeneration, serverSettings.getBoolean(L"natural-regeneration", true) ? 1 : 0);
 	app.SetGameHostOption(eGameHostOption_DoDaylightCycle, 1);
 
 	MinecraftServer::resetFlags();
@@ -1098,15 +1069,39 @@ static int RunHeadlessServer()
 
 	if (!WinsockNetLayer::IsActive())
 	{
-		fprintf(stderr, "Failed to bind the server socket on %s:%d.\n", bindIp, port);
+		//fprintf(stderr, "Failed to bind the server socket on %s:%d.\n", bindIp, port);
+		fprintf(stderr, "Winsock Failed To Bind\n");
 		return 1;
 	}
 
 	g_NetworkManager.FakeLocalPlayerJoined();
 
 	NetworkGameInitData* param = new NetworkGameInitData();
-	param->seed = 0;
+	param->seed = serverSettings.getInt(L"seed", 0);
 	param->settings = app.GetGameHostOption(eGameHostOption_All);
+
+	wchar_t exePath[MAX_PATH] = {};
+	GetModuleFileNameW(NULL, exePath, MAX_PATH);
+
+	wchar_t* lastSlash = wcsrchr(exePath, L'\\');
+	if (lastSlash) {
+		*(lastSlash + 1) = L'\0'; // keep trailing slash
+	}
+
+	wchar_t filePath[MAX_PATH] = {};
+	_snwprintf_s(filePath, sizeof(filePath), _TRUNCATE, L"%sWindows64\\GameHDD\\saveData.ms", exePath);
+
+	File* saveFile = new File(filePath);
+
+	__int64 fileSize = saveFile->length();
+	FileInputStream fis(*saveFile);
+	byteArray ba(fileSize);
+	fis.read(ba);
+	fis.close();
+
+	LoadSaveDataThreadParam* saveData = new LoadSaveDataThreadParam(ba.data, ba.length, saveFile->getName());
+
+	param->saveData = saveData;
 
 	g_NetworkManager.ServerStoppedCreate(true);
 	g_NetworkManager.ServerReadyCreate(true);
@@ -1128,7 +1123,7 @@ static int RunHeadlessServer()
 	app.SetGameStarted(true);
 	g_NetworkManager.DoWork();
 
-	printf("Server ready on %s:%d\n", bindIp, port);
+	//printf("Server ready on %s:%d\n", bindIp, port);
 	printf("Type 'help' for server commands.\n");
 	fflush(stdout);
 
@@ -1165,6 +1160,8 @@ static int RunHeadlessServer()
 	return 0;
 }
 
+void StartGame(Win64LaunchOptions launchOptions, bool nCmdShow);
+
 int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 					   _In_opt_ HINSTANCE hPrevInstance,
 					   _In_ LPTSTR    lpCmdLine,
@@ -1186,72 +1183,64 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	g_iScreenWidth = GetSystemMetrics(SM_CXSCREEN);
 	g_iScreenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-	// Load username from username.txt
-    char exePath[MAX_PATH] = {};
-    GetModuleFileNameA(NULL, exePath, MAX_PATH);
-    char *lastSlash = strrchr(exePath, '\\');
-    if (lastSlash)
-    {
-        *(lastSlash + 1) = '\0';
-    }
-
-    char filePath[MAX_PATH] = {};
-    _snprintf_s(filePath, sizeof(filePath), _TRUNCATE, "%susername.txt", exePath);
-
-    FILE *f = nullptr;
-    if (fopen_s(&f, filePath, "r") == 0 && f)
-    {
-        char buf[128] = {};
-        if (fgets(buf, sizeof(buf), f))
-        {
-            int len = (int)strlen(buf);
-            while (len > 0 && (buf[len - 1] == '\n' || buf[len - 1] == '\r' || buf[len - 1] == ' '))
-            {
-                buf[--len] = '\0';
-            }
-
-            if (len > 0)
-            {
-                strncpy_s(g_Win64Username, sizeof(g_Win64Username), buf, _TRUNCATE);
-            }
-        }
-        fclose(f);
-    }
-
 	// Load stuff from launch options, including username
 	Win64LaunchOptions launchOptions = ParseLaunchOptions();
 	ApplyScreenMode(launchOptions.screenMode);
 
+	hMyInst = hInstance;
+
+	if (launchOptions.serverMode) {
+		StartGame(launchOptions, nCmdShow);
+	} else {
+		Windows64Launcher::CreateLauncherWindow(hInstance, [launchOptions, nCmdShow]() {
+			const char* username = Windows64Launcher::GetUsername().c_str();
+			strncpy_s(g_Win64Username, sizeof(g_Win64Username), username, _TRUNCATE);
+			MultiByteToWideChar(CP_ACP, 0, g_Win64Username, -1, g_Win64UsernameW, 17);
+
+			StartGame(launchOptions, nCmdShow);
+		});
+	}
+}
+
+void StartGame(Win64LaunchOptions launchOptions, bool nCmdShow) {
 	// Ensure uid.dat exists from startup in client mode (before any multiplayer/login path).
-	if (!launchOptions.serverMode)
-	{
-		Win64Xuid::ResolvePersistentXuid();
+	if (launchOptions.serverMode) {
+		std::string authenticationToken = "";
+		std::string username = "";
+
+		if (Windows64Launcher::GetAuthenticationData(authenticationToken, username)) {
+			Windows64Launcher::GetAuthenticationDataAndSave();
+			int responseState = Windows64Launcher::API_GetAccountInfo(authenticationToken);
+			if (responseState == 0) {
+				std::string fullName = std::string("[SERVER]-" + username);
+				strncpy_s(g_Win64Username, sizeof(g_Win64Username), fullName.c_str(), _TRUNCATE);
+			}
+			else {
+				MessageBoxW(g_hWnd, L"Unable To Connect To Saved Account", L"Dedicated Login Failed", MB_OK);
+			}
+		}
+		else {
+			MessageBoxW(g_hWnd, L"Unable To Connect To Saved Account", L"Dedicated Login Failed", MB_OK);
+		}
 	}
 
-	// If no username, let's fall back
-	if (g_Win64Username[0] == 0)
-	{
-        // Default username will be "Player"
-        strncpy_s(g_Win64Username, sizeof(g_Win64Username), "Player", _TRUNCATE);
-	}
+	if (g_Win64Username[0] == 0) return;
 
 	MultiByteToWideChar(CP_ACP, 0, g_Win64Username, -1, g_Win64UsernameW, 17);
 
 	// Initialize global strings
-	MyRegisterClass(hInstance);
+	MyRegisterClass(hMyInst);
 
 	// Perform application initialization:
-	if (!InitInstance (hInstance, launchOptions.serverMode ? SW_HIDE : nCmdShow))
+	if (!InitInstance(hMyInst, launchOptions.serverMode ? SW_HIDE : nCmdShow))
 	{
-		return FALSE;
+		return;
 	}
 
-	hMyInst=hInstance;
-
-	if( FAILED( InitDevice() ) )
+	if (FAILED(InitDevice()))
 	{
 		CleanupDevice();
-		return 0;
+		return;
 	}
 
 	// Restore fullscreen state from previous session
@@ -1264,18 +1253,18 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	{
 		int serverResult = RunHeadlessServer();
 		CleanupDevice();
-		return serverResult;
+		return;
 	}
 
 #if 0
 	// Main message loop
-	MSG msg = {0};
-	while( WM_QUIT != msg.message )
+	MSG msg = { 0 };
+	while (WM_QUIT != msg.message)
 	{
-		if( PeekMessage( &msg, NULL, 0, 0, PM_REMOVE ) )
+		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
-			TranslateMessage( &msg );
-			DispatchMessage( &msg );
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
 		}
 		else
 		{
@@ -1283,47 +1272,47 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		}
 	}
 
-	return (int) msg.wParam;
+	return (int)msg.wParam;
 #endif
 
-	static bool bTrialTimerDisplayed=true;
+	static bool bTrialTimerDisplayed = true;
 
 #ifdef MEMORY_TRACKING
 	ResetMem();
 	MEMORYSTATUS memStat;
 	GlobalMemoryStatus(&memStat);
-	printf("RESETMEM start: Avail. phys %d\n",memStat.dwAvailPhys/(1024*1024));
+	printf("RESETMEM start: Avail. phys %d\n", memStat.dwAvailPhys / (1024 * 1024));
 #endif
 
 #if 0
 	// Initialize D3D
-	hr = InitD3D( &pDevice, &d3dpp );
+	hr = InitD3D(&pDevice, &d3dpp);
 	g_pD3DDevice = pDevice;
-	if( FAILED(hr) )
+	if (FAILED(hr))
 	{
 		app.DebugPrintf
-			( "Failed initializing D3D.\n" );
+		("Failed initializing D3D.\n");
 		return -1;
 	}
 
 	// Initialize the application, assuming sharing of the d3d interface.
-	hr = app.InitShared( pDevice, &d3dpp,
-		XuiPNGTextureLoader );
+	hr = app.InitShared(pDevice, &d3dpp,
+		XuiPNGTextureLoader);
 
-	if ( FAILED(hr) )
+	if (FAILED(hr))
 	{
 		app.DebugPrintf
-			( "Failed initializing application.\n" );
+		("Failed initializing application.\n");
 
 		return -1;
 	}
 
 #endif
-	Minecraft *pMinecraft = InitialiseMinecraftRuntime();
+	Minecraft* pMinecraft = InitialiseMinecraftRuntime();
 	if (pMinecraft == NULL)
 	{
 		CleanupDevice();
-		return 1;
+		return;
 	}
 
 	//app.TemporaryCreateGameStart();
@@ -1331,14 +1320,14 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	//Sleep(10000);
 #if 0
 	// Intro loop ?
-	while(app.IntroRunning())
+	while (app.IntroRunning())
 	{
 		ProfileManager.Tick();
 		// Tick XUI
 		app.RunFrame();
 
 		// 4J : WESTY : Added to ensure we always have clear background for intro.
-		RenderManager.SetClearColour(D3DCOLOR_RGBA(0,0,0,255));
+		RenderManager.SetClearColour(D3DCOLOR_RGBA(0, 0, 0, 255));
 		RenderManager.Clear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// Render XUI
@@ -1351,24 +1340,24 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		hr = XuiTimersRun();
 	}
 #endif
-	MSG msg = {0};
-	while( WM_QUIT != msg.message && !app.m_bShutdown)
+	MSG msg = { 0 };
+	while (WM_QUIT != msg.message && !app.m_bShutdown)
 	{
 		g_KBMInput.Tick();
 
-		while( PeekMessage( &msg, NULL, 0, 0, PM_REMOVE ) )
+		while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
-			TranslateMessage( &msg );
-			DispatchMessage( &msg );
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
 			if (msg.message == WM_QUIT) break;
 		}
 		if (msg.message == WM_QUIT) break;
 
 		RenderManager.StartFrame();
 #if 0
-		if(pMinecraft->soundEngine->isStreamingWavebankReady() &&
+		if (pMinecraft->soundEngine->isStreamingWavebankReady() &&
 			!pMinecraft->soundEngine->isPlayingStreamingGameMusic() &&
-			!pMinecraft->soundEngine->isPlayingStreamingCDMusic() )
+			!pMinecraft->soundEngine->isPlayingStreamingCDMusic())
 		{
 			// play some music in the menus
 			pMinecraft->soundEngine->playStreaming(L"", 0, 0, 0, 0, 0, false);
@@ -1383,7 +1372,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		// 		}
 
 		app.UpdateTime();
-		PIXBeginNamedEvent(0,"Input manager tick");
+		PIXBeginNamedEvent(0, "Input manager tick");
 		InputManager.Tick();
 
 		// Detect KBM vs controller input mode
@@ -1414,48 +1403,48 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		}
 
 		PIXEndNamedEvent();
-		PIXBeginNamedEvent(0,"Profile manager tick");
+		PIXBeginNamedEvent(0, "Profile manager tick");
 		//		ProfileManager.Tick();
 		PIXEndNamedEvent();
-		PIXBeginNamedEvent(0,"Storage manager tick");
+		PIXBeginNamedEvent(0, "Storage manager tick");
 		StorageManager.Tick();
 		PIXEndNamedEvent();
-		PIXBeginNamedEvent(0,"Render manager tick");
+		PIXBeginNamedEvent(0, "Render manager tick");
 		RenderManager.Tick();
 		PIXEndNamedEvent();
 
 		// Tick the social networking manager.
-		PIXBeginNamedEvent(0,"Social network manager tick");
+		PIXBeginNamedEvent(0, "Social network manager tick");
 		//		CSocialManager::Instance()->Tick();
 		PIXEndNamedEvent();
 
 		// Tick sentient.
-		PIXBeginNamedEvent(0,"Sentient tick");
+		PIXBeginNamedEvent(0, "Sentient tick");
 		MemSect(37);
 		//		SentientManager.Tick();
 		MemSect(0);
 		PIXEndNamedEvent();
 
-		PIXBeginNamedEvent(0,"Network manager do work #1");
+		PIXBeginNamedEvent(0, "Network manager do work #1");
 		g_NetworkManager.DoWork();
 		PIXEndNamedEvent();
 
 		//		LeaderboardManager::Instance()->Tick();
 		// Render game graphics.
-		if(app.GetGameStarted())
+		if (app.GetGameStarted())
 		{
 			pMinecraft->applyFrameMouseLook();  // Per-frame mouse look (before ticks + render)
 			pMinecraft->run_middle();
-			app.SetAppPaused( g_NetworkManager.IsLocalGame() && g_NetworkManager.GetPlayerCount() == 1 && ui.IsPauseMenuDisplayed(ProfileManager.GetPrimaryPad()) );
+			app.SetAppPaused(g_NetworkManager.IsLocalGame() && g_NetworkManager.GetPlayerCount() == 1 && ui.IsPauseMenuDisplayed(ProfileManager.GetPrimaryPad()));
 		}
 		else
 		{
 			MemSect(28);
 			pMinecraft->soundEngine->tick(NULL, 0.0f);
 			MemSect(0);
-			pMinecraft->textures->tick(true,false);
+			pMinecraft->textures->tick(true, false);
 			IntCache::Reset();
-			if( app.GetReallyChangingSessionType() )
+			if (app.GetReallyChangingSessionType())
 			{
 				pMinecraft->tickAllConnections();		// Added to stop timing out when we are waiting after converting to an offline game
 			}
@@ -1469,28 +1458,28 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 		MemPixStuff();
 
-		if( bResetMemTrack )
+		if (bResetMemTrack)
 		{
 			ResetMem();
 			MEMORYSTATUS memStat;
 			GlobalMemoryStatus(&memStat);
-			printf("RESETMEM: Avail. phys %d\n",memStat.dwAvailPhys/(1024*1024));
+			printf("RESETMEM: Avail. phys %d\n", memStat.dwAvailPhys / (1024 * 1024));
 			bResetMemTrack = false;
 		}
 
-		if( bDumpMemTrack )
+		if (bDumpMemTrack)
 		{
 			DumpMem();
 			bDumpMemTrack = false;
 			MEMORYSTATUS memStat;
 			GlobalMemoryStatus(&memStat);
-			printf("DUMPMEM: Avail. phys %d\n",memStat.dwAvailPhys/(1024*1024));
-			printf("Renderer used: %d\n",RenderManager.CBuffSize(-1));
+			printf("DUMPMEM: Avail. phys %d\n", memStat.dwAvailPhys / (1024 * 1024));
+			printf("Renderer used: %d\n", RenderManager.CBuffSize(-1));
 		}
 #endif
 #if 0
 		static bool bDumpTextureUsage = false;
-		if( bDumpTextureUsage )
+		if (bDumpTextureUsage)
 		{
 			RenderManager.TextureGetStats();
 			bDumpTextureUsage = false;
@@ -1502,36 +1491,36 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		app.HandleButtonPresses();
 
 		// store the minecraft renderstates, and re-set them after the xui render
-		GetRenderAndSamplerStates(pDevice,RenderStateA,SamplerStateA);
+		GetRenderAndSamplerStates(pDevice, RenderStateA, SamplerStateA);
 
 		// Tick XUI
-		PIXBeginNamedEvent(0,"Xui running");
+		PIXBeginNamedEvent(0, "Xui running");
 		app.RunFrame();
 		PIXEndNamedEvent();
 
 		// Render XUI
 
-		PIXBeginNamedEvent(0,"XUI render");
+		PIXBeginNamedEvent(0, "XUI render");
 		MemSect(7);
 		hr = app.Render();
 		MemSect(0);
-		GetRenderAndSamplerStates(pDevice,RenderStateA2,SamplerStateA2);
+		GetRenderAndSamplerStates(pDevice, RenderStateA2, SamplerStateA2);
 		PIXEndNamedEvent();
 
-		for(int i=0;i<8;i++)
+		for (int i = 0; i < 8; i++)
 		{
-			if(RenderStateA2[i]!=RenderStateA[i])
+			if (RenderStateA2[i] != RenderStateA[i])
 			{
 				//printf("Reseting RenderStateA[%d] after a XUI render\n",i);
-				pDevice->SetRenderState(RenderStateModes[i],RenderStateA[i]);
+				pDevice->SetRenderState(RenderStateModes[i], RenderStateA[i]);
 			}
 		}
-		for(int i=0;i<5;i++)
+		for (int i = 0; i < 5; i++)
 		{
-			if(SamplerStateA2[i]!=SamplerStateA[i])
+			if (SamplerStateA2[i] != SamplerStateA[i])
 			{
 				//printf("Reseting SamplerStateA[%d] after a XUI render\n",i);
-				pDevice->SetSamplerState(0,SamplerStateModes[i],SamplerStateA[i]);
+				pDevice->SetSamplerState(0, SamplerStateModes[i], SamplerStateA[i]);
 			}
 		}
 
@@ -1550,7 +1539,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 			if (g_KBMInput.IsKeyPressed(VK_LMENU) || g_KBMInput.IsKeyPressed(VK_RMENU))
 			{
 				if (g_KBMInput.IsMouseGrabbed()) { g_KBMInput.SetMouseGrabbed(false); altToggleSuppressCapture = true; }
-				else if (shouldCapture)   { g_KBMInput.SetMouseGrabbed(true);  altToggleSuppressCapture = false; }
+				else if (shouldCapture) { g_KBMInput.SetMouseGrabbed(true);  altToggleSuppressCapture = false; }
 			}
 			else if (!shouldCapture)
 			{
@@ -1585,13 +1574,13 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		}
 
 #ifdef _DEBUG_MENUS_ENABLED
-        // F6 Open debug console
-        if (g_KBMInput.IsKeyPressed(VK_F6))
-        {
-        	static bool s_debugConsole = false;
-        	s_debugConsole = !s_debugConsole;
-        	ui.ShowUIDebugConsole(s_debugConsole);
-        }
+		// F6 Open debug console
+		if (g_KBMInput.IsKeyPressed(VK_F6))
+		{
+			static bool s_debugConsole = false;
+			s_debugConsole = !s_debugConsole;
+			ui.ShowUIDebugConsole(s_debugConsole);
+		}
 #endif
 
 		// F11 Toggle fullscreen
@@ -1614,35 +1603,36 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 #if 0
 		// has the game defined profile data been changed (by a profile load)
-		if(app.uiGameDefinedDataChangedBitmask!=0)
+		if (app.uiGameDefinedDataChangedBitmask != 0)
 		{
-			void *pData;
-			for(int i=0;i<XUSER_MAX_COUNT;i++)
+			void* pData;
+			for (int i = 0; i < XUSER_MAX_COUNT; i++)
 			{
-				if(app.uiGameDefinedDataChangedBitmask&(1<<i))
-				{\
-				// It has - game needs to update its values with the data from the profile
-				pData=ProfileManager.GetGameDefinedProfileData(i);
-				// reset the changed flag
-				app.ClearGameSettingsChangedFlag(i);
-				app.DebugPrintf("***  - APPLYING GAME SETTINGS CHANGE for pad %d\n",i);
-				app.ApplyGameSettingsChanged(i);
+				if (app.uiGameDefinedDataChangedBitmask & (1 << i))
+				{
+					\
+						// It has - game needs to update its values with the data from the profile
+						pData = ProfileManager.GetGameDefinedProfileData(i);
+					// reset the changed flag
+					app.ClearGameSettingsChangedFlag(i);
+					app.DebugPrintf("***  - APPLYING GAME SETTINGS CHANGE for pad %d\n", i);
+					app.ApplyGameSettingsChanged(i);
 
 #ifdef _DEBUG_MENUS_ENABLED
-				if(app.DebugSettingsOn())
-				{
-					app.ActionDebugMask(i);
-				}
-				else
-				{
-					// force debug mask off
-					app.ActionDebugMask(i,true);
-				}
+					if (app.DebugSettingsOn())
+					{
+						app.ActionDebugMask(i);
+					}
+					else
+					{
+						// force debug mask off
+						app.ActionDebugMask(i, true);
+					}
 #endif
-				// clear the stats first - there could have beena signout and sign back in in the menus
-				// need to clear the player stats - can't assume it'll be done in setlevel - we may not be in the game
-				pMinecraft->stats[ i ]->clear();
-				pMinecraft->stats[i]->parse(pData);
+					// clear the stats first - there could have beena signout and sign back in in the menus
+					// need to clear the player stats - can't assume it'll be done in setlevel - we may not be in the game
+					pMinecraft->stats[i]->clear();
+					pMinecraft->stats[i]->parse(pData);
 				}
 			}
 
@@ -1650,7 +1640,7 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 			CSocialManager::Instance()->RefreshPostingCapability();
 
 			// clear the flag
-			app.uiGameDefinedDataChangedBitmask=0;
+			app.uiGameDefinedDataChangedBitmask = 0;
 
 			// Check if any profile write are needed
 			app.CheckGameSettingsChanged();
@@ -1659,11 +1649,11 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		app.TickDLCOffersRetrieved();
 		app.TickTMSPPFilesRetrieved();
 
-		PIXBeginNamedEvent(0,"Network manager do work #2");
+		PIXBeginNamedEvent(0, "Network manager do work #2");
 		g_NetworkManager.DoWork();
 		PIXEndNamedEvent();
 
-		PIXBeginNamedEvent(0,"Misc extra xui");
+		PIXBeginNamedEvent(0, "Misc extra xui");
 		// Update XUI Timers
 		hr = XuiTimersRun();
 
@@ -1676,13 +1666,13 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 #endif
 
 		// 4J-PB - Update the trial timer display if we are in the trial version
-		if(!ProfileManager.IsFullVersion())
+		if (!ProfileManager.IsFullVersion())
 		{
 			// display the trial timer
-			if(app.GetGameStarted())
+			if (app.GetGameStarted())
 			{
 				// 4J-PB - if the game is paused, add the elapsed time to the trial timer count so it doesn't tick down
-				if(app.IsAppPaused())
+				if (app.IsAppPaused())
 				{
 					app.UpdateTrialPausedTimer();
 				}
@@ -1692,10 +1682,10 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		else
 		{
 			// need to turn off the trial timer if it was on , and we've unlocked the full version
-			if(bTrialTimerDisplayed)
+			if (bTrialTimerDisplayed)
 			{
 				ui.ShowTrialTimer(false);
-				bTrialTimerDisplayed=false;
+				bTrialTimerDisplayed = false;
 			}
 		}
 

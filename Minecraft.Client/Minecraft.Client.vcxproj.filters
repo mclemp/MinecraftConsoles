@@ -3790,6 +3790,15 @@
     <ClInclude Include="Common\Audio\stb_vorbis.h">
       <Filter>Common\Source Files\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="Windows64\Network\json.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows64\Windows64_Launcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Windows64\Windows64_NameXuid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -5945,6 +5954,9 @@
     </ClCompile>
     <ClCompile Include="Common\Filesystem\Filesystem.cpp">
       <Filter>Common\Source Files\Filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Windows64\Windows64_Launcher.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

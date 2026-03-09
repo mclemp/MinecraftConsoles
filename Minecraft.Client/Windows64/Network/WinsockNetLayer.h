@@ -7,12 +7,21 @@
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <vector>
+#include <string>
+#include <winhttp.h>
 #include "..\..\Common\Network\NetworkPlayerInterface.h"
 
 #pragma comment(lib, "Ws2_32.lib")
+#pragma comment(lib, "winhttp.lib")
+
+struct HttpResponse {
+	int status;
+	std::string body;
+};
 
 #define WIN64_NET_DEFAULT_PORT 25565
-#define WIN64_NET_MAX_CLIENTS 7
+#define WIN64_NET_MAX_CLIENTS 255
+#define WIN64_SMALLID_REJECT 0xFF
 #define WIN64_NET_RECV_BUFFER_SIZE 65536
 #define WIN64_NET_MAX_PACKET_SIZE (4 * 1024 * 1024)
 #define WIN64_LAN_DISCOVERY_PORT 25566
@@ -68,6 +77,8 @@ public:
 	static bool HostGame(int port, const char* bindIp = NULL);
 	static bool JoinGame(const char* ip, int port);
 
+	static HttpResponse DoWinHttpRequest(const std::wstring& path, const wchar_t* method, const std::string& requestData, const std::vector<std::wstring>& headers);
+
 	static bool SendToSmallId(BYTE targetSmallId, const void* data, int dataSize);
 	static bool SendOnSocket(SOCKET sock, const void* data, int dataSize);
 
@@ -89,6 +100,7 @@ public:
 	static bool StartAdvertising(int gamePort, const wchar_t* hostName, unsigned int gameSettings, unsigned int texPackId, unsigned char subTexId, unsigned short netVer);
 	static void StopAdvertising();
 	static void UpdateAdvertisePlayerCount(BYTE count);
+	static void UpdateAdvertiseMaxPlayers(BYTE maxPlayers);
 	static void UpdateAdvertiseJoinable(bool joinable);
 
 	static bool StartDiscovery();
@@ -116,14 +128,13 @@ private:
 
 	static BYTE s_localSmallId;
 	static BYTE s_hostSmallId;
-	static BYTE s_nextSmallId;
+	static unsigned int s_nextSmallId;
 
 	static CRITICAL_SECTION s_sendLock;
 	static CRITICAL_SECTION s_connectionsLock;
 
 	static std::vector<Win64RemoteConnection> s_connections;
 
-	static SOCKET s_advertiseSock;
 	static HANDLE s_advertiseThread;
 	static volatile bool s_advertising;
 	static Win64LANBroadcast s_advertiseData;
@@ -141,6 +152,12 @@ private:
 
 	static CRITICAL_SECTION s_freeSmallIdLock;
 	static std::vector<BYTE> s_freeSmallIds;
+
+	static SOCKET s_smallIdToSocket[256];
+	static CRITICAL_SECTION s_smallIdToSocketLock;
+
+public:
+	static void ClearSocketForSmallId(BYTE smallId);
 };
 
 extern bool g_Win64MultiplayerHost;
