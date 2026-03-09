@@ -68,7 +68,7 @@ char g_Win64DedicatedServerBindIP[256] = "";
 
 char g_Win64RelayServerIP[256] = "38.49.215.81";
 wchar_t g_Win64RelayServerIP_Wide[256] = L"38.49.215.81";
-int g_Win64RelayServerPort = 2054;
+int g_Win64RelayServerPort = 2000;
 
 bool WinsockNetLayer::Initialize()
 {
@@ -1133,7 +1133,7 @@ HttpResponse WinsockNetLayer::DoWinHttpRequest(const std::wstring& path, const w
 	HINTERNET hSession = WinHttpOpen(L"Minecraft Client", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
 	if (!hSession) return response;
 
-	HINTERNET hConnect = WinHttpConnect(hSession, g_Win64RelayServerIP_Wide, (g_Win64RelayServerPort - 2), 0);
+	HINTERNET hConnect = WinHttpConnect(hSession, g_Win64RelayServerIP_Wide, (g_Win64RelayServerPort + 2), 0);
 	if (!hConnect) { WinHttpCloseHandle(hSession); return response; }
 
 	HINTERNET hRequest = WinHttpOpenRequest(hConnect, method, path.c_str(), NULL, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, 0);
