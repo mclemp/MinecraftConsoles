@@ -10,6 +10,12 @@
 #include "net.minecraft.world.damagesource.h"
 #include "Boat.h"
 
+#ifdef _WINDOWS64
+#include "../Minecraft.Client/Windows64/Windows64_Launcher.h"
+
+extern bool g_doBoatBreak;
+#endif
+
 const double Boat::MAX_SPEED = 0.35;
 const double Boat::MAX_COLLISION_SPEED = MAX_SPEED * 0.75;
 const double Boat::MIN_ACCELERATION = 0.07;
@@ -314,7 +320,7 @@ void Boat::tick()
 	move(xd, yd, zd);
 
 	// Break boat 
-	if ((horizontalCollision && lastSpeed > 0.20))
+	if ((horizontalCollision && lastSpeed > 0.20) && g_doBoatBreak)
 	{
 		if (!level->isClientSide && !removed)
 		{

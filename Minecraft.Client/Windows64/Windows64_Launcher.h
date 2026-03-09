@@ -4,7 +4,10 @@
 #include <string>
 #include <functional>
 
+extern float g_sleepPercentage;
 extern int g_autosaveInterval;
+
+extern bool g_doBoatBreak;
 
 class Windows64Launcher {
 public:

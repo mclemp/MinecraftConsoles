@@ -1085,6 +1085,12 @@ static int RunHeadlessServer()
 	app.SetGameHostOption(eGameHostOption_NaturalRegeneration, serverSettings.getBoolean(L"natural-regeneration", true) ? 1 : 0);
 	app.SetGameHostOption(eGameHostOption_DoDaylightCycle, 1);
 
+	extern float g_sleepPercentage;
+	g_sleepPercentage = serverSettings.getInt(L"sleep-percentage", 100);
+
+	extern bool g_doBoatBreak;
+	g_doBoatBreak = serverSettings.getBoolean(L"old-boat-break", true);
+
 	std::wstring worldSize = serverSettings.getString(L"world-size", L"classic");
 
 	int worldSize_int = 1; //default to classic
