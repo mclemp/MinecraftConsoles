@@ -1057,7 +1057,10 @@ static int RunHeadlessServer()
 
 	//const int port = g_Win64DedicatedServerPort > 0 ? g_Win64DedicatedServerPort : serverSettings.getInt(L"server-port", WIN64_NET_DEFAULT_PORT);
 
-	printf("Starting headless server on Relay Server");
+	printf("Starting headless server on Relay Server\n");
+	fflush(stdout);
+
+	printf(std::string("Broadcasting To LCE Online Services Using (" + std::string(g_Win64Username) + ")\n").c_str());
 	fflush(stdout);
 
 	Minecraft* pMinecraft = InitialiseMinecraftRuntime();
@@ -1273,8 +1276,8 @@ void StartGame(Win64LaunchOptions launchOptions, bool nCmdShow) {
 		std::string authenticationToken = "";
 		std::string username = "";
 
-		if (Windows64Launcher::GetAuthenticationData(authenticationToken, username)) {
-			Windows64Launcher::GetAuthenticationDataAndSave();
+		if (Windows64Launcher::GetAuthenticationData(authenticationToken, username, true)) {
+			Windows64Launcher::GetAuthenticationDataAndLoad(true);
 			int responseState = Windows64Launcher::API_GetAccountInfo(authenticationToken);
 			if (responseState == 0) {
 				std::string fullName = std::string("[SERVER]-" + username);

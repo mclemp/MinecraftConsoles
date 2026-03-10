@@ -15,8 +15,8 @@ public:
 	static void CreateLauncherWindow(HINSTANCE hInstance, std::function<void()> onLaunch);
 
 	static void SaveAuthenticationData(const std::string& token, const std::string& refreshToken);
-	static bool GetAuthenticationData(std::string& tokenOut, std::string& refreshTokenOut);
-	static bool GetAuthenticationDataAndSave();
+	static bool GetAuthenticationData(std::string& tokenOut, std::string& refreshTokenOut, bool dedicated = false);
+	static bool GetAuthenticationDataAndLoad(bool dedicated = false);
 
 	static int API_GetAccountInfo(const std::string token);
 	static int API_AttemptAccountRegister(const std::string username, const std::string password, std::string& tokenOut);

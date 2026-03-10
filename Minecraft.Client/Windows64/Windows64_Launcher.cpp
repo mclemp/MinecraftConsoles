@@ -496,8 +496,11 @@ std::string GetOrCreateLauncherFolder() {
 	return folder;
 }
 
+bool loadedDedicated = false;
 
 void Windows64Launcher::SaveAuthenticationData(const std::string& token, const std::string& username) {
+	if (loadedDedicated) return;
+
 	std::string folder = GetOrCreateLauncherFolder();
 	std::string file = folder + "\\AccountToken_DoNotShare.dat";
 
@@ -508,27 +511,48 @@ void Windows64Launcher::SaveAuthenticationData(const std::string& token, const s
 	out.close();
 }
 
-bool Windows64Launcher::GetAuthenticationData(std::string& tokenOut, std::string& usernameOut) {
-	std::string folder = GetOrCreateLauncherFolder();
-	std::string file = folder + "\\AccountToken_DoNotShare.dat";
+bool Windows64Launcher::GetAuthenticationData(std::string& tokenOut, std::string& usernameOut, bool dedicated)
+{
+	std::ifstream in;
 
-	std::ifstream in(file);
+	if (dedicated) {
+		wchar_t exePath[MAX_PATH] = {};
+		GetModuleFileNameW(NULL, exePath, MAX_PATH);
+
+		wchar_t* lastSlash = wcsrchr(exePath, L'\\');
+		if (lastSlash)
+			*(lastSlash + 1) = L'\0';
+
+		wchar_t filePath[MAX_PATH] = {};
+		_snwprintf_s(filePath, MAX_PATH, _TRUNCATE, L"%sWindows64\\AccountToken_DoNotShare.dat", exePath);
+
+		in.open(filePath);
+
+		loadedDedicated = true;
+	}
+
+	if (!in.is_open()) {
+		std::string folder = GetOrCreateLauncherFolder();
+		std::string file = folder + "\\AccountToken_DoNotShare.dat";
+
+		in.open(file);
+	}
 
 	if (!in.is_open())
 		return false;
 
 	std::getline(in, tokenOut);
 	std::getline(in, usernameOut);
-
 	in.close();
 
-	if (tokenOut.empty()) return false;
+	if (tokenOut.empty())
+		return false;
 
 	return true;
 }
 
-bool Windows64Launcher::GetAuthenticationDataAndSave() {
-	return Windows64Launcher::GetAuthenticationData(authenticationToken, username);
+bool Windows64Launcher::GetAuthenticationDataAndLoad(bool dedicated) {
+	return Windows64Launcher::GetAuthenticationData(authenticationToken, username, dedicated);
 }
 
 std::vector<std::string> split(const std::string& str, char delimiter) {
