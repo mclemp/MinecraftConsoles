@@ -768,6 +768,7 @@ int LevelRenderer::renderChunks(int from, int to, int layer, double alpha)
 	glPushMatrix();
 	glTranslatef((float)-xOff, (float)-yOff, (float)-zOff);
 
+
 #ifdef __PSVITA__
 	// AP - also set the camera position so we can work out if a chunk is fogged or not
 	RenderManager.SetCameraPosition((float)-xOff, (float)-yOff, (float)-zOff);
