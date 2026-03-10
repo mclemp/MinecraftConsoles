@@ -14,24 +14,82 @@
 
 WCHAR *GameRuleManager::wchTagNameA[] =
 {
-	L"", // eGameRuleType_Root
-	L"MapOptions", // eGameRuleType_LevelGenerationOptions
-	L"ApplySchematic", // eGameRuleType_ApplySchematic
-	L"GenerateStructure", // eGameRuleType_GenerateStructure
-	L"GenerateBox", // eGameRuleType_GenerateBox
-	L"PlaceBlock", // eGameRuleType_PlaceBlock
-	L"PlaceContainer", // eGameRuleType_PlaceContainer
-	L"PlaceSpawner", // eGameRuleType_PlaceSpawner
-	L"BiomeOverride", // eGameRuleType_BiomeOverride
-	L"StartFeature", // eGameRuleType_StartFeature
-	L"AddItem", // eGameRuleType_AddItem
-	L"AddEnchantment", // eGameRuleType_AddEnchantment
-	L"LevelRules", // eGameRuleType_LevelRules
-	L"NamedArea", // eGameRuleType_NamedArea
-	L"UseTile", // eGameRuleType_UseTileRule
-	L"CollectItem", // eGameRuleType_CollectItemRule
-	L"CompleteAll", // eGameRuleType_CompleteAllRule
-	L"UpdatePlayer", // eGameRuleType_UpdatePlayerRule
+	L"",                        // eGameRuleType_Root
+	L"MapOptions",              // eGameRuleType_LevelGenerationOptions
+	L"ApplySchematic",          // eGameRuleType_ApplySchematic
+	L"GenerateStructure",       // eGameRuleType_GenerateStructure
+	L"GenerateBox",             // eGameRuleType_GenerateBox
+	L"PlaceBlock",              // eGameRuleType_PlaceBlock
+	L"PlaceContainer",          // eGameRuleType_PlaceContainer
+	L"PlaceSpawner",            // eGameRuleType_PlaceSpawner
+	L"BiomeOverride",           // eGameRuleType_BiomeOverride
+	L"StartFeature",            // eGameRuleType_StartFeature
+	L"AddItem",                 // eGameRuleType_AddItem
+	L"AddEnchantment",          // eGameRuleType_AddEnchantment
+	L"WeighedTreasureItem",     // eGameRuleType_WeighedTreasureItem
+	L"RandomItemSet",           // eGameRuleType_RandomItemSet
+	L"DistributeItems",         // eGameRuleType_DistributeItems
+	L"WorldPosition",           // eGameRuleType_WorldPosition
+	L"LevelRules",              // eGameRuleType_LevelRules
+	L"NamedArea",               // eGameRuleType_NamedArea
+	L"ActiveChunkArea",         // eGameRuleType_ActiveChunkArea
+	L"TargetArea",              // eGameRuleType_TargetArea
+	L"ScoreRing",               // eGameRuleType_ScoreRing
+	L"ThermalArea",             // eGameRuleType_ThermalArea
+	L"PlayerBoundsVolume",      // eGameRuleType_PlayerBoundsVolume
+	L"Killbox",                 // eGameRuleType_Killbox
+	L"BlockLayer",              // eGameRuleType_BlockLayer
+	L"UseTile",                 // eGameRuleType_UseTileRule
+	L"CollectItem",             // eGameRuleType_CollectItemRule
+	L"CompleteAll",             // eGameRuleType_CompleteAllRule
+	L"UpdatePlayer",            // eGameRuleType_UpdatePlayerRule
+	L"OnGameStartSpawnPositions", // eGameRuleType_OnGameStartSpawnPositions
+	L"OnInitialiseWorld",       // eGameRuleType_OnInitialiseWorld
+	L"SpawnPositionSet",        // eGameRuleType_SpawnPositionSet
+	L"PopulateContainer",       // eGameRuleType_PopulateContainer
+	L"DegradationSequence",     // eGameRuleType_DegradationSequence
+	L"RandomDissolveDegrade",   // eGameRuleType_RandomDissolveDegrade
+	L"DirectionalDegrade",      // eGameRuleType_DirectionalDegrade
+	L"GrantPermissions",        // eGameRuleType_GrantPermissions
+	L"AllowIn",                 // eGameRuleType_AllowIn
+	L"LayerGeneration",         // eGameRuleType_LayerGeneration
+	L"LayerAsset",              // eGameRuleType_LayerAsset
+	L"AnyCombinationOf",        // eGameRuleType_AnyCombinationOf
+	L"CombinationDefinition",   // eGameRuleType_CombinationDefinition
+	L"Variations",              // eGameRuleType_Variations
+	L"BlockDef",                // eGameRuleType_BlockDef
+	L"LayerSize",               // eGameRuleType_LayerSize
+	L"UniformSize",             // eGameRuleType_UniformSize
+	L"RandomizeSize",           // eGameRuleType_RandomizeSize
+	L"LinearBlendSize",         // eGameRuleType_LinearBlendSize
+	L"LayerShape",              // eGameRuleType_LayerShape
+	L"BasicShape",              // eGameRuleType_BasicShape
+	L"StarShape",               // eGameRuleType_StarShape
+	L"PatchyShape",             // eGameRuleType_PatchyShape
+	L"RingShape",               // eGameRuleType_RingShape
+	L"SpiralShape",             // eGameRuleType_SpiralShape
+	L"LayerFill",               // eGameRuleType_LayerFill
+	L"BasicLayerFill",          // eGameRuleType_BasicLayerFill
+	L"CurvedLayerFill",         // eGameRuleType_CurvedLayerFill
+	L"WarpedLayerFill",         // eGameRuleType_WarpedLayerFill
+	L"LayerTheme",              // eGameRuleType_LayerTheme
+	L"NullTheme",               // eGameRuleType_NullTheme
+	L"FilterTheme",             // eGameRuleType_FilterTheme
+	L"ShaftsTheme",             // eGameRuleType_ShaftsTheme
+	L"BasicPatchesTheme",       // eGameRuleType_BasicPatchesTheme
+	L"BlockStackTheme",         // eGameRuleType_BlockStackTheme
+	L"RainbowTheme",            // eGameRuleType_RainbowTheme
+	L"TerracottaTheme",         // eGameRuleType_TerracottaTheme
+	L"FunctionPatchesTheme",    // eGameRuleType_FunctionPatchesTheme
+	L"SimplePatchesTheme",      // eGameRuleType_SimplePatchesTheme
+	L"CarpetTrapTheme",         // eGameRuleType_CarpetTrapTheme
+	L"MushroomBlockTheme",      // eGameRuleType_MushroomBlockTheme
+	L"TextureTheme",            // eGameRuleType_TextureTheme
+	L"SchematicTheme",          // eGameRuleType_SchematicTheme
+	L"BlockCollisionException", // eGameRuleType_BlockCollisionException
+	L"Powerup",                 // eGameRuleType_Powerup
+	L"Checkpoint",              // eGameRuleType_Checkpoint
+	L"CustomBeacon",            // eGameRuleType_CustomBeacon
 };
 
 WCHAR *GameRuleManager::wchAttrNameA[] =
@@ -133,7 +191,7 @@ void GameRuleManager::loadGameRules(DLCPack *pack)
 
 		readRuleFile(createdLevelGenerationOptions, dData, dSize, strings);
 
-		createdLevelGenerationOptions->setLoadedData();
+		syntheticHeader->lgo = createdLevelGenerationOptions;
 	}
 }
 
@@ -399,6 +457,9 @@ bool GameRuleManager::readRuleFile(LevelGenerationOptions *lgo, byte *dIn, UINT 
 		for(int i = 0; i < 8; ++i) dis.readBoolean();
 	}
 
+	app.DebugPrintf("[GRF] readRuleFile: version=%lld, compressionType=%d, dataSize=%u\n", version, (int)compressionType, dSize);
+	MC_LOG("[GRF] readRuleFile: version=%lld, compressionType=%d, dataSize=%u", version, (int)compressionType, dSize);
+
 	ByteArrayInputStream *contentBais = NULL;
 	DataInputStream *contentDis = NULL;
 
@@ -413,8 +474,16 @@ bool GameRuleManager::readRuleFile(LevelGenerationOptions *lgo, byte *dIn, UINT 
 	{
 		unsigned int uncompressedSize = dis.readInt();
 		unsigned int compressedSize = dis.readInt();
+		app.DebugPrintf("[GRF] readRuleFile: uncompressedSize=%u, compressedSize=%u\n", uncompressedSize, compressedSize);
+		MC_LOG("[GRF] readRuleFile: uncompressedSize=%u, compressedSize=%u", uncompressedSize, compressedSize);
 		byteArray compressedBuffer(compressedSize);
 		dis.read(compressedBuffer);
+		MC_LOG("[GRF] readRuleFile: read %u compressed bytes, first 8 bytes: %02X %02X %02X %02X %02X %02X %02X %02X",
+			compressedSize,
+			compressedSize > 0 ? compressedBuffer.data[0] : 0, compressedSize > 1 ? compressedBuffer.data[1] : 0,
+			compressedSize > 2 ? compressedBuffer.data[2] : 0, compressedSize > 3 ? compressedBuffer.data[3] : 0,
+			compressedSize > 4 ? compressedBuffer.data[4] : 0, compressedSize > 5 ? compressedBuffer.data[5] : 0,
+			compressedSize > 6 ? compressedBuffer.data[6] : 0, compressedSize > 7 ? compressedBuffer.data[7] : 0);
 
 		byteArray decompressedBuffer = byteArray(uncompressedSize);
 
@@ -430,12 +499,14 @@ bool GameRuleManager::readRuleFile(LevelGenerationOptions *lgo, byte *dIn, UINT 
 			break;
 
 		default:
-			app.DebugPrintf("De-compressing game rules.");
-#ifndef _CONTENT_PACKAGE
-			assert( compressionType == APPROPRIATE_COMPRESSION_TYPE );
-#endif
-			// 4J-JEV: DecompressLZXRLE uses the correct platform specific compression type. (need to assert that the data is compressed with it though).
+			MC_LOG("[GRF] De-compressing game rules with type %d (LZXRLE path)", (int)compressionType);
+			MC_LOG("[GRF] SetDecompressionType(%d)", (int)compressionType);
+			Compression::getCompression()->SetDecompressionType((Compression::ECompressionTypes)compressionType);
+			MC_LOG("[GRF] Calling DecompressLZXRLE: dstLen=%u srcLen=%u", decompressedBuffer.length, compressedSize);
 			Compression::getCompression()->DecompressLZXRLE(decompressedBuffer.data, &decompressedBuffer.length, compressedBuffer.data, compressedSize);
+			MC_LOG("[GRF] DecompressLZXRLE returned. decompressedLen=%u", decompressedBuffer.length);
+			Compression::getCompression()->SetDecompressionType(APPROPRIATE_COMPRESSION_TYPE);
+			MC_LOG("[GRF] SetDecompressionType back to local (%d)", (int)APPROPRIATE_COMPRESSION_TYPE);
 			break;
 /* 4J-JEV:
 	Each platform has only 1 method of compression, 'compression.h' file deals with it.
