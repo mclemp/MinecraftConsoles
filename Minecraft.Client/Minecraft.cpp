@@ -2039,11 +2039,12 @@ void Minecraft::run_middle()
 			//pause = g_NetworkManager.IsLocalGame() && g_NetworkManager.GetPlayerCount() == 1 && app.IsPauseMenuDisplayed(ProfileManager.GetPrimaryPad());
 			pause = app.IsAppPaused();
 
-#ifndef _CONTENT_PACKAGE
+#ifdef _FINAL_BUILD
 			while (System::nanoTime() >= lastTime + 1000000000)
 			{
 				MemSect(31);
-				fpsString = std::to_wstring(frames) + L" fps, " + std::to_wstring(Chunk::updates) + L" chunk updates";
+				fpsString = std::to_wstring(frames) + L" FPS";
+				chunkupdateString = std::to_wstring(Chunk::updates) + L" Chunk Updates";
 				MemSect(0);
 				Chunk::updates = 0;
 				lastTime += 1000000000;
