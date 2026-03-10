@@ -7,13 +7,13 @@
 #include "..\..\ItemRenderer.h"
 #include "..\..\..\Minecraft.World\net.minecraft.world.item.h"
 
-UIScene::UIScene(int iPad, UILayer *parentLayer)
+UIScene::UIScene(int iPad, UILayer* parentLayer)
 {
 	m_parentLayer = parentLayer;
 	m_iPad = iPad;
 	swf = NULL;
 	m_pItemRenderer = NULL;
-	
+
 	bHasFocus = false;
 	m_hasTickedOnce = false;
 	m_bFocussedOnce = false;
@@ -27,7 +27,7 @@ UIScene::UIScene(int iPad, UILayer *parentLayer)
 	m_bUpdateOpacity = false;
 
 	m_backScene = NULL;
-	
+
 	m_cacheSlotRenders = false;
 	m_needsCacheRendered = true;
 	m_expectedCachedSlotCount = 0;
@@ -37,25 +37,25 @@ UIScene::UIScene(int iPad, UILayer *parentLayer)
 UIScene::~UIScene()
 {
 	/* Destroy the Iggy player. */
-	IggyPlayerDestroy( swf );
+	IggyPlayerDestroy(swf);
 
-	for(AUTO_VAR(it,m_registeredTextures.begin()); it != m_registeredTextures.end(); ++it)
+	for (auto& it : m_registeredTextures)
 	{
-		ui.unregisterSubstitutionTexture( it->first, it->second );
+		ui.unregisterSubstitutionTexture(it.first, it.second);
 	}
 
-	if(m_callbackUniqueId != 0)
+	if (m_callbackUniqueId != 0)
 	{
 		ui.UnregisterCallbackId(m_callbackUniqueId);
 	}
 
-	if(m_pItemRenderer != NULL) delete m_pItemRenderer;
+	if (m_pItemRenderer != NULL) delete m_pItemRenderer;
 }
 
 void UIScene::destroyMovie()
 {
 	/* Destroy the Iggy player. */
-	IggyPlayerDestroy( swf );
+	IggyPlayerDestroy(swf);
 	swf = NULL;
 
 	// Clear out the controls collection (doesn't delete the controls, and they get re-setup later)
@@ -67,13 +67,13 @@ void UIScene::destroyMovie()
 
 void UIScene::reloadMovie(bool force)
 {
-	if(!force && (stealsFocus() && (getSceneType() != eUIScene_FullscreenProgress && !bHasFocus))) return;
+	if (!force && (stealsFocus() && (getSceneType() != eUIScene_FullscreenProgress && !bHasFocus))) return;
 
 	m_bIsReloading = true;
-	if(swf)
+	if (swf)
 	{
 		/* Destroy the Iggy player. */
-		IggyPlayerDestroy( swf );
+		IggyPlayerDestroy(swf);
 
 		// Clear out the controls collection (doesn't delete the controls, and they get re-setup later)
 		m_controls.clear();
@@ -88,21 +88,21 @@ void UIScene::reloadMovie(bool force)
 	handlePreReload();
 
 	// Reload controls
-	for(AUTO_VAR(it, m_controls.begin()); it != m_controls.end(); ++it)
+	for (auto& it : m_controls)
 	{
-		(*it)->ReInit();
+		it->ReInit();
 	}
 
 	updateComponents();
 	handleReload();
-	
+
 	IggyDataValue result;
 	IggyDataValue value[1];
 
 	value[0].type = IGGY_DATATYPE_number;
 	value[0].number = m_iFocusControl;
 
-	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSetFocus , 1 , value );
+	IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcSetFocus, 1, value);
 
 	m_needsCacheRendered = true;
 	m_bIsReloading = false;
@@ -125,7 +125,7 @@ F64 UIScene::getSafeZoneHalfHeight()
 	float safeHeight = 0.0f;
 
 #ifndef __PSVITA__
-	if( !RenderManager.IsHiDef() && RenderManager.IsWidescreen() )
+	if (!RenderManager.IsHiDef() && RenderManager.IsWidescreen())
 	{
 		// 90% safezone
 		safeHeight = height * (0.15f / 2);
@@ -145,7 +145,7 @@ F64 UIScene::getSafeZoneHalfWidth()
 
 	float safeWidth = 0.0f;
 #ifndef __PSVITA__
-	if( !RenderManager.IsHiDef() && RenderManager.IsWidescreen() )
+	if (!RenderManager.IsHiDef() && RenderManager.IsWidescreen())
 	{
 		// 85% safezone
 		safeWidth = width * (0.15f / 2);
@@ -167,7 +167,7 @@ void UIScene::updateSafeZone()
 	F64 safeLeft = 0.0;
 	F64 safeRight = 0.0;
 
-	switch( m_parentLayer->getViewport() )
+	switch (m_parentLayer->getViewport())
 	{
 	case C4JRender::VIEWPORT_TYPE_SPLIT_TOP:
 		safeTop = getSafeZoneHalfHeight();
@@ -221,7 +221,7 @@ void UIScene::setSafeZone(S32 safeTop, S32 safeBottom, S32 safeLeft, S32 safeRig
 	value[2].number = safeLeft;
 	value[3].type = IGGY_DATATYPE_number;
 	value[3].number = safeRight;
-	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSetSafeZone , 4 , value );
+	IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcSetSafeZone, 4, value);
 }
 
 void UIScene::initialiseMovie()
@@ -234,7 +234,7 @@ void UIScene::initialiseMovie()
 	m_bUpdateOpacity = true;
 }
 
-#ifdef __PSVITA__
+#if defined(__PSVITA__) || defined(_WINDOWS64)
 void UIScene::SetFocusToElement(int iID)
 {
 	IggyDataValue result;
@@ -243,7 +243,7 @@ void UIScene::SetFocusToElement(int iID)
 	value[0].type = IGGY_DATATYPE_number;
 	value[0].number = iID;
 
-	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSetFocus , 1 , value );
+	IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcSetFocus, 1, value);
 
 	// also trigger handle focus change (just in case if anything else in relation needs updating!)
 	_handleFocusChange(iID, 0);
@@ -252,15 +252,15 @@ void UIScene::SetFocusToElement(int iID)
 
 bool UIScene::mapElementsAndNames()
 {
-	m_rootPath = IggyPlayerRootPath( swf );
+	m_rootPath = IggyPlayerRootPath(swf);
 
-	m_funcRemoveObject = registerFastName( L"RemoveObject" );
-	m_funcSlideLeft = registerFastName( L"SlideLeft" );
-	m_funcSlideRight = registerFastName( L"SlideRight" );
-	m_funcSetSafeZone = registerFastName( L"SetSafeZone" );
-	m_funcSetAlpha = registerFastName( L"SetAlpha" );
-	m_funcSetFocus = registerFastName( L"SetFocus" );
-	m_funcHorizontalResizeCheck = registerFastName( L"DoHorizontalResizeCheck");
+	m_funcRemoveObject = registerFastName(L"RemoveObject");
+	m_funcSlideLeft = registerFastName(L"SlideLeft");
+	m_funcSlideRight = registerFastName(L"SlideRight");
+	m_funcSetSafeZone = registerFastName(L"SetSafeZone");
+	m_funcSetAlpha = registerFastName(L"SetAlpha");
+	m_funcSetFocus = registerFastName(L"SetFocus");
+	m_funcHorizontalResizeCheck = registerFastName(L"DoHorizontalResizeCheck");
 	return true;
 }
 
@@ -271,7 +271,7 @@ void UIScene::loadMovie()
 	wstring moviePath = getMoviePath();
 
 #ifdef __PS3__
-	if(RenderManager.IsWidescreen())
+	if (RenderManager.IsWidescreen())
 	{
 		moviePath.append(L"720.swf");
 		m_loadedResolution = eSceneResolution_720;
@@ -285,17 +285,17 @@ void UIScene::loadMovie()
 	moviePath.append(L"Vita.swf");
 	m_loadedResolution = eSceneResolution_Vita;
 #elif defined _WINDOWS64
-	if(ui.getScreenHeight() == 720)
+	if (ui.getScreenHeight() == 720)
 	{
 		moviePath.append(L"720.swf");
 		m_loadedResolution = eSceneResolution_720;
 	}
-	else if(ui.getScreenHeight() == 480)
+	else if (ui.getScreenHeight() == 480)
 	{
 		moviePath.append(L"480.swf");
 		m_loadedResolution = eSceneResolution_480;
 	}
-	else if(ui.getScreenHeight() < 720)
+	else if (ui.getScreenHeight() < 720)
 	{
 		moviePath.append(L"Vita.swf");
 		m_loadedResolution = eSceneResolution_Vita;
@@ -310,7 +310,7 @@ void UIScene::loadMovie()
 	m_loadedResolution = eSceneResolution_1080;
 #endif
 
-	if(!app.hasArchiveFile(moviePath))
+	if (!app.hasArchiveFile(moviePath))
 	{
 		app.DebugPrintf("WARNING: Could not find iggy movie %ls, falling back on 720\n", moviePath.c_str());
 
@@ -318,7 +318,7 @@ void UIScene::loadMovie()
 		moviePath.append(L"720.swf");
 		m_loadedResolution = eSceneResolution_720;
 
-		if(!app.hasArchiveFile(moviePath))
+		if (!app.hasArchiveFile(moviePath))
 		{
 			app.DebugPrintf("ERROR: Could not find any iggy movie for %ls!\n", moviePath.c_str());
 #ifndef _CONTENT_PACKAGE
@@ -330,12 +330,12 @@ void UIScene::loadMovie()
 
 	byteArray baFile = ui.getMovieData(moviePath.c_str());
 	__int64 beforeLoad = ui.iggyAllocCount;
-	swf = IggyPlayerCreateFromMemory ( baFile.data , baFile.length, NULL);
+	swf = IggyPlayerCreateFromMemory(baFile.data, baFile.length, NULL);
 	__int64 afterLoad = ui.iggyAllocCount;
-	IggyPlayerInitializeAndTickRS ( swf ); 
+	IggyPlayerInitializeAndTickRS(swf);
 	__int64 afterTick = ui.iggyAllocCount;
 
-	if(!swf)
+	if (!swf)
 	{
 		app.DebugPrintf("ERROR: Failed to load iggy scene!\n");
 #ifndef _CONTENT_PACKAGE
@@ -343,8 +343,8 @@ void UIScene::loadMovie()
 #endif
 		app.FatalLoadError();
 	}
-	app.DebugPrintf( app.USER_SR, "Loaded iggy movie %ls\n", moviePath.c_str() );
-	IggyProperties *properties = IggyPlayerProperties ( swf ); 
+	app.DebugPrintf(app.USER_SR, "Loaded iggy movie %ls\n", moviePath.c_str());
+	IggyProperties* properties = IggyPlayerProperties(swf);
 	m_movieHeight = properties->movie_height_in_pixels;
 	m_movieWidth = properties->movie_width_in_pixels;
 
@@ -352,28 +352,28 @@ void UIScene::loadMovie()
 	m_renderHeight = m_movieHeight;
 
 	S32 width, height;
-	m_parentLayer->getRenderDimensions(width, height);	
-	IggyPlayerSetDisplaySize( swf, width, height );
+	m_parentLayer->getRenderDimensions(width, height);
+	IggyPlayerSetDisplaySize(swf, width, height);
 
-	IggyPlayerSetUserdata(swf,this);
+	IggyPlayerSetUserdata(swf, this);
 
-//#ifdef _DEBUG
+	//#ifdef _DEBUG
 #if 0
 	IggyMemoryUseInfo memoryInfo;
 	rrbool res;
 	int iteration = 0;
 	__int64 totalStatic = 0;
 	__int64 totalDynamic = 0;
-	while(res = IggyDebugGetMemoryUseInfo ( swf ,
-		NULL ,
-		0 ,
-		0 ,
-		iteration ,
-		&memoryInfo ))
+	while (res = IggyDebugGetMemoryUseInfo(swf,
+		NULL,
+		0,
+		0,
+		iteration,
+		&memoryInfo))
 	{
 		totalStatic += memoryInfo.static_allocation_bytes;
 		totalDynamic += memoryInfo.dynamic_allocation_bytes;
-		app.DebugPrintf(app.USER_SR, "%ls - %.*s static: %d ( %d ) dynamic: %d ( %d )\n", moviePath.c_str(), memoryInfo.subcategory_stringlen, memoryInfo.subcategory, 
+		app.DebugPrintf(app.USER_SR, "%ls - %.*s static: %d ( %d ) dynamic: %d ( %d )\n", moviePath.c_str(), memoryInfo.subcategory_stringlen, memoryInfo.subcategory,
 			memoryInfo.static_allocation_bytes, memoryInfo.static_allocation_count, memoryInfo.dynamic_allocation_bytes, memoryInfo.dynamic_allocation_count);
 		++iteration;
 		//if(memoryInfo.static_allocation_bytes > 0) getDebugMemoryUseRecursive(moviePath, memoryInfo);
@@ -387,40 +387,40 @@ void UIScene::loadMovie()
 
 }
 
-void UIScene::getDebugMemoryUseRecursive(const wstring &moviePath, IggyMemoryUseInfo &memoryInfo)
+void UIScene::getDebugMemoryUseRecursive(const wstring& moviePath, IggyMemoryUseInfo& memoryInfo)
 {
 	rrbool res;
 	IggyMemoryUseInfo internalMemoryInfo;
 	int internalIteration = 0;
-	while(res = IggyDebugGetMemoryUseInfo ( swf ,
-		NULL ,
-		memoryInfo.subcategory ,
-		memoryInfo.subcategory_stringlen ,
-		internalIteration ,
-		&internalMemoryInfo ))
+	while (res = IggyDebugGetMemoryUseInfo(swf,
+		NULL,
+		memoryInfo.subcategory,
+		memoryInfo.subcategory_stringlen,
+		internalIteration,
+		&internalMemoryInfo))
 	{
-		app.DebugPrintf(app.USER_SR, "%ls - %.*s static: %d ( %d ) dynamic: %d ( %d )\n", moviePath.c_str(), internalMemoryInfo.subcategory_stringlen, internalMemoryInfo.subcategory, 
+		app.DebugPrintf(app.USER_SR, "%ls - %.*s static: %d ( %d ) dynamic: %d ( %d )\n", moviePath.c_str(), internalMemoryInfo.subcategory_stringlen, internalMemoryInfo.subcategory,
 			internalMemoryInfo.static_allocation_bytes, internalMemoryInfo.static_allocation_count, internalMemoryInfo.dynamic_allocation_bytes, internalMemoryInfo.dynamic_allocation_count);
 		++internalIteration;
-		if(internalMemoryInfo.subcategory_stringlen > memoryInfo.subcategory_stringlen) getDebugMemoryUseRecursive(moviePath, internalMemoryInfo);
+		if (internalMemoryInfo.subcategory_stringlen > memoryInfo.subcategory_stringlen) getDebugMemoryUseRecursive(moviePath, internalMemoryInfo);
 	}
 }
 
-void UIScene::PrintTotalMemoryUsage(__int64 &totalStatic, __int64 &totalDynamic)
+void UIScene::PrintTotalMemoryUsage(__int64& totalStatic, __int64& totalDynamic)
 {
-	if(!swf) return;
+	if (!swf) return;
 
 	IggyMemoryUseInfo memoryInfo;
 	rrbool res;
 	int iteration = 0;
 	__int64 sceneStatic = 0;
 	__int64 sceneDynamic = 0;
-	while(res = IggyDebugGetMemoryUseInfo ( swf ,
-		NULL ,
-		"" ,
-		0 ,
-		iteration ,
-		&memoryInfo ))
+	while (res = IggyDebugGetMemoryUseInfo(swf,
+		NULL,
+		"",
+		0,
+		iteration,
+		&memoryInfo))
 	{
 		sceneStatic += memoryInfo.static_allocation_bytes;
 		sceneDynamic += memoryInfo.dynamic_allocation_bytes;
@@ -435,18 +435,31 @@ void UIScene::PrintTotalMemoryUsage(__int64 &totalStatic, __int64 &totalDynamic)
 
 void UIScene::tick()
 {
-	if(m_bIsReloading) return;
-	if(m_hasTickedOnce) m_bCanHandleInput = true;
-	while(IggyPlayerReadyToTick( swf ))
+	if (m_bIsReloading) return;
+	if (m_hasTickedOnce) m_bCanHandleInput = true;
+	while (IggyPlayerReadyToTick(swf))
 	{
 		tickTimers();
-		for(AUTO_VAR(it, m_controls.begin()); it != m_controls.end(); ++it)
+		for (auto& it : m_controls)
 		{
-			(*it)->tick();
+			it->tick();
 		}
-		IggyPlayerTickRS( swf );
+		IggyPlayerTickRS(swf);
 		m_hasTickedOnce = true;
 	}
+
+#ifdef _WINDOWS64
+	{
+		vector<UIControl_TextInput*> inputs;
+		getDirectEditInputs(inputs);
+		for (size_t i = 0; i < inputs.size(); i++)
+		{
+			UIControl_TextInput::EDirectEditResult result = inputs[i]->tickDirectEdit();
+			if (result != UIControl_TextInput::eDirectEdit_Continue)
+				onDirectEditFinished(inputs[i], result);
+		}
+	}
+#endif
 }
 
 UIControl* UIScene::GetMainPanel()
@@ -454,6 +467,19 @@ UIControl* UIScene::GetMainPanel()
 	return NULL;
 }
 
+#ifdef _WINDOWS64
+bool UIScene::isDirectEditBlocking()
+{
+	vector<UIControl_TextInput*> inputs;
+	getDirectEditInputs(inputs);
+	for (size_t i = 0; i < inputs.size(); i++)
+	{
+		if (inputs[i]->isDirectEditing() || inputs[i]->getDirectEditCooldown() > 0)
+			return true;
+	}
+	return false;
+}
+#endif
 
 void UIScene::addTimer(int id, int ms)
 {
@@ -468,8 +494,8 @@ void UIScene::addTimer(int id, int ms)
 
 void UIScene::killTimer(int id)
 {
-	AUTO_VAR(it, m_timers.find(id));
-	if(it != m_timers.end())
+	auto it = m_timers.find(id);
+	if (it != m_timers.end())
 	{
 		it->second.running = false;
 	}
@@ -478,15 +504,15 @@ void UIScene::killTimer(int id)
 void UIScene::tickTimers()
 {
 	int currentTime = System::currentTimeMillis();
-	for(AUTO_VAR(it, m_timers.begin()); it != m_timers.end();)
+	for (auto it = m_timers.begin(); it != m_timers.end();)
 	{
-		if(!it->second.running)
+		if (!it->second.running)
 		{
 			it = m_timers.erase(it);
 		}
-		else 
+		else
 		{
-			if(currentTime > it->second.targetTime)
+			if (currentTime > it->second.targetTime)
 			{
 				handleTimerComplete(it->first);
 
@@ -498,23 +524,23 @@ void UIScene::tickTimers()
 	}
 }
 
-IggyName UIScene::registerFastName(const wstring &name)
+IggyName UIScene::registerFastName(const wstring& name)
 {
 	IggyName var;
-	AUTO_VAR(it,m_fastNames.find(name));
-	if(it != m_fastNames.end())
+	auto it = m_fastNames.find(name);
+	if (it != m_fastNames.end())
 	{
 		var = it->second;
 	}
 	else
 	{
-		var = IggyPlayerCreateFastName ( getMovie() , (IggyUTF16 *)name.c_str() , -1 );
+		var = IggyPlayerCreateFastName(getMovie(), (IggyUTF16*)name.c_str(), -1);
 		m_fastNames[name] = var;
 	}
 	return var;
 }
 
-void UIScene::removeControl( UIControl_Base *control, bool centreScene)
+void UIScene::removeControl(UIControl_Base* control, bool centreScene)
 {
 	IggyDataValue result;
 	IggyDataValue value[2];
@@ -528,7 +554,7 @@ void UIScene::removeControl( UIControl_Base *control, bool centreScene)
 
 	value[1].type = IGGY_DATATYPE_boolean;
 	value[1].boolval = centreScene;
-	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcRemoveObject , 2 , value );
+	IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcRemoveObject, 2, value);
 
 #ifdef __PSVITA__
 	// update the button positions since they may have changed
@@ -545,38 +571,38 @@ void UIScene::removeControl( UIControl_Base *control, bool centreScene)
 void UIScene::slideLeft()
 {
 	IggyDataValue result;
-	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSlideLeft , 0 , NULL );
+	IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcSlideLeft, 0, NULL);
 }
 
 void UIScene::slideRight()
 {
 	IggyDataValue result;
-	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSlideRight , 0 , NULL );
+	IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcSlideRight, 0, NULL);
 }
 
 void UIScene::doHorizontalResizeCheck()
 {
 	IggyDataValue result;
-	IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcHorizontalResizeCheck , 0 , NULL );
+	IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcHorizontalResizeCheck, 0, NULL);
 }
 
 void UIScene::render(S32 width, S32 height, C4JRender::eViewportType viewport)
 {
-	if(m_bIsReloading) return;
-	if(!m_hasTickedOnce || !swf) return;
+	if (m_bIsReloading) return;
+	if (!m_hasTickedOnce || !swf) return;
 	ui.setupRenderPosition(viewport);
-	IggyPlayerSetDisplaySize( swf, width, height );
-	IggyPlayerDraw( swf );
+	IggyPlayerSetDisplaySize(swf, width, height);
+	IggyPlayerDraw(swf);
 }
 
 void UIScene::setOpacity(float percent)
 {
-	if(percent != m_lastOpacity || (m_bUpdateOpacity && getMovie()))
+	if (percent != m_lastOpacity || (m_bUpdateOpacity && getMovie()))
 	{
 		m_lastOpacity = percent;
 
 		// 4J-TomK once a scene has been freshly loaded or re-loaded we force update opacity via initialiseMovie
-		if(m_bUpdateOpacity)
+		if (m_bUpdateOpacity)
 			m_bUpdateOpacity = false;
 
 		IggyDataValue result;
@@ -584,7 +610,7 @@ void UIScene::setOpacity(float percent)
 		value[0].type = IGGY_DATATYPE_number;
 		value[0].number = percent;
 
-		IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSetAlpha , 1 , value );
+		IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcSetAlpha, 1, value);
 	}
 }
 
@@ -593,29 +619,29 @@ void UIScene::setVisible(bool visible)
 	m_bVisible = visible;
 }
 
-void UIScene::customDraw(IggyCustomDrawCallbackRegion *region)
+void UIScene::customDraw(IggyCustomDrawCallbackRegion* region)
 {
 	app.DebugPrintf("Handling custom draw for scene with no override!\n");
 }
 
-void UIScene::customDrawSlotControl(IggyCustomDrawCallbackRegion *region, int iPad, shared_ptr<ItemInstance> item, float fAlpha, bool isFoil, bool bDecorations)
+void UIScene::customDrawSlotControl(IggyCustomDrawCallbackRegion* region, int iPad, shared_ptr<ItemInstance> item, float fAlpha, bool isFoil, bool bDecorations)
 {
-	if (item!= NULL)
+	if (item != NULL)
 	{
-		if(m_cacheSlotRenders)
+		if (m_cacheSlotRenders)
 		{
-			if( (m_cachedSlotDraw.size() + 1) == m_expectedCachedSlotCount)
+			if ((m_cachedSlotDraw.size() + 1) == m_expectedCachedSlotCount)
 			{
 				//Make sure that pMinecraft->player is the correct player so that player specific rendering
 				// eg clock and compass, are rendered correctly
-				Minecraft *pMinecraft=Minecraft::GetInstance();
+				Minecraft* pMinecraft = Minecraft::GetInstance();
 				shared_ptr<MultiplayerLocalPlayer> oldPlayer = pMinecraft->player;
-				if( iPad >= 0 && iPad < XUSER_MAX_COUNT ) pMinecraft->player = pMinecraft->localplayers[iPad];
+				if (iPad >= 0 && iPad < XUSER_MAX_COUNT) pMinecraft->player = pMinecraft->localplayers[iPad];
 
 				// Setup GDraw, normal game render states and matrices
 				//CustomDrawData *customDrawRegion = ui.setupCustomDraw(this,region);
-				PIXBeginNamedEvent(0,"Starting Iggy custom draw\n");
-				CustomDrawData *customDrawRegion = ui.calculateCustomDraw(region);
+				PIXBeginNamedEvent(0, "Starting Iggy custom draw\n");
+				CustomDrawData* customDrawRegion = ui.calculateCustomDraw(region);
 				ui.beginIggyCustomDraw4J(region, customDrawRegion);
 				ui.setupCustomDrawGameState();
 
@@ -629,36 +655,35 @@ void UIScene::customDrawSlotControl(IggyCustomDrawCallbackRegion *region, int iP
 				m_needsCacheRendered = true;
 #endif
 
-				if(!useCommandBuffers || m_needsCacheRendered)
+				if (!useCommandBuffers || m_needsCacheRendered)
 				{
 #if (!defined __PS3__) && (!defined __PSVITA__)
-					if(useCommandBuffers) RenderManager.CBuffStart(list, true);
+					if (useCommandBuffers) RenderManager.CBuffStart(list, true);
 #endif
-					PIXBeginNamedEvent(0,"Draw uncached");
-					ui.setupCustomDrawMatrices(this, customDrawRegion);	
+					PIXBeginNamedEvent(0, "Draw uncached");
+					ui.setupCustomDrawMatrices(this, customDrawRegion);
 					_customDrawSlotControl(customDrawRegion, iPad, item, fAlpha, isFoil, bDecorations, useCommandBuffers);
 					delete customDrawRegion;
 					PIXEndNamedEvent();
 
-					PIXBeginNamedEvent(0,"Draw all cache");
+					PIXBeginNamedEvent(0, "Draw all cache");
 					// Draw all the cached slots
-					for(AUTO_VAR(it, m_cachedSlotDraw.begin()); it != m_cachedSlotDraw.end(); ++it)
+					for (auto& drawData : m_cachedSlotDraw)
 					{
-						CachedSlotDrawData *drawData = *it;
-						ui.setupCustomDrawMatrices(this, drawData->customDrawRegion);					
+						ui.setupCustomDrawMatrices(this, drawData->customDrawRegion);
 						_customDrawSlotControl(drawData->customDrawRegion, iPad, drawData->item, drawData->fAlpha, drawData->isFoil, drawData->bDecorations, useCommandBuffers);
 						delete drawData->customDrawRegion;
 						delete drawData;
 					}
 					PIXEndNamedEvent();
 #ifndef __PS3__
-					if(useCommandBuffers) RenderManager.CBuffEnd();
+					if (useCommandBuffers) RenderManager.CBuffEnd();
 #endif
 				}
 				m_cachedSlotDraw.clear();
 
 #ifndef __PS3__
-				if(useCommandBuffers) RenderManager.CBuffCall(list);
+				if (useCommandBuffers) RenderManager.CBuffCall(list);
 #endif
 
 				// Finish GDraw and anything else that needs to be finalised
@@ -668,8 +693,8 @@ void UIScene::customDrawSlotControl(IggyCustomDrawCallbackRegion *region, int iP
 			}
 			else
 			{
-				PIXBeginNamedEvent(0,"Caching region");
-				CachedSlotDrawData *drawData = new CachedSlotDrawData();
+				PIXBeginNamedEvent(0, "Caching region");
+				CachedSlotDrawData* drawData = new CachedSlotDrawData();
 				drawData->item = item;
 				drawData->fAlpha = fAlpha;
 				drawData->isFoil = isFoil;
@@ -683,14 +708,14 @@ void UIScene::customDrawSlotControl(IggyCustomDrawCallbackRegion *region, int iP
 		else
 		{
 			// Setup GDraw, normal game render states and matrices
-			CustomDrawData *customDrawRegion = ui.setupCustomDraw(this,region);
+			CustomDrawData* customDrawRegion = ui.setupCustomDraw(this, region);
 
-			Minecraft *pMinecraft=Minecraft::GetInstance();
+			Minecraft* pMinecraft = Minecraft::GetInstance();
 
 			//Make sure that pMinecraft->player is the correct player so that player specific rendering
 			// eg clock and compass, are rendered correctly
 			shared_ptr<MultiplayerLocalPlayer> oldPlayer = pMinecraft->player;
-			if( iPad >= 0 && iPad < XUSER_MAX_COUNT ) pMinecraft->player = pMinecraft->localplayers[iPad];
+			if (iPad >= 0 && iPad < XUSER_MAX_COUNT) pMinecraft->player = pMinecraft->localplayers[iPad];
 
 			_customDrawSlotControl(customDrawRegion, iPad, item, fAlpha, isFoil, bDecorations, false);
 			delete customDrawRegion;
@@ -699,14 +724,14 @@ void UIScene::customDrawSlotControl(IggyCustomDrawCallbackRegion *region, int iP
 			// Finish GDraw and anything else that needs to be finalised
 			ui.endCustomDraw(region);
 		}
-	}	
+	}
 }
 
-void UIScene::_customDrawSlotControl(CustomDrawData *region, int iPad, shared_ptr<ItemInstance> item, float fAlpha, bool isFoil, bool bDecorations, bool usingCommandBuffer)
+void UIScene::_customDrawSlotControl(CustomDrawData* region, int iPad, shared_ptr<ItemInstance> item, float fAlpha, bool isFoil, bool bDecorations, bool usingCommandBuffer)
 {
-	Minecraft *pMinecraft=Minecraft::GetInstance();
+	Minecraft* pMinecraft = Minecraft::GetInstance();
 
-	float bwidth,bheight;
+	float bwidth, bheight;
 	bwidth = region->x1 - region->x0;
 	bheight = region->y1 - region->y0;
 
@@ -717,7 +742,7 @@ void UIScene::_customDrawSlotControl(CustomDrawData *region, int iPad, shared_pt
 	// we might want separate x & y scales here
 
 	float scaleX = bwidth / 16.0f;
-	float scaleY = bheight / 16.0f;	
+	float scaleY = bheight / 16.0f;
 
 	glEnable(GL_RESCALE_NORMAL);
 	glPushMatrix();
@@ -729,7 +754,7 @@ void UIScene::_customDrawSlotControl(CustomDrawData *region, int iPad, shared_pt
 	if (pop > 0)
 	{
 		glPushMatrix();
-		float squeeze = 1 + pop / (float) Inventory::POP_TIME_DURATION;
+		float squeeze = 1 + pop / (float)Inventory::POP_TIME_DURATION;
 		float sx = x;
 		float sy = y;
 		float sxoffs = 8 * scaleX;
@@ -739,12 +764,12 @@ void UIScene::_customDrawSlotControl(CustomDrawData *region, int iPad, shared_pt
 		glTranslatef((float)-(sx + sxoffs), (float)-(sy + syoffs), 0);
 	}
 
-	PIXBeginNamedEvent(0,"Render and decorate");
-	if(m_pItemRenderer == NULL) m_pItemRenderer = new ItemRenderer();
+	PIXBeginNamedEvent(0, "Render and decorate");
+	if (m_pItemRenderer == NULL) m_pItemRenderer = new ItemRenderer();
 	RenderManager.StateSetBlendEnable(true);
 	RenderManager.StateSetBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	RenderManager.StateSetBlendFactor(0xffffffff);
-	m_pItemRenderer->renderAndDecorateItem(pMinecraft->font, pMinecraft->textures, item, x, y,scaleX,scaleY,fAlpha,isFoil,false, !usingCommandBuffer);
+	m_pItemRenderer->renderAndDecorateItem(pMinecraft->font, pMinecraft->textures, item, x, y, scaleX, scaleY, fAlpha, isFoil, false, !usingCommandBuffer);
 	PIXEndNamedEvent();
 
 	if (pop > 0)
@@ -752,14 +777,14 @@ void UIScene::_customDrawSlotControl(CustomDrawData *region, int iPad, shared_pt
 		glPopMatrix();
 	}
 
-	if(bDecorations)
+	if (bDecorations)
 	{
-		if((scaleX!=1.0f) ||(scaleY!=1.0f))
-		{				
-			glPushMatrix();		
+		if ((scaleX != 1.0f) || (scaleY != 1.0f))
+		{
+			glPushMatrix();
 			glScalef(scaleX, scaleY, 1.0f);
-			int iX= (int)(0.5f+((float)x)/scaleX);
-			int iY= (int)(0.5f+((float)y)/scaleY);
+			int iX = (int)(0.5f + ((float)x) / scaleX);
+			int iY = (int)(0.5f + ((float)y) / scaleY);
 
 			m_pItemRenderer->renderGuiItemDecorations(pMinecraft->font, pMinecraft->textures, item, iX, iY, fAlpha);
 			glPopMatrix();
@@ -797,20 +822,20 @@ void UIScene::navigateBack()
 
 	ui.NavigateBack(m_iPad);
 
-	if(m_parentLayer == NULL)
+	if (m_parentLayer == NULL)
 	{
-//		app.DebugPrintf("A scene is trying to navigate back, but it's parent layer is NULL!\n");
+		//		app.DebugPrintf("A scene is trying to navigate back, but it's parent layer is NULL!\n");
 #ifndef _CONTENT_PACKAGE
 //		__debugbreak();
 #endif
 	}
 	else
 	{
-//		m_parentLayer->removeScene(this);
+		//		m_parentLayer->removeScene(this);
 
 #ifdef _DURANGO
 		if (ui.GetTopScene(0))
-			InputManager.SetEnabledGtcButtons( ui.GetTopScene(0)->getDefaultGtcButtons() );
+			InputManager.SetEnabledGtcButtons(ui.GetTopScene(0)->getDefaultGtcButtons());
 #endif
 	}
 
@@ -818,7 +843,7 @@ void UIScene::navigateBack()
 
 void UIScene::gainFocus()
 {
-	if( !bHasFocus && stealsFocus() )
+	if (!bHasFocus && stealsFocus())
 	{
 		// 4J Stu - Don't do this
 		/*
@@ -831,7 +856,7 @@ void UIScene::gainFocus()
 		app.DebugPrintf("Sent gain focus event to scene\n");
 		*/
 		bHasFocus = true;
-		if(needsReloaded())
+		if (needsReloaded())
 		{
 			reloadMovie();
 		}
@@ -839,7 +864,7 @@ void UIScene::gainFocus()
 		updateTooltips();
 		updateComponents();
 
-		if(!m_bFocussedOnce)
+		if (!m_bFocussedOnce)
 		{
 			IggyDataValue result;
 			IggyDataValue value[1];
@@ -847,13 +872,13 @@ void UIScene::gainFocus()
 			value[0].type = IGGY_DATATYPE_number;
 			value[0].number = -1;
 
-			IggyResult out = IggyPlayerCallMethodRS ( getMovie() , &result, IggyPlayerRootPath( getMovie() ), m_funcSetFocus , 1 , value );
+			IggyResult out = IggyPlayerCallMethodRS(getMovie(), &result, IggyPlayerRootPath(getMovie()), m_funcSetFocus, 1, value);
 		}
 
 		handleGainFocus(m_bFocussedOnce);
-		if(bHasFocus) m_bFocussedOnce = true;
+		if (bHasFocus) m_bFocussedOnce = true;
 	}
-	else if(bHasFocus && stealsFocus())
+	else if (bHasFocus && stealsFocus())
 	{
 		updateTooltips();
 	}
@@ -861,7 +886,7 @@ void UIScene::gainFocus()
 
 void UIScene::loseFocus()
 {
-	if(bHasFocus)
+	if (bHasFocus)
 	{
 		// 4J Stu - Don't do this
 		/*
@@ -880,40 +905,40 @@ void UIScene::loseFocus()
 void UIScene::handleGainFocus(bool navBack)
 {
 #ifdef _DURANGO
-	InputManager.SetEnabledGtcButtons( this->getDefaultGtcButtons() );
+	InputManager.SetEnabledGtcButtons(this->getDefaultGtcButtons());
 #endif
 }
 
 void UIScene::updateTooltips()
 {
-	if(!ui.IsReloadingSkin())
+	if (!ui.IsReloadingSkin())
 		ui.SetTooltips(m_iPad, -1);
 }
 
 void UIScene::sendInputToMovie(int key, bool repeat, bool pressed, bool released)
 {
-	if(!swf) return;
+	if (!swf) return;
 
 	int iggyKeyCode = convertGameActionToIggyKeycode(key);
 
-	if(iggyKeyCode < 0)
+	if (iggyKeyCode < 0)
 	{
 		app.DebugPrintf("UI WARNING: Ignoring input as game action does not translate to an Iggy keycode\n");
 		return;
 	}
 	IggyEvent keyEvent;
 	// 4J Stu - Keyloc is always standard as we don't care about shift/alt
-	IggyMakeEventKey( &keyEvent, pressed?IGGY_KEYEVENT_Down:IGGY_KEYEVENT_Up, (IggyKeycode)iggyKeyCode, IGGY_KEYLOC_Standard );
+	IggyMakeEventKey(&keyEvent, pressed ? IGGY_KEYEVENT_Down : IGGY_KEYEVENT_Up, (IggyKeycode)iggyKeyCode, IGGY_KEYLOC_Standard);
 
 	IggyEventResult result;
-	IggyPlayerDispatchEventRS ( swf , &keyEvent , &result );
+	IggyPlayerDispatchEventRS(swf, &keyEvent, &result);
 }
 
 int UIScene::convertGameActionToIggyKeycode(int action)
 {
 	// TODO: This action to key mapping should probably use the control mapping
 	int keycode = -1;
-	switch(action)
+	switch (action)
 	{
 #ifdef __ORBIS__
 	case ACTION_MENU_TOUCHPAD_PRESS:
@@ -991,9 +1016,9 @@ int UIScene::convertGameActionToIggyKeycode(int action)
 
 bool UIScene::allowRepeat(int key)
 {
-	// 4J-PB - ignore repeats of action ABXY buttons 
-	// fix for PS3 213 - [MAIN MENU] Holding down buttons will continue to activate every prompt. 
-	switch(key)
+	// 4J-PB - ignore repeats of action ABXY buttons
+	// fix for PS3 213 - [MAIN MENU] Holding down buttons will continue to activate every prompt.
+	switch (key)
 	{
 	case ACTION_MENU_OK:
 	case ACTION_MENU_CANCEL:
@@ -1006,11 +1031,11 @@ bool UIScene::allowRepeat(int key)
 	return true;
 }
 
-void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
+void UIScene::externalCallback(IggyExternalFunctionCallUTF16* call)
 {
-	if(wcscmp((wchar_t *)call->function_name.string,L"handlePress")==0)
+	if (wcscmp((wchar_t*)call->function_name.string, L"handlePress") == 0)
 	{
-		if(call->num_arguments != 2)
+		if (call->num_arguments != 2)
 		{
 			app.DebugPrintf("Callback for handlePress did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1018,7 +1043,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 #endif
 			return;
 		}
-		if(call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
+		if (call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
 		{
 			app.DebugPrintf("Arguments for handlePress were not of the correct type\n");
 #ifndef _CONTENT_PACKAGE
@@ -1028,9 +1053,9 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 		}
 		handlePress(call->arguments[0].number, call->arguments[1].number);
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleFocusChange")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleFocusChange") == 0)
 	{
-		if(call->num_arguments != 2)
+		if (call->num_arguments != 2)
 		{
 			app.DebugPrintf("Callback for handleFocusChange did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1038,7 +1063,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 #endif
 			return;
 		}
-		if(call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
+		if (call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
 		{
 			app.DebugPrintf("Arguments for handleFocusChange were not of the correct type\n");
 #ifndef _CONTENT_PACKAGE
@@ -1048,9 +1073,9 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 		}
 		_handleFocusChange(call->arguments[0].number, call->arguments[1].number);
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleInitFocus")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleInitFocus") == 0)
 	{
-		if(call->num_arguments != 2)
+		if (call->num_arguments != 2)
 		{
 			app.DebugPrintf("Callback for handleInitFocus did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1058,7 +1083,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 #endif
 			return;
 		}
-		if(call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
+		if (call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
 		{
 			app.DebugPrintf("Arguments for handleInitFocus were not of the correct type\n");
 #ifndef _CONTENT_PACKAGE
@@ -1068,9 +1093,9 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 		}
 		_handleInitFocus(call->arguments[0].number, call->arguments[1].number);
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleCheckboxToggled")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleCheckboxToggled") == 0)
 	{
-		if(call->num_arguments != 2)
+		if (call->num_arguments != 2)
 		{
 			app.DebugPrintf("Callback for handleCheckboxToggled did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1078,7 +1103,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 #endif
 			return;
 		}
-		if(call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_boolean)
+		if (call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_boolean)
 		{
 			app.DebugPrintf("Arguments for handleCheckboxToggled were not of the correct type\n");
 #ifndef _CONTENT_PACKAGE
@@ -1088,9 +1113,9 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 		}
 		handleCheckboxToggled(call->arguments[0].number, call->arguments[1].boolval);
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleSliderMove")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleSliderMove") == 0)
 	{
-		if(call->num_arguments != 2)
+		if (call->num_arguments != 2)
 		{
 			app.DebugPrintf("Callback for handleSliderMove did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1098,7 +1123,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 #endif
 			return;
 		}
-		if(call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
+		if (call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_number)
 		{
 			app.DebugPrintf("Arguments for handleSliderMove were not of the correct type\n");
 #ifndef _CONTENT_PACKAGE
@@ -1108,9 +1133,9 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 		}
 		handleSliderMove(call->arguments[0].number, call->arguments[1].number);
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleAnimationEnd")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleAnimationEnd") == 0)
 	{
-		if(call->num_arguments != 0)
+		if (call->num_arguments != 0)
 		{
 			app.DebugPrintf("Callback for handleAnimationEnd did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1120,9 +1145,9 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 		}
 		handleAnimationEnd();
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleSelectionChanged")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleSelectionChanged") == 0)
 	{
-		if(call->num_arguments != 1)
+		if (call->num_arguments != 1)
 		{
 			app.DebugPrintf("Callback for handleSelectionChanged did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1130,7 +1155,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 #endif
 			return;
 		}
-		if(call->arguments[0].type != IGGY_DATATYPE_number)
+		if (call->arguments[0].type != IGGY_DATATYPE_number)
 		{
 			app.DebugPrintf("Arguments for handleSelectionChanged were not of the correct type\n");
 #ifndef _CONTENT_PACKAGE
@@ -1140,15 +1165,15 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 		}
 		handleSelectionChanged(call->arguments[0].number);
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleRequestMoreData")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleRequestMoreData") == 0)
 	{
-		if(call->num_arguments == 0)
+		if (call->num_arguments == 0)
 		{
-			handleRequestMoreData(0,false);
+			handleRequestMoreData(0, false);
 		}
 		else
 		{
-			if(call->num_arguments != 2)
+			if (call->num_arguments != 2)
 			{
 				app.DebugPrintf("Callback for handleRequestMoreData did not have the correct number of arguments\n");
 #ifndef _CONTENT_PACKAGE
@@ -1156,7 +1181,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 #endif
 				return;
 			}
-			if(call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_boolean)
+			if (call->arguments[0].type != IGGY_DATATYPE_number || call->arguments[1].type != IGGY_DATATYPE_boolean)
 			{
 				app.DebugPrintf("Arguments for handleRequestMoreData were not of the correct type\n");
 #ifndef _CONTENT_PACKAGE
@@ -1167,7 +1192,7 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 			handleRequestMoreData(call->arguments[0].number, call->arguments[1].boolval);
 		}
 	}
-	else if(wcscmp((wchar_t *)call->function_name.string,L"handleTouchBoxRebuild")==0)
+	else if (wcscmp((wchar_t*)call->function_name.string, L"handleTouchBoxRebuild") == 0)
 	{
 		handleTouchBoxRebuild();
 	}
@@ -1177,15 +1202,15 @@ void UIScene::externalCallback(IggyExternalFunctionCallUTF16 * call)
 	}
 }
 
-void UIScene::registerSubstitutionTexture(const wstring &textureName, PBYTE pbData, DWORD dwLength, bool deleteData)
+void UIScene::registerSubstitutionTexture(const wstring& textureName, PBYTE pbData, DWORD dwLength, bool deleteData)
 {
 	m_registeredTextures[textureName] = deleteData;;
 	ui.registerSubstitutionTexture(textureName, pbData, dwLength);
 }
 
-bool UIScene::hasRegisteredSubstitutionTexture(const wstring &textureName)
+bool UIScene::hasRegisteredSubstitutionTexture(const wstring& textureName)
 {
-	AUTO_VAR(it, m_registeredTextures.find( textureName ) );
+	auto it = m_registeredTextures.find(textureName);
 
 	return  it != m_registeredTextures.end();
 }
@@ -1213,9 +1238,9 @@ bool UIScene::controlHasFocus(int iControlId)
 	return m_iFocusControl == iControlId;
 }
 
-bool UIScene::controlHasFocus(UIControl_Base *control)
+bool UIScene::controlHasFocus(UIControl_Base* control)
 {
-	return controlHasFocus( control->getId() );
+	return controlHasFocus(control->getId());
 }
 
 int UIScene::getControlChildFocus()
@@ -1228,34 +1253,32 @@ int UIScene::getControlFocus()
 	return m_iFocusControl;
 }
 
-void UIScene::setBackScene(UIScene *scene)
+void UIScene::setBackScene(UIScene* scene)
 {
 	m_backScene = scene;
 }
 
-UIScene *UIScene::getBackScene()
+UIScene* UIScene::getBackScene()
 {
 	return m_backScene;
 }
 #ifdef __PSVITA__
 void UIScene::UpdateSceneControls()
 {
-	AUTO_VAR(itEnd, GetControls()->end());
-	for (AUTO_VAR(it, GetControls()->begin()); it != itEnd; it++)
+	for (UIControl* control : *GetControls())
 	{
-		UIControl *control=(UIControl *)*it;
 		control->UpdateControl();
 	}
 }
 #endif
 
-void UIScene::HandleMessage(EUIMessage message, void *data)
+void UIScene::HandleMessage(EUIMessage message, void* data)
 {
 }
 
 size_t UIScene::GetCallbackUniqueId()
 {
-	if( m_callbackUniqueId == 0)
+	if (m_callbackUniqueId == 0)
 	{
 		m_callbackUniqueId = ui.RegisterForCallbackId(this);
 	}

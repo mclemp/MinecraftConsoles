@@ -1,12 +1,12 @@
 # MinecraftConsoles
 
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?logo=discord&logoColor=white)](https://discord.gg/u9f67jaWyP)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?logo=discord&logoColor=white)](https://discord.gg/jrum7HhegA)
 
 ![Tutorial World](.github/TutorialWorld.png)
 
 ## Introduction
 
-This project contains the source code of Minecraft Legacy Console Edition v1.6.0560.0 (TU19) from https://archive.org/details/minecraft-legacy-console-edition-source-code, with some fixes and improvements applied
+This project contains the source code of Minecraft Legacy Console Edition v1.6.0560.0 (TU19) from https://archive.org/details/minecraft-legacy-console-edition-source-code, with some fixes and improvements applied.
 
 [Nightly Build](https://github.com/smartcmd/MinecraftConsoles/releases/tag/nightly)
 
@@ -41,10 +41,10 @@ This feature is based on [LCEMP](https://github.com/LCEMP/LCEMP/)
 
 | Argument           | Description                                                                                         |
 |--------------------|-----------------------------------------------------------------------------------------------------|
-| `-name <username>` | Sets your in-game username                                                                          |
-| `-server`          | Launches a headless server instead of the client                                                    |
-| `-ip <address>`    | Client mode: manually connect to an IP. Server mode: override the bind IP from `server.properties`  |
-| `-port <port>`     | Client mode: override the join port. Server mode: override the listen port from `server.properties` |
+| `-name <username>` | Sets your in-game username.                                                                         |
+| `-server`          | Launches a headless server instead of the client.                                                   |
+| `-ip <address>`    | Client mode: manually connect to an IP. Server mode: override the bind IP from `server.properties`. |
+| `-port <port>`     | Client mode: override the join port. Server mode: override the listen port from `server.properties`.|
 
 Example:
 ```
@@ -82,11 +82,11 @@ The headless server also reads and writes `server.properties` in the working dir
 
 ## Build & Run
 
-1. Install Visual Studio 2022
-2. Clone the repository
-3. Open the project by double-clicking `MinecraftConsoles.sln`
-4. Make sure `Minecraft.Client` is set as the Startup Project
-5. Set the build configuration to **Debug** (Release is also OK but has some bugs) and the target platform to **Windows64**, then build and run
+1. Install [Visual Studio 2022](https://aka.ms/vs/17/release/vs_community.exe).
+2. Clone the repository.
+3. Open the project by double-clicking `MinecraftConsoles.sln`.
+4. Make sure `Minecraft.Client` is set as the Startup Project.
+5. Set the build configuration to **Debug** (Release is also OK but has some bugs) and the target platform to **Windows64**, then build and run.
 
 ### CMake (Windows x64)
 
@@ -95,7 +95,7 @@ cmake -S . -B build -G "Visual Studio 17 2022" -A x64
 cmake --build build --config Debug --target MinecraftClient
 ```
 
-For more information, see [COMPILE.md](COMPILE.md)
+For more information, see [COMPILE.md](COMPILE.md).
 
 ## Known Issues
 
@@ -106,6 +106,4 @@ Would you like to contribute to this project? Please read our [Contributor's Gui
 
 ## Star History
 
-## Star History
-
-[![Star History Chart](https://api.star-history.com/image?repos=MLE-MP/MinecraftConsoles&type=date&legend=top-left)](https://www.star-history.com/?repos=MLE-MP%2FMinecraftConsoles&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=smartcmd/MinecraftConsoles&type=date&legend=top-left)](https://www.star-history.com/?spm=a2c6h.12873639.article-detail.7.7b9d7fabjNxTRk#smartcmd/MinecraftConsoles&type=date&legend=top-left)

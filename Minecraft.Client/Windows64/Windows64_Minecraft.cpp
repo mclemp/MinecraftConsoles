@@ -22,6 +22,9 @@
 #include "..\..\Minecraft.World\net.minecraft.world.level.tile.h"
 
 #include "..\ClientConnection.h"
+#include "..\Minecraft.h"
+#include "..\ChatScreen.h"
+#include "KeyboardMouseInput.h"
 #include "..\User.h"
 #include "..\..\Minecraft.World\Socket.h"
 #include "..\..\Minecraft.World\ThreadName.h"
@@ -40,16 +43,12 @@
 #include "Resource.h"
 #include "..\..\Minecraft.World\compression.h"
 #include "..\..\Minecraft.World\OldChunkStorage.h"
+#include "Common/PostProcesser.h"
 #include "Network\WinsockNetLayer.h"
 
 #include "Xbox/resource.h"
 
 #include "Windows64_Launcher.h"
-
-#include "..\..\Minecraft.World\ConsoleSaveFile.h"
-#include "..\..\Minecraft.World\ConsoleSaveFileOriginal.h"
-
-#include "..\Common\UI\IUIScene_PauseMenu.h"
 
 #ifdef _MSC_VER
 #pragma comment(lib, "legacy_stdio_definitions.lib")
@@ -116,6 +115,7 @@ struct Win64LaunchOptions
 {
 	int screenMode;
 	bool serverMode;
+	bool fullscreen;
 };
 
 static void CopyWideArgToAnsi(LPCWSTR source, char* dest, size_t destSize)
@@ -230,35 +230,11 @@ static Win64LaunchOptions ParseLaunchOptions()
 
 	g_Win64DedicatedServer = options.serverMode;
 
-	/*for (int i = 1; i < argc; ++i)
+	for (int i = 1; i < argc; ++i)
 	{
-		if (_wcsicmp(argv[i], L"-ip") == 0 && (i + 1) < argc)
-		{
-			char ipBuf[256];
-			CopyWideArgToAnsi(argv[++i], ipBuf, sizeof(ipBuf));
-			if (options.serverMode)
-			{
-				strncpy_s(g_Win64DedicatedServerBindIP, sizeof(g_Win64DedicatedServerBindIP), ipBuf, _TRUNCATE);
-			}
-			else
-			{
-				strncpy_s(g_Win64MultiplayerIP, sizeof(g_Win64MultiplayerIP), ipBuf, _TRUNCATE);
-				g_Win64MultiplayerJoin = true;
-			}
-		}
-		else if (_wcsicmp(argv[i], L"-port") == 0 && (i + 1) < argc)
-		{
-			wchar_t* endPtr = NULL;
-			long port = wcstol(argv[++i], &endPtr, 10);
-			if (endPtr != argv[i] && *endPtr == 0 && port > 0 && port <= 65535)
-			{
-				if (options.serverMode)
-					g_Win64DedicatedServerPort = (int)port;
-				else
-					g_Win64MultiplayerPort = (int)port;
-			}
-		}
-	}*/
+		if (_wcsicmp(argv[i], L"-fullscreen") == 0)
+			options.fullscreen = true;
+	}
 
 	LocalFree(argv);
 	return options;
@@ -338,6 +314,7 @@ void DefineActions(void)
 	InputManager.SetGameJoypadMaps(MAP_STYLE_0,MINECRAFT_ACTION_LEFT_SCROLL,			_360_JOY_BUTTON_LB);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_0,MINECRAFT_ACTION_INVENTORY,				_360_JOY_BUTTON_Y);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_0,MINECRAFT_ACTION_PAUSEMENU,				_360_JOY_BUTTON_START);
+	InputManager.SetGameJoypadMaps(MAP_STYLE_0,MINECRAFT_ACTION_PICK_ITEM,              _360_JOY_BUTTON_DPAD_DOWN);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_0,MINECRAFT_ACTION_DROP,					_360_JOY_BUTTON_B);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_0,MINECRAFT_ACTION_SNEAK_TOGGLE,			_360_JOY_BUTTON_RTHUMB);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_0,MINECRAFT_ACTION_CRAFTING,				_360_JOY_BUTTON_X);
@@ -388,6 +365,7 @@ void DefineActions(void)
 	InputManager.SetGameJoypadMaps(MAP_STYLE_1,MINECRAFT_ACTION_INVENTORY,				_360_JOY_BUTTON_Y);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_1,MINECRAFT_ACTION_PAUSEMENU,				_360_JOY_BUTTON_START);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_1,MINECRAFT_ACTION_DROP,					_360_JOY_BUTTON_B);
+	InputManager.SetGameJoypadMaps(MAP_STYLE_1,MINECRAFT_ACTION_PICK_ITEM,              _360_JOY_BUTTON_DPAD_DOWN);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_1,MINECRAFT_ACTION_SNEAK_TOGGLE,			_360_JOY_BUTTON_LTHUMB);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_1,MINECRAFT_ACTION_CRAFTING,				_360_JOY_BUTTON_X);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_1,MINECRAFT_ACTION_RENDER_THIRD_PERSON,	_360_JOY_BUTTON_RTHUMB);
@@ -429,6 +407,7 @@ void DefineActions(void)
 	InputManager.SetGameJoypadMaps(MAP_STYLE_2,MINECRAFT_ACTION_INVENTORY,				_360_JOY_BUTTON_Y);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_2,MINECRAFT_ACTION_PAUSEMENU,				_360_JOY_BUTTON_START);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_2,MINECRAFT_ACTION_DROP,					_360_JOY_BUTTON_B);
+	InputManager.SetGameJoypadMaps(MAP_STYLE_2,MINECRAFT_ACTION_PICK_ITEM,              _360_JOY_BUTTON_DPAD_DOWN);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_2,MINECRAFT_ACTION_SNEAK_TOGGLE,			_360_JOY_BUTTON_LB);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_2,MINECRAFT_ACTION_CRAFTING,				_360_JOY_BUTTON_X);
 	InputManager.SetGameJoypadMaps(MAP_STYLE_2,MINECRAFT_ACTION_RENDER_THIRD_PERSON,	_360_JOY_BUTTON_LTHUMB);
@@ -567,11 +546,35 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		g_KBMInput.SetWindowFocused(true);
 		break;
 
+	case WM_CHAR:
+		// Buffer typed characters so UIScene_Keyboard can dispatch them to the Iggy Flash player
+		if (wParam >= 0x20 || wParam == 0x08 || wParam == 0x0D) // printable chars + backspace + enter
+			g_KBMInput.OnChar((wchar_t)wParam);
+		break;
+
 	case WM_KEYDOWN:
 	case WM_SYSKEYDOWN:
 	{
 		int vk = (int)wParam;
-		if (lParam & 0x40000000) break; // ignore auto-repeat
+		if ((lParam & 0x40000000) && vk != VK_LEFT && vk != VK_RIGHT && vk != VK_BACK)
+			break;
+#ifdef _WINDOWS64
+		Minecraft* pm = Minecraft::GetInstance();
+		ChatScreen* chat = pm && pm->screen ? dynamic_cast<ChatScreen*>(pm->screen) : nullptr;
+		if (chat)
+		{
+			if (vk == 'V' && (GetKeyState(VK_CONTROL) & 0x8000))
+			{
+				chat->handlePasteRequest(); break;
+			}
+			if ((vk == VK_UP || vk == VK_DOWN) && !(lParam & 0x40000000))
+			{
+				if (vk == VK_UP) chat->handleHistoryUp(); else chat->handleHistoryDown(); break;
+			}
+			if (vk >= '1' && vk <= '9') // Prevent hotkey conflicts
+				break;
+		}
+#endif
 		if (vk == VK_SHIFT)
 			vk = (MapVirtualKey((lParam >> 16) & 0xFF, MAPVK_VSC_TO_VK_EX) == VK_RSHIFT) ? VK_RSHIFT : VK_LSHIFT;
 		else if (vk == VK_CONTROL)
@@ -877,6 +880,8 @@ HRESULT InitDevice()
 
 	RenderManager.Initialise(g_pd3dDevice, g_pSwapChain);
 
+	PostProcesser::GetInstance().Init();
+
 	return S_OK;
 }
 
@@ -997,9 +1002,6 @@ static Minecraft* InitialiseMinecraftRuntime()
 	app.InitGameSettings();
 	app.InitialiseTips();
 
-	pMinecraft->options->set(Options::Option::MUSIC, 1.0f);
-	pMinecraft->options->set(Options::Option::SOUND, 1.0f);
-
 	return pMinecraft;
 }
 
@@ -1041,21 +1043,21 @@ static int RunHeadlessServer()
 	SetupHeadlessServerConsole();
 
 	Settings serverSettings(new File(L"server.properties"));
-	wstring configuredBindIp = serverSettings.getString(L"server-ip", L"");
+	//wstring configuredBindIp = serverSettings.getString(L"server-ip", L"");
 
-	const char* bindIp = "*";
-	if (g_Win64DedicatedServerBindIP[0] != 0)
-	{
-		bindIp = g_Win64DedicatedServerBindIP;
-	}
-	else if (!configuredBindIp.empty())
-	{
-		bindIp = wstringtochararray(configuredBindIp);
-	}
+	//const char* bindIp = "*";
+	//if (g_Win64DedicatedServerBindIP[0] != 0)
+	//{
+	//	bindIp = g_Win64DedicatedServerBindIP;
+	//}
+	//else if (!configuredBindIp.empty())
+	//{
+	//	bindIp = wstringtochararray(configuredBindIp);
+	//}
 
-	const int port = g_Win64DedicatedServerPort > 0 ? g_Win64DedicatedServerPort : serverSettings.getInt(L"server-port", WIN64_NET_DEFAULT_PORT);
+	//const int port = g_Win64DedicatedServerPort > 0 ? g_Win64DedicatedServerPort : serverSettings.getInt(L"server-port", WIN64_NET_DEFAULT_PORT);
 
-	printf("Starting headless server on %s:%d\n", bindIp, port);
+	printf("Starting headless server on Relay Server");
 	fflush(stdout);
 
 	Minecraft* pMinecraft = InitialiseMinecraftRuntime();
@@ -1078,22 +1080,42 @@ static int RunHeadlessServer()
 	app.SetGameHostOption(eGameHostOption_HostCanFly, 1);
 	app.SetGameHostOption(eGameHostOption_HostCanChangeHunger, 1);
 	app.SetGameHostOption(eGameHostOption_HostCanBeInvisible, 1);
-	app.SetGameHostOption(eGameHostOption_MobGriefing, 1);
-	app.SetGameHostOption(eGameHostOption_KeepInventory, 0);
+	app.SetGameHostOption(eGameHostOption_MobGriefing, serverSettings.getBoolean(L"mob-griefing", false) ? 1 : 0);
+	app.SetGameHostOption(eGameHostOption_KeepInventory, serverSettings.getBoolean(L"keep-inventory", false) ? 1 : 0);
 	app.SetGameHostOption(eGameHostOption_DoMobSpawning, 1);
 	app.SetGameHostOption(eGameHostOption_DoMobLoot, 1);
 	app.SetGameHostOption(eGameHostOption_DoTileDrops, 1);
-	app.SetGameHostOption(eGameHostOption_NaturalRegeneration, 1);
+	app.SetGameHostOption(eGameHostOption_NaturalRegeneration, serverSettings.getBoolean(L"natural-regeneration", true) ? 1 : 0);
 	app.SetGameHostOption(eGameHostOption_DoDaylightCycle, 1);
 
-	app.SetGameSettings(ProfileManager.GetPrimaryPad(), eGameSetting_Autosave, 1);
+	extern float g_sleepPercentage;
+	g_sleepPercentage = serverSettings.getInt(L"sleep-percentage", 100);
+
+	extern bool g_doBoatBreak;
+	g_doBoatBreak = serverSettings.getBoolean(L"old-boat-break", true);
+
+	std::wstring worldSize = serverSettings.getString(L"world-size", L"classic");
+
+	int worldSize_int = 1; //default to classic
+
+	if (worldSize == std::wstring(L"classic")) worldSize_int = 1;
+	else if (worldSize == std::wstring(L"small")) worldSize_int = 2;
+	else if (worldSize == std::wstring(L"medium")) worldSize_int = 3;
+	else if (worldSize == std::wstring(L"large")) worldSize_int = 4;
+
+	app.SetGameHostOption(eGameHostOption_WorldSize, worldSize_int);
+
+	extern int g_autosaveInterval;
+
+	g_autosaveInterval = (serverSettings.getBoolean(L"enable-autosave", true) ? serverSettings.getInt(L"autosave-interval-seconds", 120) : -1);
 
 	MinecraftServer::resetFlags();
 	g_NetworkManager.HostGame(0, false, true, MINECRAFT_NET_MAX_PLAYERS, 0);
 
 	if (!WinsockNetLayer::IsActive())
 	{
-		fprintf(stderr, "Failed to bind the server socket on %s:%d.\n", bindIp, port);
+		//fprintf(stderr, "Failed to bind the server socket on %s:%d.\n", bindIp, port);
+		fprintf(stderr, "Winsock Failed To Bind\n");
 		return 1;
 	}
 
@@ -1101,6 +1123,10 @@ static int RunHeadlessServer()
 
 	NetworkGameInitData* param = new NetworkGameInitData();
 	param->seed = serverSettings.getInt(L"seed", 0);
+
+#define LEVEL_WIDTH_EXTREME (LEVEL_WIDTH_LARGE * 2)
+
+	param->xzSize = LEVEL_WIDTH_EXTREME;
 	param->settings = app.GetGameHostOption(eGameHostOption_All);
 
 	wchar_t exePath[MAX_PATH] = {};
@@ -1146,7 +1172,7 @@ static int RunHeadlessServer()
 	app.SetGameStarted(true);
 	g_NetworkManager.DoWork();
 
-	printf("Server ready on %s:%d\n", bindIp, port);
+	//printf("Server ready on %s:%d\n", bindIp, port);
 	printf("Type 'help' for server commands.\n");
 	fflush(stdout);
 
@@ -1173,12 +1199,6 @@ static int RunHeadlessServer()
 
 		Sleep(10);
 	}
-	//printf("Saving World...\n");
-
-	//doesnt seem to work, lets just stick with forcing save on close
-	//C4JThread* saveThread = new C4JThread(&IUIScene_PauseMenu::SaveWorldThreadProc, NULL, "debugSaveGameDirect");
-	//saveThread->Run();
-	//saveThread->WaitForCompletion(5000);
 
 	printf("Stopping server...\n");
 	fflush(stdout);
@@ -1189,7 +1209,7 @@ static int RunHeadlessServer()
 	return 0;
 }
 
-void StartGame(bool servermode, bool nCmdShow);
+void StartGame(Win64LaunchOptions launchOptions, bool nCmdShow);
 
 int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 					   _In_opt_ HINSTANCE hPrevInstance,
@@ -1218,43 +1238,39 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 
 	hMyInst = hInstance;
 
-	WinsockNetLayer::SetCustomHostAddress("38.49.215.81", 2054);
-
 	if (launchOptions.serverMode) {
-		StartGame(launchOptions.serverMode, nCmdShow);
+		StartGame(launchOptions, nCmdShow);
 	} else {
-		Windows64Launcher::CreateLauncherWindow(hInstance, [nCmdShow]() {
+		Windows64Launcher::CreateLauncherWindow(hInstance, [launchOptions, nCmdShow]() {
 			const char* username = Windows64Launcher::GetUsername().c_str();
 			strncpy_s(g_Win64Username, sizeof(g_Win64Username), username, _TRUNCATE);
 			MultiByteToWideChar(CP_ACP, 0, g_Win64Username, -1, g_Win64UsernameW, 17);
 
-			StartGame(false, nCmdShow);
+			StartGame(launchOptions, nCmdShow);
 		});
 	}
 }
 
-void StartGame(bool servermode, bool nCmdShow) {
-	// If no username, let's fall back
-	if (servermode)
-	{
-		// Default username will be "Player"
-
+void StartGame(Win64LaunchOptions launchOptions, bool nCmdShow) {
+	// Ensure uid.dat exists from startup in client mode (before any multiplayer/login path).
+	if (launchOptions.serverMode) {
 		std::string authenticationToken = "";
 		std::string username = "";
 
 		if (Windows64Launcher::GetAuthenticationData(authenticationToken, username)) {
+			Windows64Launcher::GetAuthenticationDataAndSave();
 			int responseState = Windows64Launcher::API_GetAccountInfo(authenticationToken);
 			if (responseState == 0) {
 				std::string fullName = std::string("[SERVER]-" + username);
 				strncpy_s(g_Win64Username, sizeof(g_Win64Username), fullName.c_str(), _TRUNCATE);
-			} else {
+			}
+			else {
 				MessageBoxW(g_hWnd, L"Unable To Connect To Saved Account", L"Dedicated Login Failed", MB_OK);
 			}
 		}
 		else {
 			MessageBoxW(g_hWnd, L"Unable To Connect To Saved Account", L"Dedicated Login Failed", MB_OK);
 		}
-		
 	}
 
 	if (g_Win64Username[0] == 0) return;
@@ -1265,7 +1281,7 @@ void StartGame(bool servermode, bool nCmdShow) {
 	MyRegisterClass(hMyInst);
 
 	// Perform application initialization:
-	if (!InitInstance(hMyInst, servermode ? SW_HIDE : nCmdShow))
+	if (!InitInstance(hMyInst, launchOptions.serverMode ? SW_HIDE : nCmdShow))
 	{
 		return;
 	}
@@ -1277,15 +1293,12 @@ void StartGame(bool servermode, bool nCmdShow) {
 	}
 
 	// Restore fullscreen state from previous session
-	if (LoadFullscreenOption() && !g_isFullscreen)
+	if (LoadFullscreenOption() && !g_isFullscreen || launchOptions.fullscreen)
 	{
 		ToggleFullscreen();
 	}
 
-	app.SetWriteSavesToFolderEnabled(true);
-	app.SetLoadSavesFromFolderEnabled(true);
-
-	if (servermode)
+	if (launchOptions.serverMode)
 	{
 		int serverResult = RunHeadlessServer();
 		CleanupDevice();
@@ -1410,7 +1423,6 @@ void StartGame(bool servermode, bool nCmdShow) {
 		app.UpdateTime();
 		PIXBeginNamedEvent(0, "Input manager tick");
 		InputManager.Tick();
-
 
 		// Detect KBM vs controller input mode
 		if (InputManager.IsPadConnected(0))
@@ -1638,6 +1650,15 @@ void StartGame(bool servermode, bool nCmdShow) {
 			}
 		}
 
+		//todo: make / add a slash in the chat on open
+		// Open chat
+		if ((g_KBMInput.IsKeyPressed('T') || g_KBMInput.IsKeyPressed('/')) && app.GetGameStarted() && !ui.GetMenuDisplayed(0) && pMinecraft->screen == NULL)
+		{
+			g_KBMInput.ClearCharBuffer();
+			pMinecraft->setScreen(new ChatScreen());
+			SetFocus(g_hWnd);
+		}
+
 #if 0
 		// has the game defined profile data been changed (by a profile load)
 		if (app.uiGameDefinedDataChangedBitmask != 0)
@@ -1855,7 +1876,7 @@ SIZE_T WINAPI XMemSize(
 void DumpMem()
 {
 	int totalLeak = 0;
-	for(AUTO_VAR(it, allocCounts.begin()); it != allocCounts.end(); it++ )
+	for( auto it = allocCounts.begin(); it != allocCounts.end(); it++ )
 	{
 		if(it->second > 0 )
 		{
@@ -1903,7 +1924,7 @@ void MemPixStuff()
 
 	int totals[MAX_SECT] = {0};
 
-	for(AUTO_VAR(it, allocCounts.begin()); it != allocCounts.end(); it++ )
+	for( auto it = allocCounts.begin(); it != allocCounts.end(); it++ )
 	{
 		if(it->second > 0 )
 		{

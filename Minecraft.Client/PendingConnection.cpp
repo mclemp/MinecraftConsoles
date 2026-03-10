@@ -105,15 +105,14 @@ void PendingConnection::sendPreLoginResponse()
 	StorageManager.GetSaveUniqueFilename(szUniqueMapName);
 
 	PlayerList *playerList = MinecraftServer::getInstance()->getPlayers();
-	for(AUTO_VAR(it, playerList->players.begin()); it != playerList->players.end(); ++it)
+	for(auto& player : playerList->players)
 	{
-		shared_ptr<ServerPlayer> player = *it;
 		// If the offline Xuid is invalid but the online one is not then that's guest which we should ignore
 		// If the online Xuid is invalid but the offline one is not then we are definitely an offline game so dont care about UGC
 
 		// PADDY - this is failing when a local player with chat restrictions joins an online game
 
-		if( player != NULL && player->connection->m_offlineXUID != INVALID_XUID && player->connection->m_onlineXUID != INVALID_XUID )
+		if( player != nullptr && player->connection->m_offlineXUID != INVALID_XUID && player->connection->m_onlineXUID != INVALID_XUID )
 		{
 			if( player->connection->m_friendsOnlyUGC )
 			{
@@ -137,7 +136,9 @@ void PendingConnection::sendPreLoginResponse()
 	else
 #endif
 	{
-		connection->send( shared_ptr<PreLoginPacket>( new PreLoginPacket(L"-", ugcXuids, ugcXuidCount, ugcFriendsOnlyBits, server->m_ugcPlayersVersion,szUniqueMapName,app.GetGameHostOption(eGameHostOption_All),hostIndex, server->m_texturePackId) ) );
+		DWORD cappedCount = (ugcXuidCount > 255u) ? 255u : static_cast<DWORD>(ugcXuidCount);
+		BYTE cappedHostIndex = (hostIndex >= 255u) ? 254 : static_cast<BYTE>(hostIndex);
+		connection->send(shared_ptr<PreLoginPacket>(new PreLoginPacket(L"-", ugcXuids, cappedCount, ugcFriendsOnlyBits, server->m_ugcPlayersVersion, szUniqueMapName, app.GetGameHostOption(eGameHostOption_All), cappedHostIndex, server->m_texturePackId)));
 	}
 }
 
@@ -162,6 +163,8 @@ void PendingConnection::handleLogin(shared_ptr<LoginPacket> packet)
 	//if (true)// 4J removed !server->onlineMode)
 	bool sentDisconnect = false;
 
+	
+
 	if( sentDisconnect )
 	{
 		// Do nothing
@@ -175,9 +178,9 @@ void PendingConnection::handleLogin(shared_ptr<LoginPacket> packet)
 	{
 		bool nameTaken = false;
 		vector<shared_ptr<ServerPlayer> >& pl = server->getPlayers()->players;
-		for (unsigned int i = 0; i < pl.size(); i++)
+		for (const auto& i : pl)
 		{
-			if (pl[i] != NULL && pl[i]->name == name)
+			if (i != NULL && i->name == name)
 			{
 				nameTaken = true;
 				break;
@@ -201,7 +204,7 @@ void PendingConnection::handleLogin(shared_ptr<LoginPacket> packet)
 	//else
 	{
 		//4J - removed
-#if 0 
+#if 0
 		new Thread() {
 			public void run() {
 				try {
@@ -258,7 +261,7 @@ void PendingConnection::onDisconnect(DisconnectPacket::eDisconnectReason reason,
 void PendingConnection::handleGetInfo(shared_ptr<GetInfoPacket> packet)
 {
 	//try {
-	//String message = server->motd + "§" + server->players->getPlayerCount() + "§" + server->players->getMaxPlayers();
+	//String message = server->motd + "ï¿½" + server->players->getPlayerCount() + "ï¿½" + server->players->getMaxPlayers();
 	//connection->send(new DisconnectPacket(message));
 	connection->send(shared_ptr<DisconnectPacket>(new DisconnectPacket(DisconnectPacket::eDisconnect_ServerFull) ) );
 	connection->sendAndQuit();

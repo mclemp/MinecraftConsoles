@@ -12,7 +12,7 @@ class PlayerChunkMap
 {
 public:
 #ifdef _LARGE_WORLDS
-	static const int MAX_VIEW_DISTANCE = 128;
+	static const int MAX_VIEW_DISTANCE = 30;
 #else
 	static const int MAX_VIEW_DISTANCE = 15;
 #endif

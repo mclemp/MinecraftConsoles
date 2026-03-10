@@ -12,6 +12,53 @@
 #include <string>
 #include <regex>
 
+#include <windows.h>
+#include <shellapi.h>
+
+#include "discord_rpc.h"
+
+float g_sleepPercentage = 100;
+int g_autosaveInterval = 120;
+
+bool g_doBoatBreak = true;
+
+DWORD WINAPI DiscordRPCThreadFunc(LPVOID lpParam) {
+
+	DiscordEventHandlers handlers;
+	memset(&handlers, 0, sizeof(handlers));
+
+	//dont handle any of these, if rpc disconnects it wont reconnect, but if someone doesnt have discord it wont loop reconnects
+	//handlers.ready = handleDiscordReady;
+	//handlers.disconnected = handleDiscordDisconnected;
+	//handlers.errored = handleDiscordError;
+
+	const char* applicationId = "1424889204110004316";
+
+	Discord_Initialize(applicationId, &handlers, 1, NULL);
+
+	DiscordRichPresence presence;
+	memset(&presence, 0, sizeof(presence));
+	
+	//presence.state = "testing"; //todo: show if in server or single player
+	//presence.details = "test2"; //todo: show dimention or some active state like crafting, exploring the overworld
+	presence.startTimestamp = time(0);
+	presence.largeImageKey = "MCLE";
+	presence.largeImageText = "MCLE";
+
+	//todo: maybe show dimention as small image instead of in details?
+	//presence.smallImageKey = "MCLE"; 
+	//presence.smallImageText = "MCLE";
+
+	Discord_UpdatePresence(&presence);
+
+	while (true) {
+		Discord_RunCallbacks();
+		Sleep(2000);
+	}
+
+	Discord_Shutdown();
+	return 0;
+}
 
 static  ATOM RegisterLauncherClass(HINSTANCE hInstance);
 static BOOL InitWindow(HINSTANCE hInstance);
@@ -28,8 +75,6 @@ HWND hBtnLogout;
 
 HWND hBtnDiscord;
 
-HWND hBtnViewDistance;
-
 HWND hBtnRegister;
 HWND hBtnLogin;
 
@@ -43,14 +88,7 @@ HWND hLoginUsernameLabel;
 std::string username = "";
 std::string authenticationToken = "";
 
-int viewDistance = 3;
-std::vector<std::string> viewDistanceNames = {
-	"Tiny",
-	"Small",
-	"Medium",
-	"Large",
-	"Extreme"
-};
+bool startedThread = false;
 
 void onSuccessfulLogin();
 void onLoginFailed();
@@ -62,30 +100,6 @@ const std::string& Windows64Launcher::GetAuthenticationToken() {
 
 const std::string& Windows64Launcher::GetUsername() {
 	return username;
-}
-
-void NextViewDistance() {
-	viewDistance++;
-
-	if (viewDistance >= viewDistanceNames.size()) {
-		viewDistance = 0;
-	}
-}
-
-int Windows64Launcher::GetViewDistance() {
-	switch (viewDistance) {
-	case 0:
-		return 2;
-	case 1:
-		return 4;
-	case 2:
-		return 8;
-	case 3:
-		return 16;
-	case 4:
-		return 32;
-	}
-	return viewDistance;
 }
 
 void Windows64Launcher::CreateLauncherWindow(HINSTANCE hInstance, std::function<void()> onLaunch) {
@@ -138,6 +152,13 @@ void onSuccessfulLogin() {
 
 	ShowWindow(hBtnRegister, SW_HIDE);
 	ShowWindow(hBtnLogin, SW_HIDE);
+
+	if (!startedThread) {
+		HANDLE hThread = CreateThread(NULL, 0, DiscordRPCThreadFunc, NULL, 0, NULL);
+		CloseHandle(hThread);
+
+		startedThread = true;
+	}
 }
 
 void onLoginFailed() {
@@ -161,7 +182,7 @@ void onLoginFailed() {
 LRESULT OnWindowCreation(HWND hWnd) {
 	hBottomBar = CreateWindowW(L"STATIC", nullptr, WS_CHILD | WS_VISIBLE, 0, 0, 0, 0, hWnd, nullptr, nullptr, nullptr);
 
-	hStatusText = CreateWindowW(L"STATIC", L"Version: 0.1", WS_CHILD | WS_VISIBLE, 10, 10, 200, 20, hBottomBar, nullptr, nullptr, nullptr);
+	hStatusText = CreateWindowW(L"STATIC", L"Version: 0.2", WS_CHILD | WS_VISIBLE, 10, 10, 200, 20, hBottomBar, nullptr, nullptr, nullptr);
 
 	hBtnLaunch = CreateWindowW(L"BUTTON", L"Launch", WS_CHILD | WS_VISIBLE | BS_DEFPUSHBUTTON, 0, 0, 80, 25, hWnd, (HMENU)1, nullptr, nullptr);
 	hBtnCancel = CreateWindowW(L"BUTTON", L"Cancel", WS_CHILD | WS_VISIBLE, 0, 0, 80, 25, hWnd, (HMENU)2, nullptr, nullptr);
@@ -172,9 +193,6 @@ LRESULT OnWindowCreation(HWND hWnd) {
 	hBtnLogout = CreateWindowW(L"BUTTON", L"Logout", WS_CHILD | WS_VISIBLE, 0, 0, 80, 25, hWnd, (HMENU)5, nullptr, nullptr);
 
 	hBtnDiscord = CreateWindowW(L"BUTTON", L"Discord", WS_CHILD | WS_VISIBLE, 0, 0, 80, 25, hWnd, (HMENU)6, nullptr, nullptr);
-	hBtnViewDistance = CreateWindowW(L"BUTTON", L"View Distance: None", WS_CHILD | WS_VISIBLE, 0, 0, 120, 25, hWnd, (HMENU)7, nullptr, nullptr);
-
-	SetWindowText(hBtnViewDistance, std::string("View Distance: " + viewDistanceNames[viewDistance]).c_str());
 
 	hUsernameLabel = CreateWindowW(L"STATIC", L"Username:", WS_CHILD | WS_VISIBLE, 0, 0, 80, 20, hWnd, nullptr, nullptr, nullptr);
 	hUsernameEdit = CreateWindowW(L"EDIT", L"", WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL, 0, 0, 180, 25, hWnd, nullptr, nullptr, nullptr);
@@ -199,7 +217,6 @@ LRESULT OnWindowSize(int width, int height) {
 	MoveWindow(hBtnLogout, 0, 30, labelWidth, 20, TRUE);
 
 	MoveWindow(hBtnDiscord, centerX, 125, labelWidth, 20, TRUE);
-	MoveWindow(hBtnViewDistance, (width / 2) - (160 / 2), 100, 160, 20, TRUE);
 
 	// Username
 	MoveWindow(hUsernameLabel, centerX - labelWidth + 50, startY - 5, labelWidth, 20, TRUE);
@@ -331,18 +348,11 @@ LRESULT OnCommandReceived(HWND hWnd, int type) {
 		onLoginFailed();
 		break;
 	case 6: //Discord
-		{
-			std::fstream fs;
-			fs.open("https://discord.gg/PnFSW8d6ZV");
-			fs.close();
-		}
-		break;
-	case 7: //View Distance
-		{
-			NextViewDistance();
-			SetWindowText(hBtnViewDistance, std::string("View Distance: " + viewDistanceNames[viewDistance]).c_str());
-		}
-		break;
+	{
+
+		ShellExecute(0, 0, "https://discord.gg/xjc9JW4Bfp", 0, 0 , SW_SHOW );
+	}
+	break;
 	}
 	return 0;
 }
@@ -459,6 +469,10 @@ bool Windows64Launcher::GetAuthenticationData(std::string& tokenOut, std::string
 	return true;
 }
 
+bool Windows64Launcher::GetAuthenticationDataAndSave() {
+	return Windows64Launcher::GetAuthenticationData(authenticationToken, username);
+}
+
 std::vector<std::string> split(const std::string& str, char delimiter) {
 	std::vector<std::string> result;
 	size_t start = 0;
@@ -478,7 +492,7 @@ int Windows64Launcher::API_GetAccountInfo(const std::string token) {
 	std::vector<std::wstring> headers;
 	headers.push_back(L"Content-Type: text/plain");
 
-	HttpResponse response = WinsockNetLayer::DoWinHttpRequest(L"38.49.215.81", 2052, L"/getAccountInfo", L"POST", token, headers);
+	HttpResponse response = WinsockNetLayer::DoWinHttpRequest(L"/getAccountInfo", L"POST", token, headers);
 
 	if (response.status != 200) return (20000 + response.status);
 
@@ -495,7 +509,7 @@ int Windows64Launcher::API_AttemptAccountRegister(const std::string _username, c
 
 	std::string data = _username + ":" + password;
 
-	HttpResponse response = WinsockNetLayer::DoWinHttpRequest(L"38.49.215.81", 2052, L"/accountRegistration", L"POST", data, headers);
+	HttpResponse response = WinsockNetLayer::DoWinHttpRequest(L"/accountRegistration", L"POST", data, headers);
 
 	if (response.status != 200) return (20000 + response.status);
 
@@ -516,7 +530,7 @@ int Windows64Launcher::API_AttemptAccountLogin(const std::string _username, cons
 
 	std::string data = _username + ":" + password;
 
-	HttpResponse response = WinsockNetLayer::DoWinHttpRequest(L"38.49.215.81", 2052, L"/accountLogin", L"POST", data, headers);
+	HttpResponse response = WinsockNetLayer::DoWinHttpRequest(L"/accountLogin", L"POST", data, headers);
 
 	if (response.status != 200) return (20000 + response.status);
 

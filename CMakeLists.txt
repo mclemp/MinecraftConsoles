@@ -28,12 +28,9 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/ClientSources.cmake")
 
 list(TRANSFORM MINECRAFT_WORLD_SOURCES PREPEND "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.World/")
 list(TRANSFORM MINECRAFT_CLIENT_SOURCES PREPEND "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/")
-
-if(NOT CMAKE_CROSSCOMPILING) # broken when cross compiling (can't include sdkddkver.h)
-  list(APPEND MINECRAFT_CLIENT_SOURCES
-    "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Xbox/MinecraftWindows.rc"
-  )
-endif()
+list(APPEND MINECRAFT_CLIENT_SOURCES
+  "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Xbox/MinecraftWindows.rc"
+)
 
 add_library(MinecraftWorld STATIC ${MINECRAFT_WORLD_SOURCES})
 target_include_directories(MinecraftWorld PRIVATE
@@ -62,10 +59,7 @@ target_compile_definitions(MinecraftClient PRIVATE
 if(MSVC)
   configure_msvc_target(MinecraftClient)
   target_link_options(MinecraftClient PRIVATE
-    /SUBSYSTEM:CONSOLE
-    /ENTRY:WinMainCRTStartup
-    $<$<CONFIG:Release>:/LTCG>
-    $<$<CONFIG:Release>:/INCREMENTAL:NO>
+    $<$<CONFIG:Release>:/LTCG /INCREMENTAL:NO>
   )
 endif()
 
@@ -82,7 +76,6 @@ target_link_libraries(MinecraftClient PRIVATE
   "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Windows64/Iggy/lib/iggy_w64.lib"
   "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Windows64/Iggy/lib/iggyperfmon_w64.lib"
   "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Windows64/Iggy/lib/iggyexpruntime_w64.lib"
-  "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Windows64/Miles/lib/mss64.lib"
   $<$<CONFIG:Debug>:
     "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Windows64/4JLibs/libs/4J_Input_d.lib"
     "${CMAKE_CURRENT_SOURCE_DIR}/Minecraft.Client/Windows64/4JLibs/libs/4J_Storage_d.lib"
@@ -95,7 +88,7 @@ target_link_libraries(MinecraftClient PRIVATE
   >
 )
 
-if(WIN32)
+if(CMAKE_HOST_WIN32)
   message(STATUS "Starting redist copy...")
   execute_process(
     COMMAND robocopy.exe
@@ -124,7 +117,7 @@ if(WIN32)
             /S /MT /R:0 /W:0 /NP
             /XF "*.h" "*.xml" "*.lang" "*.bat"
   )
-elseif(UNIX)
+elseif(CMAKE_HOST_UNIX)
   message(STATUS "Starting redist copy...")
   execute_process(
     COMMAND rsync -av "${CMAKE_CURRENT_SOURCE_DIR}/x64/Release/" "${CMAKE_CURRENT_BINARY_DIR}/"

@@ -21,24 +21,30 @@ private:
 	int m_iEditingLine;
 	bool m_bConfirmed;
 	bool m_bIgnoreInput;
+	int m_iSignCursorFrame;
+#ifdef _WINDOWS64
+	int m_iActiveDirectEditLine;
+	bool m_bNeedsInitialEdit;
+	bool m_bSkipTickNav;
+#endif
 
 	UIControl_Button m_buttonConfirm;
 	UIControl_Label m_labelMessage;
 	UIControl_TextInput m_textInputLines[4];
 	UI_BEGIN_MAP_ELEMENTS_AND_NAMES(UIScene)
-		UI_MAP_ELEMENT( m_buttonConfirm, "Confirm")
-		UI_MAP_ELEMENT( m_labelMessage, "Message")
+		UI_MAP_ELEMENT(m_buttonConfirm, "Confirm")
+		UI_MAP_ELEMENT(m_labelMessage, "Message")
 
-		UI_MAP_ELEMENT( m_textInputLines[0], "Line1")
-		UI_MAP_ELEMENT( m_textInputLines[1], "Line2")
-		UI_MAP_ELEMENT( m_textInputLines[2], "Line3")
-		UI_MAP_ELEMENT( m_textInputLines[3], "Line4")
-	UI_END_MAP_ELEMENTS_AND_NAMES()
+		UI_MAP_ELEMENT(m_textInputLines[0], "Line1")
+		UI_MAP_ELEMENT(m_textInputLines[1], "Line2")
+		UI_MAP_ELEMENT(m_textInputLines[2], "Line3")
+		UI_MAP_ELEMENT(m_textInputLines[3], "Line4")
+		UI_END_MAP_ELEMENTS_AND_NAMES()
 public:
-	UIScene_SignEntryMenu(int iPad, void *initData, UILayer *parentLayer);
+	UIScene_SignEntryMenu(int iPad, void* initData, UILayer* parentLayer);
 	virtual ~UIScene_SignEntryMenu();
 
-	virtual EUIScene getSceneType() { return eUIScene_SignEntryMenu;}
+	virtual EUIScene getSceneType() { return eUIScene_SignEntryMenu; }
 	virtual void updateTooltips();
 
 	virtual void tick();
@@ -49,10 +55,14 @@ protected:
 
 public:
 	// INPUT
-	virtual void handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled);
+	virtual void handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool& handled);
+#ifdef _WINDOWS64
+	virtual void getDirectEditInputs(vector<UIControl_TextInput*>& inputs);
+	virtual void onDirectEditFinished(UIControl_TextInput* input, UIControl_TextInput::EDirectEditResult result);
+#endif
 
 protected:
 	void handlePress(F64 controlId, F64 childId);
-	static int KeyboardCompleteCallback(LPVOID lpParam,const bool bRes);
+	static int KeyboardCompleteCallback(LPVOID lpParam, const bool bRes);
 	virtual void handleDestroy();
 };

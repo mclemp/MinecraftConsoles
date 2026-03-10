@@ -4,6 +4,11 @@
 #include <string>
 #include <functional>
 
+extern float g_sleepPercentage;
+extern int g_autosaveInterval;
+
+extern bool g_doBoatBreak;
+
 class Windows64Launcher {
 public:
 	static int GetViewDistance();
@@ -13,6 +18,7 @@ public:
 
 	static void SaveAuthenticationData(const std::string& token, const std::string& refreshToken);
 	static bool GetAuthenticationData(std::string& tokenOut, std::string& refreshTokenOut);
+	static bool GetAuthenticationDataAndSave();
 
 	static int API_GetAccountInfo(const std::string token);
 	static int API_AttemptAccountRegister(const std::string username, const std::string password, std::string& tokenOut);

@@ -18,7 +18,7 @@ class LevelType;
 class ProgressRenderer;
 class CommandDispatcher;
 
-#define MINECRAFT_SERVER_SLOW_QUEUE_DELAY 250
+#define MINECRAFT_SERVER_SLOW_QUEUE_DELAY 0
 
 #if defined _XBOX_ONE || defined _XBOX || defined __ORBIS__ || defined __PS3__ || defined __PSVITA__
 #define _ACK_CHUNK_SEND_THROTTLING

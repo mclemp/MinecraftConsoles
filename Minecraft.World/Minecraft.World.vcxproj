@@ -708,6 +708,9 @@
     <IncludePath>$(ProjectDir)\x64headers;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64EC'">
     <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -736,6 +739,9 @@
     <IncludePath>$(ProjectDir)\x64headers;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64EC'">
     <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -754,6 +760,9 @@
     <IncludePath>$(ProjectDir)\x64headers;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ContentPackage_Vita|ARM64EC'">
     <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -835,6 +844,9 @@
     <IncludePath>$(ProjectDir)\x64header;$(DXSDK_DIR)include;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ContentPackage|ARM64EC'">
     <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -853,6 +865,9 @@
     <IncludePath>$(ProjectDir)\x64header;$(DXSDK_DIR)include;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CONTENTPACKAGE_SYMBOLS|ARM64EC'">
     <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -871,6 +886,9 @@
     <IncludePath>$(ProjectDir)\x64header;$(DXSDK_DIR)include;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(Platform)_$(Configuration)\</IntDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseForArt|ARM64EC'">
     <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -889,6 +907,9 @@
     <IncludePath>$(ProjectDir)\x64header;$(DXSDK_DIR)include;$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\$(Configuration)\</OutDir>
     <IntDir>$(ProjectDir)\$(Configuration)\</IntDir>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <EnableMicrosoftCodeAnalysis>false</EnableMicrosoftCodeAnalysis>
+    <EnableClangTidyCodeAnalysis>false</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ContentPackage_NO_TU|ARM64EC'">
     <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
@@ -1346,7 +1367,7 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <PrecompiledHeaderOutputFile>$(OutDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>_LARGE_WORLDS;_WINDOWS64;_FINAL_BUILD;_CONTENT_PACKAGE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_LIB;_LARGE_WORLDS;_WINDOWS64;_FINAL_BUILD;_CONTENT_PACKAGE;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <CallAttributedProfiling>Disabled</CallAttributedProfiling>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <ShowIncludes>false</ShowIncludes>

@@ -342,6 +342,10 @@ void IQNet::EndGame()
 		m_player[i].m_gamertag[0] = 0;
 		m_player[i].SetCustomDataValue(0);
 	}
+	// Restore local player 0's gamertag so re-joining works correctly
+	extern wchar_t g_Win64UsernameW[17];
+	m_player[0].m_isHostPlayer = true;
+	wcscpy_s(m_player[0].m_gamertag, 32, g_Win64UsernameW);
 }
 
 DWORD MinecraftDynamicConfigurations::GetTrialTime() { return DYNAMIC_CONFIG_DEFAULT_TRIAL_TIME; }
@@ -561,6 +565,9 @@ void				C_4JProfile::GetXUID(int iPad, PlayerUID * pXuid, bool bOnlineXuid)
 		*pXuid = INVALID_XUID;
 		return;
 	}
+	// LoginPacket reads this value as client identity:
+	// - host keeps legacy host XUID for world compatibility
+	// - non-host uses persistent uid.dat-backed XUID
 	if (IQNet::s_isHosting)
 		*pXuid = 0xe000d45248242f2e;
 	else

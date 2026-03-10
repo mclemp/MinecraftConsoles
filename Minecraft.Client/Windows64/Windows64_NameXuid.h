@@ -8,13 +8,13 @@ namespace Win64NameXuid
 {
 	/**
 	 * ## Resolves a persistent 64-bit player ID from the player's username.
-	 * 
+	 *
 	 * We keep this deterministic so existing player save/map systems can key off XUID.
-	 * 
+	 *
 	 * @param playerName The player's username.
 	 * @return The resolved PlayerUID.
 	 */
-	inline PlayerUID ResolvePersistentXuidFromName(const std::wstring &playerName)
+	inline PlayerUID ResolvePersistentXuidFromName(const std::wstring& playerName)
 	{
 		const unsigned __int64 fnvOffset = 14695981039346656037ULL;
 		const unsigned __int64 fnvPrime = 1099511628211ULL;
@@ -43,4 +43,3 @@ namespace Win64NameXuid
 }
 
 #endif
-

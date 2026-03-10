@@ -173,9 +173,13 @@ void MultiplayerLocalPlayer::sendPosition()
 
 }
 
-shared_ptr<ItemEntity> MultiplayerLocalPlayer::drop()
+shared_ptr<ItemEntity> MultiplayerLocalPlayer::drop(bool dropAll)
 {
-	connection->send( shared_ptr<PlayerActionPacket>( new PlayerActionPacket(PlayerActionPacket::DROP_ITEM, 0, 0, 0, 0) ) );
+	int action = dropAll ?
+		PlayerActionPacket::DROP_ALL_ITEMS :
+		PlayerActionPacket::DROP_ITEM;
+
+	connection->send(std::make_shared<PlayerActionPacket>(action, 0, 0, 0, 0));
 	return nullptr;
 }
 

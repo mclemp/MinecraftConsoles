@@ -39,13 +39,11 @@ public:
 	bool IsHeldItem();
 	static int getSelectionSize();
 
-private:
 	int getSlot(int tileId);
 	int getSlot(int tileId, int data);
 
 	int getSlotWithRemainingSpace(shared_ptr<ItemInstance> item);
 
-public:
 	int getFreeSlot();
 	void grabTexture(int id, int data, bool checkData, bool mayReplace);
 	void swapPaint(int wheel);
@@ -68,6 +66,7 @@ public:
 	shared_ptr<ItemInstance> getResourceItem(int type,int iAuxVal);
 
 	bool hasResource(int type);
+	int countResource(int type, int auxVal);
 	void swapSlots(int from, int to);
 	bool add(shared_ptr<ItemInstance> item);
 	shared_ptr<ItemInstance> removeItem(unsigned int slot, int count);

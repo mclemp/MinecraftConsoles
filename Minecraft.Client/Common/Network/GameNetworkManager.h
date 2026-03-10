@@ -134,7 +134,6 @@ public:
 
 	void SystemFlagSet(INetworkPlayer *pNetworkPlayer, int index);
 	bool SystemFlagGet(INetworkPlayer *pNetworkPlayer, int index);
-	void SystemFlagClearForSystem(INetworkPlayer* pNetworkPlayer);
 
 	// Events
 
