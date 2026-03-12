@@ -1,6 +1,6 @@
 # MinecraftConsoles
 
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?logo=discord&logoColor=white)](https://discord.gg/u9f67jaWyP)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?logo=discord&logoColor=white)](https://discord.gg/mcle)
 
 ![Tutorial World](.github/TutorialWorld.png)
 
