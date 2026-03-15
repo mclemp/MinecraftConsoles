@@ -3934,6 +3934,9 @@
     <ClInclude Include="Windows64\extralibs\rapidjson\internal\swap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\Minecraft.World\MusicTileEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

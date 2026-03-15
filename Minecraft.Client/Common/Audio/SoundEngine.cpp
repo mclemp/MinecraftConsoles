@@ -65,7 +65,7 @@ void SoundEngine::playMusicTick() {};
 
 #ifdef _WINDOWS64
 char SoundEngine::m_szSoundPath[]={"Windows64Media\\Sound\\"};
-char SoundEngine::m_szMusicPath[]={"music\\"};
+char SoundEngine::m_szMusicPath[]={"Windows64Media\\Music\\"};
 char SoundEngine::m_szRedistName[]={"redist64"};
 #elif defined _DURANGO
 char SoundEngine::m_szSoundPath[]={"Sound\\"};
@@ -103,7 +103,7 @@ char SoundEngine::m_szRedistName[]={"redist"};
 
 #endif
 
-char *SoundEngine::m_szStreamFileA[eStream_Max]=
+const char *SoundEngine::m_szStreamFileA[eStream_Max]=
 {
 	"calm1",
 	"calm2",
@@ -114,7 +114,9 @@ char *SoundEngine::m_szStreamFileA[eStream_Max]=
 	"hal4",
 	"nuance1",
 	"nuance2",
-
+	"piano1",
+	"piano2",
+	"piano3",
 #ifndef _XBOX
 	"creative1",
 	"creative2",
@@ -127,11 +129,6 @@ char *SoundEngine::m_szStreamFileA[eStream_Max]=
 	"menu3",
 	"menu4",
 #endif
-
-	"piano1",
-	"piano2",
-	"piano3",
-
 	// Nether
 	"nether1",
 	"nether2",
@@ -187,11 +184,11 @@ void SoundEngine::init(Options* pOptions)
     m_bSystemMusicPlaying = false;
 
     app.DebugPrintf("---miniaudio initialized\n");
-
+	
     return;
 }
 
-void SoundEngine::SetStreamingSounds(int iOverworldMin, int iOverWorldMax, int iNetherMin, int iNetherMax, int iEndMin, int iEndMax, int iCD1)
+void SoundEngine::SetStreamingSounds(int iOverworldMin, int iOverWorldMax, int iNetherMin, int iNetherMax, int iEndMin, int iEndMax, int iCD1, int iCreativeMin, int iCreativeMax, int iMenuMin, int iMenuMax)
 {
 	m_iStream_Overworld_Min=iOverworldMin;
 	m_iStream_Overworld_Max=iOverWorldMax;
@@ -199,6 +196,10 @@ void SoundEngine::SetStreamingSounds(int iOverworldMin, int iOverWorldMax, int i
 	m_iStream_Nether_Max=iNetherMax;
 	m_iStream_End_Min=iEndMin;
 	m_iStream_End_Max=iEndMax;
+	m_iStream_Creative_Min=iCreativeMin;
+	m_iStream_Creative_Max=iCreativeMax;
+	m_iStream_Menu_Min=iMenuMin;
+	m_iStream_Menu_Max=iMenuMax;
 	m_iStream_CD_1=iCD1;
 
 	// array to monitor recently played tracks
@@ -265,7 +266,6 @@ void SoundEngine::updateMiniAudio()
             finalVolume = 1.0f;
 
         ma_sound_set_volume(&s->sound, finalVolume);
-
         ma_sound_set_pitch(&s->sound, s->info.pitch);
 
         if (s->info.bIs3D)
@@ -335,7 +335,7 @@ void SoundEngine::tick(shared_ptr<Mob> *players, float a)
 		bool bListenerPostionSet = false;
 		for( size_t i = 0; i < MAX_LOCAL_PLAYERS; i++ )
 		{
-			if( players[i] != NULL )
+			if( players[i] != nullptr )
 			{
 				m_ListenerA[i].bValid=true;
 				F32 x,y,z;
@@ -402,13 +402,13 @@ SoundEngine::SoundEngine()
 	m_iMusicDelay=0;
 	m_validListenerCount=0; 
 
-	m_bHeardTrackA=NULL;
+	m_bHeardTrackA=nullptr;
 
 	// Start the streaming music playing some music from the overworld
 	SetStreamingSounds(eStream_Overworld_Calm1,eStream_Overworld_piano3,
 		eStream_Nether1,eStream_Nether4,
 		eStream_end_dragon,eStream_end_end,
-		eStream_CD_1);
+		eStream_CD_1, eStream_Overworld_Creative1, eStream_Overworld_Creative6, eStream_Overworld_Menu1, eStream_Overworld_Menu4);
 
 	m_musicID=getMusicID(LevelData::DIMENSION_OVERWORLD);
 
@@ -471,67 +471,64 @@ void SoundEngine::play(int iSound, float x, float y, float z, float volume, floa
     char finalPath[256];
     sprintf_s(finalPath, "%s.wav", basePath);
 
-    if (!FileExists(finalPath))
-    {
-        int count = 0;
+	const char* extensions[] = { ".ogg", ".wav", ".mp3" };
+	size_t extCount = sizeof(extensions) / sizeof(extensions[0]);
+	bool found = false;
 
-        for (size_t i = 1; i < 32; i++)
-        {
-            char numberedFolder[256];
-            sprintf_s(numberedFolder, "%s%d", basePath, i);
-
-            DWORD attr = GetFileAttributesA(numberedFolder);
-
-            if (attr != INVALID_FILE_ATTRIBUTES &&
-                (attr & FILE_ATTRIBUTE_DIRECTORY))
-            {
-                count++;
-            }
-            else
-            {
-                break;
-            }
-        }
-
-        char chosenFolder[256];
-
-        if (count == 0)
-        {
-            sprintf_s(chosenFolder, "%s", basePath);
-        }
-        else
-        {
-            int chosen = (rand() % count) + 1;
-            sprintf_s(chosenFolder, "%s%d", basePath, chosen);
-        }
-
-        char searchPattern[256];
-        sprintf_s(searchPattern, "%s\\*.wav", chosenFolder);
-
-        WIN32_FIND_DATAA findData;
-        HANDLE hFind = FindFirstFileA(searchPattern, &findData);
-
-		const char* extensions[] = { ".ogg", ".wav", ".mp3" };
-		size_t extCount = sizeof(extensions) / sizeof(extensions[0]);
-		bool found = false;
-		for (size_t i = 0; i < extCount; i++)
+	for (size_t extIdx = 0; extIdx < extCount; extIdx++)
+	{
+		char basePlusExt[256];
+		sprintf_s(basePlusExt, "%s%s", basePath, extensions[extIdx]);
+		
+		DWORD attr = GetFileAttributesA(basePlusExt);
+		if (attr != INVALID_FILE_ATTRIBUTES && !(attr & FILE_ATTRIBUTE_DIRECTORY))
 		{
-			sprintf_s(searchPattern, "%s\\*%s", chosenFolder, extensions[i]);
-			hFind = FindFirstFileA(searchPattern, &findData);
-			if (hFind != INVALID_HANDLE_VALUE)
+			sprintf_s(finalPath, "%s", basePlusExt);
+			found = true;
+			break;
+		}
+	}
+
+	if (!found)
+	{
+		int count = 0;
+
+		for (size_t extIdx = 0; extIdx < extCount; extIdx++)
+		{
+			for (size_t i = 1; i < 32; i++)
 			{
-				found = true;
-				break;
+				char numberedPath[256];
+				sprintf_s(numberedPath, "%s%d%s", basePath, i, extensions[extIdx]);
+				
+				DWORD attr = GetFileAttributesA(numberedPath);
+				if (attr != INVALID_FILE_ATTRIBUTES && !(attr & FILE_ATTRIBUTE_DIRECTORY))
+				{
+					count = i;
+				}
 			}
 		}
-		if (hFind == INVALID_HANDLE_VALUE)
-		{
-			app.DebugPrintf("No sound files found in %s\n", chosenFolder);
-			return;
-		}
 
-		sprintf_s(finalPath, "%s\\%s", chosenFolder, findData.cFileName);
-		FindClose(hFind);
+		if (count > 0)
+		{
+			int chosen = (rand() % count) + 1;
+			for (size_t extIdx = 0; extIdx < extCount; extIdx++)
+			{
+				char numberedPath[256];
+				sprintf_s(numberedPath, "%s%d%s", basePath, chosen, extensions[extIdx]);
+				
+				DWORD attr = GetFileAttributesA(numberedPath);
+				if (attr != INVALID_FILE_ATTRIBUTES && !(attr & FILE_ATTRIBUTE_DIRECTORY))
+				{
+					sprintf_s(finalPath, "%s", numberedPath);
+					found = true;
+					break;
+				}
+			}
+			if (!found)
+			{
+				sprintf_s(finalPath, "%s%d.wav", basePath, chosen);
+			}
+		}
 	}
 
     MiniAudioSound* s = new MiniAudioSound();
@@ -551,8 +548,8 @@ void SoundEngine::play(int iSound, float x, float y, float z, float volume, floa
             &m_engine,
             finalPath,
             MA_SOUND_FLAG_ASYNC,
-            NULL,
-            NULL,
+            nullptr,
+            nullptr,
             &s->sound) != MA_SUCCESS)
     {
         app.DebugPrintf("Failed to initialize sound from file: %s\n", finalPath);
@@ -635,8 +632,8 @@ void SoundEngine::playUI(int iSound, float volume, float pitch)
             &m_engine,
             finalPath,
             MA_SOUND_FLAG_ASYNC,
-            NULL,
-            NULL,
+            nullptr,
+            nullptr,
             &s->sound) != MA_SUCCESS)
     {
         delete s;
@@ -649,6 +646,7 @@ void SoundEngine::playUI(int iSound, float volume, float pitch)
     float finalVolume = volume * m_MasterEffectsVolume;
     if (finalVolume > 1.0f)
         finalVolume = 1.0f;
+	printf("UI Sound volume set to %f\nEffects volume: %f\n", finalVolume, m_MasterEffectsVolume);
 
     ma_sound_set_volume(&s->sound, finalVolume);
     ma_sound_set_pitch(&s->sound, pitch);
@@ -703,7 +701,7 @@ void SoundEngine::playStreaming(const wstring& name, float x, float y , float z,
 
 		for(unsigned int i=0;i<MAX_LOCAL_PLAYERS;i++)
 		{
-			if(pMinecraft->localplayers[i]!=NULL)
+			if(pMinecraft->localplayers[i]!=nullptr)
 			{
 				if(pMinecraft->localplayers[i]->dimension==LevelData::DIMENSION_END)
 				{
@@ -797,10 +795,19 @@ int SoundEngine::getMusicID(int iDomain)
 	Minecraft *pMinecraft=Minecraft::GetInstance();
 
 	// Before the game has started?
-	if(pMinecraft==NULL)
+	if(pMinecraft==nullptr)
 	{
 		// any track from the overworld
-		return GetRandomishTrack(m_iStream_Overworld_Min,m_iStream_Overworld_Max);
+		return GetRandomishTrack(m_iStream_Menu_Min,m_iStream_Menu_Max);
+	}
+
+	int localPlayerIdx = pMinecraft->getLocalPlayerIdx();
+	std::shared_ptr<MultiplayerLocalPlayer> localPlayer = pMinecraft->localplayers[localPlayerIdx];
+
+	if (localPlayer == nullptr)
+	{
+		// any track from the overworld
+		return GetRandomishTrack(m_iStream_Menu_Min,m_iStream_Menu_Max);
 	}
 
 	if(pMinecraft->skins->isUsingDefaultSkin())
@@ -814,7 +821,13 @@ int SoundEngine::getMusicID(int iDomain)
 			return GetRandomishTrack(m_iStream_Nether_Min,m_iStream_Nether_Max);
 			//return m_iStream_Nether_Min + random->nextInt(m_iStream_Nether_Max-m_iStream_Nether_Min);
 		default: //overworld
+			GameType* gt = Player::getPlayerGamePrivilege(localPlayer->getAllPlayerGamePrivileges(), Player::ePlayerGamePrivilege_CreativeMode) ? GameType::CREATIVE : GameType::SURVIVAL;
 			//return m_iStream_Overworld_Min + random->nextInt(m_iStream_Overworld_Max-m_iStream_Overworld_Min);
+
+			if (gt == GameType::CREATIVE)
+			{
+				return GetRandomishTrack(m_iStream_Creative_Min,m_iStream_Creative_Max);
+			}
 			return GetRandomishTrack(m_iStream_Overworld_Min,m_iStream_Overworld_Max);
 		}
 	}
@@ -829,7 +842,7 @@ int SoundEngine::getMusicID(int iDomain)
 			//return m_iStream_Nether_Min + random->nextInt(m_iStream_Nether_Max-m_iStream_Nether_Min);
 			return GetRandomishTrack(m_iStream_Nether_Min,m_iStream_Nether_Max);
 		default: //overworld
-			//return m_iStream_Overworld_Min + random->nextInt(m_iStream_Overworld_Max-m_iStream_Overworld_Min);
+			//Mash-ups don't have special ranges.
 			return GetRandomishTrack(m_iStream_Overworld_Min,m_iStream_Overworld_Max);
 		}
 	}
@@ -930,8 +943,8 @@ int SoundEngine::OpenStreamThreadProc(void* lpParameter)
             &soundEngine->m_engine,
             soundEngine->m_szStreamName,
             MA_SOUND_FLAG_STREAM,
-            NULL,
-            NULL,
+            nullptr,
+            nullptr,
             &soundEngine->m_musicStream);
 
     if (result != MA_SUCCESS)
@@ -1059,7 +1072,7 @@ void SoundEngine::playMusicUpdate()
 					m_StreamingAudioInfo.bIs3D=true;
 
 					// Need to adjust to index into the cds in the game's m_szStreamFileA
-					strcat((char *)m_szStreamName,"cds/");
+					strcat((char *)m_szStreamName,"Disc's/");
 					strcat((char *)m_szStreamName,m_szStreamFileA[m_musicID-m_iStream_CD_1+eStream_CD_1]);
 					strcat((char *)m_szStreamName,".wav");
 				}
@@ -1118,7 +1131,7 @@ void SoundEngine::playMusicUpdate()
 					m_MusicType=eMusicType_Game;
 					m_StreamingAudioInfo.bIs3D=false;
 					// build the name
-					strcat((char *)m_szStreamName,"music/");
+					strcat((char *)m_szStreamName,"Music/");
 				}
 				else
 				{
@@ -1127,7 +1140,7 @@ void SoundEngine::playMusicUpdate()
 					m_MusicType=eMusicType_CD;
 					m_StreamingAudioInfo.bIs3D=true;
 					// build the name
-					strcat((char *)m_szStreamName,"cds/");
+					strcat((char *)m_szStreamName,"Disc's/");
 				}
 				strcat((char *)m_szStreamName,m_szStreamFileA[m_musicID]);
 				strcat((char *)m_szStreamName,".wav");
@@ -1189,7 +1202,7 @@ void SoundEngine::playMusicUpdate()
 		if( !m_openStreamThread->isRunning() )
 		{
 			delete m_openStreamThread;
-			m_openStreamThread = NULL;
+			m_openStreamThread = nullptr;
 
 			app.DebugPrintf("OpenStreamThreadProc finished. m_musicStreamActive=%d\n", m_musicStreamActive);
 
@@ -1199,7 +1212,7 @@ void SoundEngine::playMusicUpdate()
 				if (currentExt && _stricmp(currentExt, ".wav") == 0)
 				{
 					const bool isCD = (m_musicID >= m_iStream_CD_1);
-					const char* folder = isCD ? "cds/" : "music/";
+					const char* folder = isCD ? "Disc's/" : "Music/";
 					
 					int n = sprintf_s(reinterpret_cast<char*>(m_szStreamName), 512, "%s%s%s.wav", m_szMusicPath, folder, m_szStreamFileA[m_musicID]);
 					
@@ -1246,7 +1259,7 @@ void SoundEngine::playMusicUpdate()
 		if( !m_openStreamThread->isRunning() )
 		{
 			delete m_openStreamThread;
-			m_openStreamThread = NULL;
+			m_openStreamThread = nullptr;
 			m_StreamState = eMusicStreamState_Stop;
 		}
 		break;
@@ -1282,14 +1295,14 @@ void SoundEngine::playMusicUpdate()
 		}
 		if(GetIsPlayingStreamingGameMusic())
 		{
-			//if(m_MusicInfo.pCue!=NULL)
+			//if(m_MusicInfo.pCue!=nullptr)
 			{
 				bool playerInEnd = false;
 				bool playerInNether=false;
 				Minecraft *pMinecraft = Minecraft::GetInstance();
 				for(unsigned int i = 0; i < MAX_LOCAL_PLAYERS; ++i)
 				{
-					if(pMinecraft->localplayers[i]!=NULL)
+					if(pMinecraft->localplayers[i]!=nullptr)
 					{
 						if(pMinecraft->localplayers[i]->dimension==LevelData::DIMENSION_END)
 						{
@@ -1420,7 +1433,7 @@ void SoundEngine::playMusicUpdate()
 
 			for(unsigned int i=0;i<MAX_LOCAL_PLAYERS;i++)
 			{
-				if(pMinecraft->localplayers[i]!=NULL)
+				if(pMinecraft->localplayers[i]!=nullptr)
 				{
 					if(pMinecraft->localplayers[i]->dimension==LevelData::DIMENSION_END)
 					{

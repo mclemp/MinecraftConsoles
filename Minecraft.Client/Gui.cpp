@@ -845,11 +845,53 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 	MemSect(31);
     if (minecraft->options->renderDebug)
 	{
+		glDisable(GL_DEPTH_TEST);
 		const int debugLeft = 1;
 		const int debugTop = 1;
 		const int debugRight = screenWidth - 2;
 		const float maxContentWidth = 1200.f;
 		const float maxContentHeight = 420.f;
+		// Facing Code Start
+		const wchar_t* cardinals[] = { L"South", L"West", L"North", L"East" };
+		int direction = Mth::floor(minecraft->player->yRot * 4.0f / 360.0f + 0.5) & 0x3;
+		float yRotDisplay = fmod(minecraft->player->yRot, 360.0f);
+        if (yRotDisplay >  180.0f) yRotDisplay -= 360.0f;
+        if (yRotDisplay < -180.0f) yRotDisplay += 360.0f;
+		WCHAR angleString[16];
+        swprintf(angleString, 16, L"%.1f / %.1f", yRotDisplay, minecraft->player->xRot);
+		// Facing Code End & Chunk / Block Code Start
+        int xBlockPos = Mth::floor(minecraft->player->x);
+        int yBlockPos = Mth::floor(minecraft->player->y);
+        int zBlockPos = Mth::floor(minecraft->player->z);
+        int xChunkPos = xBlockPos >> 4;
+        int yChunkPos = yBlockPos >> 4;
+        int zChunkPos = zBlockPos >> 4;
+        int xChunkOffset = xBlockPos & 15;
+        int yChunkOffset = yBlockPos & 15;
+        int zChunkOffset = zBlockPos & 15;
+		// Chunk / Block Code End & Diemension Code Start
+		wstring dimension = L"unknown";
+		switch (minecraft->player->dimension)
+            {
+            case -1:
+                dimension = L"minecraft:the_nether";
+                break;
+            case 0:
+                dimension = L"minecraft:overworld";
+                break;
+            case 1:
+                dimension = L"minecraft:the_end";
+                break;
+            }
+		// Diemension Code End & XYZ Code Start
+		WCHAR posString[44]; // Allows upto 7 digit positions (+-9_999_999)
+        swprintf(posString, 44, L"%.3f / %.5f / %.3f", minecraft->player->x, minecraft->player->y, minecraft->player->z);
+	    // XYZ Code End & Light Code Start
+		LevelChunk *chunkAt = minecraft->level->getChunkAt(xBlockPos, zBlockPos);
+        int skyLight = chunkAt->getBrightness(LightLayer::Sky, xChunkOffset, yChunkOffset, zChunkOffset);
+        int blockLight = chunkAt->getBrightness(LightLayer::Block, xChunkOffset, yChunkOffset, zChunkOffset);
+        int maxLight = fmax(skyLight, blockLight);
+		// Light Code End
 		float scale = (float)(screenWidth - debugLeft - 8) / maxContentWidth;
 		float scaleV = (float)(screenHeight - debugTop - 80) / maxContentHeight;
 		if (scaleV < scale) scale = scaleV;
@@ -863,17 +905,23 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
         font->drawShadow(ClientConstants::VERSION_STRING, debugLeft, debugTop, 0xffffff);
 		font->drawShadow(minecraft->fpsString + L" (" + minecraft->chunkupdateString + L")", debugLeft, debugTop + 12, 0xffffff);
 		font->drawShadow(minecraft->gatherStats4(), debugLeft, debugTop + 22, 0xffffff);
-        font->drawShadow(L"Seed: " + std::to_wstring(minecraft->level->getLevelData()->getSeed() ), debugLeft, debugTop + 42, 0xffffff);
-        //font->drawShadow(minecraft->gatherStats1(), debugLeft, debugTop + 52, 0xffffff); // Str1k3r - Removed, very Useless and not accurate.
-        //font->drawShadow(minecraft->gatherStats2(), debugLeft, debugTop + 62, 0xffffff);
+		font->drawShadow(L"Dimension: " + dimension, debugLeft, debugTop + 32, 0xffffff);
+		font->drawShadow(L"Block: " + std::to_wstring(xBlockPos) + L" " + std::to_wstring(yBlockPos) + L" " + std::to_wstring(zBlockPos), debugLeft, debugTop + 52, 0xffffff);
+		font->drawShadow(L"Chunk: " + std::to_wstring(xChunkOffset) + L" " + std::to_wstring(yChunkOffset) + L" " + std::to_wstring(zChunkOffset) + L" in " + std::to_wstring(xChunkPos) + L" " + std::to_wstring(yChunkPos) + L" " + std::to_wstring(zChunkPos), debugLeft, debugTop + 62, 0xffffff);
+		font->drawShadow(L"Facing: " + std::wstring(cardinals[direction]) + L" (" + angleString + L")", debugLeft, debugTop + 72, 0xffffff);
+		//font->drawShadow(L"Light: " + std::to_wstring(maxLight) + L" (" + std::to_wstring(skyLight) + L" sky, " + std::to_wstring(blockLight) + L" block)", debugLeft, debugTop + 92, 0xffffff);
+        font->drawShadow(L"Seed: " + std::to_wstring(minecraft->level->getLevelData()->getSeed() ), debugLeft, debugTop + 92, 0xffffff);
+		font->drawShadow(L"Difficulty: " + std::to_wstring(minecraft->level->difficulty) + L" (Day " + std::to_wstring(minecraft->level->getGameTime() / Level::TICKS_PER_DAY) + L")", debugLeft, debugTop + 102, 0xffffff);
+        //font->drawShadow(minecraft->gatherStats1(), debugLeft, debugTop + 52, 0xffffff); // Str1k3r - Removed, very Useless and not accurate - Time to autosave.
+        //font->drawShadow(minecraft->gatherStats2(), debugLeft, debugTop + 62, 0xffffff); // Empty currently - CPlatformNetworkManagerStub::GatherStats()
+		//font->drawShadow(minecraft->gatherStats3(), // RTT
+		//font->drawShadow(minecraft->gatherStats5(), iSafezoneXHalf+2, 32 + 10, 0xffffff);
 
-		// TERRAIN FEATURES
-		int iYPos = debugTop + 62;
-
+#ifndef _FINAL_BUILD
+		int iYPos = debugTop + 112;
 		if(minecraft->level->dimension->id==0)
 		{
 			wstring wfeature[eTerrainFeature_Count];
-#ifndef _FINAL_BUILD
 			wfeature[eTerrainFeature_Stronghold] = L"Stronghold: ";
 			wfeature[eTerrainFeature_Mineshaft] = L"Mineshaft: ";
 			wfeature[eTerrainFeature_Village] = L"Village: ";
@@ -886,7 +934,7 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 			{
 				FEATURE_DATA *pFeatureData=app.m_vTerrainFeatures[i];
 				int type = pFeatureData->eTerrainFeature;
-				//if (type < eTerrainFeature_Stronghold || type > eTerrainFeature_Ravine) continue;
+				if (type < eTerrainFeature_Stronghold || type > eTerrainFeature_Ravine) continue;
 				if (truncated[type]) continue;
 
 				wstring itemInfo = L"[" + std::to_wstring( pFeatureData->x*16 ) + L", " + std::to_wstring( pFeatureData->z*16 ) + L"] ";
@@ -898,7 +946,7 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 					truncated[type] = true;
 				}
 			}
-#endif
+
 			for( int i = eTerrainFeature_Stronghold; i < (int) eTerrainFeature_Count; i++ )
 			{
 				iYPos+=10;
@@ -906,30 +954,7 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 			}
 		}
 
-		//font->drawShadow(minecraft->gatherStats5(), iSafezoneXHalf+2, 32 + 10, 0xffffff);
-       {
-			/* 4J - removed
-            long max = Runtime.getRuntime().maxMemory();
-            long total = Runtime.getRuntime().totalMemory();
-            long free = Runtime.getRuntime().freeMemory();
-            long used = total - free;
-            String msg = "Used memory: " + (used * 100 / max) + "% (" + (used / 1024 / 1024) + "MB) of " + (max / 1024 / 1024) + "MB";
-            drawString(font, msg, screenWidth - font.width(msg) - 2, 2, 0xe0e0e0);
-            msg = "Allocated memory: " + (total * 100 / max) + "% (" + (total / 1024 / 1024) + "MB)";
-            drawString(font, msg, screenWidth - font.width(msg) - 2, 12, 0xe0e0e0);
-			*/
-        }
-
-// 4J Stu - Moved these so that they don't overlap
-#ifndef _FINAL_BUILD
-		double xBlockPos = floor(minecraft->player->x);
-		double yBlockPos = floor(minecraft->player->y);
-		double zBlockPos = floor(minecraft->player->z);
-        drawString(font, L"X: " + std::to_wstring(minecraft->player->x) + L"/ Head: " + std::to_wstring(static_cast<int>(xBlockPos)) + L"/ Chunk: " + std::to_wstring(minecraft->player->xChunk), debugLeft, iYPos + 8 * 0, 0xe0e0e0);
-        drawString(font, L"Y: " + std::to_wstring(minecraft->player->y) + L"/ Head: " + std::to_wstring(static_cast<int>(yBlockPos)), debugLeft, iYPos + 8 * 1, 0xe0e0e0);
-        drawString(font, L"Z: " + std::to_wstring(minecraft->player->z) + L"/ Head: " + std::to_wstring(static_cast<int>(zBlockPos)) + L"/ Chunk: " + std::to_wstring(minecraft->player->zChunk), debugLeft, iYPos + 8 * 2, 0xe0e0e0);
-		drawString(font, L"Facing: " + std::to_wstring(Mth::floor(minecraft->player->yRot * 4.0f / 360.0f + 0.5) & 0x3) + L"/ yRot: " + std::to_wstring(minecraft->player->yRot), debugLeft, iYPos + 8 * 3, 0xe0e0e0);
-		iYPos += 8*4;
+        drawString(font, L"XYZ: " + std::wstring(posString), debugLeft, iYPos + 8 * 0, 0xe0e0e0);
 #endif
 		int px = Mth::floor(minecraft->player->x);
 		int py = Mth::floor(minecraft->player->y);
@@ -938,12 +963,13 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 		{
 			LevelChunk *chunkAt = minecraft->level->getChunkAt(px, pz);
 			Biome *biome = chunkAt->getBiome(px & 15, pz & 15, minecraft->level->getBiomeSource());
-			drawString(font, L"Biome: " + biome->m_name + L" (" + std::to_wstring(biome->id) + L")", debugLeft, debugTop + 52, 0xe0e0e0);
+			drawString(font, L"Biome: " + biome->m_name + L" (" + std::to_wstring(biome->id) + L")", debugLeft, debugTop + 82, 0xffffff);
 		}
 
         glPopMatrix();
     }
 	MemSect(0);
+	glEnable(GL_DEPTH_TEST);
 
 	lastTickA = a;
 	// 4J Stu - This is now displayed in a xui scene
@@ -1102,41 +1128,6 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
     glDisable(GL_BLEND);
 	glEnable(GL_ALPHA_TEST);
 }
-
-// Moved to the xui base scene
-// void Gui::renderBossHealth(void)
-// {
-// 	if (EnderDragonRenderer::bossInstance == NULL) return;
-//
-// 	shared_ptr<EnderDragon> boss = EnderDragonRenderer::bossInstance;
-// 	EnderDragonRenderer::bossInstance = NULL;
-//
-// 	Minecraft *pMinecraft=Minecraft::GetInstance();
-//
-// 	Font *font = pMinecraft->font;
-//
-// 	ScreenSizeCalculator ssc(pMinecraft->options, pMinecraft->width_phys, pMinecraft->height_phys);
-// 	int screenWidth = ssc.getWidth();
-//
-// 	int w = 182;
-// 	int xLeft = screenWidth / 2 - w / 2;
-//
-// 	int progress = (int) (boss->getSynchedHealth() / (float) boss->getMaxHealth() * (float) (w + 1));
-//
-// 	int yo = 12;
-// 	blit(xLeft, yo, 0, 74, w, 5);
-// 	blit(xLeft, yo, 0, 74, w, 5);
-// 	if (progress > 0)
-// 	{
-// 		blit(xLeft, yo, 0, 79, progress, 5);
-// 	}
-//
-// 	wstring msg = L"Boss health - NON LOCALISED";
-// 	font->drawShadow(msg, screenWidth / 2 - font->width(msg) / 2, yo - 10, 0xff00ff);
-// 	glColor4f(1, 1, 1, 1);
-// 	glBindTexture(GL_TEXTURE_2D, pMinecraft->textures->loadTexture(TN_GUI_ICONS) );//"/gui/icons.png"));
-//
-// }
 
 void Gui::renderPumpkin(int w, int h)
 {

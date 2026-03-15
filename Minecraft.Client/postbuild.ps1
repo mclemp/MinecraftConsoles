@@ -6,9 +6,9 @@ param(
 Write-Host "Post-build script started. Output Directory: $OutDir, Project Directory: $ProjectDir"
 
 $directories = @(
-    "music",
     "Windows64\GameHDD",
     "Windows64\CustomSkins",
+    "Windows64Media\Music",
     "Common\Media",
     "Common\res",
     "Common\Trial",
@@ -21,7 +21,7 @@ foreach ($dir in $directories) {
 }
 
 $copies = @(
-    @{ Source = "music";           Dest = "music" },
+    @{ Source = "music";           Dest = "Windows64Media\Music" },
     @{ Source = "Common\Media";    Dest = "Common\Media" },
     @{ Source = "Common\res";      Dest = "Common\res" },
     @{ Source = "Common\Trial";    Dest = "Common\Trial" },
