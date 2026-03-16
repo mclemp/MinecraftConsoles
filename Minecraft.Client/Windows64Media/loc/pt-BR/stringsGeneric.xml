@@ -277,7 +277,7 @@ Se estiver segurando um item na mão, use {*CONTROLLER_ACTION_USE*}para utilizá
 	<data name="IDS_HOW_TO_PLAY_HUD">
 		<value>{*T3*}COMO JOGAR: HUD{*ETW*}{*B*}{*B*}
 O HUD mostra informações sobre seu status; sua energia, o oxigênio restante quando está debaixo da água, seu nível de fome (é preciso comer para reabastecer) e sua armadura, se estiver usando uma.
-Se você perder energia, mas tiver uma barrra de alimentos com 9 ou mais {*ICON_SHANK_01*}, sua energia será reabastecida automaticamente. Comer reabastece sua barra de alimentos. {*B*}
+Se você perder energia, mas tiver uma barra de alimentos com 9 ou mais {*ICON_SHANK_01*}, sua energia será reabastecida automaticamente. Comer reabastece sua barra de alimentos. {*B*}
 A Barra de Experiência também é mostrada aqui, com um valor numérico que mostra seu Nível de Experiência e a barra que indica quantos Pontos de Experiência são necessários para aumentar seu Nível de Experiência. 
 Você ganha Pontos de Experiência coletando as Esferas de Experiência liberadas por multidões quando elas morrem, ao minerar alguns tipos de blocos, ao criar animais, pescar e fundir minérios na fornalha.{*B*}{*B*}
 Também mostra os itens disponíveis para uso. Use {*CONTROLLER_ACTION_LEFT_SCROLL*}e {*CONTROLLER_ACTION_RIGHT_SCROLL*}para trocar o item em sua mão.</value>
@@ -358,7 +358,7 @@ Os ingredientes de origem das poções são :{*B*}{*B*}
 * {*T2*}Lágrima de Ghast{*ETW*}{*B*}
 * {*T2*}Pó de Chamas{*ETW*}{*B*}
 * {*T2*}Creme de Magma{*ETW*}{*B*}
-* {*T2*}Melão Cintilante{*ETW*}{*B*}
+* {*T2*}Melancia Cintilante{*ETW*}{*B*}
 * {*T2*}Pó de Redstone{*ETW*}{*B*}
 * {*T2*}Pò de Glowstone{*ETW*}{*B*}
 * {*T2*}Olho de Aranha Fermentado{*ETW*}{*B*}{*B*}
@@ -448,7 +448,7 @@ Ao criar um novo mundo, há algumas opções adicionais.{*B*}{*B*}
 	Quando ativado, o Submundo é recriado. É útil quando se tem um jogo salvo mais antigo em que as Fortalezas do Submundo não estavam presentes.{*B*}{*B*}
 
 	{*T1*}Opções no Jogo{*ETW*}{*B*}
-	Durante o jogo, várias opções podem ser acessadas pressionando {*BACK_BUTTON*} para abrir o menu do jogo.{*B*}{*B*}
+	Durante o jogo, várias opções podem ser acessadas pressionando {*CONTROLLER_VK_BACK*} para abrir o menu do jogo.{*B*}{*B*}
 	
 	{*T2*}Opções do Host{*ETW*}{*B*}
 	O jogador host e os jogadores definidos como moderadores podem acessar o menu "Opção do Host". Neste menu, eles podem habilitar e desabilitar as opções Fogo Espalha e TNT Explode.{*B*}{*B*}
@@ -475,7 +475,7 @@ Para modificar os privilégios de um jogador, selecione o nome dele e pressione 
 	Quando esta opção está habilitada, o jogador pode usar algumas das opções do menu do jogo para mudar privilégios de outros jogadores e algumas opções de mundo.{*B*}{*B*}
 	
 	{*T2*}Expulsar Jogador{*ETW*}{*B*}
-	Para os jogadores que não estão no mesmo console {*PLATFORM_NAME*} que o jogador host, selecionar esta opção faz o jogador e todos os jogadores que estiverem no console {*PLATFORM_NAME*} dele serem expulsos do jogo. Este jogador não poderá voltar ao jogo até que ele seja reiniciado.{*B*}{*B*}
+	Para os jogadores que não estão no mesmo console Xbox One que o jogador host, selecionar esta opção faz o jogador e todos os jogadores que estiverem no console Xbox One dele serem expulsos do jogo. Este jogador não poderá voltar ao jogo até que ele seja reiniciado.{*B*}{*B*}
 
 {*T1*}Opções do Jogador Host{*ETW*}{*B*}
 Se "Privilégios do Host" estiver habilitado, o jogador host poderá modificar alguns privilégios para si mesmo. Para modificar os privilégios de um jogador, selecione o nome dele e pressione {*CONTROLLER_VK_A*} para abrir o menu privilégios do jogador, onde você pode usar as opções a seguir.{*B*}{*B*}
@@ -609,7 +609,6 @@ portanto, poderão facilmente se juntar a você.
 
 	<data name="IDS_HOW_TO_PLAY_WHATSNEW">
 		<value>
-{*T3*}{*TITLE_UPDATE_NAME*}{*ETW*}{*B*}{*B*}
 {*T3*}Alterações e adições {*ETW*}{*B*}{*B*}
 - Novos itens adicionados -Esmeralda, Minério de Esmeralda, Bloco de Esmeralda, Baú Ender, Gancho Disparador, Maçã Dourada Encantada, Bigorna, Vaso de Flor, Parede de Paralelepípedos, Paredes de Parelelepípedos com Musgo, Pintura Podre, Batata, Batata Cozida, Batata Venenosa, Cenoura, Cenoura Dourada, Cenoura na Vareta, Torta de Abóbora, Poção de Visão Noturna, Poção da Invisibilidade, Quartzo, Minério de Quartzo, Bloco de Quartzo, Laje de Quartzo, Escada de Quartzo, Bloco de Quartzo Cinzelado, Coluna de Bloco de Quartzo, Livro Encantado, Tapete.{*B*}
 - Novos recipientes adicionados para arenito macio e arenito cinzelado.{*B*}
@@ -620,7 +619,7 @@ portanto, poderão facilmente se juntar a você.
 - Armadura de couro tingido.{*B*}
 - Colar de lobo tingido.{*B*}
 - Montaria no porco com uma cenoura na vareta.{*B*}
-- Bônus de baú melhorado com contendo mais itens.{*B*}
+- Bônus de baú melhorado contendo mais itens.{*B*}
 - Alteradas as posições de meio blocos e outros blocos em meio blocos.{*B*}
 - Alteradas as posições de escadas invertidas e lajes.{*B*}
 - Adicionadas profissões de cidadões.{*B*}
@@ -647,7 +646,7 @@ portanto, poderão facilmente se juntar a você.
 - Barcos quebram lírios, ao invés de lírios quebrarem barcos.{*B*}
 - Porcos oferecem mais costeletas.{*B*}
 - Lodos aparecem menos em mundos retos.{*B*}
-- Rastejadores têm danos variável baseado na configuração de dificuldade, mais contra-ataque.{*B*}
+- Rastejadores têm danos variáveis baseado na configuração de dificuldade, mais contra-ataque.{*B*}
 -  Endermen consertados para não abrir suas mandíbulas.{*B*}
 - Adicionado teleporte de jogadores (usando o menu {*BACK_BUTTON*} no jogo).{*B*}
 -Adicionados novas opções de vôo, invisibilidade e invulnerabilidade para jogadores remotos.{*B*}
@@ -689,25 +688,101 @@ Há muitos recursos novos para você e seus amigos experimentarem, aqui estão a
 
 	<data name="IDS_DESC_DOOR_IRON">
 		<value>Portas de ferro só podem ser abertas com Redstone, botões ou acionadores.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET">
+    <value>Dá ao usuário 1,5 de Armadura quando usado.</value>
+  </data>
+  <data name="IDS_DESC_CHESTPLATE">
+    <value>Dá ao usuário 4 de Armadura quando usado.</value>
+  </data>
+  <data name="IDS_DESC_LEGGINGS">
+    <value>Dá ao usuário 3 de Armadura quando usado.</value>
+  </data>
+  <data name="IDS_DESC_BOOTS">
+    <value>Dá ao usuário 1,5 de Armadura quando usado.</value>
+  </data>
+	<data name="IDS_DESC_HELMET_LEATHER">
+		<value>Dá ao usuário 1 de Armadura quando usado.</value>
 	</data>	
 
-	<data name="IDS_DESC_HELMET">
-		<value>Dá ao usuário 1,5 de Armadura quando usado.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHESTPLATE">
-		<value>Dá ao usuário 4 de Armadura quando usado.</value>
-	</data>	
-
-	<data name="IDS_DESC_LEGGINGS">
+	<data name="IDS_DESC_CHESTPLATE_LEATHER">
 		<value>Dá ao usuário 3 de Armadura quando usado.</value>
 	</data>	
 
-	<data name="IDS_DESC_BOOTS">
-		<value>Dá ao usuário 1,5 de Armadura quando usado.</value>
+	<data name="IDS_DESC_LEGGINGS_LEATHER">
+		<value>Dá ao usuário 2 de Armadura quando usado.</value>
 	</data>	
 
-	<data name="IDS_DESC_INGOT">
+	<data name="IDS_DESC_BOOTS_LEATHER">
+		<value>Dá ao usuário 1 de Armadura quando usado.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET_CHAIN">
+    <value>Dá ao usuário 2 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_CHAIN">
+    <value>Dá ao usuário 5 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_CHAIN">
+    <value>Dá ao usuário 4 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_CHAIN">
+    <value>Dá ao usuário 1 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_IRON">
+    <value>Dá ao usuário 2 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_IRON">
+    <value>Dá ao usuário 6 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_IRON">
+    <value>Dá ao usuário 5 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_IRON">
+    <value>Dá ao usuário 2 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_GOLD">
+    <value>Dá ao usuário 2 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_GOLD">
+    <value>Dá ao usuário 5 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_GOLD">
+    <value>Dá ao usuário 3 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_GOLD">
+    <value>Dá ao usuário 1 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_DIAMOND">
+    <value>Dá ao usuário 3 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_DIAMOND">
+    <value>Dá ao usuário 8 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_DIAMOND">
+    <value>Dá ao usuário 6 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_DIAMOND">
+    <value>Dá ao usuário 3 de Armadura quando usado.</value>
+  </data>
+
+  <data name="IDS_DESC_INGOT">
 		<value>Uma barra brilhante que pode ser usada para fabricar ferramentas desse material. Criada ao fundir minério na fornalha.</value>
 	</data>	
 
@@ -849,7 +924,7 @@ As cores da cama são sempre as mesmas, independentemente da cor da lã usada.</
 	</data>	
 
 	<data name="IDS_DESC_COOKIE">
-		<value>Restaura 0,5{*ICON_SHANK_01*}.</value>
+		<value>Restaura 1{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SLICE">
@@ -857,39 +932,39 @@ As cores da cama são sempre as mesmas, independentemente da cor da lã usada.</
 	</data>	
 
 	<data name="IDS_DESC_MUSHROOMSTEW">
-		<value>Restaura 4{*ICON_SHANK_01*}.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_RAW">
-		<value>Restaura 1{*ICON_SHANK_01*}, mas pode deixá-lo doente. Cozinhe na fornalha.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_COOKED">
 		<value>Restaura 3{*ICON_SHANK_01*}.</value>
 	</data>	
 
+	<data name="IDS_DESC_CHICKEN_RAW">
+		<value>Restaura 1{*ICON_SHANK_01*}, ou pode ser cozinhado na fornalha. Comer assim pode te envenenar.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHICKEN_COOKED">
+		<value>Restaura 3{*ICON_SHANK_01*}. Criado ao cozinhar a carne crua na fornalha.</value>
+	</data>	
+
 	<data name="IDS_DESC_BEEF_RAW">
-		<value>Restaura 1,5{*ICON_SHANK_01*}, mas pode deixá-lo doente. Cozinhe na fornalha.</value>
+		<value>Restaura 1,5{*ICON_SHANK_01*}, ou pode ser cozinhado na fornalha.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_COOKED">
-		<value>Restaura 4{*ICON_SHANK_01*}.</value>
+		<value>Restaura 4{*ICON_SHANK_01*}. Criado ao cozinhar a carne crua na fornalha.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_RAW">
-		<value>Coletada ao matar um porco, restaura 1.5{*ICON_SHANK_01*}, e pode ser cozida na fornalha.</value>
+		<value>Restaura 1.5{*ICON_SHANK_01*}, ou pode ser cozinhado na fornalha.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_COOKED">
-		<value>Criada ao cozinhar uma costeleta de porco na fornalha. Restaura 4{*ICON_SHANK_01*}.</value>
+		<value>Restaura 4{*ICON_SHANK_01*}. Criado ao cozinhar a carne crua na fornalha.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_RAW">
-		<value>Pode ser comido para restaurar 1{*ICON_SHANK_01*} ou cozido na fornalha. Também pode ser dado para o Ocelote comer, para torná-lo amigável.</value>
+		<value>Restaura 1{*ICON_SHANK_01*}, ou pode ser cozinhado na fornalha. Também pode ser dado para o Ocelote comer, para torná-lo amigável.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_COOKED">
-		<value>Criado ao cozinhar peixe cru na fornalha. Pode ser comido para restaurar 2,5{*ICON_SHANK_01*}.</value>
+		<value>Restaura 2,5{*ICON_SHANK_01*}. Criado ao cozinhar a carne crua na fornalha.</value>
 	</data>	
 
 	<data name="IDS_DESC_APPLE">
@@ -897,11 +972,11 @@ As cores da cama são sempre as mesmas, independentemente da cor da lã usada.</
 	</data>	
 
 	<data name="IDS_DESC_GOLDENAPPLE">
-		<value>Restaura 2{*ICON_SHANK_01*} e regenera a energia por 4 segundos.</value>
+		<value>Restaura 2{*ICON_SHANK_01*} e regenera a energia por 4 segundos. Criado com uma maçã e barras de ouro.</value>
 	</data>	
 
 	<data name="IDS_DESC_ROTTEN_FLESH">
-		<value>Restaura 2{*ICON_SHANK_01*}, mas pode deixá-lo doente.</value>
+		<value>Restaura 2{*ICON_SHANK_01*}, mas pode te envenenar.</value>
 	</data>	
 
 	<data name="IDS_DESC_SUGAR">
@@ -1303,7 +1378,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_BLOCK">
-		<value>Pode ser fabricado com Fatias de Melão.</value>
+		<value>Pode ser fabricado com Fatias de Melancia.</value>
 	</data>	
 
 	<data name="IDS_DESC_THIN_GLASS">
@@ -1315,7 +1390,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SEEDS">
-		<value>Podem ser plantadas para cultivar melões.</value>
+		<value>Podem ser plantadas para cultivar melancias.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENDER_PEARL">
@@ -1703,7 +1778,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_CREDITS_LEADPC">
-		<value>Lead game programmer Minecraft PC</value>
+		<value>Lead Game Programmer Minecraft PC</value>
 	</data>	
 
 	<data name="IDS_CREDITS_CODENINJA">
@@ -2423,7 +2498,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SEEDS">
-		<value>Sementes de Melão</value>
+		<value>Sementes de Melancia</value>
 	</data>	
 
 	<data name="IDS_ITEM_CHICKEN_RAW">
@@ -2451,7 +2526,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SLICE">
-		<value>Fatia de Melão</value>
+		<value>Fatia de Melancia</value>
 	</data>	
 
 	<data name="IDS_ITEM_BLAZE_ROD">
@@ -2511,7 +2586,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_ITEM_SPECKLED_MELON">
-		<value>Melão Cintilante</value>
+		<value>Melancia Cintilante</value>
 	</data>	
 
 	<data name="IDS_ITEM_EXP_BOTTLE">
@@ -2800,13 +2875,21 @@ Também pode ser usado para pouca iluminação.</value>
 
 	<data name="IDS_TILE_BLOCK_GOLD">
 		<value>Bloco de Ouro</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_BLOCK_IRON">
+  <data name="IDS_DESC_BLOCK_GOLD">
+    <value>Uma forma compacta de armazenar ouro.</value>
+  </data>
+
+  <data name="IDS_TILE_BLOCK_IRON">
 		<value>Bloco de Ferro</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_STONESLAB">
+  <data name="IDS_DESC_BLOCK_IRON">
+    <value>Uma forma compacta de armazenar ferro.</value>
+  </data>
+
+  <data name="IDS_TILE_STONESLAB">
 		<value>Degrau de Pedra</value>
 	</data>	
 
@@ -2912,9 +2995,13 @@ Também pode ser usado para pouca iluminação.</value>
 
 	<data name="IDS_TILE_BLOCK_DIAMOND">
 		<value>Bloco de Diamante</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_WORKBENCH">
+  <data name="IDS_DESC_BLOCK_DIAMOND">
+    <value>Uma forma compacta de diamantes.</value>
+  </data>
+
+  <data name="IDS_TILE_WORKBENCH">
 		<value>Bancada</value>
 	</data>	
 
@@ -3040,9 +3127,13 @@ Também pode ser usado para pouca iluminação.</value>
 
 	<data name="IDS_TILE_BLOCK_LAPIS">
 		<value>Bloco Lápis-azul</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_DISPENSER">
+  <data name="IDS_DESC_BLOCK_LAPIS">
+    <value>Uma forma compacta de armazenar pedra de lápis azul.</value>
+  </data>
+
+  <data name="IDS_TILE_DISPENSER">
 		<value>Distribuidor</value>
 	</data>	
 
@@ -3131,7 +3222,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON">
-		<value>Melão</value>
+		<value>Melancia</value>
 	</data>	
 
 	<data name="IDS_TILE_PUMPKIN_STEM">
@@ -3139,7 +3230,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON_STEM">
-		<value>Broto de Melão</value>
+		<value>Broto de Melancia</value>
 	</data>	
 
 	<data name="IDS_TILE_VINE">
@@ -3275,7 +3366,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_PAUSE">
-		<value>Pausar</value>
+		<value>Menu</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_JUMP">
@@ -4303,7 +4394,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SEEDS">
-		<value>Trigo, abóboras e melões são cultivados a partir de sementes. As sementes de trigo são coletadas quebrando Grama Alta ou colhendo trigo, e as sementes de abóbora e melão são fabricadas a partir de abóboras e melões, respectivamente.</value>
+		<value>Trigo, abóboras e melancias são cultivados a partir de sementes. As sementes de trigo são coletadas quebrando Grama Alta ou colhendo trigo, e as sementes de abóbora e melancia são fabricadas a partir de abóboras e melancias, respectivamente.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_FARMLAND">
@@ -4315,7 +4406,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_PUMPKIN_AND_MELON">
-		<value>As abóboras e melões também precisam de um bloco próximo de onde as sementes foram plantadas, para que os frutos cresçam assim que os caules estiverem crescidos.</value>
+		<value>As abóboras e melancias também precisam de um bloco próximo de onde as sementes foram plantadas, para que os frutos cresçam assim que os caules estiverem crescidos.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SUGARCANE">
@@ -4902,7 +4993,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_BLOCK">
-		<value>Bloco</value>
+		<value>Bloquear</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_PAGEUP">
@@ -4943,10 +5034,6 @@ Também pode ser usado para pouca iluminação.</value>
 
 	<data name="IDS_DOWNLOADABLECONTENT">
 		<value>Loja Minecraft</value>
-	</data>	
-
-	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
-		<value>Tem certeza de que deseja sair do jogo atual e entrar no novo jogo? Você perderá o progresso não salvo.</value>
 	</data>	
 
 	<data name="IDS_EXIT_GAME">
@@ -4993,10 +5080,6 @@ Também pode ser usado para pouca iluminação.</value>
 		<value>Sair sem salvar</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_EXIT_GAME">
-		<value>Tem certeza de que deseja sair para o menu principal? Você perderá o progresso não salvo.</value>
-	</data>	
-
 	<data name="IDS_CONFIRM_EXIT_GAME_PROGRESS_LOST">
 		<value>Tem certeza de que deseja sair para o menu principal? Seu progresso será perdido!</value>
 	</data>	
@@ -5030,7 +5113,7 @@ Também pode ser usado para pouca iluminação.</value>
 	</data>	
 
 	<data name="IDS_PRESS_START_TO_JOIN">
-		<value>Pressione START para entrar no jogo</value>
+		<value>Pressione {*CONTROLLER_VK_START*} para entrar no jogo</value>
 	</data>	
 
 	<data name="IDS_EXITING_GAME">
@@ -5479,7 +5562,7 @@ Deseja desbloquear a versão integral do jogo agora?</value>
 	</data>	
 
 	<data name="IDS_NOWPLAYING">
-		<value>Jogando agora: </value>
+		<value>Reproduzindo agora: </value>
 	</data>	
 
 	<data name="IDS_DEFAULTS_TITLE">
@@ -5941,7 +6024,7 @@ Deseja instalar o pacote de combinações ou o pacote de texturas agora?</value>
 	</data>	
 
 	<data name="IDS_CHECKBOX_CUSTOM_SKIN_ANIM">
-		<value>Animação personalizada de capa</value>
+		<value>Animação pessoal de capa</value>
 	</data>	
 
 	<data name="IDS_PRIV_MINE_TOGGLE_ON">
@@ -6524,7 +6607,7 @@ Deseja instalar o pacote de combinações ou o pacote de texturas agora?</value>
 	</data>	
 
 	<data name="IDS_CHECKBOX_VERTICAL_SPLIT_SCREEN">
-		<value>Dividir Tela p/ 2 Jogadores</value>
+		<value>Tela Vertical p/ 2 Jogadores</value>
 	</data>	
 
 	<data name="IDS_DONE">
@@ -7077,23 +7160,23 @@ Deseja instalar o pacote de combinações ou o pacote de texturas agora?</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROTS">
-		<value>Restaura 2{*ICON_SHANK_01*}. Pode ser plantado na fazenda.</value>
+		<value>Restaura 2{*ICON_SHANK_01*} e pode ser transformada em uma cenoura dourada. Pode ser plantado na fazenda.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO">
-		<value>Restaura 0.5{*ICON_SHANK_01*}. Pode ser preparado em Fornalha ou plantado na fazenda.</value>
+		<value>Restaura 0.5{*ICON_SHANK_01*} ou pode ser cozinhado na fornalha. Pode ser plantado na fazenda.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_BAKED">
-		<value>Restaura 3{*ICON_SHANK_01*}.</value>
+		<value>Restaura 3{*ICON_SHANK_01*}. Criado ao cozinhar uma batata na fornalha.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_POISONOUS">
-		<value>Restaura 1{*ICON_SHANK_01*}, mas pode envenenar voçê.</value>
+		<value>Restaura 1{*ICON_SHANK_01*}. Comer isso pode te envenenar.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_GOLDEN">
-		<value>Produzido com uma Cenoura e Pepitas de ouro. Restaura 3{*ICON_SHANK_01*}.</value>
+		<value>Restaura 3{*ICON_SHANK_01*}. Feita com uma cenoura e barras de ouro.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_ON_A_STICK">
@@ -7281,7 +7364,7 @@ Deseja instalar o pacote de combinações ou o pacote de texturas agora?</value>
 	</data>	
 
 	<data name="IDS_TILE_CARPET_LIME">
-		<value>Tapete Verde</value>
+		<value>Tapete Verde-lima</value>
 	</data>	
 
 	<data name="IDS_TILE_CARPET_YELLOW">
@@ -7544,7 +7627,7 @@ Deseja instalar o pacote de combinações ou o pacote de texturas agora?</value>
 
 	<data name="IDS_TUTORIAL_TASK_TRADING_OVERVIEW">
 		<value>
-			Neste área há um aldeão e um baú contendo papel para comprar itens.
+			Nesta área há um aldeão e um baú contendo papel para comprar itens.
 		</value>
 	</data>	
 
@@ -7619,8 +7702,7 @@ Deseja instalar o pacote de combinações ou o pacote de texturas agora?</value>
 	</data>	
 
 	<data name="IDS_DESC_ENCHANTED_GOLDENAPPLE">
-		<value>Restaura 2{*ICON_SHANK_01*}, regenera saúde por 30 segundos e concede resistência ao fogo e resistência a danos por 5 minutos.
-</value>
+		<value>Restaura 2{*ICON_SHANK_01*}, regenera saúde por 30 segundos e concede resistência ao fogo e resistência a danos por 5 minutos. Feita com uma maçã e blocos de ouro.</value>
 	</data>	
 
 	<data name="IDS_ENABLE_TELEPORT">
@@ -7773,5 +7855,8 @@ Todos os Baús Ender em um mundo são vinculados; itens colocados em um Baú End
 
 	<data name="IDS_TOOLTIPS_CURE">
 		<value>Cura</value>
-	</data>	
+	</data>
+  <data name="IDS_PROGRESS_NEW_WORLD_SEED">
+    <value>Encontrando Semente para o Gerador de Mundo</value>
+  </data>
 </root>

@@ -4,7 +4,7 @@
 	</data>	
 
 	<data name="IDS_OK">
-		<value>OK</value>
+		<value>O.K.</value>
 	</data>	
 
 	<data name="IDS_BACK">
@@ -72,7 +72,7 @@
 	</data>	
 
 	<data name="IDS_STORAGEDEVICEPROBLEM_TITLE">
-		<value>Problème de périph. de stockage</value>
+		<value>Erreur périphérique de stockage</value>
 	</data>	
 
 	<data name="IDS_FAILED_TO_SAVE_TEXT">
@@ -119,74 +119,18 @@
 		<value>Saisir un nom pour la sauvegarde</value>
 	</data>	
 
-	<data name="IDS_WARNING_ARCADE_TITLE">
-		<value>Retour à l'Interface Xbox</value>
-	</data>	
-
 	<data name="IDS_WARNING_ARCADE_TEXT">
 		<value>Voulez-vous vraiment quitter le jeu ?</value>
 	</data>	
-
 	<data name="IDS_PRO_RETURNEDTOMENU_TITLE">
 		<value>Déconnexion</value>
 	</data>	
-
-	<data name="IDS_PRO_RETURNEDTOTITLESCREEN_TEXT">
-		<value>Votre profil de joueur a été déconnecté : retour à l'écran titre</value>
-	</data>	
-
-	<data name="IDS_PRO_RETURNEDTOMENU_TEXT">
-		<value>Un profil de joueur s'est déconnecté : partie interrompue</value>
-	</data>	
-
 	<data name="IDS_PRO_RETURNEDTOMENU_ACCEPT">
 		<value>Continuer à jouer</value>
 	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_TITLE">
-		<value>Profil de joueur hors ligne</value>
-	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_TEXT">
-		<value>Ce jeu intègre des fonctionnalités qui nécessitent un profil de joueur autorisé sur Xbox LIVE, mais vous êtes actuellement hors ligne.</value>
-	</data>	
-
-	<data name="IDS_PRO_XBOXLIVE_NOTIFICATION">
-		<value>Cette fonctionnalité nécessite un profil de joueur connecté à Xbox LIVE.</value>
-	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_ACCEPT">
-		<value>Connexion à Xbox LIVE</value>
-	</data>	
-
 	<data name="IDS_PRO_NOTONLINE_DECLINE">
 		<value>Continuer à jouer hors ligne</value>
 	</data>	
-
-	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TITLE">
-		<value>Problème d'attribution de succès</value>
-	</data>	
-
-	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TEXT">
-		<value> Un problème est survenu lors de l'accès à votre profil du joueur. Votre succès n'a pas pu être attribué.</value>
-	</data>	
-
-	<data name="IDS_PRO_NOPROFILE_TITLE">
-		<value>Problème de profil du joueur</value>
-	</data>	
-
-	<data name="IDS_PRO_NOPROFILEOPTIONS_TEXT">
-		<value>La sauvegarde des paramètres sur le profil du joueur a échoué.</value>
-	</data>	
-
-	<data name="IDS_PRO_GUESTPROFILE_TITLE">
-		<value>Profil du joueur invité</value>
-	</data>	
-
-	<data name="IDS_PRO_GUESTPROFILE_TEXT">
-		<value>Le profil du joueur invité ne peut pas accéder à cette fonctionnalité. Veuillez utiliser un autre profil de joueur.</value>
-	</data>	
-
 	<data name="IDS_STO_SAVING_SHORT">
 		<value>Sauvegarde...</value>
 	</data>	
@@ -194,18 +138,15 @@
 	<data name="IDS_STO_SAVING_LONG">
 		<value>Enregistrement en cours. N'éteignez pas votre console.</value>
 	</data>	
-
 	<data name="IDS_PRO_UNLOCKGAME_TITLE">
 		<value>Déverrouiller le jeu complet</value>
 	</data>	
-
 	<data name="IDS_PRO_UNLOCKGAME_TEXT">
 		<value>Vous jouez à la version d'évaluation de Minecraft. Si vous possédiez le jeu complet, vous auriez déjà remporté un succès !
-Déverrouillez le jeu complet pour profiter au mieux de Minecraft et jouer avec vos amis partout dans le monde via Xbox LIVE.
+Déverrouillez le jeu complet pour profiter au mieux de Minecraft et jouer avec vos amis partout dans le monde via Xbox Live.
 Voulez-vous déverrouiller le jeu complet ?</value>
-	</data>	
-
-	<data name="IDS_PRO_PROFILEPROBLEM_TEXT">
-		<value>Un problème s'est produit lors de la lecture de votre profil : retour au menu principal.</value>
-	</data>	
+	</data>
+  <data name="IDS_ERROR_NETWORK">
+    <value>Une erreur réseau s'est produite.</value>
+  </data>
 </root>

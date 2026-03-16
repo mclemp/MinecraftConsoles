@@ -1,38 +1,38 @@
 ﻿<root>
 	<data name="IDS_TIPS_GAMETIP_0">
-		<value>高解像度モードを使うと、1 台の Xbox 360 本体で最大 4 人のプレイヤーが分割画面プレイ可能!</value>
+		<value>高解像度モードを使うと、1 台の本体で最大 4 人のプレイヤーが分割画面プレイ可能!</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_1">
-		<value>Xbox 360 本体に別のコントローラーを接続し START を押すと、いつでもゲームに参加できます</value>
-	</data>	
-
-	<data name="IDS_TIPS_GAMETIP_44">
-		<value>ゲームの最新情報は 4J Studios と Kappische のTwitter でゲット!</value>
-	</data>	
-
-	<data name="IDS_TIPS_GAMETIP_45">
-		<value>ポーズ メニューから Minecraft のスクリーンショットを Facebook に公開できます</value>
+		<value>本体に別のコントローラーを接続し {*CONTROLLER_VK_START*} を押すと、いつでもゲームに参加できます</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_48">
-		<value>minecraftforum には、Xbox 360 版専用セクションがあります</value>
-	</data>	
+		<value>minecraftforum には、Xbox One 版専用セクションがあります</value>
+	</data>
+
+  <data name="IDS_TIPS_GAMETIP_44">
+    <value>ゲームの最新情報は 4J Studios と Kappische の Twitter でゲット!</value>
+  </data>
+
+  <data name="IDS_TIPS_GAMETIP_45">
+    <value>Enderman の目を見つめないように!</value>
+  </data>
 
 	<data name="IDS_TIPS_TRIVIA_4">
-		<value>4J Studios の Xbox 360 向け超ホラー大作「Herobrine」はまさかのキャンセル... というウワサ</value>
+		<value>4J Studios の Xbox One 向け超ホラー大作「Herobrine」はまさかのキャンセル... というウワサ</value>
 	</data>	
 
 	<data name="IDS_TIPS_TRIVIA_17">
-		<value>Minecraft: Xbox 360 版はさまざまな記録を更新しています!</value>
+		<value>Minecraft: Xbox One 版はさまざまな記録を更新しています!</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MULTIPLAYER">
 		<value>{*T3*}遊び方: マルチプレイヤー{*ETW*}{*B*}{*B*}
-Minecraft Xbox 360 版は、初期設定でマルチプレイヤー ゲームになっています。高解像度でプレイしている場合はコントローラーを接続して START を押すと、いつでもローカル プレイヤーがゲームに参加できます。{*B*}{*B*}
-開始または参加したオンライン ゲームはフレンド リストに表示されます (ホストとしてゲームを開始するときに [招待者のみ] を選択した場合を除きます)。フレンドが参加するとそのフレンド リストにもゲームが表示され、フレンドからフレンドにゲームが広がっていきます (オプションで [フレンドのフレンドを許可] を選択している場合)。
-ゲーム中に BACK ボタンを押すと、参加中のプレイヤーのリストを開けます。リストからゲーマー カードを確認したり、プレイヤーを追放したり、ゲームに招待したりできます
-  </value>
+Minecraft Xbox One 版は、初期設定でマルチプレイヤー ゲームになっています。高解像度でプレイしている場合はコントローラーを接続して {*CONTROLLER_VK_START*} を押すと、いつでもローカル プレイヤーがゲームに参加できます。{*B*}{*B*}
+開始または参加したオンライン ゲームはフレンド リストに表示されます (ホストとしてゲームを開始するときに [招待者のみ] を選択した場合を除きます)。フレンドが参加するとそのフレンド リストにもゲームが表示され、フレンドからフレンドにゲームが広がっていきます (オプションで [フレンドのフレンドを許可] を選択している場合)。{*B*}
+ゲーム中に {*CONTROLLER_VK_BACK*} ボタンを押すと、参加中のプレイヤーのリストを開けます。リストからゲーマー カードを確認したり、プレイヤーを追放したり、ゲームに招待したりできます
+ </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_SOCIALMEDIA">
@@ -67,28 +67,27 @@ Minecraft Xbox 360 版は、初期設定でマルチプレイヤー ゲームに
 	</data>	
 
 	<data name="IDS_TOOLTIPS_VIEW_GAMERCARD">
-		<value>ゲーマー カードを見る</value>
+		<value>ゲーマーカードを見る</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_VIEW_GAMERPROFILE">
-		<value>ゲーマー プロフィールを見る</value>
+		<value>ゲーマーカードを見る</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_INVITE_PARTY">
 		<value>Xbox Live パーティーを招待</value>
 	</data>	
 
-
 	<data name="IDS_CONFIRM_START_CREATIVE">
 		<value>クリエイティブ モードで作成、ロード、セーブした世界は、たとえ後でサバイバル モードでロードしたとしても、実績やランキング更新の対象になりません。実行してよろしいですか?</value>
 	</data>	
 
 	<data name="IDS_CONFIRM_START_SAVEDINCREATIVE">
-		<value>クリエイティブ モードで作成、ロード、セーブした世界は、たとえ後でサバイバル モードでロードしたとしても、実績やランキング更新の対象になりません。実行してよろしいですか?</value>
+		<value>この世界は以前クリエイティブ モードでセーブされました。実績やランキング更新の対象になりません。実行してよろしいですか?</value>
 	</data>	
 
 	<data name="IDS_CONFIRM_START_SAVEDINCREATIVE_CONTINUE">
-		<value>クリエイティブ モードで作成、ロード、セーブした世界は、たとえ後でサバイバル モードでロードしたとしても、実績やランキング更新の対象になりません。</value>
+		<value>この世界は以前クリエイティブ モードでセーブされました。実績やランキング更新の対象になりません。</value>
 	</data>	
 
 	<data name="IDS_CONFIRM_START_HOST_PRIVILEGES">
@@ -104,56 +103,56 @@ Minecraft Xbox 360 版は、初期設定でマルチプレイヤー ゲームに
 	</data>	
 
 	<data name="IDS_AWARD_AVATAR1">
-		<value>おめでとうございます! アバター アイテム、Minecraft Xbox 360 版 T シャツを獲得しました! 
-ダッシュボードでアバターに装備しましょう</value>
+		<value>おめでとうございます! アバター アイテム、Minecraft Xbox One 版 T シャツを獲得しました! 
+ホームでアバターに装備しましょう</value>
 	</data>	
 
 	<data name="IDS_AWARD_AVATAR2">
-		<value>おめでとうございます! アバター アイテム、Minecraft Xbox 360 版 ウォッチを獲得しました! 
-ダッシュボードでアバターに装備しましょう</value>
+		<value>おめでとうございます! アバター アイテム、Minecraft Xbox One 版 ウォッチを獲得しました! 
+ホームでアバターに装備しましょう</value>
 	</data>	
 
 	<data name="IDS_AWARD_AVATAR3">
 		<value>おめでとうございます! アバター アイテム、Creeper 野球帽を獲得しました! 
-ダッシュボードでアバターに装備しましょう</value>
+ホームでアバターに装備しましょう</value>
 	</data>	
 
 	<data name="IDS_AWARD_THEME">
-		<value>おめでとうございます! アバター アイテム、Minecraft Xbox 360 版 テーマを獲得しました! 
-ダッシュボードでテーマを選択しましょう</value>
+		<value>おめでとうございます! アバター アイテム、Minecraft Xbox One 版 テーマを獲得しました! 
+ホームでテーマを選択しましょう</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_ACHIEVEMENT_TEXT">
-		<value>これは Minecraft Xbox 360 版のお試し版です。完全版であれば、今すぐ獲得できる実績があります! 
-完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べるMinecraft の楽しさを体験してください。
+		<value>これは Minecraft Xbox One 版のお試し版です。完全版であれば、今すぐ獲得できる実績があります! 
+完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べる Minecraft Xbox One 版の楽しさを体験してください。
 完全版を購入しますか?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_AVATAR_TEXT">
-		<value>これは Minecraft Xbox 360 版のお試し版です。完全版であれば、今すぐ獲得できるアバター アワードがあります! 
-完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べるMinecraft の楽しさを体験してください。
+		<value>これは Minecraft Xbox One 版のお試し版です。完全版であれば、今すぐ獲得できるアバター アワードがあります! 
+完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べる Minecraft Xbox One 版の楽しさを体験してください。
 完全版を購入しますか?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_GAMERPIC_TEXT">
-		<value>これは Minecraft Xbox 360 版のお試し版です。完全版であれば、今すぐ獲得できるゲーマー アイコンがあります! 
-完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べる Minecraft の楽しさを体験してください。
+		<value>これは Minecraft Xbox One 版のお試し版です。完全版であれば、今すぐ獲得できるゲーマー アイコンがあります! 
+完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べる Minecraft Xbox One 版の楽しさを体験してください。
 完全版を購入しますか?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_THEME_TEXT">
-		<value>これは Minecraft Xbox 360 版のお試し版です。完全版であれば、今すぐ獲得できるテーマがあります! 
-完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べる Minecraft の楽しさを体験してください。
+		<value>これは Minecraft Xbox One 版のお試し版です。完全版であれば、今すぐ獲得できるテーマがあります! 
+完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べる Minecraft Xbox One 版の楽しさを体験してください。
 完全版を購入しますか?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_ACCEPT_INVITE">
-		<value>お試し版では、この招待は受けられません。
+		<value>これは Minecraft Xbox One 版のお試し版です。招待を受けるには完全版を購入する必要があります。
 完全版を今すぐ購入しますか?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_GUEST_TEXT">
-		<value>ゲスト プレイヤーでは完全版を購入することはできません。Xbox Live ゲーマー プロフィールでサインインしてください</value>
+		<value>ゲスト プレイヤーでは完全版を購入することはできません。Xbox Live ユーザー ID でサインインしてください</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_GAMERTAG">
@@ -169,11 +168,11 @@ Minecraft Xbox 360 版は、初期設定でマルチプレイヤー ゲームに
 	</data>	
 
 	<data name="IDS_TRIALOVER_TEXT">
-		<value>お試し版をプレイできる制限時間が過ぎてしまいました! 完全版を購入して、ゲームを続けますか?</value>
+		<value>Minecraft Xbox One 版のお試し版をプレイできる制限時間が過ぎてしまいました! 完全版を購入して、ゲームを続けますか?</value>
 	</data>	
 
 	<data name="IDS_FATAL_ERROR_TEXT">
-		<value>Minecraft  Xbox 360 版のロードに失敗しました。続行できません</value>
+		<value>Minecraft  Xbox One 版のロードに失敗しました。続行できません</value>
 	</data>	
 
 	<data name="IDS_NO_MULTIPLAYER_PRIVILEGE_JOIN_TEXT">
@@ -185,7 +184,7 @@ Minecraft Xbox 360 版は、初期設定でマルチプレイヤー ゲームに
 	</data>	
 
 	<data name="IDS_NO_USER_CREATED_CONTENT_PRIVILEGE_SINGLE_LOCAL">
-		<value>[メンバーが作ったコンテンツ] の設定によりコンテンツへのアクセスが制限されているため、ゲームに参加できません。ゲームに参加するには、Xbox ダッシュボードの [プライバシー &amp; オンライン設定] で設定を変更してください</value>
+		<value>[メンバーが作ったコンテンツ] の設定によりコンテンツへのアクセスが制限されているため、ゲームに参加できません。ゲームに参加するには、Xbox ホームの [プライバシー &amp; オンライン設定] で設定を変更してください</value>
 	</data>	
 
 	<data name="IDS_NO_USER_CREATED_CONTENT_PRIVILEGE_ALL_LOCAL">
@@ -197,12 +196,12 @@ Minecraft Xbox 360 版は、初期設定でマルチプレイヤー ゲームに
 	</data>	
 
 	<data name="IDS_NO_USER_CREATED_CONTENT_PRIVILEGE_CREATE">
-		<value>ローカル プレイヤーの中に [メンバーが作ったコンテンツ] の設定によりコンテンツへのアクセスが制限されているプレイヤーがいるため、ゲームを作成できません。[オンライン ゲーム] のチェックを外してオフラインでゲームを始めるか、または Xbox ダッシュボードの [プライバシー &amp; オンライン設定] で設定を変更してください</value>
+		<value>ローカル プレイヤーの中に [メンバーが作ったコンテンツ] の設定によりコンテンツへのアクセスが制限されているプレイヤーがいるため、ゲームを作成できません。[オンライン ゲーム] のチェックを外してオフラインでゲームを始めるか、または Xbox ホームの [プライバシー &amp; オンライン設定] で設定を変更してください</value>
 	</data>	
 
 	<data name="IDS_SAVE_ICON_MESSAGE">
 		<value>このゲームではオートセーブ機能を利用できます。オートセーブの実行中は上のオートセーブ アイコンが表示されます。
-オートセーブ アイコンの表示中に本体の電源を切らないでください</value>
+オートセーブ アイコンの表示中に Xbox One 本体の電源を切らないでください</value>
 	</data>	
 
 	<data name="IDS_GAMEOPTION_HOST_PRIVILEGES">
@@ -226,22 +225,172 @@ Minecraft Xbox 360 版は、初期設定でマルチプレイヤー ゲームに
 	</data>	
 
 	<data name="IDS_SOCIAL_DEFAULT_DESCRIPTION">
-		<value>Minecraft: Xbox 360 版で作ったよ!</value>
-	</data>	
+		<value>Minecraft: Xbox One 版で作ったよ!</value>
+	</data>
+  <data name="IDS_PLATFORM_NAME">
+    <value>Xbox One</value>
+  </data>
+  <data name="IDS_BACK_BUTTON">
+    <value>Back</value>
+  </data>
+  <data name="IDS_HOST_OPTION_DISABLES_ACHIEVEMENTS">
+    <value>このオプションでは、実績およびランキング更新は無効になります。たとえ後でオプションをオフにしたとしても、実績やランキング更新の対象になりません</value>
+  </data>
+  <data name="IDS_KICK_PLAYER_DESCRIPTION">
+    <value>ホストプレイヤーと同じ Xbox One 本体を使用していないプレイヤーに対してこのオプションを選択すると、そのプレイヤーおよび対象プレイヤーと同じ Xbox One 本体を使用している他のプレイヤーがゲームから追放されます。追放されたプレイヤーは、ゲームが再起動されるまでは再び参加できません</value>
+  </data>
+  <data name="IDS_USING_TRIAL_TEXUREPACK_WARNING">
+    <value>現在お使いのテクスチャ パックはお試し版です。テクスチャ パックの全コンテンツをお楽しみいただけますが、ゲームの進行状況をセーブすることはできません。
+お試し版でのプレイ中にセーブしようとすると、完全版購入のオプションが表示されます
+</value>
+  </data>
+  <data name="IDS_XBOX_STORE">
+    <value>Xbox ストア</value>
+  </data>
 
-	<data name="IDS_TITLE_UPDATE_NAME">
-		<value>タイトル アップデート 14</value>
-	</data>	
 
-	<data name="IDS_PLATFORM_NAME">
-		<value>Xbox 360</value>
-	</data>	
+  <data name="IDS_WORLD_SIZE_TITLE_SMALL">
+    <value>スモール</value>
+  </data>
+  <data name="IDS_WORLD_SIZE_TITLE_MEDIUM">
+    <value>ミディアム</value>
+  </data>
+  <data name="IDS_WORLD_SIZE_TITLE_LARGE">
+    <value>ラージ</value>
+  </data>
+  <data name="IDS_WORLD_SIZE_TITLE_CLASSIC">
+    <value>クラシック</value>
+  </data>
+  <data name="IDS_GAME_OPTIONS">
+    <value>ゲーム オプション</value>
+  </data>
+  <data name="IDS_WORLD_SIZE">
+    <value>世界の広さ</value>
+  </data>
+  <data name="IDS_GAMEOPTION_SEED">
+    <value>種を入力して同じ地形を再現しましょう。空白のままにすると、ランダムな世界が現れます</value>
+  </data>
+  <data name="IDS_GAMEOPTION_WORLD_SIZE">
+    <value>世界の広さを選んで、探検できる範囲を変更しましょう</value>
+  </data>
+  <data name="IDS_DISABLE_SAVING">
+    <value>オートセーブを無効にする</value>
+  </data>
+  <data name="IDS_GAMEOPTION_DISABLE_SAVING">
+    <value>定期的なオートセーブを無効にします。後で改めてセーブする際は時間がかかります</value>
+  </data>
+  
+  <data name="IDS_XBOX_HELP_APP">
+	<value>ヘルプ</value>
+  </data>
 
-	<data name="IDS_BACK_BUTTON">
-		<value>Back</value>
-	</data>	
+  <data name="IDS_CONFIRM_EXIT_GAME">
+    <value>本当にメイン メニューに戻ってもよろしいですか?</value>
+  </data>
 
-	<data name="IDS_HOST_OPTION_DISABLES_ACHIEVEMENTS">
-		<value>このオプションでは、実績およびランキング更新は無効になります。</value>
-	</data>	
+  <data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
+    <value>本当に現在プレイしているゲームを終了して、新しいゲームに参加してもよろしいですか?</value>
+  </data>
+
+  <data name="IDS_CONFIRM_EXIT_GAME_CONFIRM_DISCONNECT">
+    <value>本当にメイン メニューに戻ってもよろしいですか? すべてのプレイヤーがゲームから追放されてしまいます</value>
+  </data>
+
+  <data name="IDS_TOOLTIPS_CHOOSE_USER">
+    <value>ユーザーを選ぶ</value>
+  </data>
+
+
+  <data name="IDS_TOOLTIPS_SAVETRANSFER_DOWNLOAD">
+    <value>Xbox 360 セーブを読み出す</value>
+  </data>
+
+  <data name="IDS_SAVETRANSFER_TITLE_GET">
+    <value>Xbox 360 セーブを読み出しています</value>
+  </data>
+  <data name="IDS_SAVETRANSFER_STAGE_GET_DETAILS">
+    <value>ファイルを読み込んでいます</value>
+  </data>
+  <data name="IDS_SAVETRANSFER_STAGE_GET_DATA">
+    <value>ファイル データをダウンロードしています (%.2fMB/%.2fMB)</value>
+  </data>
+  <data name="IDS_SAVETRANSFER_STAGE_CONVERTING">
+    <value>データを Xbox One 形式に変換しています</value>
+  </data>
+  <data name="IDS_SAVETRANSFER_STAGE_SAVING">
+    <value>セーブしています</value>
+  </data>
+  <data name="IDS_SAVETRANSFER_NONE_FOUND">
+    <value>Xbox 360 セーブが見つかりませんでした</value>
+  </data>
+  <data name="IDS_SAVE_INCOMPLETE_TITLE">
+    <value>セーブに失敗しました</value>
+  </data>
+  <data name="IDS_SAVE_INCOMPLETE_EXPLANATION_QUOTA">
+    <value>Minecraft: Xbox One 版には、セーブ データを保存する空き容量がありません。Minecraft: Xbox One 版の他の世界を消去して [再試行] を押すか [セーブを無効にする] を選んで、セーブしないで続行してください</value>
+  </data>
+  <data name="IDS_SAVE_INCOMPLETE_EXPLANATION_LOCAL_STORAGE">
+    <value>[再試行] を選択してやり直すか [セーブを無効にする] を選んで、セーブしないで続行してください</value>
+  </data>
+  <data name="IDS_SAVE_INCOMPLETE_RETRY_SAVING">
+    <value>セーブをやり直す</value>
+  </data>
+  <data name="IDS_SAVE_INCOMPLETE_DISABLE_SAVING">
+    <value>セーブを無効にする</value>
+  </data>
+  <data name="IDS_SAVE_INCOMPLETE_DELETE_SAVES">
+    <value>セーブを削除する</value>
+  </data>
+  <data name="IDS_PLAY_TRIAL_GAME">
+    <value>お試し版ゲームをプレイする</value>
+  </data>
+  <data name="IDS_TITLE_ENABLE_AUTOSAVE">
+    <value>オートセーブを有効にする</value>
+  </data>
+  <data name="IDS_CONFIRM_ENABLE_AUTOSAVE">
+    <value>世界の定期的なオートセーブを有効にしますか?</value>
+  </data>
+  <data name="IDS_DISABLE_AUTOSAVE">
+    <value>オートセーブを無効にする</value>
+  </data>
+  <data name="IDS_TITLE_DISABLE_AUTOSAVE">
+    <value>オートセーブを無効にする</value>
+  </data>
+  <data name="IDS_CONFIRM_DISABLE_AUTOSAVE">
+    <value>世界の定期的なオートセーブを無効にしますか?</value>
+  </data>
+  <data name="IDS_CONFIRM_SYNC_REQUIRED">
+    <value>この世界をプレイする前に同期する必要があります。同期には少し時間がかかります。同期してプレイしますか?</value>
+  </data>
+  <data name="IDS_CONFIRM_SYNC">
+    <value>同期</value>
+  </data>
+  <data name="IDS_SAVE_TRANSFER_DOWNLOAD_AND_CONVERT_COMPLETE">
+    <value>ダウンロードと Xbox One 形式への変換が完了しました!</value>
+  </data>
+  <data name="IDS_SAVE_TRANSFER_DOWNLOAD_CANCELLING">
+    <value>ダウンロードをキャンセルしています。お待ちください...</value>
+  </data>
+  <data name="IDS_SAVE_TRANSFER_DOWNLOAD_CANCELLED">
+    <value>ダウンロードをキャンセルしました</value>
+  </data>
+  <data name="IDS_DISCONNECTED_EXITED_GAME">
+    <value>ゲームを退出しました</value>
+  </data>
+  <data name="IDS_IN_PARTY_SESSION_FULL">
+    <value>参加しようとしているゲームは、現在メンバー数が上限に達しています。他のメンバーが退出した時点でお知らせします</value>
+  </data>
+
+  <data name="IDS_LEADERBOARD_SCORE_HIDDEN">
+    <value>プレイヤーのプライバシー設定により表示されません</value>
+  </data>
+  <data name="IDS_TEXT_COPY_SAVE">
+    <value>本当にセーブデータをコピーしてもよろしいですか?</value>
+  </data>
+  <data name="IDS_COPYSAVE">
+    <value>セーブデータをコピー</value>
+  </data>
+  <data name="IDS_PROGRESS_COPYING_SAVE">
+    <value>セーブデータをコピーしています</value>
+  </data>
 </root>

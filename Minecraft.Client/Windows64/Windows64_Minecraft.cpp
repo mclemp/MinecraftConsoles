@@ -137,7 +137,7 @@ static void GetOptionsFilePath(char *out, size_t outSize)
 	GetModuleFileNameA(NULL, out, (DWORD)outSize);
 	char *p = strrchr(out, '\\');
 	if (p) *(p + 1) = '\0';
-	strncat_s(out, outSize, "options.txt", _TRUNCATE);
+	strncat_s(out, outSize, "Windows64/Settings/options.txt", _TRUNCATE);
 }
 
 static void SaveFullscreenOption(bool fullscreen)

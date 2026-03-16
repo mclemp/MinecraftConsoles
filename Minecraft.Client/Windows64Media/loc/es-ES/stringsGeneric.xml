@@ -276,7 +276,7 @@ Si tienes un objeto en la mano, usa{*CONTROLLER_ACTION_USE*} para utilizar ese o
 
 	<data name="IDS_HOW_TO_PLAY_HUD">
 		<value>{*T3*}CÓMO SE JUEGA: HUD{*ETW*}{*B*}{*B*}
-El HUD muestra información sobre tu estado, tu salud, el oxígeno que te queda cuando estás bajo el agua, tu nivel de hambre (para llenarlo tienes que comer) y la armadura, si la llevas.
+El HUD muestra información sobre tu estado, tu salud, el oxígeno que te queda cuando estás bajo el agua, tu nivel de hambre (para llenarlo tienes que comer) y la armadura, si la llevas. 
 Si pierdes salud pero tienes una barra de comida con 9 o más{*ICON_SHANK_01*}, tu salud se recargará automáticamente. Si comes, se recargará la barra de comida.{*B*}
 Aquí también aparece la barra de experiencia, con un valor numérico que indica tu nivel de experiencia y la barra que señala los puntos de experiencia que necesitas para subir de nivel. 
 Los puntos de experiencia se obtienen al recoger los orbes de experiencia que sueltan los enemigos al morir, al extraer cierto tipo de bloques, al criar nuevos animales, al pescar y al fundir mineral en un horno.{*B*}{*B*}
@@ -351,14 +351,14 @@ Si colocas un ingrediente de poción en la posición superior del puesto de dest
 Cuando obtengas esa poción, podrás añadir un tercer ingrediente para que el efecto sea más duradero (usando polvo de piedra rojiza), más intenso (con polvo de piedra brillante) o convertirlo en una poción perjudicial (con un ojo de araña fermentado).{*B*}
 También puedes añadir pólvora a cualquier poción para convertirla en una poción de salpicadura, que después podrás arrojar. Si lanzas una poción de salpicadura, su efecto se aplicará sobre toda la zona donde caiga.{*B*}
 
-Los ingredientes originales de las pociones son :{*B*}{*B*}
+Los ingredientes originales de las pociones son:{*B*}{*B*}
 * {*T2*}Verruga del mundo inferior{*ETW*}{*B*}
 * {*T2*}Ojo de araña{*ETW*}{*B*}
 * {*T2*}Azúcar{*ETW*}{*B*}
-* {*T2*}Lágrima de espectro{*ETW*}{*B*}
+* {*T2*}Lágrima de Ghast{*ETW*}{*B*}
 * {*T2*}Polvo de llama{*ETW*}{*B*}
 * {*T2*}Crema de magma{*ETW*}{*B*}
-* {*T2*}Melón resplandeciente{*ETW*}{*B*}
+* {*T2*}Sandía resplandeciente{*ETW*}{*B*}
 * {*T2*}Polvo de piedra rojiza{*ETW*}{*B*}
 * {*T2*}Polvo de piedra brillante{*ETW*}{*B*}
 * {*T2*}Ojo de araña fermentado{*ETW*}{*B*}{*B*}
@@ -398,10 +398,10 @@ Existe un límite para la cantidad de animales que puedes tener en un mundo, por
 	<data name="IDS_HOW_TO_PLAY_NETHERPORTAL">
 		<value>{*T3*}CÓMO SE JUEGA: PORTAL INFERIOR{*ETW*}{*B*}{*B*}
 El portal inferior permite al jugador viajar entre el mundo superior y el mundo inferior. El mundo inferior sirve para viajar a toda velocidad por el mundo superior, ya que un bloque de distancia en el mundo inferior equivale a 3 bloques en el mundo superior, así que cuando construyas un portal
-en el mundo inferior y salgas por él, estarás 3 veces más lejos del punto de entrada.{*B*}{*B*}
+ en el mundo inferior y salgas por él, estarás 3 veces más lejos del punto de entrada.{*B*}{*B*}
 Se necesita un mínimo de 10 bloques de obsidiana para construir el portal, y el portal tiene que tener 5 bloques de alto, 4 de ancho y 1 de profundidad. Una vez construida la estructura del portal, tendrás que prender fuego al espacio interior para activarlo. Para ello, usa el objeto "chisquero de pedernal" o "descarga de fuego".{*B*}{*B*}
 En la imagen de la derecha dispones de ejemplos de construcción de un portal.
-</value>
+  </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_BANLIST">
@@ -448,7 +448,7 @@ Cuando se crea un mundo existen opciones adicionales.{*B*}{*B*}
 	Si está habilitada, el mundo inferior se regenará. Esta opción te será útil si tienes una partida guardada en la que no aparecían fortalezas del mundo inferior.{*B*}{*B*}
 
 	{*T1*}Opciones del juego{*ETW*}{*B*}
-	Dentro del juego se pueden acceder a varias opciones pulsando BACK para mostrar el menú del juego.{*B*}{*B*}
+	Dentro del juego se pueden acceder a varias opciones pulsando {*CONTROLLER_VK_BACK*} para mostrar el menú del juego.{*B*}{*B*}
 	
 	{*T2*}Opciones de host{*ETW*}{*B*}
 	El host y cualquier jugador establecido como moderador pueden acceder al menú "Opciones de host". En este menú se puede habilitar y deshabilitar la propagación del fuego y la explosión de dinamita.{*B*}{*B*}
@@ -475,7 +475,7 @@ Para modificar los privilegios de un jugador, selecciona su nombre y pulsa{*CONT
 	Cuando esta opción está habilitada, el jugador puede cambiar los privilegios de otros jugadores (excepto los del host) si "Confiar en jugadores" está desactivada, expulsar jugadores, y activar y desactivar "El fuego se propaga" y "La dinamita explota".{*B*}{*B*}
 	
 	{*T2*}Expulsar jugador{*ETW*}{*B*}
-	En el caso de jugadores que no estén en la misma Consola Xbox 360 que el host, si se selecciona esta opción se expulsará al jugador de la partida y a cualquier otro jugador en la misma Consola Xbox 360. El jugador no podrá volver a unirse al juego hasta que se reinicie.{*B*}{*B*}
+	En el caso de jugadores que no estén en la misma Consola Xbox One que el host, si se selecciona esta opción se expulsará al jugador de la partida y a cualquier otro jugador en la misma Consola Xbox One. El jugador no podrá volver a unirse al juego hasta que se reinicie.{*B*}{*B*}
 
 {*T1*}Opciones de host{*ETW*}{*B*}
 Si "Privilegios de host" está habilitado, el host podrá modificar algunos privilegios para sí mismo. Para modificar los privilegios de un jugador, selecciona su nombre y pulsa{*CONTROLLER_VK_A*} para mostrar el menú de privilegios donde podrás usar las siguientes opciones.{*B*}{*B*}
@@ -489,7 +489,7 @@ Si "Privilegios de host" está habilitado, el host podrá modificar algunos priv
 	{*T2*}Invisible{*ETW*}{*B*}
 	Cuando esta opción está habilitada, el jugador es invisible para otros jugadores y es invulnerable.{*B*}{*B*}
     
-    {*T2*}Puede teletransportarse{*ETW*}{*B*}
+   {*T2*}Puede teletransportarse{*ETW*}{*B*}
 	Permite al jugador desplazarse o desplazar a otros hasta la posición de otros jugadores en el mundo.
 </value>
 	</data>	
@@ -587,15 +587,15 @@ Si "Privilegios de host" está habilitado, el host podrá modificar algunos priv
 El Fin es otra dimensión del juego, a la que se llega a través de un portal final activo. Puedes encontrar el portal final en una fortaleza, en lo más profundo del mundo superior.{*B*}
 Para activar el portal final, debes colocar un ojo de Ender en la estructura de un portal final que no tenga uno.{*B*}
 Una vez que el portal esté activo, introdúcete en él para ir a El fin.{*B*}{*B*}
-En El Fin te encontrarás con el dragón de Ender, un feroz y poderoso enemigo, además de muchos finalizadores, por lo que tendrás que estar preparado para la batalla antes de ir allí.{*B*}{*B*}
-En lo alto de ocho pilares obsidianos, verás cristales finalizadores que el dragón de Ender usa para curarse,
-así que lo primero que deberás hacer será destruirlos todos.{*B*}
+En El Fin te encontrarás con el dragón de Ender, un feroz y poderoso enemigo, además de muchos Enderman, por lo que tendrás que estar preparado para la batalla antes de ir allí.{*B*}{*B*}
+En lo alto de ocho pilares obsidianos, verás cristales de Ender que el dragón de Ender usa para curarse,
+ así que lo primero que deberás hacer será destruirlos todos.{*B*}
 Podrás alcanzar a los primeros con flechas, pero los últimos están en una jaula con barrotes de hierro. Tendrás que subir a lo alto para llegar a ellos.{*B*}{*B*}
 Mientras lo haces, el dragón de Ender volará hacia ti y te atacará escupiendo bolas de ácido de Ender.{*B*}
-Si te acercas al nido de huevos en el centro de los pilares, el dragón de Ender irá hacia abajo y te atacará. ¡Tienes que aprovechar ese momento para hacerle daño!{*B*} 
+Si te acercas al nido de huevos en el centro de los pilares, el dragón de Ender irá hacia abajo y te atacará. ¡Tienes que aprovechar ese momento para hacerle daño!{*B*}
 Esquiva su aliento de ácido y apunta a los ojos del dragón de Ender para hacerle el máximo daño posible. Si puedes, ¡tráete amigos a El Fin para que te echen una mano en la batalla!{*B*}{*B*}
 En cuanto hayas llegado a El Fin, tus amigos podrán ver la ubicación del portal final dentro de la fortaleza en sus mapas,
-para que puedan unirse a ti con facilidad.
+ para que puedan unirse a ti con facilidad.
   </value>
 	</data>	
 
@@ -609,10 +609,9 @@ para que puedan unirse a ti con facilidad.
 
 	<data name="IDS_HOW_TO_PLAY_WHATSNEW">
 		<value>
-{*T3*}{*TITLE_UPDATE_NAME*}{*ETW*}{*B*}{*B*}
 {*T3*}Cambios e incorporaciones{*ETW*}{*B*}{*B*}
 - Se han añadido nuevos objetos: esmeralda, mena de esmeralda, bloque de esmeralda, cofre de Ender, gancho de cable trampa, manzana dorada hechizada, yunque, maceta, paredes de adoquines, paredes de adoquines musgosas, pintura de Wither, patata, patata asada, patata venenosa, zanahoria, zanahoria dorada, palo y zanahoria, 
-Pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarzo del mundo inferior, mena de cuarzo del mundo inferior, bloque de cuarzo, losa de cuarzo, escaleras de cuarzo, bloque de cuarzo cincelado, pilar de cuarzo,, libro hechizado, alfombra.{*B*}
+pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarzo del mundo inferior, mena de cuarzo del mundo inferior, bloque de cuarzo, losa de cuarzo, escaleras de cuarzo, bloque de cuarzo cincelado, pilar de cuarzo, libro hechizado, alfombra.{*B*}
 - Se han añadido nuevas recetas de arenisca lisa y arenisca cincelada.{*B*}
 - Se han añadido nuevos enemigos: aldeanos zombis.{*B*}
 - Se han añadido nuevas funciones de generación de terrenos: templos del desierto, aldeas del desierto, templos de la jungla.{*B*}
@@ -650,7 +649,7 @@ Pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarz
 - La generación de limos es menor en los mundos superplanos.{*B*}
 - Los Creepers causan daños variables en función del nivel de dificultad; más derribo.{*B*}
 - Se ha corregido el error que hacía que los Finalizadores no abrieran sus mandíbulas.{*B*}
-- Se ha añadido el teletransporte de jugadores (usando el menú {*BACK_BUTTON*} del juego).{*B*}
+- Se ha añadido el teletransporte de jugadores (usando el menú {*CONTROLLER_VK_BACK*} del juego).{*B*}
 - Se han añadido nuevas opciones de host que permiten a los jugadores remotos volar, volverse invisibles e invulnerables.{*B*}
 - Se han añadido nuevos tutoriales al mundo tutorial sobre nuevos objetos y funciones.{*B*}
 - Se han actualizado las posiciones de los cofres de discos en el mundo tutorial.{*B*}
@@ -695,25 +694,101 @@ Pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarz
 
 	<data name="IDS_DESC_DOOR_IRON">
 		<value>Las puertas de hierro solo se pueden abrir con piedra rojiza, botones o interruptores.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET">
+    <value>Cuando lo lleva puesto, el usuario recibe 1,5 de armadura.</value>
+  </data>
+  <data name="IDS_DESC_CHESTPLATE">
+    <value>Cuando lo lleva puesto, el usuario recibe 4 de armadura.</value>
+  </data>
+  <data name="IDS_DESC_LEGGINGS">
+    <value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
+  </data>
+  <data name="IDS_DESC_BOOTS">
+    <value>Cuando lo lleva puesto, el usuario recibe 1,5 de armadura.</value>
+  </data>
+	<data name="IDS_DESC_HELMET_LEATHER">
+		<value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
 	</data>	
 
-	<data name="IDS_DESC_HELMET">
-		<value>Cuando lo lleva puesto, el usuario recibe 1,5 de armadura.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHESTPLATE">
-		<value>Cuando lo lleva puesto, el usuario recibe 4 de armadura.</value>
-	</data>	
-
-	<data name="IDS_DESC_LEGGINGS">
+	<data name="IDS_DESC_CHESTPLATE_LEATHER">
 		<value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
 	</data>	
 
-	<data name="IDS_DESC_BOOTS">
-		<value>Cuando lo lleva puesto, el usuario recibe 1,5 de armadura.</value>
+	<data name="IDS_DESC_LEGGINGS_LEATHER">
+		<value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
 	</data>	
 
-	<data name="IDS_DESC_INGOT">
+	<data name="IDS_DESC_BOOTS_LEATHER">
+		<value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET_CHAIN">
+    <value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_CHAIN">
+    <value>Cuando lo lleva puesto, el usuario recibe 5 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_CHAIN">
+    <value>Cuando lo lleva puesto, el usuario recibe 4 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_CHAIN">
+    <value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_IRON">
+    <value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_IRON">
+    <value>Cuando lo lleva puesto, el usuario recibe 6 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_IRON">
+    <value>Cuando lo lleva puesto, el usuario recibe 5 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_IRON">
+    <value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_GOLD">
+    <value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_GOLD">
+    <value>Cuando lo lleva puesto, el usuario recibe 5 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_GOLD">
+    <value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_GOLD">
+    <value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_DIAMOND">
+    <value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_DIAMOND">
+    <value>Cuando lo lleva puesto, el usuario recibe 8 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_DIAMOND">
+    <value>Cuando lo lleva puesto, el usuario recibe 6 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_DIAMOND">
+    <value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
+  </data>
+
+  <data name="IDS_DESC_INGOT">
 		<value>Un lingote brillante que se usa para crear herramientas de este material. Se crea fundiendo mineral en un horno.</value>
 	</data>	
 
@@ -855,7 +930,7 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 	</data>	
 
 	<data name="IDS_DESC_COOKIE">
-		<value>Restablece 0,5{*ICON_SHANK_01*}.</value>
+		<value>Restablece 1{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SLICE">
@@ -863,39 +938,39 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 	</data>	
 
 	<data name="IDS_DESC_MUSHROOMSTEW">
-		<value>Restablece 4{*ICON_SHANK_01*}.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_RAW">
-		<value>Restablece 1{*ICON_SHANK_01*}, pero puede hacerte enfermar. Cocinar en un horno.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_COOKED">
 		<value>Restablece 3{*ICON_SHANK_01*}.</value>
 	</data>	
 
+	<data name="IDS_DESC_CHICKEN_RAW">
+		<value>Restablece 1{*ICON_SHANK_01*}o se puede cocinar en el horno. Si comes esto puede que te envenene.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHICKEN_COOKED">
+		<value>Restablece 3{*ICON_SHANK_01*}. Se crea cocinando pollo crudo en el horno.</value>
+	</data>	
+
 	<data name="IDS_DESC_BEEF_RAW">
-		<value>Restablece 1,5{*ICON_SHANK_01*}, pero puede hacerte enfermar. Cocinar en un horno.</value>
+		<value>Restablece 1.5{*ICON_SHANK_01*}, o se puede cocinar en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_COOKED">
-		<value>Restablece 4{*ICON_SHANK_01*}.</value>
+		<value>Restablece {*ICON_SHANK_01*}. Se crea cocinando ternera cruda en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_RAW">
-		<value>Se consigue al matar un cerdo, restablece 1,5{*ICON_SHANK_01*} y se puede cocinar en un horno.</value>
+		<value>Restablece 1.5{*ICON_SHANK_01*}, o se puede cocinar en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_COOKED">
-		<value>Se crea cocinando una chuleta de cerdo en el horno. Restablece 4{*ICON_SHANK_01*}.</value>
+		<value>Restablece 4{*ICON_SHANK_01*}. Se crea cocinando una chuleta de cerdo cruda en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_RAW">
-		<value>Se puede comer para restablecer 1{*ICON_SHANK_01*} o cocinar en un horno. También se puede dar de comer a un ocelote para domarlo.</value>
+		<value>Restablece 1{*ICON_SHANK_01*}o se puede cocinar en el horno. Se puede dar de comer a un ocelote para domarlo.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_COOKED">
-		<value>Se crea cocinando pescado crudo en el horno. Se puede comer para restablecer 2,5{*ICON_SHANK_01*}.</value>
+		<value>Restablece 2,5{*ICON_SHANK_01*}. Se crea cocinando pescado crudo en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_APPLE">
@@ -903,15 +978,15 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 	</data>	
 
 	<data name="IDS_DESC_GOLDENAPPLE">
-		<value>Restablece 2{*ICON_SHANK_01*} y regenera la salud durante 4 segundos.</value>
+		<value>Restablece 2{*ICON_SHANK_01*} y regenera la salud durante 4 segundos. Creada con una manzana y pepitas de oro.</value>
 	</data>	
 
 	<data name="IDS_DESC_ROTTEN_FLESH">
-		<value>Restablece 2{*ICON_SHANK_01*}, pero puede hacerte enfermar.</value>
+		<value>Restablece 2{*ICON_SHANK_01*}. Si comes esto puede que te envenene.</value>
 	</data>	
 
 	<data name="IDS_DESC_SUGAR">
-		<value>Se usa en la receta de pasteles como ingrediente para destilar pociones.</value>
+		<value>Se usa en la receta de pasteles y como ingrediente para destilar pociones.</value>
 	</data>	
 
 	<data name="IDS_DESC_LEVER">
@@ -920,13 +995,13 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 
 	<data name="IDS_DESC_REDSTONETORCH">
 		<value>Da una descarga eléctrica
-constante o puede usarse
-de receptor/transmisor si
-se conecta al lateral de
-un bloque. También puede
-usarse de iluminación
-de nivel bajo.
-</value>
+ constante o puede usarse
+ de receptor/transmisor si
+ se conecta al lateral de
+ un bloque. También puede
+ usarse de iluminación
+ de nivel bajo.
+ </value>
 	</data>	
 
 	<data name="IDS_DESC_REDSTONEREPEATER">
@@ -1027,14 +1102,14 @@ de nivel bajo.
 
 	<data name="IDS_DESC_DYE_LIGHTGRAY">
 		<value>Se usa como tinte para
-crear lana gris clara.
+ crear lana gris clara.
 
-(Nota: También se obtiene
-combinando tinte gris con
-carne de hueso, lo que
-permite crear 4 tintes
-gris claro de cada bolsa
-de tinta en vez de 3).</value>
+ (Nota: También se obtiene
+ combinando tinte gris con
+ carne de hueso, lo que
+ permite crear 4 tintes
+ grises claro de cada bolsa
+ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_DYE_LIGHTBLUE">
@@ -1322,7 +1397,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_BLOCK">
-		<value>Se puede crear a partir de rodajas de melón.</value>
+		<value>Se puede crear a partir de rodajas de sandía.</value>
 	</data>	
 
 	<data name="IDS_DESC_THIN_GLASS">
@@ -1330,15 +1405,15 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_PUMPKIN_SEEDS">
-		<value>Se puede plantar para cultivar calabazas.</value>
+		<value>Se pueden plantar para cultivar calabazas.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SEEDS">
-		<value>Se puede plantar para cultivar melones.</value>
+		<value>Se puede plantar para cultivar sandías.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENDER_PEARL">
-		<value>Lo suelta el Finalizador cuando muere. Cuando se lanza, el jugador se teletransporta a la posición donde cae la perla finalizadora y pierde parte de la salud.</value>
+		<value>La suelta el Enderman cuando muere. Cuando se lanza, el jugador se teletransporta a la posición donde cae la perla Perla de Ender y pierde parte de la salud.</value>
 	</data>	
 
 	<data name="IDS_DESC_GRASS">
@@ -1374,7 +1449,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_GHAST_TEAR">
-		<value>Se usa para destilar pociones. Lo sueltan los espectros cuando mueren.</value>
+		<value>Se usa para destilar pociones. Lo sueltan los Ghasts cuando mueren.</value>
 	</data>	
 
 	<data name="IDS_DESC_GOLD_NUGGET">
@@ -1434,7 +1509,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_NETHERBRICK">
-		<value>Se usa para construir fortalezas del mundo inferior. Inmume a las bolas de fuego del espectro.</value>
+		<value>Se usa para construir fortalezas del mundo inferior. Inmume a las bolas de fuego del Ghast.</value>
 	</data>	
 
 	<data name="IDS_DESC_NETHERFENCE">
@@ -2442,7 +2517,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SEEDS">
-		<value>Semillas de melón</value>
+		<value>Semillas de sandía</value>
 	</data>	
 
 	<data name="IDS_ITEM_CHICKEN_RAW">
@@ -2466,11 +2541,11 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_ENDER_PEARL">
-		<value>Ender Pearl</value>
+		<value>Perla de Ender</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SLICE">
-		<value>Rodaja de melón</value>
+		<value>Rodaja de sandía</value>
 	</data>	
 
 	<data name="IDS_ITEM_BLAZE_ROD">
@@ -2478,7 +2553,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_GHAST_TEAR">
-		<value>Lágrima de espectro</value>
+		<value>Lágrima de Ghast</value>
 	</data>	
 
 	<data name="IDS_ITEM_GOLD_NUGGET">
@@ -2530,7 +2605,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_SPECKLED_MELON">
-		<value>Melón resplandeciente</value>
+		<value>Sandía resplandeciente</value>
 	</data>	
 
 	<data name="IDS_ITEM_EXP_BOTTLE">
@@ -2819,13 +2894,21 @@ de tinta en vez de 3).</value>
 
 	<data name="IDS_TILE_BLOCK_GOLD">
 		<value>Bloque de oro</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_BLOCK_IRON">
+  <data name="IDS_DESC_BLOCK_GOLD">
+    <value>Una manera de almacenar oro de forma compacta.</value>
+  </data>
+
+  <data name="IDS_TILE_BLOCK_IRON">
 		<value>Bloque de hierro</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_STONESLAB">
+  <data name="IDS_DESC_BLOCK_IRON">
+    <value>Una manera de almacenar hierro de forma compacta.</value>
+  </data>
+
+  <data name="IDS_TILE_STONESLAB">
 		<value>Losa de piedra</value>
 	</data>	
 
@@ -2931,9 +3014,13 @@ de tinta en vez de 3).</value>
 
 	<data name="IDS_TILE_BLOCK_DIAMOND">
 		<value>Bloque de diamante</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_WORKBENCH">
+  <data name="IDS_DESC_BLOCK_DIAMOND">
+    <value>Una manera de almacenar diamantes de forma compacta.</value>
+  </data>
+
+  <data name="IDS_TILE_WORKBENCH">
 		<value>Mesa de creación</value>
 	</data>	
 
@@ -3059,9 +3146,13 @@ de tinta en vez de 3).</value>
 
 	<data name="IDS_TILE_BLOCK_LAPIS">
 		<value>Bloque lapislázuli</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_DISPENSER">
+  <data name="IDS_DESC_BLOCK_LAPIS">
+    <value>Una manera de almacenar lapislázuli de forma compacta.</value>
+  </data>
+
+  <data name="IDS_TILE_DISPENSER">
 		<value>Dispensador</value>
 	</data>	
 
@@ -3150,7 +3241,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON">
-		<value>Melón</value>
+		<value>Sandía</value>
 	</data>	
 
 	<data name="IDS_TILE_PUMPKIN_STEM">
@@ -3158,7 +3249,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON_STEM">
-		<value>Tallo de melón</value>
+		<value>Tallo de sandía</value>
 	</data>	
 
 	<data name="IDS_TILE_VINE">
@@ -3294,7 +3385,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_PAUSE">
-		<value>Pausa</value>
+		<value>Menú</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_JUMP">
@@ -3447,7 +3538,7 @@ de tinta en vez de 3).</value>
 
 	<data name="IDS_TUTORIAL_PROMPT_START_TUTORIAL">
 		<value>{*B*}Pulsa{*CONTROLLER_VK_A*} para comenzar el tutorial.{*B*}
-    Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.</value>
+   Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_OVERVIEW">
@@ -3485,7 +3576,7 @@ De noche salen los monstruos, así que procura construir un refugio antes de que
 
 	<data name="IDS_TUTORIAL_TASK_INVENTORY">
 		<value>A medida que recojas y crees más objetos, llenarás tu inventario.{*B*}
-    Pulsa{*CONTROLLER_ACTION_INVENTORY*} para abrir el inventario.</value>
+   Pulsa{*CONTROLLER_ACTION_INVENTORY*} para abrir el inventario.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FOOD_BAR_DEPLETE">
@@ -3608,7 +3699,7 @@ De noche salen los monstruos, así que procura construir un refugio antes de que
 		<value>
       {*B*}
 Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.
+     Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.
     </value>
 	</data>	
 
@@ -3715,26 +3806,26 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_CRAFT_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo crear.
+     Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo crear.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_DESCRIPTION">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_X*} para mostrar la descripción del objeto.
+     Pulsa{*CONTROLLER_VK_X*} para mostrar la descripción del objeto.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_INGREDIENTS">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_X*} para mostrar los ingredientes necesarios para fabricar el objeto actual.
+     Pulsa{*CONTROLLER_VK_X*} para mostrar los ingredientes necesarios para fabricar el objeto actual.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_INVENTORY">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_X*} para mostrar de nuevo el inventario.
+     Pulsa{*CONTROLLER_VK_X*} para mostrar de nuevo el inventario.
     </value>
 	</data>	
 
@@ -3781,7 +3872,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_TASK_CRAFT_EXIT_AND_PLACE_TABLE">
 		<value>
       Ahora que has construido una mesa de creación, deberías colocarla en el mundo para poder construir una selección mayor de objetos.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
+     Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
     </value>
 	</data>	
 
@@ -3812,7 +3903,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_TASK_CRAFT_TOOLS_BUILT">
 		<value>
       Con las herramientas que has creado ya estás listo para empezar y podrás recoger varios materiales de forma más eficaz.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
+     Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
     </value>
 	</data>	
 
@@ -3825,7 +3916,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_TASK_CRAFT_EXIT_AND_PLACE_FURNACE">
 		<value>
       Coloca el horno que has creado en el mundo. Te conviene colocarlo en el interior del refugio.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
+     Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
     </value>
 	</data>	
 
@@ -3837,8 +3928,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_FURNACE_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el horno.
+     Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el horno.
     </value>
 	</data>	
 
@@ -3886,8 +3977,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_BREWING_MENU_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el puesto de destilado.
+     Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el puesto de destilado.
     </value>
 	</data>	
 
@@ -3935,8 +4026,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_BREWING_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre el destilado y las pociones.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo destilar y crear pociones.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre el destilado y las pociones.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo destilar y crear pociones.
     </value>
 	</data>	
 
@@ -3990,8 +4081,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_ENCHANTING_MENU_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la interfaz de hechizos.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo utilizar la interfaz de hechizos.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la interfaz de hechizos.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo utilizar la interfaz de hechizos.
     </value>
 	</data>	
 
@@ -4033,8 +4124,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_ENCHANTING_OVERVIEW">
 		<value>{*B*}
-      Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre los hechizos.{*B*}
-      Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo utilizar los hechizos.
+     Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre los hechizos.{*B*}
+     Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo utilizar los hechizos.
     </value>
 	</data>	
 
@@ -4076,8 +4167,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_MINECART_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las vagonetas.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las vagonetas.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las vagonetas.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las vagonetas.
     </value>
 	</data>	
 
@@ -4125,8 +4216,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_FISHING_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la pesca.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo pescar.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la pesca.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo pescar.
     </value>
 	</data>	
 
@@ -4160,8 +4251,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_BED_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las camas.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las camas.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las camas.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las camas.
     </value>
 	</data>	
 
@@ -4188,8 +4279,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_REDSTONE_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los circuitos de piedra rojiza y los pistones.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya tienes información sobre los circuitos de piedra rojiza y los pistones.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los circuitos de piedra rojiza y los pistones.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya tienes información sobre los circuitos de piedra rojiza y los pistones.
     </value>
 	</data>	
 
@@ -4241,8 +4332,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_PORTAL_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los portales y el mundo inferior.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya conoces los portales y el mundo inferior.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los circuitos de piedra rojiza y los pistones.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya tienes información sobre los circuitos de piedra rojiza y los pistones.
     </value>
 	</data>	
 
@@ -4254,7 +4345,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_TASK_ACTIVATE_PORTAL">
 		<value>
-      Para activar el portal inferior, prende fuego a los bloques de obsidiana del interior de la estructura con eslabón y pedernal. Los portales se pueden desactivar si se rompe la estructura, si se produce una explosión cerca y si fluye un líquido a través de ellos.
+      Para activar el portal inferior, prende fuego a los bloques de obsidiana del interior de la estructura con el chisquero de pedernal. Los portales se pueden desactivar si se rompe la estructura, si se produce una explosión cerca y si fluye un líquido a través de ellos.
     </value>
 	</data>	
 
@@ -4315,13 +4406,13 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_FARMING_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los cultivos.{*B*}
-      Pulsa{*CONTROLLER_VK_B*}si ya sabes cómo funcionan los cultivos.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los cultivos.{*B*}
+     Pulsa{*CONTROLLER_VK_B*}si ya sabes cómo funcionan los cultivos.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SEEDS">
-		<value>El trigo, las calabazas y los melones se cultivan a partir de semillas. Las semillas de trigo se obtienen al romper hierba alta o al cosechar trigo, y las semillas de calabaza y melón se consiguen a partir de calabazas y melones respectivamente.</value>
+		<value>El trigo, las calabazas y las sandías se cultivan a partir de semillas. Las semillas de trigo se obtienen al romper hierba alta o al cosechar trigo, y las semillas de calabaza y sandía se consiguen a partir de calabazas y sandías respectivamente.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_FARMLAND">
@@ -4333,7 +4424,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_PUMPKIN_AND_MELON">
-		<value>Las calabazas y los melones también necesitan un bloque cerca de donde hayas plantado la semilla para que el fruto crezca cuando el tallo se haya desarrollado por completo.</value>
+		<value>Las calabazas y las sandías también necesitan un bloque cerca de donde hayas plantado la semilla para que el fruto crezca cuando el tallo se haya desarrollado por completo.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SUGARCANE">
@@ -4365,8 +4456,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_BREEDING_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre la reproducción de animales.{*B*}
-      Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo funciona la reproducción de animales.
+     Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre la reproducción de animales.{*B*}
+     Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo funciona la reproducción de animales.
     </value>
 	</data>	
 
@@ -4409,8 +4500,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_GOLEM_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los gólems.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan los gólems.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los gólems.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan los gólems.
     </value>
 	</data>	
 
@@ -4648,7 +4739,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_WHAT_IS_THIS">
-		<value>?</value>
+		<value>¿Qué es?</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SHARE">
@@ -4716,7 +4807,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_EMPTY">
-		<value>Vacío</value>
+		<value>Vaciar</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SADDLE">
@@ -4732,7 +4823,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_MILK">
-		<value>Leche</value>
+		<value>Ordeñar</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_COLLECT">
@@ -4816,7 +4907,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_DELETESAVE">
-		<value>Borrar juego guardado</value>
+		<value>Borrar archivo de guardado</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_DELETE">
@@ -4836,7 +4927,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SHEAR">
-		<value>Tijera</value>
+		<value>Esquilar</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_BANLEVEL">
@@ -4872,7 +4963,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SAVEOPTIONS">
-		<value>Opciones de guardado</value>
+		<value>Opc. guardado</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_EXECUTE_COMMAND">
@@ -4920,7 +5011,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_BLOCK">
-		<value>Bloque</value>
+		<value>Bloquear</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_PAGEUP">
@@ -4961,10 +5052,6 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_DOWNLOADABLECONTENT">
 		<value>Tienda de Minecraft</value>
-	</data>	
-
-	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
-		<value>¿Seguro que quieres salir del juego actual y unirte al nuevo? Se perderán todos los progresos no guardados.</value>
 	</data>	
 
 	<data name="IDS_EXIT_GAME">
@@ -5011,10 +5098,6 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 		<value>Salir sin guardar</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_EXIT_GAME">
-		<value>¿Seguro que quieres salir al menú principal? Se perderán todos los progresos no guardados.</value>
-	</data>	
-
 	<data name="IDS_CONFIRM_EXIT_GAME_PROGRESS_LOST">
 		<value>¿Seguro que quieres salir al menú principal? ¡Se perderán tus progresos!</value>
 	</data>	
@@ -5048,7 +5131,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_PRESS_START_TO_JOIN">
-		<value>Pulsa START para unirte al juego.</value>
+		<value>Pulsa {*CONTROLLER_VK_START*} para unirte al juego.</value>
 	</data>	
 
 	<data name="IDS_EXITING_GAME">
@@ -5485,7 +5568,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TEXT_DELETE_SAVE">
-		<value>¿Seguro que quieres borrar este juego guardado?</value>
+		<value>¿Seguro que quieres borrar este archivo de guardado?</value>
 	</data>	
 
 	<data name="IDS_STRINGVERIFY_AWAITING_APPROVAL">
@@ -5497,7 +5580,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_NOWPLAYING">
-		<value>Ahora jugando: </value>
+		<value>Reproduciendo: </value>
 	</data>	
 
 	<data name="IDS_DEFAULTS_TITLE">
@@ -5767,11 +5850,11 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_TEXT_SAVEOPTIONS">
-		<value>¿Qué quieres hacer con este juego guardado?</value>
+		<value>¿Qué quieres hacer con este archivo de guardado?</value>
 	</data>	
 
 	<data name="IDS_TITLE_RENAMESAVE">
-		<value>Cambiar nombre a juego guardado</value>
+		<value>Cambiar nombre a archivo de guardado</value>
 	</data>	
 
 	<data name="IDS_AUTOSAVE_COUNTDOWN">
@@ -5823,7 +5906,7 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_GAMEOPTION_RESET_NETHER">
-		<value>Si se activa, el mundo inferior se regenerará. Esto es útil si tienes una partida guardada antigua donde no está presente la fortaleza del mundo inferior.</value>
+		<value>Si se activa, el mundo inferior se regenerará. Esto es útil si tienes una partida guardada donde no está presente la fortaleza del mundo inferior.</value>
 	</data>	
 
 	<data name="IDS_GAMEOPTION_STRUCTURES">
@@ -6127,13 +6210,13 @@ Selecciona ACEPTAR para salir del juego.</value>
 {*C2*}A veces, el jugador soñaba que era otras cosas, en otros lugares. A veces, esos sueños eran perturbadores. A veces, realmente bellos. A veces, el jugador se despertaba de un sueño en otro, y después de ese en un tercero.{*EF*}{*B*}{*B*}
 {*C3*}A veces, el jugador soñaba que veía palabras en una pantalla.{*EF*}{*B*}{*B*}
 {*C2*}Retrocedamos.{*EF*}{*B*}{*B*}
-{*C2*}Los átomos del jugador estaban esparcidos en la hierba, en los ríos, en el aire, en la tierra. Una mujer recogió los átomos, bebió y comió y respiró; y la mujer ensamblo al jugador en su cuerpo.{*EF*}{*B*}{*B*}
+{*C2*}Los átomos del jugador estaban esparcidos en la hierba, en los ríos, en el aire, en la tierra. Una mujer recogió los átomos, bebió y comió y respiró; y la mujer ensambló al jugador en su cuerpo.{*EF*}{*B*}{*B*}
 {*C2*}Y el jugador despertó del mundo oscuro y cálido del cuerpo de su madre en el sueño largo.{*EF*}{*B*}{*B*}
 {*C2*}Y el jugador fue una nueva historia, nunca antes contada, escrita con ADN. Y el jugador era un nuevo programa, que nunca se había ejecutado, generado por un código fuente con un billón de años. Y el jugador era un nuevo ser humano, que nunca había vivido antes, hecho tan solo de leche y amor.{*EF*}{*B*}{*B*}
 {*C3*}Tú eres el jugador. La historia. El programa. El humano. Hecho tan solo de leche y amor.{*EF*}{*B*}{*B*}
 {*C2*}Retrocedamos más.{*EF*}{*B*}{*B*}
 {*C2*}Los siete trillones de trillones de trillones de átomos del jugador se crearon, mucho antes de este juego, en el corazón de una estrella. Así que el jugador también es información de una estrella. Y el jugador se mueve a través de una historia que es un bosque de información colocada por un tipo llamado Julian, en un mundo infinito y plano creado por un hombre llamado Markus que existe en un mundo pequeño y privado creado por el jugador que habita un universo creado por...{*EF*}{*B*}{*B*}
-{*C3*}Sssh. A veces, el jugador creaba un mundo pequeño y privado que era suave, cálido y sencillo. A veces, frío, duro y complicado. A veces, creaba un modelo del universo en su cabeza; motas de energía moviéndose a través de vastos espacios vacíos. A veces llamaba a esas motas "electrones" y "protones".{*EF*}{*B*}{*B*}
+{*C3*}Sssh. A veces, el jugador creaba un mundo pequeño y privado que era suave, cálido y sencillo. A veces, frío, duro y complicado. A veces, creaba un modelo del universo en su cabeza; motas de energía moviéndose a través de vastos espacios vacíos. A veces, llamaba a esas motas "electrones" y "protones".{*EF*}{*B*}{*B*}
 </value>
 	</data>	
 
@@ -6899,11 +6982,11 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_POTION_DESC_DAMAGEBOOST">
-		<value>Aumenta el daño causado por los jugadores y monstruos afectados cuanto atacan.</value>
+		<value>Aumenta el daño causado por los jugadores y monstruos afectados cuando atacan.</value>
 	</data>	
 
 	<data name="IDS_POTION_DESC_WEAKNESS">
-		<value>Disminuye el daño causado por los jugadores y monstruos afectados cuanto atacan.</value>
+		<value>Disminuye el daño causado por los jugadores y monstruos afectados cuando atacan.</value>
 	</data>	
 
 	<data name="IDS_POTION_DESC_HEAL">
@@ -7095,23 +7178,23 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROTS">
-		<value>Restablece 2{*ICON_SHANK_01*}. Se puede plantar en tierras de cultivo.</value>
+		<value>Restablece 2{*ICON_SHANK_01*} y se puede convertir en una zanahoria dorada. Se puede plantar en tierras de cultivo.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO">
-		<value>Restablece 0,5{*ICON_SHANK_01*}. Se puede asar en un horno o plantar en tierras de cultivo.</value>
+		<value>Restablece 0.5{*ICON_SHANK_01*}o se puede cocinar en el horno. Se puede plantar en tierras de cultivo.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_BAKED">
-		<value>Restablece 3{*ICON_SHANK_01*}.</value>
+		<value>Restablece 3{*ICON_SHANK_01*}. Se crea cocinando una patata en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_POISONOUS">
-		<value>Restablece 1{*ICON_SHANK_01*}, pero hay una posibilidad de provocar envenenamiento.</value>
+		<value>Restablece 1{*ICON_SHANK_01*}o se puede cocinar en el horno. Si comes esto puede que te envenene.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_GOLDEN">
-		<value>Se produce a partir de una zanahoria y pepitas de oro. Restablece 3{*ICON_SHANK_01*}.</value>
+		<value>Restablece 3{*ICON_SHANK_01*}. Se produce a partir de una zanahoria y pepitas de oro. Restablece 3.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_ON_A_STICK">
@@ -7637,7 +7720,7 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENCHANTED_GOLDENAPPLE">
-		<value>Restablece 2{*ICON_SHANK_01*}, regenera la salud durante 30 segundos y concede resistencia al fuego y al daño durante 5 minutos.</value>
+		<value>Restablece 2{*ICON_SHANK_01*}, regenera la salud durante 30 segundos y concede resistencia al fuego y al daño durante 5 minutos. Creada con una manzana y bloques de oro.</value>
 	</data>	
 
 	<data name="IDS_ENABLE_TELEPORT">
@@ -7790,5 +7873,8 @@ Todos los cofres de Ender de un mundo están vinculados, y los objetos que conti
 
 	<data name="IDS_TOOLTIPS_CURE">
 		<value>Curar</value>
-	</data>	
+	</data>
+  <data name="IDS_PROGRESS_NEW_WORLD_SEED">
+    <value>Buscando semilla para el generador de mundos</value>
+  </data>
 </root>

@@ -1,6 +1,6 @@
 ﻿<root>
 	<data name="IDS_TIPS_GAMETIP_NEWDLC">
-		<value>새 다운로드 콘텐츠가 준비되었습니다! 주 메뉴의 Minecraft 상점에서 이용할 수 있습니다.</value>
+		<value>새 다운로드 가능한 콘텐츠가 준비되었습니다! 주 메뉴의 Minecraft 상점에서 이용할 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_SKINPACKS">
@@ -20,7 +20,7 @@
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_5">
-		<value>소지품 메뉴 밖으로 포인터를 옮기고 {*CONTROLLER_VK_A*} 단추를 눌러 아이템을 버릴 수 있습니다.</value>
+		<value>소지품 메뉴 밖으로 포인터를 옮기고 {*CONTROLLER_VK_A*}를 눌러 아이템을 버릴 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_6">
@@ -84,7 +84,7 @@
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_21">
-		<value>{*CONTROLLER_VK_B*} 단추를 누르면 지금 손에 들고 있는 아이템을 버립니다.</value>
+		<value>{*CONTROLLER_VK_B*}를 누르면 지금 손에 들고 있는 아이템을 버립니다.</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_22">
@@ -269,34 +269,32 @@ Minecraft는 블록을 배치하여 무엇이든 상상한 대로 만들 수 있
 {*CONTROLLER_ACTION_LOOK*}으로 주위를 둘러봅니다.{*B*}{*B*}
 {*CONTROLLER_ACTION_MOVE*}으로 주변을 이동합니다.{*B*}{*B*}
 {*CONTROLLER_ACTION_JUMP*}를 누르면 점프합니다.{*B*}{*B*}
-{*CONTROLLER_ACTION_MOVE*}을 앞으로 빠르게 두 번 누르면 질주합니다. {*CONTROLLER_ACTION_MOVE*}를 계속 누르고 있으면 질주 시간이 다 되거나 음식 막대가 {*ICON_SHANK_03*} 이하가 될 때까지 계속 질주합니다.
+{*CONTROLLER_ACTION_MOVE*}를 앞으로 빠르게 두 번 누르면 질주합니다. {*CONTROLLER_ACTION_MOVE*}를 계속 누르고 있으면 질주 시간이 다 되거나 음식 막대가 {*ICON_SHANK_03*} 이하가 될 때까지 계속 질주합니다.
 {*CONTROLLER_ACTION_ACTION*}를 누르고 있으면 손이나 도구를 사용해 채굴하거나 벌목합니다. 특정 블록을 채굴하려면 도구를 만들어야 할 수 있습니다.{*B*}{*B*}
 손에 아이템을 들고 있다면 {*CONTROLLER_ACTION_USE*}를 눌러 사용하거나 {*CONTROLLER_ACTION_DROP*}를 눌러 버릴 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_HUD">
 		<value>{*T3*}플레이 방법: HUD{*ETW*}{*B*}{*B*}
-HUD는 체력이나 산소(물속에 있을 때), 배고픔 레벨(배고픔을 해결하려면 음식을 먹어야 함), 방어력(방어구를 입고 있을 때) 등의 정보를 보여줍니다.
- 체력을 잃어도 음식 바에 {*ICON_SHANK_01*}가 9 이상 있다면 체력이 자동으로 회복됩니다. 음식을 먹으면 음식 바가 차오릅니다.{*B*}
-또한 이곳의 경험치 막대는 숫자로 경험치가 표시되며 막대는 경험치를 올리는 데 필요한 경험치 점수를 보여줍니다. 
-경험치 점수는 괴물이나 동물을 처치하면 나오는 구체를 모으거나, 특정 블록을 채굴하거나, 동물을 교배하거나 낚시를 하거나 화로에서 광석을 녹이면 얻을 수 있습니다.{*B*}{*B*}
+HUD는 체력이나 산소(물속에 있을 때), 배고픔 레벨(배고픔을 해결하려면 음식을 먹어야 함), 방어력(방어구를 입고 있을 때) 등의 정보를 보여줍니다. 체력을 잃어도 음식 막대에 {*ICON_SHANK_01*}가 9칸 이상 있다면 체력이 자동으로 회복됩니다. 음식을 먹으면 음식 막대가 차오릅니다.{*B*}
+또한 이곳의 경험치 막대는 숫자로 경험치가 표시되며 막대는 경험치를 올리는 데 필요한 경험치 점수를 보여줍니다. 경험치 점수는 괴물이나 동물을 처치하면 나오는 구체를 모으거나, 특정 블록을 채굴하거나, 동물을 교배하거나 낚시를 하거나 화로에서 광석을 녹이면 얻을 수 있습니다.{*B*}{*B*}
 또한 사용할 수 있는 아이템도 표시됩니다. {*CONTROLLER_ACTION_LEFT_SCROLL*}과 {*CONTROLLER_ACTION_RIGHT_SCROLL*}로 손에 든 아이템을 바꿀 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_INVENTORY">
 		<value>{*T3*}플레이 방법: 소지품{*ETW*}{*B*}{*B*}
-{*CONTROLLER_ACTION_INVENTORY*}을 이용해 소지품을 볼 수 있습니다.{*B*}{*B*}
+{*CONTROLLER_ACTION_INVENTORY*}를 이용해 소지품을 볼 수 있습니다.{*B*}{*B*}
 이 화면에는 손에 들고 쓸 수 있는 아이템과 가지고 다닐 수 있는 아이템이 모두 표시됩니다. 방어력 또한 이 화면에서 확인할 수 있습니다.{*B*}{*B*}
-{*CONTROLLER_MENU_NAVIGATE*}로 포인터를 움직일 수 있습니다. {*CONTROLLER_VK_A*} 단추를 누르면 포인터로 가리킨 아이템을 집습니다. 수량이 2개 이상일 때는 아이템을 전부 집으며, {*CONTROLLER_VK_X*} 단추를 누르면 반만 집을 수 있습니다.{*B*}{*B*}
-포인터를 사용해서 아이템을 소지품의 다른 공간으로 옮긴 다음 {*CONTROLLER_VK_A*} 단추를 누르면 해당 위치에 놓습니다. 포인터로 집은 아이템이 여러 개일 때 {*CONTROLLER_VK_A*} 단추를 누르면 모두 내려놓고 {*CONTROLLER_VK_X*} 단추를 누르면 하나만 놓습니다.{*B*}{*B*}
+{*CONTROLLER_MENU_NAVIGATE*}로 포인터를 움직일 수 있습니다. {*CONTROLLER_VK_A*}를 누르면 포인터로 가리킨 아이템을 집습니다. 수량이 2개 이상일 때는 아이템을 전부 집으며, {*CONTROLLER_VK_X*}를 누르면 반만 집을 수 있습니다.{*B*}{*B*}
+포인터를 사용해서 아이템을 소지품의 다른 공간으로 옮긴 다음 {*CONTROLLER_VK_A*}를 누르면 해당 위치에 놓습니다. 포인터로 집은 아이템이 여러 개일 때 {*CONTROLLER_VK_A*}를 누르면 모두 내려놓고 {*CONTROLLER_VK_X*}를 누르면 하나만 놓습니다.{*B*}{*B*}
 방어구 아이템에 포인터를 올려놓으면 해당 아이템을 방어구 슬롯으로 빨리 옮길 수 있는 툴팁이 표시됩니다.{*B*}{*B*}
-염색으로 가죽 방어구의 색을 바꿀 수 있습니다. 소지품 메뉴에서 포인터로 염료를 잡은 후 포인터가 염색시키고자 하는 아이템 위에 있을 때 {*CONTROLLER_VK_X*} 단추를 누르면 됩니다.
-</value>
+염색으로 가죽 방어구의 색을 바꿀 수 있습니다. 소지품 메뉴에서 포인터로 염료를 잡은 후 포인터가 염색시키고자 하는 아이템 위에 있을 때 {*CONTROLLER_VK_X*}를 누르면 됩니다.
+ </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_CHEST">
 		<value>{*T3*}플레이 방법: 상자{*ETW*}{*B*}{*B*}
-상자를 만들고 나면 상자를 월드에 놓고 {*CONTROLLER_ACTION_USE*}를 눌러 소지품에 있는 아이템을 보관할 수 있습니다.{*B*}{*B*}
+상자를 만들고 나면 월드에 놓고 {*CONTROLLER_ACTION_USE*}를 눌러 소지품에 있는 아이템을 보관할 수 있습니다.{*B*}{*B*}
 아이템을 소지품 또는 상자로 옮기려면 포인터를 사용하십시오.{*B*}{*B*}
 상자 안에 넣어둔 아이템은 나중에 소지품에 다시 넣을 수 있습니다.
   </value>
@@ -313,8 +311,8 @@ HUD는 체력이나 산소(물속에 있을 때), 배고픔 레벨(배고픔을 
 		<value>{*T3*}플레이 방법: 제작{*ETW*}{*B*}{*B*}
 제작 인터페이스에서는 소지품에 있는 아이템을 조합해서 새로운 아이템을 만들 수 있습니다. {*CONTROLLER_ACTION_CRAFTING*}를 눌러 제작 인터페이스를 여십시오.{*B*}{*B*}
 {*CONTROLLER_VK_LB*}과 {*CONTROLLER_VK_RB*}로 화면 위쪽의 탭에서 제작할 아이템 종류를 선택한 다음 {*CONTROLLER_MENU_NAVIGATE*}로 제작할 아이템을 고르십시오.{*B*}{*B*}
-제작 영역에는 새 아이템을 만드는 데 필요한 재료 아이템이 표시됩니다. {*CONTROLLER_VK_A*} 단추를 누르면 아이템을 만들어 소지품에 넣게 됩니다.
-  </value>
+제작 영역에는 새 아이템을 만드는 데 필요한 재료 아이템이 표시됩니다. {*CONTROLLER_VK_A*}를 누르면 아이템을 만들어 소지품에 넣게 됩니다.
+</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_CRAFT_TABLE">
@@ -337,7 +335,7 @@ HUD는 체력이나 산소(물속에 있을 때), 배고픔 레벨(배고픔을 
 
 	<data name="IDS_HOW_TO_PLAY_DISPENSER">
 		<value>{*T3*}플레이 방법: 디스펜서{*ETW*}{*B*}{*B*}
-디스펜서는 아이템을 쏘아 보내는 데 사용됩니다. 디스펜서를 작동하려면 레버와 같은 스위치를 장착해야 합니다.{*B*}{*B*}
+디스펜서는 아이템을 쏘아 보낼 때 사용됩니다. 디스펜서를 작동하려면 레버와 같은 스위치를 장착해야 합니다.{*B*}{*B*}
 디스펜서에 아이템을 넣으려면 {*CONTROLLER_ACTION_USE*}를 누른 다음, 쏘아 보낼 아이템을 소지품에서 꺼내 디스펜서에 넣으십시오.{*B*}{*B*}
 이제 스위치를 조작하면 디스펜서가 아이템을 쏘아 보냅니다.
 </value>
@@ -345,7 +343,7 @@ HUD는 체력이나 산소(물속에 있을 때), 배고픔 레벨(배고픔을 
 
 	<data name="IDS_HOW_TO_PLAY_BREWING">
 		<value>{*T3*}플레이 방법: 양조{*ETW*}{*B*}{*B*}
-양조 기술로 물약을 만들기 위해서는 양조대가 필요하며, 양조대는 작업대에서 만들 수 있습니다. 모든 물약을 만들 때는 물 한 병이 필요합니다. 가마솥이나 다른 수원에서 유리병에 물을 채우십시오. {*B*}
+양조 기술로 물약을 만들기 위해서는 양조대가 필요하며, 양조대는 작업대에서 만들 수 있습니다. 모든 물약을 만들 때는 물 한 병이 필요합니다. 가마솥이나 다른 수원에서 유리병에 물을 채우십시오.{*B*}
 양조대 하나에는 병을 넣을 수 있는 슬롯이 세 개 있으므로, 한 번에 물약을 세 병까지 양조할 수 있습니다. 재료 한 개를 병 세 개에 모두 넣을 수 있으므로, 자원을 최대한 아끼려면 물약 세 병을 동시에 양조하십시오.{*B*}
 물약 재료를 양조대 위에 넣으면 잠시 후 기본 물약이 완성됩니다. 기본 물약은 그 자체로는 아무런 효과가 없으나 다른 재료를 넣어 양조하면 효과가 있는 물약이 됩니다.{*B*}
 효과가 있는 물약을 만든 뒤 세 번째 재료를 넣으면 효과 지속 시간이 길어지거나(레드스톤 가루 사용), 효과가 더 강해지거나(발광석 가루 사용), 해로운 효과로 바꿀 수(발효 거미 눈 사용) 있습니다.{*B*}
@@ -353,8 +351,8 @@ HUD는 체력이나 산소(물속에 있을 때), 배고픔 레벨(배고픔을 
 
 물약 재료는 다음과 같습니다.{*B*}{*B*}
 * {*T2*}지하 사마귀{*ETW*}{*B*}
-* {*T2*}거미 눈{*ETW*}{*B*}
-* {*T2*}설탕{*ETW*}{*B*}
+* {*T2*}거미
+ 눈{*ETW*}{*B*}* {*T2*}설탕{*ETW*}{*B*}
 * {*T2*}Ghast의 눈물{*ETW*}{*B*}
 * {*T2*}Blaze 가루{*ETW*}{*B*}
 * {*T2*}마그마 크림{*ETW*}{*B*}
@@ -370,11 +368,11 @@ HUD는 체력이나 산소(물속에 있을 때), 배고픔 레벨(배고픔을 
 	<data name="IDS_HOW_TO_PLAY_ENCHANTMENT">
 		<value>{*T3*}플레이 방법: 효과부여{*ETW*}{*B*}{*B*}
 괴물 및 동물을 처치하거나 또는 특정 블록을 채굴하거나 녹여서 얻을 수 있는 경험치로 도구, 무기 및 방어구에 효과를 부여할 수 있습니다.{*B*}
-검, 활, 도끼, 곡괭이, 삽 또는 방어구를 효과부여대에 놓인 책 아래에 있는 슬롯에 넣으면 슬롯 오른쪽에 각각 경험치 비용이 쓰인 단추 세 개가 나타납니다.{*B*} 
+검, 활, 도끼, 곡괭이, 삽 또는 방어구를 효과부여대에 놓인 책 아래에 있는 슬롯에 넣으면 슬롯 오른쪽에 각각 경험치 비용이 쓰인 단추 세 개가 나타납니다.{*B*}
 효과부여에 필요한 경험치가 모자란 항목은 빨간색으로 나타나며, 그렇지 않다면 초록색으로 나타납니다.{*B*}{*B*}
 실제 효과부여는 표시된 비용에 기반을 두고 무작위로 적용됩니다.{*B*}{*B*}
 효과부여대가 한 블록 간격을 두고 책장에 둘러싸여 있으면(최대 책장 15개까지) 효과부여 레벨이 상승하며, 효과부여대에 놓인 책에 신비한 문양이 나타납니다.{*B*}{*B*}
-효과부여대를 만들 때 쓰이는 모든 재료는 월드 안의 마을에서 찾거나 월드 안에서 채굴 및 경작을 통해 얻을 수 있습니다.{*B*}
+효과부여대를 만들 때 쓰이는 모든 재료는 월드 안의 마을에서 찾거나 월드 안에서 채굴 및 경작을 통해 얻을 수 있습니다.{*B*}{*B*}
 효과부여 책은 모루에서 아이템에 효과를 부여하는 데 사용합니다. 이것으로 아이템에 더 효율적으로 효과를 부여할 수 있습니다.{*B*}
 </value>
 	</data>	
@@ -392,14 +390,15 @@ Minecraft에서는 동물을 교배해 새끼 동물을 얻을 수 있습니다!
 소, Mooshroom, 양에게는 밀을 먹이고 돼지에게는 당근을 먹이십시오. 그리고 닭에게는 밀 씨앗이나 지하 사마귀를 먹이십시오. 늑대에겐 모든 종류의 고기를 먹일 수 있습니다. 적합한 먹이를 먹은 동물은 근처에 같은 종류의 사랑 모드 상태인 동물이 있는지 찾아다니게 됩니다.{*B*}
 사랑 모드 상태이며 종류가 같은 동물이 두 마리 만나게 되면 서로 입을 맞추게 되고, 잠시 후 새끼 동물이 태어납니다. 새끼 동물은 다 자라기 전까지 부모 동물을 따라다니게 됩니다.{*B*}
 사랑 모드가 끝난 동물은 5분간 다시 사랑 모드 상태가 될 수 없습니다.{*B*}
-월드에 생성될 수 있는 동물의 숫자가 제한되어 있으므로 동물이 많을 때 교배할 수 없을 수도 있습니다.</value>
+월드에 생성될 수 있는 동물의 숫자가 제한되어 있으므로 동물이 많을 때 교배할 수 없을 수도 있습니다.
+</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_NETHERPORTAL">
 		<value>{*T3*}플레이 방법: 지하 차원문{*ETW*}{*B*}{*B*}
 지하 차원문은 플레이어가 지상 월드와 지하 월드를 오갈 때 사용하는 관문입니다. 지하 월드의 1블록 거리는 지상 월드의 3블록 거리와 같으므로, 지하 월드에서는 지상 월드에서보다 더 빨리 이동할 수 있습니다.
 따라서 지하에 차원문을 세우고 그곳을 통과하면 3배 먼 거리로 나가게 됩니다.{*B*}{*B*}
-차원문을 세우려면 흑요석 블록이 10개 이상 필요하며, 5블록 높이에 4블록 길이, 1블록 너비로 만들어야 합니다. 차원문 외형이 만들어지면 안쪽 공간에 불을 붙여야 차원문을 작동할 수 있습니다. 불은 부싯돌과 부시 또는 불쏘시개를 사용하여 붙입니다.{*B*}{*B*}
+차원문을 세우려면 흑요석 블록이 10개 이상 필요하며, 5블록 높이에 4블록 길이, 1블록 너비로 만들어야 합니다. 차원문 외형이 만들어지면 안쪽 공간에 불을 붙여 차원문을 작동할 수 있습니다. 불은 부싯돌과 부시 또는 불쏘시개를 사용하여 붙입니다.{*B*}{*B*}
 차원문 세우기의 예시는 오른쪽 그림에 표시되어 있습니다.
 </value>
 	</data>	
@@ -407,90 +406,90 @@ Minecraft에서는 동물을 교배해 새끼 동물을 얻을 수 있습니다!
 	<data name="IDS_HOW_TO_PLAY_BANLIST">
 		<value>{*T3*}플레이 방법: 레벨 차단{*ETW*}{*B*}{*B*}
 플레이 중인 레벨에 부적절한 내용이 포함되어 있다고 생각되면 해당 레벨을 차단 레벨 목록에 추가할 수 있습니다. 
-레벨을 차단하려면 일시 중지 메뉴를 불러온 뒤 {*CONTROLLER_VK_RB*}단추를 눌러 레벨 차단 툴팁을 선택하십시오. 
+레벨을 차단하려면 일시 중지 메뉴를 불러온 뒤 {*CONTROLLER_VK_RB*}를 눌러 레벨 차단 툴팁을 선택하십시오. 
 다음에 해당 레벨을 선택하여 게임에 참가하려고 하면 차단 레벨 목록에 있는 레벨이라는 주의사항이 표시됩니다. 해당 레벨을 리스트에서 제거한 다음 참가할지, 아니면 나갈지를 선택할 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_HOSTOPTIONS">
 		<value>{*T3*}플레이 방법: 호스트 및 플레이어 옵션{*ETW*}{*B*}{*B*}
-
+ 
 {*T1*}게임 옵션{*ETW*}{*B*}
-월드를 불러오거나 새로 만들 때 "추가 옵션" 단추를 누르면 게임의 세부 사항을 조정할 수 있는 메뉴가 열립니다.{*B*}{*B*}
+월드를 불러오거나 새로 만들 때 "추가 옵션"을 누르면 게임의 세부 사항을 조정할 수 있는 메뉴가 열립니다.{*B*}{*B*}
 
 	{*T2*}플레이어 대 플레이어{*ETW*}{*B*}
 	이 옵션을 켜면 플레이어가 다른 플레이어를 공격할 수 있습니다. 생존 모드에만 적용됩니다.{*B*}{*B*}
-	
-	{*T2*}플레이어 신뢰{*ETW*}{*B*}
-	이 옵션을 끄면 게임에 참여하는 플레이어의 행동이 제한됩니다. 채굴, 아이템 사용, 블록 놓기, 문과 스위치 사용, 보관함 사용, 플레이어나 동물 공격을 할 수 없습니다. 게임 메뉴에서 특정 플레이어의 행동 권한에 관한 이러한 옵션을 변경할 수 있습니다.{*B*}{*B*}
-	
-	{*T2*}불 확산{*ETW*}{*B*}
-	이 옵션을 켜면 불이 근처 가연성 블록으로 퍼집니다. 나중에 게임에서 설정을 바꿀 수도 있습니다.{*B*}{*B*}
-	
-	{*T2*}TNT 폭발{*ETW*}{*B*}
-	이 옵션을 켜면 TNT를 점화했을 때 폭발합니다. 나중에 게임에서 설정을 바꿀 수도 있습니다.{*B*}{*B*}
-	
-	{*T2*}호스트 특권{*ETW*}{*B*}
-	이 옵션을 켜면 호스트는 게임 메뉴에서 플레이어에게 비행 능력을 주거나, 지치지 않게 하거나, 투명하게 만들 수 있습니다.{*DISABLES_ACHIEVEMENTS*}{*B*}{*B*}
-
+ 
+ {*T2*}플레이어 신뢰{*ETW*}{*B*}
+ 이 옵션을 끄면 게임에 참여하는 플레이어의 행동이 제한됩니다. 채굴, 아이템 사용, 블록 놓기, 문과 스위치 사용, 보관함 사용, 플레이어나 동물 공격을 할 수 없습니다. 게임 메뉴에서 특정 플레이어의 행동 권한에 관한 이러한 옵션을 변경할 수 있습니다.{*B*}{*B*}
+ 
+ {*T2*}불 확산{*ETW*}{*B*}
+ 이 옵션을 켜면 불이 근처 가연성 블록으로 퍼집니다. 나중에 게임에서 설정을 바꿀 수도 있습니다.{*B*}{*B*}
+ 
+ {*T2*}TNT 폭발{*ETW*}{*B*}
+ 이 옵션을 켜면 TNT를 점화했을 때 폭발합니다. 나중에 게임에서 설정을 바꿀 수도 있습니다.{*B*}{*B*}
+ 
+ {*T2*}호스트 특권{*ETW*}{*B*}
+ 이 옵션을 켜면 호스트는 게임 메뉴에서 플레이어에게 비행 능력을 주거나, 지치지 않게 하거나, 투명하게 만들 수 있습니다.{*DISABLES_ACHIEVEMENTS*}{*B*}{*B*}
+ 
 {*T1*}월드 생성 옵션{*ETW*}{*B*}
 새 월드를 생성할 때 선택할 수 있는 추가 옵션입니다.{*B*}{*B*}
-
-	{*T2*}건물 생성{*ETW*}{*B*}
-	이 옵션을 켜면 마을이나 요새 등의 건물이 월드에 생성됩니다.{*B*}{*B*}
-	
-	{*T2*}완전평면 월드{*ETW*}{*B*}
-	이 옵션을 켜면 지상과 지하에 완전히 평평한 세계가 생성됩니다.{*B*}{*B*}
-	
-	{*T2*}보너스 상자{*ETW*}{*B*}
-	이 옵션을 켜면 쓸모있는 아이템이 든 상자가 플레이어 생성 지점 근처에 나타납니다.{*B*}{*B*}
-	
-	{*T2*}지하 초기화{*ETW*}{*B*}
-	이 옵션을 켜면 지하가 재건됩니다. 사전에 지하 요새가 없는 곳에 미리 저장하면 유용합니다.{*B*}{*B*}
-
-	{*T1*}게임 메뉴 옵션{*ETW*}{*B*}
-	게임 플레이 중에 {*BACK_BUTTON*} 단추를 눌러서 게임 메뉴로 이동한 다음 사용할 수 있는 옵션입니다.{*B*}{*B*}
-	
-	{*T2*}호스트 옵션{*ETW*}{*B*}
-	호스트 플레이어나 관리자로 설정된 플레이어는 "호스트 옵션" 메뉴에 들어갈 수 있습니다. 이 메뉴에서 불 확산과 TNT 폭발을 켜거나 끌 수 있습니다.{*B*}{*B*}
-
+ 
+ {*T2*}건물 생성{*ETW*}{*B*}
+ 이 옵션을 켜면 마을이나 요새 등의 건물이 월드에 생성됩니다.{*B*}{*B*}
+ 
+ {*T2*}완전평면 월드{*ETW*}{*B*}
+ 이 옵션을 켜면 지상과 지하에 완전히 평평한 세계가 생성됩니다.{*B*}{*B*}
+ 
+ {*T2*}보너스 상자{*ETW*}{*B*}
+ 이 옵션을 켜면 쓸모있는 아이템이 든 상자가 플레이어 생성 지점 근처에 나타납니다.{*B*}{*B*}
+ 
+ {*T2*}지하 초기화{*ETW*}{*B*}
+ 이 옵션을 켜면 지하가 재건됩니다. 사전에 지하 요새가 없는 곳에 미리 저장하면 유용합니다.{*B*}{*B*}
+ 
+ {*T1*}게임 메뉴 옵션{*ETW*}{*B*}
+ 게임 플레이 중에 {*CONTROLLER_VK_BACK*}를 눌러 게임 메뉴로 이동한 다음 사용할 수 있는 옵션입니다.{*B*}{*B*}
+ 
+ {*T2*}호스트 옵션{*ETW*}{*B*}
+ 호스트 플레이어나 관리자로 설정된 플레이어는 "호스트 옵션" 메뉴에 들어갈 수 있습니다. 이 메뉴에서 불 확산과 TNT 폭발을 켜거나 끌 수 있습니다.{*B*}{*B*}
+ 
 {*T1*}플레이어 옵션{*ETW*}{*B*}
-플레이어의 행동 권한을 변경하려면 플레이어 이름을 선택하고 {*CONTROLLER_VK_A*} 단추를 눌러 플레이어 특권 메뉴에서 다음 옵션을 조정하십시오.{*B*}{*B*}
-
-	{*T2*}건설 및 채광 가능{*ETW*}{*B*}
-	이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 켜면 플레이어는 월드에서 일반적인 행동을 모두 할 수 있습니다. 이 옵션을 끄면 플레이어는 블록을 놓거나 파괴하지 못합니다.{*B*}{*B*}
-	
-	{*T2*}문과 스위치 사용 가능{*ETW*}{*B*}
-	이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 문과 스위치를 사용할 수 없습니다.{*B*}{*B*}
-	
-	{*T2*}보관함을 열 수 있음{*ETW*}{*B*}
-	이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 상자와 같은 보관함을 열 수 없습니다.{*B*}{*B*}
-	
-	{*T2*}플레이어 공격 가능{*ETW*}{*B*}
-	이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 다른 플레이어에게 피해를 줄 수 없습니다.{*B*}{*B*}
-	
-	{*T2*}동물 공격 가능{*ETW*}{*B*}
-	이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 동물에게 피해를 줄 수 없습니다.{*B*}{*B*}
-	
-	{*T2*}관리자{*ETW*}{*B*}
-	 이 옵션을 켜면 플레이어는 다른 플레이어의 특권을 변경할 수 있습니다(호스트 제외). “플레이어 신뢰”를 끄면 플레이어를 추방하거나 불 확산과 TNT 폭발을 켜거나 끌 수 있습니다.{*B*}{*B*}
-	
-	{*T2*}플레이어 추방{*ETW*}{*B*}
-	호스트 플레이어와 같은 {*PLATFORM_NAME*} 본체로 플레이하는 플레이어를 제외하고, 이 옵션을 선택하면 다른 {*PLATFORM_NAME*} 본체로 접속하는 플레이어를 추방할 수 있습니다. 추방당한 플레이어는 게임이 새로 시작되기 전까지 다시 참가할 수 없습니다.{*B*}{*B*}
-
+플레이어의 행동 권한을 변경하려면 플레이어 이름을 선택하고 {*CONTROLLER_VK_A*}를 눌러 플레이어 특권 메뉴에서 다음 옵션을 조정하십시오.{*B*}{*B*}
+ 
+ {*T2*}건설 및 채광 가능{*ETW*}{*B*}
+ 이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 켜면 플레이어는 월드에서 일반적인 행동을 모두 할 수 있습니다. 이 옵션을 끄면 플레이어는 블록을 놓거나 파괴하지 못합니다.{*B*}{*B*}
+ 
+ {*T2*}문과 스위치 사용 가능{*ETW*}{*B*}
+ 이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 문과 스위치를 사용할 수 없습니다.{*B*}{*B*}
+ 
+ {*T2*}보관함을 열 수 있음{*ETW*}{*B*}
+ 이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 상자와 같은 보관함을 열 수 없습니다.{*B*}{*B*}
+ 
+ {*T2*}플레이어 공격 가능{*ETW*}{*B*}
+ 이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 다른 플레이어에게 피해를 줄 수 없습니다.{*B*}{*B*}
+ 
+ {*T2*}동물 공격 가능{*ETW*}{*B*}
+ 이 옵션은 "플레이어 신뢰"를 껐을 때만 사용할 수 있습니다. 이 옵션을 끄면 플레이어는 동물에게 피해를 줄 수 없습니다.{*B*}{*B*}
+ 
+ {*T2*}관리자{*ETW*}{*B*}
+  이 옵션을 켜면 플레이어는 다른 플레이어의 특권을 변경할 수 있습니다(호스트 제외). “플레이어 신뢰”를 끄면 플레이어를 추방하거나 불 확산과 TNT 폭발을 켜거나 끌 수 있습니다.{*B*}{*B*}
+ 
+ {*T2*}플레이어 추방{*ETW*}{*B*}
+ 호스트 플레이어와 같은 {*PLATFORM_NAME*} 본체로 플레이하는 플레이어를 제외하고, 이 옵션을 선택하면 다른 {*PLATFORM_NAME*} 본체로 접속하는 플레이어를 추방할 수 있습니다. 추방당한 플레이어는 게임이 새로 시작되기 전까지 다시 참가할 수 없습니다.{*B*}{*B*}
+ 
 {*T1*}호스트 플레이어 옵션{*ETW*}{*B*}
 "호스트 특권" 옵션을 켠 상태에서 호스트 플레이어는 플레이어 특권을 변경할 수 있습니다. 플레이어 특권을 변경하려면 플레이어 이름을 선택하고 {*CONTROLLER_VK_A*}를 눌러 플레이어 특권 메뉴에서 다음 옵션을 조정하십시오.{*B*}{*B*}
-
-	{*T2*}비행 가능{*ETW*}{*B*}
-	이 옵션을 켜면 플레이어는 날 수 있습니다. 이 옵션은 생존 모드에서만 적용됩니다(창작 모드에서는 모든 플레이어가 비행 가능).{*B*}{*B*}
-	
-	{*T2*}지치지 않음{*ETW*}{*B*}
-	이 옵션은 생존 모드에서만 적용됩니다. 이 옵션을 켜면 걷기/달리기/점프 등의 행동을 해도 음식 막대가 줄어들지 않습니다. 하지만 플레이어가 상처를 입으면 회복되는 동안 음식 막대가 서서히 줄어듭니다.{*B*}{*B*}
-	
-	{*T2*}투명화{*ETW*}{*B*}
-	이 옵션을 켜면 플레이어는 다른 플레이어의 눈에 보이지 않게 되며 무적 상태가 됩니다.{*B*}{*B*}
+ 
+ {*T2*}비행 가능{*ETW*}{*B*}
+ 이 옵션을 켜면 플레이어는 날 수 있습니다. 이 옵션은 생존 모드에서만 적용됩니다(창작 모드에서는 모든 플레이어가 비행 가능).{*B*}{*B*}
+ 
+ {*T2*}지치지 않음{*ETW*}{*B*}
+ 이 옵션은 생존 모드에서만 적용됩니다. 이 옵션을 켜면 걷기/달리기/점프 등의 행동을 해도 음식 막대가 줄어들지 않습니다. 하지만 플레이어가 상처를 입으면 회복되는 동안 음식 막대가 서서히 줄어듭니다.{*B*}{*B*}
+ 
+ {*T2*}투명화{*ETW*}{*B*}
+ 이 옵션을 켜면 플레이어는 다른 플레이어의 눈에 보이지 않게 되며 무적 상태가 됩니다.{*B*}{*B*}
     
     {*T2*}순간이동 가능{*ETW*}{*B*}
-	플레이어가 플레이어 자신 또는 다른 플레이어를 월드 내 다른 곳으로 이동시킬 수 있습니다.
+ 플레이어가 플레이어 자신 또는 다른 플레이어를 월드 내 다른 곳으로 이동시킬 수 있습니다.
 </value>
 	</data>	
 
@@ -609,11 +608,9 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_HOW_TO_PLAY_WHATSNEW">
 		<value>
-{*T3*}{*TITLE_UPDATE_NAME*}{*ETW*}{*B*}{*B*}
 {*T3*}수정 및 추가{*ETW*}{*B*}{*B*}
-- 새 아이템 추가 - 에메랄드, 에메랄드 광석, 에메랄드 블록, Ender 상자, 트립와이어 후크, 효과부여된 황금 사과, 모루, 화분, 조약돌 벽, 이끼 낀 조약돌 벽, 말라비틀어진 그림, 감자, 구운 감자, 독성 감자, 당근, 황금 당근, 당근 막대, 
-호박 파이, 야간 시야 물약, 투명화 물약, 지하 석영, 지하 석영 광석, 석영 블록, 석영 발판, 석영 계단, 깎아놓은 석영 블록, 석영 블록 기둥, 효과부여 책, 카펫{*B*}
-- 새 조합법 추가- 부드러운 사암 및 깎아놓은 사암{*B*}
+- 새 아이템 추가 - 에메랄드, 에메랄드 광석, 에메랄드 블록, Ender 상자, 트립와이어 후크, 효과부여된 황금 사과, 모루, 화분, 조약돌 벽, 이끼 낀 조약돌 벽, 말라비틀어진 그림, 감자, 구운 감자, 독성 감자, 당근, 황금 당근, 당근 막대, 호박 파이, 야간 시야 물약, 투명화 물약, 지하 석영, 지하 석영 광석, 석영 블록, 석영 발판, 석영 계단, 깎아놓은 석영 블록, 석영 블록 기둥, 효과부여 책, 카펫{*B*}
+- 새 조합법 추가 - 부드러운 사암 및 깎아놓은 사암{*B*}
 - 새로운 괴물 추가 - 좀비 마을 사람{*B*}
 - 새 지역 생성 기능 - 사막 사원, 사막 마을, 정글 사원{*B*}
 - 마을 사람과 거래 가능{*B*}
@@ -630,7 +627,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 - 나무 도구를 용광로에서 연료로 사용 가능{*B*}
 - 채굴 정확성 효과부여 도구로 얼음 및 유리 판자 수집 가능{*B*}
 - 화살로 나무 단추와 나무 압력판 작동 가능{*B*}
-- 지하 괴물이 차원문을 통해 지상에 생성 가능{*B*}
+- 차원문을 통해 지상에 지하 괴물 생성 가능{*B*}
 - Creeper와 거미는 마지막으로 자신을 공격한 플레이어를 공격함{*B*}
 - 창작 모드의 괴물들은 잠시 시간이 지난 후 중립 상태가 됨{*B*}
 - 물에 빠졌을 때 타격 반동 제거{*B*}
@@ -638,9 +635,9 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 - 지하에서 얼음이 녹음{*B*}
 - 비가 오면 가마솥이 채워짐{*B*}
 - 피스톤 업데이트 시간 2배로 증가{*B*}
-- 안장을 가진 돼지를 죽이면 안장을 떨어트림.{*B*}
+- 안장을 가진 돼지를 죽이면 안장을 떨어트림{*B*}
 - Ender의 하늘 색 변경{*B*}
-- 트립와이어용으로 실 설치 가능.{*B*}
+- 트립와이어용으로 실 설치 가능{*B*}
 - 비가 나뭇잎을 통과해 내림{*B*}
 - 블록 아래쪽에 레버 설치 가능{*B*}
 - 난이도 설정에 따라 TNT 위력 변화{*B*}
@@ -650,11 +647,10 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 - 완전평면 월드에서 슬라임이 더 적게 생성됨{*B*}
 - Creeper로부터 받는 피해가 난이도에 따라 달라지고 타격 반동이 강해짐{*B*}
 - 고정된 Enderman이 턱을 벌리지 않음{*B*}
-- 플레이어 순간이동 추가(게임 중에 {*BACK_BUTTON*} 메뉴 사용){*B*}
+- 플레이어 순간이동 추가(게임 중에 {*CONTROLLER_VK_BACK*} 메뉴 사용){*B*}
 - 원격 플레이어 비행, 투명화, 무적 관련 호스트 옵션 추가{*B*}
 - 튜토리얼 월드에 새 아이템 및 기능을 위한 새 튜토리얼 추가{*B*}
-- 튜토리얼 월드의 음악 디스크 상자 위치 업데이트{*B*}
-</value>
+- 튜토리얼 월드의 음악 디스크 상자 위치 업데이트</value>
 	</data>	
 
 	<data name="IDS_TITLEUPDATE">
@@ -695,25 +691,101 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_DESC_DOOR_IRON">
 		<value>철문은 레드스톤, 단추 또는 스위치로만 열 수 있습니다.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET">
+    <value>착용 시 1.5의 방어력을 얻습니다.</value>
+  </data>
+  <data name="IDS_DESC_CHESTPLATE">
+    <value>착용 시 4의 방어력을 얻습니다.</value>
+  </data>
+  <data name="IDS_DESC_LEGGINGS">
+    <value>착용 시 3의 방어력을 얻습니다.</value>
+  </data>
+  <data name="IDS_DESC_BOOTS">
+    <value>착용 시 1.5의 방어력을 얻습니다.</value>
+  </data>
+	<data name="IDS_DESC_HELMET_LEATHER">
+		<value>착용 시 1의 방어력을 얻습니다.</value>
 	</data>	
 
-	<data name="IDS_DESC_HELMET">
-		<value>착용 시 1.5의 방어력을 얻습니다.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHESTPLATE">
-		<value>착용 시 4의 방어력을 얻습니다.</value>
-	</data>	
-
-	<data name="IDS_DESC_LEGGINGS">
+	<data name="IDS_DESC_CHESTPLATE_LEATHER">
 		<value>착용 시 3의 방어력을 얻습니다.</value>
 	</data>	
 
-	<data name="IDS_DESC_BOOTS">
-		<value>착용 시 1.5의 방어력을 얻습니다.</value>
+	<data name="IDS_DESC_LEGGINGS_LEATHER">
+		<value>착용 시 2의 방어력을 얻습니다.</value>
 	</data>	
 
-	<data name="IDS_DESC_INGOT">
+	<data name="IDS_DESC_BOOTS_LEATHER">
+		<value>착용 시 1의 방어력을 얻습니다.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET_CHAIN">
+    <value>착용 시 2의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_CHAIN">
+    <value>착용 시 5의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_CHAIN">
+    <value>착용 시 4의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_CHAIN">
+    <value>착용 시 1의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_IRON">
+    <value>착용 시 2의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_IRON">
+    <value>착용 시 6의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_IRON">
+    <value>착용 시 5의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_IRON">
+    <value>착용 시 2의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_GOLD">
+    <value>착용 시 2의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_GOLD">
+    <value>착용 시 5의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_GOLD">
+    <value>착용 시 3의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_GOLD">
+    <value>착용 시 1의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_DIAMOND">
+    <value>착용 시 3의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_DIAMOND">
+    <value>착용 시 8의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_DIAMOND">
+    <value>착용 시 6의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_DIAMOND">
+    <value>착용 시 3의 방어력을 얻습니다.</value>
+  </data>
+
+  <data name="IDS_DESC_INGOT">
 		<value>빛나는 주괴입니다. 주괴로 도구를 만들면 주괴와 재질이 같은 도구가 제작됩니다. 화로에서 광석을 녹여 만듭니다.</value>
 	</data>	
 
@@ -775,7 +847,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_FENCE">
-		<value>뛰어넘을 수 없는 방어벽으로 사용됩니다. 플레이어나 동물, 괴물에 대해서는 1.5배 높이의 블록으로 간주되지만 다른 블록에 대해서는 높이가 같은 것으로 간주됩니다.</value>
+		<value>뛰어넘을 수 없는 방어벽으로 사용됩니다. 플레이어, 동물, 괴물에 대해서는 1.5배 높이의 블록으로 간주되지만 다른 블록에 대해서는 높이가 같은 것으로 간주됩니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_LADDER">
@@ -851,11 +923,11 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_CAKE">
-		<value>{*ICON_SHANK_01*}를 1만큼 회복합니다. 효과가 6번까지 중복됩니다.</value>
+		<value>{*ICON_SHANK_01*}를 1만큼 회복합니다. 여섯 번 사용할 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_COOKIE">
-		<value>{*ICON_SHANK_01*}를 0.5만큼 회복합니다.</value>
+		<value>{*ICON_SHANK_01*}를 1만큼 회복합니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SLICE">
@@ -863,39 +935,39 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_MUSHROOMSTEW">
-		<value>{*ICON_SHANK_01*}를 5만큼 회복합니다.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_RAW">
-		<value>{*ICON_SHANK_01*}를 1만큼 회복하지만 병에 걸릴 수 있습니다. 화로에서 조리가 가능합니다. </value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_COOKED">
 		<value>{*ICON_SHANK_01*}를 3만큼 회복합니다.</value>
 	</data>	
 
+	<data name="IDS_DESC_CHICKEN_RAW">
+		<value>먹어서 {*ICON_SHANK_01*}를 1만큼 회복하거나 화로에서 조리할 수 있습니다. 먹으면 중독될 수 있습니다. </value>
+	</data>	
+
+	<data name="IDS_DESC_CHICKEN_COOKED">
+		<value>{*ICON_SHANK_01*}를 3만큼 회복합니다. 화로에서 닭 날고기를 조리하여 만듭니다.</value>
+	</data>	
+
 	<data name="IDS_DESC_BEEF_RAW">
-		<value>{*ICON_SHANK_01*}를 1.5만큼 회복하지만 병에 걸릴 수 있습니다. 화로에서 조리가 가능합니다. </value>
+		<value>먹어서 {*ICON_SHANK_01*}를 1.5만큼 회복하거나 화로에서 조리할 수 있습니다. </value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_COOKED">
-		<value>{*ICON_SHANK_01*}를 4만큼 회복합니다.</value>
+		<value>{*ICON_SHANK_01*}를 4만큼 회복합니다. 화로에서 소 날고기를 조리하여 만듭니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_RAW">
-		<value>돼지를 잡으면 얻을 수 있으며 {*ICON_SHANK_01*}를 1.5만큼 회복합니다. 화로에서 조리가 가능합니다.</value>
+		<value>먹어서 {*ICON_SHANK_01*}를 1.5만큼 회복하거나 화로에서 조리할 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_COOKED">
-		<value>화로에서 돼지고기를 요리해서 만듭니다. {*ICON_SHANK_01*}를 4만큼 회복합니다.</value>
+		<value>{*ICON_SHANK_01*}를 4만큼 회복합니다. 화로에서 돼지 날고기를 조리하여 만듭니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_RAW">
-		<value>그대로 먹어서 {*ICON_SHANK_01*}를 1만큼 회복하거나 화로에서 요리할 수 있습니다. 오셀롯을 길들이기 위한 먹이로 사용할 수도 있습니다.</value>
+		<value>먹어서 {*ICON_SHANK_01*}를 1만큼 회복하거나 화로에서 조리할 수 있습니다. 오셀롯을 길들이기 위한 먹이로 사용할 수도 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_COOKED">
-		<value>화로에서 날생선을 요리하여 만듭니다. 먹으면 {*ICON_SHANK_01*}를 2.5만큼 회복합니다.</value>
+		<value>{*ICON_SHANK_01*}를 2.5만큼 회복합니다. 화로에서 날생선을 조리하여 만듭니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_APPLE">
@@ -903,11 +975,11 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_GOLDENAPPLE">
-		<value>{*ICON_SHANK_01*}를 2만큼 회복하며 4초 동안 체력이 자동으로 회복됩니다. </value>
+		<value>{*ICON_SHANK_01*}를 2만큼 회복하며 4초 동안 체력이 자동으로 회복됩니다. 사과와 금덩이를 사용해 만들 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_ROTTEN_FLESH">
-		<value>{*ICON_SHANK_01*}를 2만큼 회복하지만 병에 걸릴 수 있습니다.</value>
+		<value>{*ICON_SHANK_01*}를 2만큼 회복합니다. 먹으면 중독될 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_SUGAR">
@@ -1125,7 +1197,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_LOG">
-		<value>도끼를 사용해서 벤 다음 판자 제작이나 땔감으로 쓰입니다.</value>
+		<value>도끼를 사용해 벤 다음 판자 제작이나 땔감으로 쓰입니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_GLASS">
@@ -1405,7 +1477,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_EYE_OF_ENDER">
-		<value>던지면 Ender 관문으로 가는 방향을 표시합니다. 열두 개를 Ender 관문 외형에 올려놓으면 Ender 관문이 열립니다.</value>
+		<value>던지면 Ender 관문의 방향을 표시합니다. 열두 개를 Ender 관문 외형에 올려놓으면 Ender 관문이 열립니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_SPECKLED_MELON">
@@ -1709,7 +1781,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_CREDITS_LEADPC">
-		<value>Lead game programmer Minecraft PC</value>
+		<value>리드 게임 프로그래머 Minecraft PC</value>
 	</data>	
 
 	<data name="IDS_CREDITS_CODENINJA">
@@ -2005,11 +2077,11 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_ITEM_CHESTPLATE_CHAIN">
-		<value>사슬 가슴보호구</value>
+		<value>사슬 흉갑</value>
 	</data>	
 
 	<data name="IDS_ITEM_LEGGINGS_CHAIN">
-		<value>사슬 다리보호구</value>
+		<value>사슬 다리보호대</value>
 	</data>	
 
 	<data name="IDS_ITEM_BOOTS_CHAIN">
@@ -2806,13 +2878,21 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TILE_BLOCK_GOLD">
 		<value>황금 블록</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_BLOCK_IRON">
+  <data name="IDS_DESC_BLOCK_GOLD">
+    <value>황금을 보관하는 좋은 방법입니다.</value>
+  </data>
+
+  <data name="IDS_TILE_BLOCK_IRON">
 		<value>철 블록</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_STONESLAB">
+  <data name="IDS_DESC_BLOCK_IRON">
+    <value>철을 보관하는 좋은 방법입니다.</value>
+  </data>
+
+  <data name="IDS_TILE_STONESLAB">
 		<value>돌 발판</value>
 	</data>	
 
@@ -2918,9 +2998,13 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TILE_BLOCK_DIAMOND">
 		<value>다이아몬드 블록</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_WORKBENCH">
+  <data name="IDS_DESC_BLOCK_DIAMOND">
+    <value>다이아몬드를 보관하는 좋은 방법입니다.</value>
+  </data>
+
+  <data name="IDS_TILE_WORKBENCH">
 		<value>작업대</value>
 	</data>	
 
@@ -3046,9 +3130,13 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TILE_BLOCK_LAPIS">
 		<value>청금석 블록</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_DISPENSER">
+  <data name="IDS_DESC_BLOCK_LAPIS">
+    <value>청금석을 보관하는 좋은 방법입니다.</value>
+  </data>
+
+  <data name="IDS_TILE_DISPENSER">
 		<value>디스펜서</value>
 	</data>	
 
@@ -3281,7 +3369,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_CONTROLS_PAUSE">
-		<value>일시 중지</value>
+		<value>메뉴</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_JUMP">
@@ -3429,12 +3517,12 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_A_TO_CONTINUE">
-		<value>{*B*}{*CONTROLLER_VK_A*} 단추를 누르면 계속합니다.</value>
+		<value>{*B*}{*CONTROLLER_VK_A*}를 누르면 계속합니다.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_START_TUTORIAL">
-		<value>{*B*}{*CONTROLLER_VK_A*} 단추를 누르면 튜토리얼을 시작합니다.{*B*}
-      게임을 시작할 준비가 되었으면 {*CONTROLLER_VK_B*} 단추를 누르십시오.</value>
+		<value>{*B*}{*CONTROLLER_VK_A*}를 누르면 튜토리얼을 시작합니다.{*B*}
+      게임을 시작할 준비가 되었으면 {*CONTROLLER_VK_B*}를 누르십시오.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_OVERVIEW">
@@ -3480,7 +3568,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FOOD_BAR_HEAL">
-		<value>음식 막대가 9칸 이상{*ICON_SHANK_01*}일 때는 체력을 잃어도 자동으로 다시 회복됩니다. 음식을 먹으면 음식 막대가 다시 차오릅니다.</value>
+		<value>음식 막대에 {*ICON_SHANK_01*}가 9칸 이상일 때는 체력을 잃어도 자동으로 다시 회복됩니다. 음식을 먹으면 음식 막대가 다시 차오릅니다.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FOOD_BAR_FEED">
@@ -3594,8 +3682,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_BASIC_COMPLETE">
 		<value>
       {*B*}
-      튜토리얼을 계속 진행하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      게임을 시작할 준비가 됐다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      튜토리얼을 계속 진행하려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      게임을 시작할 준비가 됐다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -3607,22 +3695,22 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_INV_OVERVIEW">
 		<value>{*B*}
-      계속하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      소지품 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      계속하려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      소지품 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_INV_PICK_UP">
 		<value>
-      {*CONTROLLER_MENU_NAVIGATE*}로 포인터를 움직일 수 있습니다. {*CONTROLLER_VK_A*} 단추를 누르면 포인터로 가리킨 아이템을 집습니다.
-수량이 2개 이상일 때는 아이템을 전부 집으며, {*CONTROLLER_VK_X*} 단추를 누르면 반만 집을 수 있습니다.
+      {*CONTROLLER_MENU_NAVIGATE*}로 포인터를 움직일 수 있습니다. {*CONTROLLER_VK_A*}를 누르면 포인터로 가리킨 아이템을 집습니다.
+수량이 2개 이상일 때는 아이템을 전부 집으며, {*CONTROLLER_VK_X*}를 누르면 반만 집습니다.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_INV_MOVE">
 		<value>
-      포인터를 사용해서 아이템을 소지품의 다른 공간으로 옮긴 다음 {*CONTROLLER_VK_A*} 단추를 누르면 해당 위치에 놓습니다.
-      포인터로 집은 아이템이 여러 개일 때 {*CONTROLLER_VK_A*} 단추를 누르면 모두 내려놓고 {*CONTROLLER_VK_X*} 단추를 누르면 하나만 놓습니다.
+      포인터를 사용해서 아이템을 소지품의 다른 공간으로 옮긴 다음 {*CONTROLLER_VK_A*}를 누르면 해당 위치에 놓습니다.
+      포인터로 집은 아이템이 여러 개일 때 {*CONTROLLER_VK_A*}를 누르면 모두 내려놓고 {*CONTROLLER_VK_X*}를 누르면 하나만 놓습니다.
     </value>
 	</data>	
 
@@ -3640,7 +3728,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_INV_EXIT">
 		<value>
-      소지품을 닫으려면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      소지품을 닫으려면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -3652,27 +3740,27 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_CREATIVE_INV_OVERVIEW">
 		<value>{*B*}
-      계속하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      창작 모드 소지품 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      계속하려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      창작 모드 소지품 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_CREATIVE_INV_PICK_UP">
 		<value>
       {*CONTROLLER_MENU_NAVIGATE*}로 포인터를 움직일 수 있습니다.
-	 아이템 목록에서 {*CONTROLLER_VK_A*} 단추를 누르면 포인터로 가리킨 아이템을 집습니다. {*CONTROLLER_VK_Y*} 단추를 누르면 해당 아이템을 전부 집을 수 있습니다.
+	 아이템 목록에서 {*CONTROLLER_VK_A*}를 누르면 포인터로 가리킨 아이템을 집습니다. {*CONTROLLER_VK_Y*}를 누르면 해당 아이템을 전부 집을 수 있습니다.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_CREATIVE_INV_MOVE">
 		<value>
-      포인터는 자동으로 사용 줄의 칸 단위로 움직입니다. {*CONTROLLER_VK_A*} 단추로 아이템을 놓을 수 있습니다. 아이템을 놓으면 포인터가 아이템 목록으로 돌아가므로 다른 아이템을 선택할 수 있습니다.
+      포인터는 자동으로 사용 줄의 칸 단위로 움직입니다. {*CONTROLLER_VK_A*}로 아이템을 놓을 수 있습니다. 아이템을 놓으면 포인터가 아이템 목록으로 돌아가므로 다른 아이템을 선택할 수 있습니다.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_CREATIVE_INV_DROP">
 		<value>
-      아이템이 걸린 포인터를 인터페이스 밖으로 옮기면 아이템을 월드에 떨어뜨릴 수 있습니다. 빠른 선택 막대에 있는 아이템을 모두 선택 취소하려면 {*CONTROLLER_VK_X*} 단추를 누르십시오.
+      아이템이 걸린 포인터를 인터페이스 밖으로 옮기면 아이템을 월드에 떨어뜨릴 수 있습니다. 빠른 선택 막대에 있는 아이템을 모두 선택 취소하려면 {*CONTROLLER_VK_X*}를 누르십시오.
     </value>
 	</data>	
 
@@ -3690,7 +3778,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_CREATIVE_INV_EXIT">
 		<value>
-      창작 모드 소지품을 닫으려면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      창작 모드 소지품을 닫으려면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -3702,26 +3790,26 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_CRAFT_OVERVIEW">
 		<value>{*B*}
-      계속하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      제작 방법을 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      계속하려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      제작 방법을 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_DESCRIPTION">
 		<value>{*B*}
-      아이템 설명을 보려면 {*CONTROLLER_VK_X*} 단추를 누르십시오.
+      아이템 설명을 보려면 {*CONTROLLER_VK_X*}를 누르십시오.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_INGREDIENTS">
 		<value>{*B*}
-      현재 아이템을 만드는 데 필요한 재료를 보려면 {*CONTROLLER_VK_X*} 단추를 누르십시오.
+      현재 아이템을 만드는 데 필요한 재료를 보려면 {*CONTROLLER_VK_X*}를 누르십시오.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_INVENTORY">
 		<value>{*B*}
-      {*CONTROLLER_VK_X*} 단추를 눌러 소지품을 다시 여십시오.
+      {*CONTROLLER_VK_X*}를 눌러 소지품을 다시 여십시오.
     </value>
 	</data>	
 
@@ -3733,7 +3821,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_CRAFT_CREATE">
 		<value>
-      작업 구역에는 새 아이템을 만드는 데 필요한 재료가 표시됩니다. {*CONTROLLER_VK_A*} 단추를 눌러 아이템을 만든 다음 소지품에 넣으십시오.
+      작업 구역에는 새 아이템을 만드는 데 필요한 재료가 표시됩니다. {*CONTROLLER_VK_A*}를 눌러 아이템을 만든 다음 소지품에 넣으십시오.
     </value>
 	</data>	
 
@@ -3762,13 +3850,13 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_CRAFT_CREATE_PLANKS">
-		<value>모아둔 나무를 이용해서 판자를 만들 수 있습니다. 판자 아이콘을 선택한 다음 {*CONTROLLER_VK_A*} 단추를 눌러 판자를 만드십시오.{*PlanksIcon*}</value>
+		<value>모아둔 나무를 이용해서 판자를 만들 수 있습니다. 판자 아이콘을 선택한 다음 {*CONTROLLER_VK_A*}를 눌러 판자를 만드십시오.{*PlanksIcon*}</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_CRAFT_EXIT_AND_PLACE_TABLE">
 		<value>
       작업대가 완성됐습니다. 작업대를 월드에 설치해야 더 다양한 아이템을 만들 수 있습니다.{*B*}
-      {*CONTROLLER_VK_B*} 단추를 눌러 작업 인터페이스를 닫으십시오.
+      {*CONTROLLER_VK_B*}를 눌러 작업 인터페이스를 닫으십시오.
     </value>
 	</data>	
 
@@ -3799,7 +3887,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_TASK_CRAFT_TOOLS_BUILT">
 		<value>
       지금까지 만든 도구가 있으면 순조로운 출발을 할 수 있으며, 여러 자원을 더 효과적으로 확보하게 됩니다.{*B*}
-      {*CONTROLLER_VK_B*} 단추를 눌러 제작 인터페이스를 닫으십시오.
+      {*CONTROLLER_VK_B*}를 눌러 제작 인터페이스를 닫으십시오.
     </value>
 	</data>	
 
@@ -3812,7 +3900,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_TASK_CRAFT_EXIT_AND_PLACE_FURNACE">
 		<value>
       완성한 화로를 설치하십시오. 피신처 안에 설치하는 것이 좋습니다.{*B*}
-      {*CONTROLLER_VK_B*} 단추를 눌러 제작 인터페이스를 닫으십시오.
+      {*CONTROLLER_VK_B*}를 눌러 제작 인터페이스를 닫으십시오.
     </value>
 	</data>	
 
@@ -3824,8 +3912,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_FURNACE_OVERVIEW">
 		<value>{*B*}
-      계속하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      화로 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      계속하려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      화로 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -3873,8 +3961,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_BREWING_MENU_OVERVIEW">
 		<value>{*B*}
-      계속하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      양조대 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      계속하려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      양조대 사용법을 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -3910,7 +3998,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_BREWING_MENU_EXIT">
 		<value>
-      {*CONTROLLER_VK_B*} 단추를 누르면 양조 인터페이스에서 나갑니다.
+      {*CONTROLLER_VK_B*}를 누르면 양조 인터페이스에서 나갑니다.
     </value>
 	</data>	
 
@@ -3922,8 +4010,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_BREWING_OVERVIEW">
 		<value>{*B*}
-      양조와 물약에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      양조와 물약에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      양조와 물약에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      양조와 물약에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -3953,8 +4041,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_BREWING_USE_POTION">
 		<value>
-      물약을 손에 든 상태에서 {*CONTROLLER_ACTION_USE*}를 길게 누르면 물약을 사용합니다. 일반 물약을 사용하면 물약을 마시게 되며 효과가 자신에게 나타납니다. 폭발 물약을 사용하면 물약을 던지게 되며 효과가 물약이 떨어진 곳 근처의 생물에게 나타납니다. 
-	  일반 물약에 화약을 넣으면 폭발 물약을 만들 수 있습니다.
+      물약을 손에 든 상태에서 {*CONTROLLER_ACTION_USE*}를 길게 누르면 물약을 사용합니다. 일반 물약을 사용하면 물약을 마시게 되며 효과가 자신에게 나타납니다. 폭발 물약의 경우 물약을 던지게 되며 효과가 물약이 떨어진 곳 근처의 생물에게 나타납니다. 
+	  일반 물약에 화약을 넣어 폭발 물약을 만들 수 있습니다.
     </value>
 	</data>	
 
@@ -3978,8 +4066,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_ENCHANTING_MENU_OVERVIEW">
 		<value>{*B*}
-      효과부여 인터페이스에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      효과부여 인터페이스에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      효과부여 인터페이스에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      효과부여 인터페이스에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4021,8 +4109,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_ENCHANTING_OVERVIEW">
 		<value> {*B*}
-      효과부여에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      효과부여에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      효과부여에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      효과부여에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4064,8 +4152,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_PROMPT_MINECART_OVERVIEW">
 		<value>{*B*}
-      광물 수레에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      광물 수레에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      광물 수레에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      광물 수레에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4092,8 +4180,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_BOAT_OVERVIEW">
 		<value>
       {*B*}
-      배에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      배에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      배에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      배에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4113,8 +4201,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_FISHING_OVERVIEW">
 		<value>
       {*B*}
-      낚시에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      낚시에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      낚시에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      낚시에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4148,8 +4236,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_BED_OVERVIEW">
 		<value>
       {*B*}
-      침대에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      침대에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      침대에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      침대에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4176,8 +4264,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_REDSTONE_OVERVIEW">
 		<value>
       {*B*}
-      레드스톤 회로와 피스톤에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      레드스톤 회로와 피스톤에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      레드스톤 회로와 피스톤에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      레드스톤 회로와 피스톤에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4229,8 +4317,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_PORTAL_OVERVIEW">
 		<value>
       {*B*}
-      지하 차원문에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      지하 차원문에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      지하 차원문에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      지하 차원문에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4273,8 +4361,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_CREATIVE_OVERVIEW">
 		<value>
       {*B*}
-      창작 모드에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      창작 모드에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      창작 모드에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      창작 모드에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4303,8 +4391,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_FARMING_OVERVIEW">
 		<value>
       {*B*}
-      재배에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      재배에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      재배에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      재배에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4333,7 +4421,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_MUSHROOM">
-		<value>버섯은 희미하게 불이 켜진 지역에 심어야 합니다. 버섯을 심으면 주변의 희미하게 불이 켜진 블록으로 퍼져 나갑니다.{*ICON*}39{*/ICON*}</value>
+		<value>버섯은 희미하게 불이 켜진 지역에 심어야 합니다. 버섯을 심으면 희미하게 불이 켜진 주변 블록으로  퍼져 나갑니다.{*ICON*}39{*/ICON*}</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_BONEMEAL">
@@ -4353,8 +4441,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_BREEDING_OVERVIEW">
 		<value>
       {*B*}
-      동물과 교배에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      동물과 교배에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+      동물과 교배에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      동물과 교배에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4367,7 +4455,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_BREEDING_BABY">
-		<value>사랑 모드 상태이며 종류가 같은 동물이 두 마리 만나게 되면 서로 입을 맞추게 되고, 잠시 후 새끼 동물이 태어납니다. 새끼 동물은 다 자라기 전까지 잠시 부모 동물을 따라다닙니다.</value>
+		<value>사랑 모드 상태인 종류가 같은 동물이 두 마리 만나게 되면 서로 입을 맞추게 되고, 잠시 후 새끼 동물이 태어납니다. 새끼 동물은 다 자라기 전까지 잠시 부모 동물을 따라다닙니다.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_BREEDING_DELAY">
@@ -4419,7 +4507,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_CONSTRAINT_TUTORIAL_AREA">
-		<value>튜토리얼을 완료하기 전에는 이 지역을 벗어날 수 없습니다.</value>
+		<value>튜토리얼 완료 전에는 이 지역을 벗어날 수 없습니다.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_HINT_DIGGER_ITEM_SHOVEL">
@@ -4447,7 +4535,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_HINT_SWIM_UP">
-		<value>수면으로 헤엄치려면 {*CONTROLLER_ACTION_JUMP*}를 길게 누르십시오.</value>
+		<value>수면으로 헤엄치려면 {*CONTROLLER_ACTION_JUMP*}를 길게 누릅니다.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_HINT_MINECART">
@@ -4497,8 +4585,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_NEW_FEATURES_CHOICE">
-		<value>{*B*}튜토리얼을 플레이하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      튜토리얼을 건너뛰려면 {*CONTROLLER_VK_B*} 단추를 누르십시오.</value>
+		<value>{*B*}튜토리얼을 플레이하려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      튜토리얼을 건너뛰려면 {*CONTROLLER_VK_B*}를 누르십시오.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_FEATURES_IN_THIS_AREA">
@@ -4518,8 +4606,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_FOOD_BAR_OVERVIEW">
 		<value>
       {*B*}
-      음식 막대와 음식 먹는 법에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-      음식 막대와 음식 먹는 법에 대해 이미 알고 있다면{*CONTROLLER_VK_B*} 단추를 누르십시오.
+      음식 막대와 음식 먹는 법에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+      음식 막대와 음식 먹는 법에 대해 이미 알고 있다면{*CONTROLLER_VK_B*}를 누르십시오.
     </value>
 	</data>	
 
@@ -4700,7 +4788,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TOOLTIPS_EJECT">
-		<value>쫓아내기</value>
+		<value>꺼내기</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_EMPTY">
@@ -4896,7 +4984,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TOOLTIPS_DRAW_BOW">
-		<value>꺼내기</value>
+		<value>쏘기</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_RELEASE_BOW">
@@ -4908,7 +4996,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_TOOLTIPS_BLOCK">
-		<value>블록</value>
+		<value>막기</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_PAGEUP">
@@ -4949,10 +5037,6 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_DOWNLOADABLECONTENT">
 		<value>Minecraft 상점</value>
-	</data>	
-
-	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
-		<value>진행 중인 게임을 종료하고 새 게임에 참가하시겠습니까? 저장하지 않은 진행 상황은 사라집니다.</value>
 	</data>	
 
 	<data name="IDS_EXIT_GAME">
@@ -4999,10 +5083,6 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 		<value>저장하지 않고 나가기</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_EXIT_GAME">
-		<value>주 메뉴로 나가시겠습니까? 저장하지 않은 진행 상황은 사라집니다.</value>
-	</data>	
-
 	<data name="IDS_CONFIRM_EXIT_GAME_PROGRESS_LOST">
 		<value>주 메뉴로 나가시겠습니까? 게임 진행 내용을 잃게 됩니다!</value>
 	</data>	
@@ -5036,7 +5116,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_PRESS_START_TO_JOIN">
-		<value>게임에 참가하려면 START를 누르십시오.</value>
+		<value>게임에 참가하려면 {*CONTROLLER_VK_START*}를 누르십시오.</value>
 	</data>	
 
 	<data name="IDS_EXITING_GAME">
@@ -5389,11 +5469,11 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_SIGN_TITLE">
-		<value>서명 입력</value>
+		<value>표지판 텍스트 입력</value>
 	</data>	
 
 	<data name="IDS_SIGN_TITLE_TEXT">
-		<value>서명으로 사용할 텍스트를 입력하십시오.</value>
+		<value>표지판에 사용할 텍스트를 입력하십시오.</value>
 	</data>	
 
 	<data name="IDS_NAME_TITLE">
@@ -5457,7 +5537,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_NO_DLCOFFERS">
-		<value>현재 이 게임에서 구매할 수 있는 해당 유형의 다운로드 콘텐츠가 없습니다.</value>
+		<value>현재 이 게임에서 구매할 수 있는 해당 유형의 다운로드 가능한 콘텐츠가 없습니다.</value>
 	</data>	
 
 	<data name="IDS_PLAYER_JOINED">
@@ -5703,15 +5783,15 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_CORRUPT_DLC_TITLE">
-		<value>손상된 다운로드 콘텐츠</value>
+		<value>손상된 다운로드 가능한 콘텐츠</value>
 	</data>	
 
 	<data name="IDS_CORRUPT_DLC">
-		<value>이 다운로드 콘텐츠는 손상되어서 사용될 수 없습니다. 해당 콘텐츠를 삭제한 다음 Minecraft 상점 메뉴에서 재설치하십시오.</value>
+		<value>이 다운로드 가능한 콘텐츠는 손상되어서 사용될 수 없습니다. 해당 콘텐츠를 삭제한 다음 Minecraft 상점 메뉴에서 재설치하십시오.</value>
 	</data>	
 
 	<data name="IDS_CORRUPT_DLC_MULTIPLE">
-		<value>일부 다운로드 콘텐츠가 손상되어 사용될 수 없습니다. 해당 콘텐츠를 삭제한 다음 Minecraft 상점 메뉴에서 재설치하십시오.</value>
+		<value>일부 다운로드 가능한 콘텐츠가 손상되어 사용될 수 없습니다. 해당 콘텐츠를 삭제한 다음 Minecraft 상점 메뉴에서 재설치하십시오.</value>
 	</data>	
 
 	<data name="IDS_GAME_MODE_CHANGED">
@@ -5783,7 +5863,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_GAMEOPTION_ONLINE">
-		<value>이 옵션을 켜면 온라인 게임으로 플레이합니다.</value>
+		<value>이 옵션을 켜면 온라인 게임으로 플레이할 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_GAMEOPTION_INVITEONLY">
@@ -6105,7 +6185,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_WIN_TEXT_PART_2">
 		<value>
 {*C2*}이제 크게 심호흡을 해. 한 번 더. 폐 속 가득한 공기를 느껴봐. 팔다리가 돌아오도록 하는 거야. 그래, 손가락을 움직여봐. 중력 아래서 몸을 다시 갖게 되는 거지. 네가 다른 존재인 것처럼 우리가 다른 존재인 것처럼 네 몸이 다시 세상과 만나는 거야.{*EF*}{*B*}{*B*}
-{*C3*}우리가 누구냐고? 한때는 산의 정령으로 불렸지. 아버지 태양, 어머니 달. 고대의 영혼, 동물의 영혼. 정령. 유령. 대자연. 그리고 신, 악마. 천사. 폴터가이스트. 외계인, 우주인. 렙톤, 쿼크. 우리를 부르는 단어는 다양했지만 우리는 변하지 않았어.{*EF*}{*B*}{*B*}
+{*C3*}우리가 누구냐고? 한때는 산의 정령으로 불렸지. 아버지 태양, 어머니 달. 고대 영혼, 동물 영혼. 정령. 유령. 대자연. 그리고 신, 악마. 천사. 폴터가이스트. 외계인, 우주인. 렙톤, 쿼크. 우리를 부르는 단어는 다양했지만 우리는 변하지 않았어.{*EF*}{*B*}{*B*}
 {*C2*}우리가 세상 그 자체야. 네가 생각하는 너 이외의  모든 것이 바로 우리지. 지금 넌 너의 피부와 눈을 통해 우리를 보고 있어. 왜 세상이 너의 피부를 통해 교감하고 네게 빛을 비출까? 플레이어인 널 보기 위해서야. 너에 대해 알고 네가 세상에 대해 알 수 있도록 말이야. 이제 네게 이야기를 하나 들려줄게.{*EF*}{*B*}{*B*}
 {*C2*}아주 오래전에 플레이어가 있었어.{*EF*}{*B*}{*B*}
 {*C3*}그 플레이어는 바로 {*PLAYER*}, 너야. {*EF*}{*B*}{*B*}
@@ -6117,10 +6197,10 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 {*C2*}이제 과거로 돌아가 보자.{*EF*}{*B*}{*B*}
 {*C2*}플레이어의 원자는 초원에, 강에, 공기에, 땅에 흩어져 있었어. 여자가 그 원자를 모아 마시고 먹고 들이마셔 한대 모아 그녀의 몸 안에서 플레이어를 만든 거야.{*EF*}{*B*}{*B*}
 {*C2*}그렇게 플레이어는 아늑하고 어두운 어머니의 몸속에서 깨어나 긴 꿈의 세계로 들어간 거야.{*EF*}{*B*}{*B*}
-{*C2*}플레이어는 DNA로 쓰여진 한 번도 들어본 적이 없는 새로운 이야기였어. 플레이어는 수십억 년 된 소스 코드로 생성된 한 번도 실행해본 적이 없는 새로운 프로그램이었어. 플레이어는 무에서 젖과 사랑으로부터 탄생한 한 번도 생명을 가져본 적이 없는 새로운 인간이었어.{*EF*}{*B*}{*B*}
-{*C3*}네가 바로 무에서 젖과 사랑으로부터 탄생한 바로 그 플레이어이자 이야기고 프로그램이자 인간이야.{*EF*}{*B*}{*B*}
+{*C2*}플레이어는 DNA로 쓰여진 한 번도 들어본 적이 없는 새로운 이야기였어. 플레이어는 수십억 년 된 소스 코드로 생성된 한 번도 실행해본 적이 없는 새로운 프로그램이었어. 플레이어는 젖과 사랑으로 만들어진 한 번도 생명을 가져본 적이 없는 새로운 인간이었어.{*EF*}{*B*}{*B*}
+{*C3*}네가 바로 젖과 사랑으로 만들어진 그 플레이어이자 이야기고 프로그램이자 인간이야.{*EF*}{*B*}{*B*}
 {*C2*}이제 좀 더 과거로 돌아가 보자.{*EF*}{*B*}{*B*}
-{*C2*}플레이어의 수백 수천 수백억 원자는 이 게임이 존재하기 훨씬 이전에 별의 심장 속에서 만들어졌어. 즉, 플레이어도 별에서 온 정보야. 그리고 플레이어는 이야기 속에서 움직이는 데 그 이야기는 쥴리안이라는 사람이 심어놓은 정보야. 그리고 그 이야기는 마르쿠스라는 사람이 창조한 평평하고 끝없는 세상 위에서 펼쳐지지. 그리고 그 세상은 플레이어가 만든 작은 그만의 세상이야. 그리고 그 플레이어가 살고 있는 세상을 창조한 사람은…{*EF*}{*B*}{*B*}
+{*C2*}플레이어의 수백 수천 수백억 원자는 이 게임이 존재하기 훨씬 이전에 별의 심장 속에서 만들어졌어. 즉, 플레이어도 별에서 온 정보야. 그리고 플레이어는 이야기 속에서 움직이는 데 그 이야기는 쥴리안이라는 사람이 심어놓은 정보야. 그리고 그 이야기는 마르쿠스라는 사람이 창조한 평평하고 끝없는 세상 위에서 펼쳐지지. 그리고 그 세상은 플레이어가 만든 작은 그만의 세상이야. 그리고 그 플레이어가 살고 있는 세상을 창조한 사람은...{*EF*}{*B*}{*B*}
 {*C3*}쉿. 이따금 플레이어는 부드럽고 따뜻하며 단순한 그만의 작은 세상을 만들어. 이따금 그 세상은 거칠고 추우며 복잡하기도 해. 이따금 거대한 텅 빈 공간에서 움직이는 에너지 조각으로 머릿속에서 세상을 만들지. 한때 그 조각들을 “전자”와 “양성자”라고 부를 때도 있었어.{*EF*}{*B*}{*B*}
 </value>
 	</data>	
@@ -6137,7 +6217,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 {*C2*}그리고 이따금 플레이어는 0과 1, 세상에 퍼져있는 전기, 꿈의 마지막에 화면에 보이는 단어를 통해 세상과 소통한다고 믿었어.{*EF*}{*B*}{*B*}
 {*C3*}그리고 세상은 널 사랑한다고 말했어.{*EF*}{*B*}{*B*}
 {*C2*}그리고 세상은 네가 멋진 게임 플레이를 보여줬다고 말했어.{*EF*}{*B*}{*B*}
-{*C3*}그리고 세상은 네게 필요한 모든 것은 이미 네 안에 있다고 말했어.{*EF*}{*B*}{*B*}
+{*C3*}그리고 세상은 필요한 모든 것은 이미 네 안에 있다고 말했어.{*EF*}{*B*}{*B*}
 {*C2*}그리고 세상은 네가 생각하는 것보다 넌 더 강하다고 말했어.{*EF*}{*B*}{*B*}
 {*C3*}그리고 세상은 네가 낮이라고 말했어.{*EF*}{*B*}{*B*}
 {*C2*}그리고 세상은 네가 밤이라고 말했어.{*EF*}{*B*}{*B*}
@@ -6150,6 +6230,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 {*C3*}그리고 게임이 끝나고 플레이어가 꿈에서 깼어. 그리고 플레이어는 새로운 꿈을 꾸기 시작해. 그리고 다시 꿈을 꾸고, 더 좋은 꿈을 꿔. 그리고 플레이어는 세상 그 자체고 사랑 그 자체야.{*EF*}{*B*}{*B*}
 {*C3*}네가 바로 그 플레이어야.{*EF*}{*B*}{*B*}
 {*C2*}이제 일어나.{*EF*}
+
 </value>
 	</data>	
 
@@ -6250,7 +6331,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DOWNLOADABLE_CONTENT_OFFERS">
-		<value>다운로드 콘텐츠 판매</value>
+		<value>다운로드 가능한 콘텐츠 정보</value>
 	</data>	
 
 	<data name="IDS_CHANGE_SKIN">
@@ -6526,7 +6607,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_IN_GAME_TOOLTIPS">
-		<value>게임 속 단추 설명 표시</value>
+		<value>게임 내 버튼 설명 표시</value>
 	</data>	
 
 	<data name="IDS_CHECKBOX_VERTICAL_SPLIT_SCREEN">
@@ -6538,7 +6619,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_EDIT_SIGN_MESSAGE">
-		<value>서명 메시지 편집:</value>
+		<value>표지판 텍스트 편집:</value>
 	</data>	
 
 	<data name="IDS_SOCIAL_TEXT">
@@ -6554,7 +6635,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_SOCIAL_LABEL_DESCRIPTION">
-		<value>서명 메시지 편집:</value>
+		<value>표지판 텍스트 편집:</value>
 	</data>	
 
 	<data name="IDS_DEFAULT_TEXTUREPACK">
@@ -7083,23 +7164,23 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_CARROTS">
-		<value>{*ICON_SHANK_01*}를 2만큼 회복합니다. 농지에 심을 수 있습니다.</value>
+		<value>먹으면 {*ICON_SHANK_01*}를 2만큼 회복하며 황금 당근을 만드는 데 사용합니다. 농지에 심을 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO">
-		<value>{*ICON_SHANK_01*}를 0.5만큼 회복합니다. 용광로에서 구워내거나 농지에 심을 수 있습니다.</value>
+		<value>먹어서 {*ICON_SHANK_01*}를 0.5만큼 회복하거나 화로에서 조리할 수 있습니다. 농지에 심을 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_BAKED">
-		<value>{*ICON_SHANK_01*}를 3만큼 회복합니다.</value>
+		<value>{*ICON_SHANK_01*}를 3만큼 회복합니다. 화로에서 감자를 조리하여 만듭니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_POISONOUS">
-		<value>{*ICON_SHANK_01*}를 1만큼 회복하지만 일정 확률로 중독될 수 있습니다.</value>
+		<value>먹어서 {*ICON_SHANK_01*}를 1만큼 회복하거나 화로에서 조리할 수 있습니다. 먹으면 중독될 수 있습니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_GOLDEN">
-		<value>당근과 금덩이를 사용해 만듭니다.{*ICON_SHANK_01*}를 3만큼 회복합니다.</value>
+		<value>{*ICON_SHANK_01*}를 3만큼 회복합니다. 당근과 금덩이를 사용해 만듭니다.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_ON_A_STICK">
@@ -7355,7 +7436,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_POTION_DESC_INVISIBILITY">
-		<value>영향을 받은 플레이어와 동물, 몬스터를 투명하게 만듭니다.</value>
+		<value>영향을 받은 플레이어, 동물, 몬스터를 투명하게 만듭니다.</value>
 	</data>	
 
 	<data name="IDS_REPAIR_AND_NAME">
@@ -7407,8 +7488,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_ANVIL_MENU_OVERVIEW">
 		<value>
 			{*B*}
-			모루 인터페이스에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-			모루 인터페이스에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+			모루 인터페이스에 대해 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+			모루 인터페이스에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
 		</value>
 	</data>	
 
@@ -7463,8 +7544,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_ANVIL_OVERVIEW">
 		<value>
 			{*B*}
-			모루에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-			모루에 대해 이미  알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+			모루에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+			모루에 대해 이미  알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
 		</value>
 	</data>	
 
@@ -7488,7 +7569,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_ANVIL_COST2">
 		<value>
-			작업의 종류, 아이템 가치, 부여 효과 수, 기존 작업 수에 따라 수리비가 달라집니다.
+			작업의 종류, 아이템 가치, 효과 부여 수, 기존 작업 수에 따라 수리비가 달라집니다.
 		</value>
 	</data>	
 
@@ -7513,8 +7594,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_TRADING_MENU_OVERVIEW">
 		<value>
 			{*B*}
-			거래 인터페이스에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-			거래 인터페이스에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+			거래 인터페이스에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+			거래 인터페이스에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
 		</value>
 	</data>	
 
@@ -7544,7 +7625,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_TRADING_MENU_TRADE">
 		<value>
-			마을 사람이 원하는 아이템으로 거래하려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.
+			마을 사람이 원하는 아이템으로 거래하려면 {*CONTROLLER_VK_A*}를 누르십시오.
 		</value>
 	</data>	
 
@@ -7557,14 +7638,14 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_TRADING_OVERVIEW">
 		<value>
 			{*B*}
-			거래에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-			거래에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+			거래에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+			거래에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
 		</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_TRADING_SUMMARY">
 		<value>
-			소지품에 있는 아이템을 마을 사람들과 거래할 수 있습니다.
+			소지품에 있는 아이템을 마을 사람과 거래할 수 있습니다.
 		</value>
 	</data>	
 
@@ -7601,8 +7682,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	<data name="IDS_TUTORIAL_PROMPT_ENDERCHEST_OVERVIEW">
 		<value>
 			{*B*}
-			Ender 상자에 대해 더 알아보려면 {*CONTROLLER_VK_A*} 단추를 누르십시오.{*B*}
-			Ender 상자에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*} 단추를 누르십시오.
+			Ender 상자에 대해 더 알아보려면 {*CONTROLLER_VK_A*}를 누르십시오.{*B*}
+			Ender 상자에 대해 이미 알고 있다면 {*CONTROLLER_VK_B*}를 누르십시오.
 		</value>
 	</data>	
 
@@ -7625,7 +7706,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_DESC_ENCHANTED_GOLDENAPPLE">
-		<value>{*ICON_SHANK_01*}를 2만큼 회복하고 30초 동안 체력을 회복하며 5분 동안 화염 저항 및 방어력이 증가합니다.</value>
+		<value>{*ICON_SHANK_01*}를 2만큼 회복하고 30초 동안 체력을 회복하며 5분 동안 화염 저항 및 방어력이 증가합니다. 사과와 황금 블록을 사용해 만듭니다.</value>
 	</data>	
 
 	<data name="IDS_ENABLE_TELEPORT">
@@ -7686,18 +7767,18 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_HOW_TO_PLAY_ANVIL">
 		<value>{*T3*}플레이 방법 : 모루{*ETW*}{*B*}{*B*}
-경험치 레벨은 모루에서 아이템을 수리하거나, 효과부여하거나, 이름을 바꾸는 데도 사용됩니다.{*B*}
+경험치 레벨은 모루에서 아이템을 수리하거나, 효과부여하거나, 이름을 바꿀 때 사용됩니다.{*B*}
 아이템은 내구도가 있을 때만 수리할 수 있고 효과부여 책을 통해서만 효과를 얻지만, 이름은 어떤 아이템이든 바꿀 수 있습니다.{*B*}
 왼쪽의 작업 슬롯에 아이템을 넣고, 원재료(예: 철제 검 수리 시 철 주괴)나 종류가 같은 다른 아이템을 함께 넣어 수리합니다.{*B*}
 아이템은 모루에서 조합할 때 효과가 더 좋으며, 조합하는 아이템들에 모두 효과가 부여되어 있다면 결과물은 해당 효과들을 모두 이어받을 수 있습니다.{*B*}
-효과부여 책은 효과가 적절할 경우 모루에서 다른 아이템과 조합하여 아이템에 효과를 부여할 수 있습니다. 효과부여 책은 던전에서 얻거나 효과부여대에서 일반 책에 효과를 부여해 만듭니다.{*B*}
+효과부여 책은 효과가 적절할 경우 모루에서 다른 아이템과 조합하여 아이템에 효과를 부여할 수 있습니다. 효과부여 책은 던전이나 효과부여대에서 일반 책에 효과를 부여해 만듭니다.{*B*}
 모루를 사용하면 일정 확률로 손상되며, 손상이 심하면 모루가 부서집니다.{*B*}
-    </value>
+</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_TRADING">
 		<value>{*T3*}플레이 방법 : 거래{*ETW*}{*B*}{*B*}
-마을 사람들과 아이템을 거래할 수 있습니다. 마을 사람은 농부, 도축업자, 대장장이, 도서관 사서, 사제 등의 직업을 가지고 있으며, 이에 따라 각자 다른 아이템을 거래합니다.{*B*}
+마을 사람들과 아이템을 거래할 수 있습니다. 마을 사람들은 농부, 도축업자, 대장장이, 도서관 사서, 사제 등의 직업을 가지고 있으며, 이에 따라 각자 다른 아이템을 거래합니다.{*B*}
 거래 메뉴에서 마을 사람이 제시할 수 있는 모든 거래 목록을 볼 수 있습니다. 플레이어와 거래하면 마을 사람의 거래 가능 목록이 바뀌거나 추가될 수 있으며, 너무 자주 거래하면 일시적으로 거래를 못 하게 될 수도 있습니다.{*B*}
 거래는 주로 아이템을 에메랄드로 구매하거나 판매하는 형태로 이루어집니다. {*B*}
 거래에 필요한 아이템을 가지고 있지 않으면 아이템이 빨간색으로 표시됩니다.{*B*}
@@ -7735,7 +7816,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 	</data>	
 
 	<data name="IDS_CHEST_LARGE">
-		<value>큰 상자</value>
+		<value>대형 상자</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_ENCHANTING_BOOKS">
@@ -7768,7 +7849,7 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TUTORIAL_TASK_MINECART_PUSHING">
 		<value>
-      {*CONTROLLER_ACTION_MOVE*} 단추를 사용해 광물 수레를 천천히 움직일 수 있습니다. 동력 레일 위에서 광물 수레를 움직이는 데 도움을 줍니다.
+      {*CONTROLLER_ACTION_MOVE*}를 사용해 광물 수레를 천천히 움직일 수 있습니다. 동력 레일 위에서 광물 수레를 움직이는 데 도움을 줍니다.
     </value>
 	</data>	
 
@@ -7778,5 +7859,8 @@ Ender에 들어서면 친구가 그들의 지도에서 요새 내부에 있는 E
 
 	<data name="IDS_TOOLTIPS_CURE">
 		<value>치유</value>
-	</data>	
+	</data>
+  <data name="IDS_PROGRESS_NEW_WORLD_SEED">
+    <value>월드 생성 시드 찾는 중</value>
+  </data>
 </root>

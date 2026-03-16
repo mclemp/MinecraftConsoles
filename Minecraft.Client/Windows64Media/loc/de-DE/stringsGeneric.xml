@@ -269,15 +269,14 @@ Minecraft ist ein Spiel, bei dem du Blöcke platzierst, um alles zu bauen, was d
 Mit{*CONTROLLER_ACTION_LOOK*} kannst du dich umsehen.{*B*}{*B*}
 Mit{*CONTROLLER_ACTION_MOVE*} kannst du dich bewegen.{*B*}{*B*}
 Drück{*CONTROLLER_ACTION_JUMP*}, um zu springen.{*B*}{*B*}
-Drück{*CONTROLLER_ACTION_MOVE*} zweimal schnell nacheinander nach vorn, um zu sprinten. Solange du{*CONTROLLER_ACTION_MOVE*} nach vorn gedrückt hältst, sprintest du weiter, bis dir die Sprintzeit ausgeht oder deine Hungerleiste weniger als{*ICON_SHANK_03*} anzeigt.
+Drück{*CONTROLLER_ACTION_MOVE*} zweimal schnell nacheinander nach vorn, um zu sprinten. Solange du{*CONTROLLER_ACTION_MOVE*} nach vorn gedrückt hältst, sprintest du weiter, bis dir die Sprintzeit ausgeht oder deine Hungerleiste weniger als{*ICON_SHANK_03*} anzeigt. 
 Halte{*CONTROLLER_ACTION_ACTION*} gedrückt, um mit deiner Hand oder dem, was du darin hältst, zu graben oder zu hacken. Möglicherweise musst du dir ein Werkzeug bauen, um manche Blöcke abbauen zu können.{*B*}{*B*}
 Wenn du einen Gegenstand in der Hand hältst, kannst du ihn mit{*CONTROLLER_ACTION_USE*} verwenden. Drück{*CONTROLLER_ACTION_DROP*}, um ihn abzulegen.</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_HUD">
 		<value>{*T3*}SO WIRD GESPIELT: DISPLAY{*ETW*}{*B*}{*B*}
-Das Display auf dem Bildschirm zeigt dir Informationen zu deinem Zustand: deine Gesundheit, deinen restlichen Sauerstoff, wenn du unter Wasser bist, deinen Hunger (du musst etwas essen, um ihn zu stillen) und deine Rüstung, wenn du eine trägst.
-Wenn du Gesundheit verlierst, du aber 9 oder mehr{*ICON_SHANK_01*} in deiner Hungerleiste hast, regeneriert deine Gesundheit sich automatisch. Wenn du Nahrung isst, wird deine Hungerleiste aufgefüllt.{*B*}
+Das Display auf dem Bildschirm zeigt dir Informationen zu deinem Zustand: deine Gesundheit, deinen restlichen Sauerstoff, wenn du unter Wasser bist, deinen Hunger (du musst etwas essen, um ihn zu stillen) und deine Rüstung, wenn du eine trägst. Wenn du Gesundheit verlierst, du aber 9 oder mehr{*ICON_SHANK_01*} in deiner Hungerleiste hast, regeneriert deine Gesundheit sich automatisch. Wenn du Nahrung isst, wird deine Hungerleiste aufgefüllt.{*B*}
 Hier wird auch die Erfahrungsleiste angezeigt. Ein Zahlenwert gibt deinen Erfahrungslevel an; die Länge der Leiste zeigt an, wie viele Erfahrungspunkte du benötigst, um deinen Erfahrungslevel zu steigern.
 Du erhältst Erfahrungspunkte durch Einsammeln von Erfahrungskugeln, die entstehen, wenn NPCs sterben oder wenn du bestimmte Blocktypen abbaust, Tiere züchtest, angelst oder Erze im Ofen schmilzt.{*B*}{*B*}
 Das Display zeigt auch die Gegenstände an, die du verwenden kannst. Wechsle mit{*CONTROLLER_ACTION_LEFT_SCROLL*} oder{*CONTROLLER_ACTION_RIGHT_SCROLL*} den Gegenstand in deiner Hand.</value>
@@ -336,19 +335,19 @@ Wenn du den Cursor über eine Zutat oder einen Brennstoff für den Ofen bewegst,
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_DISPENSER">
-		<value>{*T3*}SO WIRD GESPIELT: DISPENSER{*ETW*}{*B*}{*B*}
-Ein Dispenser wird verwendet, um Gegenstände zu verschießen. Du musst einen Schalter wie zum Beispiel einen Hebel neben den Dispenser platzieren, um diesen auszulösen.{*B*}{*B*}
-Um den Dispenser mit Gegenständen zu befüllen, drück{*CONTROLLER_ACTION_USE*}, und beweg dann die zu verschießenden Gegenstände aus deinem Inventar in den Dispenser.{*B*}{*B*}
-Wenn du jetzt den Schalter betätigst, wird der Dispenser einen Gegenstand verschießen.
+		<value>{*T3*}SO WIRD GESPIELT: SPENDER{*ETW*}{*B*}{*B*}
+Ein Spender wird verwendet, um Gegenstände zu verschießen. Du musst einen Schalter wie zum Beispiel einen Hebel neben den Spender platzieren, um diesen auszulösen.{*B*}{*B*}
+Um den Spender mit Gegenständen zu befüllen, drück{*CONTROLLER_ACTION_USE*}, und beweg dann die zu verschießenden Gegenstände aus deinem Inventar in den Spender.{*B*}{*B*}
+Wenn du jetzt den Schalter betätigst, wird der Spender einen Gegenstand verschießen.
   </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_BREWING">
 		<value>{*T3*}SO WIRD GESPIELT: BRAUEN{*ETW*}{*B*}{*B*}
 Zum Brauen von Tränken brauchst du einen Braustand, den du an der Werkbank herstellen kannst. Jeder Trank beginnt mit einer Flasche Wasser, die man erhält, indem man eine Glasflasche mit Wasser aus einem Kessel oder einer Wasserquelle füllt. {*B*}
-Ein Braustand hat drei Plätze für Flaschen, du kannst also drei Tränke auf einmal herstellen. Eine Zutat reicht für alle drei Flaschen aus, du solltest also immer drei Tränke auf einmal brauchen, um deine Rohstoffe optimal auszunutzen. {*B*}
+Ein Braustand hat drei Plätze für Flaschen, du kannst also drei Tränke auf einmal herstellen. Eine Zutat reicht für alle drei Flaschen aus, du solltest also immer drei Tränke auf einmal brauen, um deine Rohstoffe optimal auszunutzen. {*B*}
 Wenn du eine Trankzutat in das obere Feld des Braustandes legst, wird nach kurzer Zeit ein Grundtrank gebraut. Dieser hat noch keinen Effekt, aber du kannst aus diesem Grundtrank und einer weiteren Zutat einen Trank mit einem Effekt brauen. {*B*}
-Wenn du diesen Trank hast, kannst du ihm noch eine dritte Zutat hinzufügen, damit der Effekt länger anhält (durch Redstone-Staub), stärker wirkt (durch Glowstone-Staub) oder zu einem schädlichen Trank wird (durch ein Fermentiertes Spinnenauge). {*B*}
+Wenn du diesen Trank hast, kannst du ihm noch eine dritte Zutat hinzufügen, damit der Effekt länger anhält (durch Redstone-Staub), stärker wirkt (durch Glowstone-Staub) oder zu einem schädlichen Trank wird (durch ein fermentiertes Spinnenauge). {*B*}
 Du kannst jedem Trank auch Schießpulver hinzufügen, wodurch er zu einem Wurftrank wird. Wenn du ihn wirfst, wird der Effekt des Tranks auf das Gebiet angewendet, in dem der Trank landet. {*B*}
 
 Die Grundzutaten für Tränke sind:{*B*}{*B*}
@@ -370,12 +369,12 @@ Du wirst selbst mit Kombinationen von Zutaten experimentieren müssen, um alle v
 	<data name="IDS_HOW_TO_PLAY_ENCHANTMENT">
 		<value>{*T3*}SO WIRD GESPIELT: VERZAUBERN{*ETW*}{*B*}{*B*}
 Mithilfe der Erfahrungspunkte, die du erhältst, wenn ein NPC stirbt oder wenn du bestimmte Blöcke abbaust oder im Ofen einschmilzt, kannst du einige Werkzeuge, Waffen, Rüstungen und Bücher verzaubern. {*B*}
-Wenn ein Schwert, ein Bogen, eine Axt, eine Spitzhacke, eine Schaufel, eine Rüstung oder ein Buch in das Feld unter dem Buch in den Zaubertisch gelegt werden, zeigen die drei Schaltflächen rechts des Feldes ein paar Zauber und ihre Kosten in Erfahrungsleveln an. {*B*} 
+Wenn ein Schwert, ein Bogen, eine Axt, eine Spitzhacke, eine Schaufel, eine Rüstung oder ein Buch in das Feld unter dem Buch in den Zaubertisch gelegt werden, zeigen die drei Schaltflächen rechts des Feldes ein paar Zauber und ihre Kosten in Erfahrungsleveln an. {*B*}
 Wenn du für einen der Zauber nicht genug Erfahrungslevel hast, werden seine Kosten in Rot angezeigt, sonst in Grün. {*B*}{*B*}
 Die tatsächlich angewendete Verzauberung wird zufällig aus den angezeigten Verzauberungen ausgewählt. {*B*}{*B*}
 Wenn der Zaubertisch von Bücherregalen umgeben ist (bis hin zu maximal 15 Bücherregalen), wobei zwischen Zaubertisch und Bücherregal ein Block Abstand sein muss, werden die Verzauberungen verstärkt und man kann sehen, wie arkane Schriftzeichen aus dem Buch auf dem Zaubertisch herausfliegen. {*B*}{*B*}
 Alle Zutaten für einen Zaubertisch kann man in den Dörfern einer Welt finden oder indem man die Welt abbaut und bewirtschaftet.{*B*}{*B*}
-Zauberbücher werden beim Amboss benutzt, um Verzauberungen auf Gegenstände anzuwenden. Das gibt dir mir Kontrolle darüber, welche Verzauberungen du auf deinen Gegenständen möchtest.{*B*}
+Zauberbücher werden beim Amboss benutzt, um Verzauberungen auf Gegenstände anzuwenden. Das gibt dir mehr Kontrolle darüber, welche Verzauberungen du auf deinen Gegenständen möchtest.{*B*}
 </value>
 	</data>	
 
@@ -448,7 +447,7 @@ Beim Erstellen einer neuen Welt gibt es einige zusätzliche Optionen.{*B*}{*B*}
 	Bei Aktivierung wird der Nether neu erstellt. Das ist nützlich, wenn du einen älteren Spielstand ohne Netherfestungen hast.{*B*}{*B*}
 
 	{*T1*}Optionen im Spiel{*ETW*}{*B*}
-	Während des Spielens hast du Zugriff auf eine Reihe von Optionen, indem du mit {*BACK_BUTTON*} das Spielmenü aufrufst.{*B*}{*B*}
+	Während des Spielens hast du Zugriff auf eine Reihe von Optionen, indem du mit {*CONTROLLER_VK_BACK*} das Spielmenü aufrufst.{*B*}{*B*}
 	
 	{*T2*}Hostoptionen{*ETW*}{*B*}
 	Der Host-Spieler und alle anderen als Moderatoren eingesetzten Spieler haben Zugriff auf das Menü "Hostoptionen". In diesem Menü können "Feuer breitet sich aus" und "TNT explodiert" aktiviert und deaktiviert werden.{*B*}{*B*}
@@ -475,7 +474,7 @@ Um die Privilegien für einen Spieler zu bearbeiten, rufst du mit {*CONTROLLER_V
 	Ist diese Option aktiviert, kann der Spieler Privilegien für andere Spieler (den Host ausgenommen) ändern, wenn "Spielern vertrauen" ausgeschaltet ist. Der Spieler kann andere Spieler ausschließen und "Feuer breitet sich aus" sowie "TNT explodiert" an- und ausschalten.{*B*}{*B*}
 	
 	{*T2*}Spieler ausschließen{*ETW*}{*B*}
-	Ist diese Option ausgewählt, werden Spieler, die nicht auf der gleichen {*PLATFORM_NAME*} Konsole wie der Host-Spieler spielen, ebenso wie alle anderen Spieler auf seiner {*PLATFORM_NAME*} Konsole vom Spiel ausgeschlossen. Dieser Spieler kann dem Spiel erst wieder beitreten, wenn es neu gestartet wird.{*B*}{*B*}
+	Ist diese Option ausgewählt, werden Spieler, die nicht auf der gleichen Xbox One Konsole wie der Host-Spieler spielen, ebenso wie alle anderen Spieler auf seiner Xbox One Konsole vom Spiel ausgeschlossen. Dieser Spieler kann dem Spiel erst wieder beitreten, wenn es neu gestartet wird.{*B*}{*B*}
 
 {*T1*}Optionen für Host-Spieler{*ETW*}{*B*}
 Wenn "Hostprivilegien" aktiviert ist, kann der Host-Spieler einige seiner eigenen Privilegien bearbeiten. Zur Bearbeitung der Privilegien für einen Spieler rufst du mit {*CONTROLLER_VK_A*} das Privilegien-Menü für Spieler auf, wo du die folgenden Optionen nutzen kannst.{*B*}{*B*}
@@ -488,8 +487,8 @@ Wenn "Hostprivilegien" aktiviert ist, kann der Host-Spieler einige seiner eigene
 	
 	{*T2*}Unsichtbar{*ETW*}{*B*}
 	Ist diese Option aktiviert, kann der Spieler von anderen Spielern nicht gesehen werden und ist unverwundbar.{*B*}{*B*}
-    
-    {*T2*}Kann teleportieren{*ETW*}{*B*}
+
+	{*T2*}Kann teleportieren{*ETW*}{*B*}
 	Dies erlaubt dem Spieler, sich selbst oder andere Spieler zu anderen Spielern in der Welt zu bewegen.
 </value>
 	</data>	
@@ -527,7 +526,7 @@ Wenn "Hostprivilegien" aktiviert ist, kann der Host-Spieler einige seiner eigene
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MENU_DISPENSER">
-		<value>Dispenser</value>
+		<value>Spender</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MENU_FARMANIMALS">
@@ -588,13 +587,13 @@ Das Ende ist eine andere Dimension im Spiel, die durch ein aktives Endportal err
 Um das Endportal zu aktivieren, musst du eine Enderperle in einen Endportalrahmen einsetzen, in dem keine ist.{*B*}
 Wenn das Portal aktiv ist, kannst du hindurch in Das Ende springen.{*B*}{*B*}
 Im Ende begegnest du dem Enderdrachen, einem bösen, mächtigen Feind, und vielen Endermen; bereite dich also gut auf den Kampf vor, bevor du dich aufmachst!{*B*}{*B*}
-Der Enderdrache heilt sich mithilfe von Enderkristallen, die auf acht Obsidianstacheln ruhen;
+Der Enderdrache heilt sich mithilfe von Enderkristallen, die auf acht Obsidianstacheln ruhen; 
 du musst diese zuallererst einzeln zerstören.{*B*}
 Die ersten paar davon erreichst du mit Pfeilen, doch die späteren werden durch einen Eisengitterkäfig geschützt, und du musst dich zu ihnen hochbauen.{*B*}{*B*}
 Dabei greift dich der Enderdrache aus der Luft mit Endersäurekugeln an!{*B*}
 Nähere dich dem Eierpodest inmitten der Stacheln; der Enderdrache fliegt herab und greift dich an, und du kannst ihm nun einigen Schaden zufügen!{*B*}
 Nimm dich vor dem Säureatem in Acht und ziele auf die Augen des Enderdrachens, um wirkungsvolle Treffer zu landen. Bring, wenn du kannst, einen Freund mit in Das Ende, der dir im Kampf beisteht!{*B*}{*B*}
-Sobald du Das Ende besuchst, sehen deine Freunde die Lage des Endportals in den Festungen auf ihren Karten;
+Sobald du Das Ende besuchst, sehen deine Freunde die Lage des Endportals in den Festungen auf ihren Karten; 
 sie können dir also leicht zu Hilfe kommen.
   </value>
 	</data>	
@@ -609,7 +608,6 @@ sie können dir also leicht zu Hilfe kommen.
 
 	<data name="IDS_HOW_TO_PLAY_WHATSNEW">
 		<value>
-{*T3*}{*TITLE_UPDATE_NAME*}{*ETW*}{*B*}{*B*}
 {*T3*}Veränderungen und Neuerungen{*ETW*}{*B*}{*B*}
 - Neue Gegenstände hinzugefügt: Smaragde, Smaragderz, Smaragdblock, Endertruhe, Stolperdrahthaken, verzauberter goldener Apfel, Amboss, Blumentopf, Pflastersteinmauer, bemooste Pflastersteinmauer, Dörrgemälde, Kartoffel, Ofenkartoffel, giftige Kartoffel, Karotte, goldene Karotte,
 Karottenangel, Kürbiskuchen, Nachtsichttrank, Unsichtbarkeitstrank, Netherquarz, Netherquarzerz, Quarzblock, Quarzstufe, Quarztreppe, gemeißelter Quarzblock, Säulen-Quarzblock, Zauberbuch, Teppich.{*B*}
@@ -625,12 +623,12 @@ Karottenangel, Kürbiskuchen, Nachtsichttrank, Unsichtbarkeitstrank, Netherquarz
 - Die Platzierung halber Blöcke sowie von Blöcken auf halben Blöcken wurde geändert.{*B*}
 - Die Platzierung von umgedrehten Treppen und Stufen wurde geändert.{*B*}
 - Verschiedene Berufe für Dorfbewohner hinzugefügt.{*B*}
-- Dorfbewohner, die aus einem Eintrittsei spawnen, haben zufällige Berufe.{*B*}
+- Dorfbewohner, die aus einem Eintrittsei erscheinen, haben zufällige Berufe.{*B*}
 - Baumstämme können seitwärts platziert werden.{*B*}
 - Öfen können mit hölzernen Werkzeugen befeuert werden.{*B*}
 - Eis- und Glasscheiben können mit Werkzeugen gesammelt werden, die mit Behutsamkeit verzaubert wurden.{*B*}
 - Hölzerne Knöpfe und Druckplatten können durch Pfeile betätigt werden.{*B*}
-- Nether-NPCs können oberirdisch aus Portalen spawnen.{*B*}
+- Nether-NPCs können oberirdisch aus Portalen erscheinen.{*B*}
 - Creeper und Spinnen sind aggressiver gegenüber dem Spieler, der sie zuletzt geschlagen hat.{*B*}
 - Im Kreativmodus werden NPCs nach kurzer Zeit wieder neutral.{*B*}
 - Der Rückstoßeffekt beim Ertrinken wurde entfernt.{*B*}
@@ -647,10 +645,10 @@ Karottenangel, Kürbiskuchen, Nachtsichttrank, Unsichtbarkeitstrank, Netherquarz
 - Das Bücherrezept wurde geändert.{*B*}
 - Boote zerstören jetzt Seerosenblätter, nicht mehr umgekehrt.{*B*}
 - Schweine lassen mehr Schweinefleisch fallen.{*B*}
-- In superflachen Welten spawnen weniger Slimes.{*B*}
+- In superflachen Welten erscheinen weniger Slimes.{*B*}
 - Creeper verursachen je nach Schwierigkeit mehr oder weniger Schaden und der Rückstoß wurde erhöht.{*B*}
 - Das Problem, durch das Endermen ihre Kiefer nicht bewegen konnten, wurde behoben.{*B*}
-- Spieler können nun im {*BACK_BUTTON*}-Menü während des Spiels teleportieren.{*B*}
+- Spieler können nun im {*CONTROLLER_VK_BACK*}-Menü während des Spiels teleportieren.{*B*}
 - Neue Hostoptionen für Flug, Unsichtbarkeit und Unverwundbarkeit entfernter Spieler hinzugefügt.{*B*}
 - Neue Tutorials über neue Gegenstände und Funktionen zur Tutorial-Welt hinzugefügt.{*B*}
 - Die Schallplattentruhen in der Tutorial-Welt wurden neu verteilt.{*B*}
@@ -695,25 +693,101 @@ Karottenangel, Kürbiskuchen, Nachtsichttrank, Unsichtbarkeitstrank, Netherquarz
 
 	<data name="IDS_DESC_DOOR_IRON">
 		<value>Eisentüren können nur mit Redstone, Knöpfen oder Schaltern geöffnet werden.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET">
+    <value>Verleiht dem Spieler beim Tragen 1,5 Rüstungspunkte.</value>
+  </data>
+  <data name="IDS_DESC_CHESTPLATE">
+    <value>Verleiht dem Spieler beim Tragen 4 Rüstungspunkte.</value>
+  </data>
+  <data name="IDS_DESC_LEGGINGS">
+    <value>Verleiht dem Spieler beim Tragen 3 Rüstungspunkte.</value>
+  </data>
+  <data name="IDS_DESC_BOOTS">
+    <value>Verleihen dem Spieler beim Tragen 1,5 Rüstungspunkte.</value>
+  </data>
+	<data name="IDS_DESC_HELMET_LEATHER">
+		<value>Verleiht dem Träger 1 Rüstungspunkt.</value>
 	</data>	
 
-	<data name="IDS_DESC_HELMET">
-		<value>Verleiht dem Spieler beim Tragen 1,5 Rüstungspunkte.</value>
+	<data name="IDS_DESC_CHESTPLATE_LEATHER">
+		<value>Verleiht dem Träger 3 Rüstungspunkte.</value>
 	</data>	
 
-	<data name="IDS_DESC_CHESTPLATE">
-		<value>Verleiht dem Spieler beim Tragen 4 Rüstungspunkte.</value>
+	<data name="IDS_DESC_LEGGINGS_LEATHER">
+		<value>Verleiht dem Träger 2 Rüstungspunkte.</value>
 	</data>	
 
-	<data name="IDS_DESC_LEGGINGS">
-		<value>Verleiht dem Spieler beim Tragen 3 Rüstungspunkte.</value>
-	</data>	
+	<data name="IDS_DESC_BOOTS_LEATHER">
+		<value>Verleihen dem Träger 1 Rüstungspunkt.</value>
+	</data>
 
-	<data name="IDS_DESC_BOOTS">
-		<value>Verleihen dem Spieler beim Tragen 1,5 Rüstungspunkte.</value>
-	</data>	
+  <data name="IDS_DESC_HELMET_CHAIN">
+    <value>Verleiht dem Träger 2 Rüstungspunkte.</value>
+  </data>
 
-	<data name="IDS_DESC_INGOT">
+  <data name="IDS_DESC_CHESTPLATE_CHAIN">
+    <value>Verleiht dem Träger 5 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_CHAIN">
+    <value>Verleiht dem Träger 4 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_CHAIN">
+    <value>Verleihen dem Träger 1 Rüstungspunkt.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_IRON">
+    <value>Verleiht dem Träger 2 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_IRON">
+    <value>Verleiht dem Träger 6 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_IRON">
+    <value>Verleiht dem Träger 5 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_IRON">
+    <value>Verleihen dem Träger 2 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_GOLD">
+    <value>Verleiht dem Träger 2 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_GOLD">
+    <value>Verleiht dem Träger 5 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_GOLD">
+    <value>Verleiht dem Träger 3 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_GOLD">
+    <value>Verleihen dem Träger 1 Rüstungspunkt.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_DIAMOND">
+    <value>Verleiht dem Träger 3 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_DIAMOND">
+    <value>Verleiht dem Träger 8 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_DIAMOND">
+    <value>Verleiht dem Träger 6 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_DIAMOND">
+    <value>Verleihen dem Träger 3 Rüstungspunkte.</value>
+  </data>
+
+  <data name="IDS_DESC_INGOT">
 		<value>Ein glänzender Barren, aus dem du Werkzeuge herstellen kannst, die aus diesem Material bestehen. Entsteht, wenn du im Ofen Erz schmilzt.</value>
 	</data>	
 
@@ -755,15 +829,11 @@ verwendet werden.</value>
 	</data>	
 
 	<data name="IDS_DESC_STICK">
-		<value>Wird zur Herstellung von
-Fackeln, Pfeilen, Schildern,
-Leitern, Zäunen und als Griff
-für Werkzeuge und Waffen
-verwendet.</value>
+		<value>Wird zur Herstellung von Fackeln, Pfeilen, Schildern, Leitern, Zäunen und als Griff für Werkzeuge und Waffen verwendet.</value>
 	</data>	
 
 	<data name="IDS_DESC_BED">
-		<value>Kann die Zeit von einem beliebigen Zeitpunkt in der Nacht bis zum Morgen vorstellen, wenn alle Spieler in der Welt im Bett liegen. Kann auch deinen Wiedereintrittspunkt ändern.
+		<value>Kann die Zeit von einem beliebigen Zeitpunkt in der Nacht bis zum Morgen vorstellen, wenn alle Spieler in der Welt im Bett liegen. Kann auch deinen Wiedereintrittspunkt ändern. 
 Das Bett hat immer dieselbe Farbe, egal aus Wolle welcher Farbe es hergestellt wurde.</value>
 	</data>	
 
@@ -861,7 +931,7 @@ haben.</value>
 	</data>	
 
 	<data name="IDS_DESC_COOKIE">
-		<value>Regeneriert 0,5{*ICON_SHANK_01*}.</value>
+		<value>Regeneriert 1{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SLICE">
@@ -869,7 +939,7 @@ haben.</value>
 	</data>	
 
 	<data name="IDS_DESC_MUSHROOMSTEW">
-		<value>Regeneriert 4{*ICON_SHANK_01*}.</value>
+		<value>Regeneriert 3{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_CHICKEN_RAW">
@@ -877,31 +947,31 @@ haben.</value>
 	</data>	
 
 	<data name="IDS_DESC_CHICKEN_COOKED">
-		<value>Regeneriert 3{*ICON_SHANK_01*}.</value>
+		<value>Regeneriert 3{*ICON_SHANK_01*}. Entsteht, wenn man rohes Hühnchen im Ofen brät.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_RAW">
-		<value>Regeneriert 1,5{*ICON_SHANK_01*}, kann dich aber krankmachen. Kann im Ofen gebraten werden.</value>
+		<value>Regeneriert 1,5{*ICON_SHANK_01*}. Kann im Ofen gebraten werden.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_COOKED">
-		<value>Regeneriert 4{*ICON_SHANK_01*}.</value>
+		<value>Regeneriert 4{*ICON_SHANK_01*}. Entsteht, wenn man rohes Rindfleisch im Ofen brät.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_RAW">
-		<value>Erhält man durch Töten eines Schweins, regeneriert 1.5{*ICON_SHANK_01*}. Kann im Ofen gebraten werden.</value>
+		<value>Regeneriert 1,5{*ICON_SHANK_01*}. Kann im Ofen gebraten werden.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_COOKED">
-		<value>Entsteht, wenn man Schweinefleisch im Ofen brät. Regeneriert 4{*ICON_SHANK_01*}.</value>
+		<value>Regeneriert 4{*ICON_SHANK_01*}. Entsteht, wenn man rohes Schweinefleisch im Ofen brät.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_RAW">
-		<value>Kann man essen, um 1{*ICON_SHANK_01*} zu regenerieren, kann aber auch im Ofen gebraten werden. Füttere einen Ozelot damit, um ihn zu zähmen.</value>
+		<value>Regeneriert 1{*ICON_SHANK_01*}. Kann im Ofen gebraten werden. Füttere einen Ozelot damit, um ihn zu zähmen.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_COOKED">
-		<value>Entsteht, wenn man einen rohen Fisch im Ofen brät. Kann gegessen werden, um 2.5{*ICON_SHANK_01*} zu regenerieren.</value>
+		<value>Regeneriert 2,5{*ICON_SHANK_01*}. Entsteht, wenn man rohen Fisch im Ofen brät.</value>
 	</data>	
 
 	<data name="IDS_DESC_APPLE">
@@ -909,7 +979,7 @@ haben.</value>
 	</data>	
 
 	<data name="IDS_DESC_GOLDENAPPLE">
-		<value>Regeneriert 2{*ICON_SHANK_01*} und regeneriert 4 Sekunden lang Gesundheit.</value>
+		<value>Regeneriert 2{*ICON_SHANK_01*} und regeneriert 4 Sekunden lang Gesundheit. Wird aus einem Apfel und Goldnuggets hergestellt.</value>
 	</data>	
 
 	<data name="IDS_DESC_ROTTEN_FLESH">
@@ -1027,10 +1097,8 @@ kann.</value>
 	</data>	
 
 	<data name="IDS_DESC_DYE_LIGHTGRAY">
-		<value>Wird als Farbe verwendet, um Wolle hellgrau zu färben.
-(Hinweis: Hellgraue Farbe kann auch aus grauer Farbe und Knochenmehl erzeugt werden. So erhältst du aus jedem
-Tintensack 4 hellgraue Farbe
-statt nur 3.)</value>
+		<value>Wird als Farbe verwendet, um Wolle hellgrau zu färben. 
+(Hinweis: Hellgraue Farbe kann auch aus grauer Farbe und Knochenmehl erzeugt werden. So erhältst du aus jedem Tintensack 4 hellgraue Farbe statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_DESC_DYE_LIGHTBLUE">
@@ -1182,7 +1250,7 @@ statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_DESC_MOB_SPAWNER">
-		<value>Erschafft Monster und setzt sie in die Welt.</value>
+		<value>Lässt Monster in der Welt erscheinen.</value>
 	</data>	
 
 	<data name="IDS_DESC_REDSTONE_DUST">
@@ -1466,7 +1534,7 @@ statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_DESC_FIREBALL">
-		<value>Nützlich, um Dinge in Brand zu stecken oder beim Abschuss durch einen Dispenser, um willkürlich Feuer zu erzeugen.</value>
+		<value>Nützlich, um Dinge in Brand zu stecken oder beim Abschuss durch einen Spender, um willkürlich Feuer zu erzeugen.</value>
 	</data>	
 
 	<data name="IDS_DESC_ITEMFRAME">
@@ -1582,7 +1650,7 @@ statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_PIGZOMBIE">
-		<value>Zombie-Schweinezüchter</value>
+		<value>Zombie Pigman</value>
 	</data>	
 
 	<data name="IDS_DESC_PIGZOMBIE">
@@ -1718,7 +1786,7 @@ statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_CREDITS_LEADPC">
-		<value>Lead game programmer Minecraft PC</value>
+		<value>Lead Game Programmer Minecraft PC</value>
 	</data>	
 
 	<data name="IDS_CREDITS_CODENINJA">
@@ -2815,13 +2883,21 @@ statt nur 3.)</value>
 
 	<data name="IDS_TILE_BLOCK_GOLD">
 		<value>Goldblock</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_BLOCK_IRON">
+  <data name="IDS_DESC_BLOCK_GOLD">
+    <value>Eine kompakte Lagermöglichkeit für Gold.</value>
+  </data>
+
+  <data name="IDS_TILE_BLOCK_IRON">
 		<value>Eisenblock</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_STONESLAB">
+  <data name="IDS_DESC_BLOCK_IRON">
+    <value>Eine kompakte Lagermöglichkeit für Eisen.</value>
+  </data>
+
+  <data name="IDS_TILE_STONESLAB">
 		<value>Steinstufe</value>
 	</data>	
 
@@ -2906,7 +2982,7 @@ statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_TILE_MOB_SPAWNER">
-		<value>Monster-Spawner</value>
+		<value>Monster-Erschaffer</value>
 	</data>	
 
 	<data name="IDS_TILE_STAIRS_WOOD">
@@ -2927,9 +3003,13 @@ statt nur 3.)</value>
 
 	<data name="IDS_TILE_BLOCK_DIAMOND">
 		<value>Diamantblock</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_WORKBENCH">
+  <data name="IDS_DESC_BLOCK_DIAMOND">
+    <value>Eine kompakte Lagermöglichkeit für Diamanten.</value>
+  </data>
+
+  <data name="IDS_TILE_WORKBENCH">
 		<value>Werkbank</value>
 	</data>	
 
@@ -3034,7 +3114,7 @@ statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_TILE_HELL_ROCK">
-		<value>Netherrack</value>
+		<value>Netherstein</value>
 	</data>	
 
 	<data name="IDS_TILE_HELL_SAND">
@@ -3055,10 +3135,14 @@ statt nur 3.)</value>
 
 	<data name="IDS_TILE_BLOCK_LAPIS">
 		<value>Lapislazuliblock</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_DISPENSER">
-		<value>Dispenser</value>
+  <data name="IDS_DESC_BLOCK_LAPIS">
+    <value>Eine kompakte Lagermöglichkeit für Lapislazuli.</value>
+  </data>
+
+  <data name="IDS_TILE_DISPENSER">
+		<value>Spender</value>
 	</data>	
 
 	<data name="IDS_TILE_MUSIC_BLOCK">
@@ -3290,7 +3374,7 @@ statt nur 3.)</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_PAUSE">
-		<value>Pause</value>
+		<value>Menü</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_JUMP">
@@ -4338,7 +4422,7 @@ Nachts treiben sich Monster herum, du solltest dir einen Unterstand bauen, bevor
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_CACTUS">
-		<value>Kakteen müssen auf Sand gepflanzt werden. Sie wachsen bis zu drei Blöcke hoch. Genau wie bei Zuckerrohrblock musst du nur den untersten Block zerstören, um auch die darüber liegenden Blöcke einsammeln zu können.{*ICON*}81{*/ICON*}</value>
+		<value>Kakteen müssen auf Sand gepflanzt werden. Sie wachsen bis zu drei Blöcke hoch. Genau wie beim Zuckerrohrblock musst du nur den untersten Block zerstören, um auch die darüber liegenden Blöcke einsammeln zu können.{*ICON*}81{*/ICON*}</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_MUSHROOM">
@@ -4645,7 +4729,7 @@ Nachts treiben sich Monster herum, du solltest dir einen Unterstand bauen, bevor
 	</data>	
 
 	<data name="IDS_TOOLTIPS_WHAT_IS_THIS">
-		<value>?</value>
+		<value>Was ist das?</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SHARE">
@@ -4960,10 +5044,6 @@ Nachts treiben sich Monster herum, du solltest dir einen Unterstand bauen, bevor
 		<value>Minecraft Store</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
-		<value>Möchtest du dieses Spiel wirklich verlassen und dem neuen beitreten? Dabei gehen nicht gespeicherte Fortschritte verloren.</value>
-	</data>	
-
 	<data name="IDS_EXIT_GAME">
 		<value>Spiel verlassen</value>
 	</data>	
@@ -5008,10 +5088,6 @@ Nachts treiben sich Monster herum, du solltest dir einen Unterstand bauen, bevor
 		<value>Verlassen ohne speichern</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_EXIT_GAME">
-		<value>Möchtest du das Spiel wirklich verlassen und zum Hauptmenü zurückkehren? Dabei gehen nicht gespeicherte Fortschritte verloren.</value>
-	</data>	
-
 	<data name="IDS_CONFIRM_EXIT_GAME_PROGRESS_LOST">
 		<value>Möchtest du das Spiel wirklich verlassen und zum Hauptmenü zurückkehren? Dabei geht dein Fortschritt verloren!</value>
 	</data>	
@@ -5045,7 +5121,7 @@ Nachts treiben sich Monster herum, du solltest dir einen Unterstand bauen, bevor
 	</data>	
 
 	<data name="IDS_PRESS_START_TO_JOIN">
-		<value>Drück START, um dem Spiel beizutreten</value>
+		<value>Drück{*CONTROLLER_VK_START*}, um dem Spiel beizutreten</value>
 	</data>	
 
 	<data name="IDS_EXITING_GAME">
@@ -5462,7 +5538,7 @@ Möchtest du jetzt das vollständige Spiel freischalten?</value>
 	</data>	
 
 	<data name="IDS_DISPENSER">
-		<value>Dispenser</value>
+		<value>Spender</value>
 	</data>	
 
 	<data name="IDS_NO_DLCOFFERS">
@@ -6183,7 +6259,7 @@ Möchtest du das Mash-up-Paket oder Texturpaket jetzt installieren?</value>
 	</data>	
 
 	<data name="IDS_MAX_PIGS_SHEEP_COWS_CATS_SPAWNED">
-		<value>Eintrittsei kann momentan nicht verwendet werden. Die Höchstanzahl von Schweinen, Schafen, Kühen und Katzen wurde erreicht.</value>
+		<value>Kann momentan kein Eintrittsei verwenden. Die Höchstanzahl von Schweinen, Schafen, Kühen und Katzen wurde erreicht.</value>
 	</data>	
 
 	<data name="IDS_MAX_MOOSHROOMS_SPAWNED">
@@ -7092,23 +7168,23 @@ Möchtest du das Mash-up-Paket oder Texturpaket jetzt installieren?</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROTS">
-		<value>Regeneriert 2{*ICON_SHANK_01*}. Kann auf Ackerland gepflanzt werden.</value>
+		<value>Regeneriert 2{*ICON_SHANK_01*} und kann zu einer goldenen Karotte verarbeitet werden. Kann auf Ackerland gepflanzt werden.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO">
-		<value>Regeneriert 0,5{*ICON_SHANK_01*}. Kann in einem Ofen gebacken oder auf Ackerland gepflanzt werden.</value>
+		<value>Regeneriert 0,5{*ICON_SHANK_01*}. Kann in einem Ofen gebraten oder auf Ackerland gepflanzt werden.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_BAKED">
-		<value>Regeneriert 3{*ICON_SHANK_01*}.</value>
+		<value>Regeneriert 3{*ICON_SHANK_01*}. Entsteht, wenn man eine Kartoffel im Ofen brät.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_POISONOUS">
-		<value>Regeneriert 1{*ICON_SHANK_01*}, doch du kannst dich damit vergiften.</value>
+		<value>Regeneriert 1{*ICON_SHANK_01*}, doch du kannst dich damit vergiften. Kann in einem Ofen gebraten werden.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_GOLDEN">
-		<value>Wird aus einer Karotte und Goldnuggets hergestellt. Regeneriert 3{*ICON_SHANK_01*}.</value>
+		<value>Regeneriert 3{*ICON_SHANK_01*}. Wird aus einer Karotte und Goldnuggets hergestellt.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_ON_A_STICK">
@@ -7634,7 +7710,7 @@ Möchtest du das Mash-up-Paket oder Texturpaket jetzt installieren?</value>
 	</data>	
 
 	<data name="IDS_DESC_ENCHANTED_GOLDENAPPLE">
-		<value>Regeneriert 2{*ICON_SHANK_01*}, regeneriert 30 Sekunden lang Gesundheit und gewährt 5 Minuten lang Widerstand gegen Feuer und Schaden.</value>
+		<value>Regeneriert 2{*ICON_SHANK_01*}, regeneriert 30 Sekunden lang Gesundheit und gewährt 5 Minuten lang Widerstand gegen Feuer und Schaden. Wird aus einem Apfel und Goldblöcken hergestellt.</value>
 	</data>	
 
 	<data name="IDS_ENABLE_TELEPORT">
@@ -7787,5 +7863,8 @@ Alle Endertruhen in einer Welt sind verknüpft, sodass Gegenstände, die in eine
 
 	<data name="IDS_TOOLTIPS_CURE">
 		<value>Heilen</value>
-	</data>	
+	</data>
+  <data name="IDS_PROGRESS_NEW_WORLD_SEED">
+    <value>Seed für den Weltengenerator finden</value>
+  </data>
 </root>

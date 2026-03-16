@@ -119,74 +119,18 @@
 		<value>セーブデータの名前を入力してください</value>
 	</data>	
 
-	<data name="IDS_WARNING_ARCADE_TITLE">
-		<value>Xbox ダッシュボードに戻る</value>
-	</data>	
-
 	<data name="IDS_WARNING_ARCADE_TEXT">
 		<value>本当にゲームを終了してもよろしいですか?</value>
 	</data>	
-
 	<data name="IDS_PRO_RETURNEDTOMENU_TITLE">
 		<value>サインアウト</value>
 	</data>	
-
-	<data name="IDS_PRO_RETURNEDTOTITLESCREEN_TEXT">
-		<value>ゲーマー プロフィールからサインアウトしました。タイトル画面に戻ります</value>
-	</data>	
-
-	<data name="IDS_PRO_RETURNEDTOMENU_TEXT">
-		<value>ゲーマー プロフィールからサインアウトしました。マッチを終了します</value>
-	</data>	
-
 	<data name="IDS_PRO_RETURNEDTOMENU_ACCEPT">
 		<value>プレイを続ける</value>
 	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_TITLE">
-		<value>Xbox LIVE にサインインしていません</value>
-	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_TEXT">
-		<value>このゲームの一部の機能では、Xbox LIVE にサインインしているゲーマー プロフィールが必要となります。現在は Xbox LIVE にサインインしていません</value>
-	</data>	
-
-	<data name="IDS_PRO_XBOXLIVE_NOTIFICATION">
-		<value>この機能を使うには、Xbox LIVE にサインインしているゲーマー プロフィールが必要です</value>
-	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_ACCEPT">
-		<value>Xbox LIVE にサインイン</value>
-	</data>	
-
 	<data name="IDS_PRO_NOTONLINE_DECLINE">
 		<value>サインインせずにプレイを続ける</value>
 	</data>	
-
-	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TITLE">
-		<value>実績獲得のエラー</value>
-	</data>	
-
-	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TEXT">
-		<value>ゲーマー プロフィールに正常にアクセスできませんでした。現在は実績を獲得できません</value>
-	</data>	
-
-	<data name="IDS_PRO_NOPROFILE_TITLE">
-		<value>ゲーマー プロフィールのエラー</value>
-	</data>	
-
-	<data name="IDS_PRO_NOPROFILEOPTIONS_TEXT">
-		<value>ゲーマー プロフィールに設定を保存できませんでした</value>
-	</data>	
-
-	<data name="IDS_PRO_GUESTPROFILE_TITLE">
-		<value>ゲストのゲーマー プロフィール</value>
-	</data>	
-
-	<data name="IDS_PRO_GUESTPROFILE_TEXT">
-		<value>ゲストのゲーマー プロフィールではこの機能を利用できません。別のゲーマー プロフィールを使用してください</value>
-	</data>	
-
 	<data name="IDS_STO_SAVING_SHORT">
 		<value>保存中...</value>
 	</data>	
@@ -194,18 +138,15 @@
 	<data name="IDS_STO_SAVING_LONG">
 		<value>保存しています。本体の電源を切らないでください</value>
 	</data>	
-
 	<data name="IDS_PRO_UNLOCKGAME_TITLE">
 		<value>完全版を購入</value>
 	</data>	
-
 	<data name="IDS_PRO_UNLOCKGAME_TEXT">
 		<value>これは Minecraft のお試し版です。完全版であれば、今すぐ獲得できる実績があります! 
-完全版を購入して、Xbox LIVE を通じて世界中のフレンドと一緒に遊べるMinecraft の楽しさを体験してください。
+完全版を購入して、Xbox Live を通じて世界中のフレンドと一緒に遊べるMinecraft の楽しさを体験してください。
 完全版を購入しますか?</value>
-	</data>	
-
-	<data name="IDS_PRO_PROFILEPROBLEM_TEXT">
-		<value>プロフィールの読み込みに問題が発生したため、メイン メニューに戻ります</value>
-	</data>	
+	</data>
+  <data name="IDS_ERROR_NETWORK">
+    <value>ネットワーク エラーが発生しました</value>
+  </data>
 </root>

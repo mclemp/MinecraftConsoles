@@ -276,8 +276,7 @@ Si vous tenez un objet à la main, utilisez{*CONTROLLER_ACTION_USE*} pour vous e
 
 	<data name="IDS_HOW_TO_PLAY_HUD">
 		<value>{*T3*}COMMENT JOUER : INTERFACE PRINCIPALE{*ETW*}{*B*}{*B*}
-L'interface principale affiche diverses informations, comme votre état, votre santé, l'oxygène qu'il vous reste quand vous nagez sous l'eau, votre niveau de satiété (vous devez manger pour remplir cette jauge) et votre armure, si vous en portez une.
-Si vous perdez de la santé, mais que votre jauge de nourriture comporte au moins 9{*ICON_SHANK_01*}, votre santé se reconstituera automatiquement. Manger de la nourriture reconstituera votre jauge de nourriture.{*B*}
+L'interface principale affiche diverses informations, comme votre état, votre santé, l'oxygène qu'il vous reste quand vous nagez sous l'eau, votre niveau de satiété (vous devez manger pour remplir cette jauge) et votre armure, si vous en portez une. Si vous perdez de la santé, mais que votre jauge de nourriture comporte au moins 9{*ICON_SHANK_01*}, votre santé se reconstituera automatiquement. Manger de la nourriture reconstituera votre jauge de nourriture.{*B*}
 L'interface principale affiche également la barre d'expérience, assortie d'une valeur numérique qui représente votre niveau d'expérience, ainsi qu'une jauge indiquant combien de points d'expérience sont nécessaires pour passer au niveau supérieur. 
 Pour obtenir de l'expérience, ramassez les orbes d'expérience abandonnés par les monstres à leur mort, minez certains types de blocs, élevez des animaux, pêchez et fondez du minerai dans le four.{*B*}{*B*}
 Les objets utilisables sont également répertoriés ici. Utilisez{*CONTROLLER_ACTION_LEFT_SCROLL*} et{*CONTROLLER_ACTION_RIGHT_SCROLL*} pour sélectionner un autre objet à tenir en main.</value>
@@ -398,7 +397,7 @@ Le nombre d'animaux dans un monde est limité ; il est donc possible que vos an
 
 	<data name="IDS_HOW_TO_PLAY_NETHERPORTAL">
 		<value>{*T3*}COMMENT JOUER : PORTAIL DU NETHER{*ETW*}{*B*}{*B*}
-Un portail du Nether permet au joueur de circuler entre la Surface et le Nether. Vous pouvez emprunter le Nether pour voyager rapidement à la Surface : parcourir un bloc de distance dans le Nether équivaut à voyager sur trois blocs de la Surface. Lorsque vous empruntez un portail pour quitter
+Un portail du Nether permet au joueur de circuler entre la Surface et le Nether. Vous pouvez emprunter le Nether pour voyager rapidement à la Surface : parcourir un bloc de distance dans le Nether équivaut à voyager sur trois blocs de la Surface. Lorsque vous empruntez un portail pour quitter 
 le Nether, vous aurez voyagé sur une distance 3 fois supérieure à celle réellement parcourue.{*B*}{*B*}
 Vous devrez disposer d'au moins 10 blocs d'obsidienne pour construire le portail : celui-ci doit être haut de 5 blocs et large de 4, pour une épaisseur d'1 bloc. Une fois le contour achevé, l'espace contenu à l'intérieur doit être enflammé pour activer le portail. Pour ce faire, vous pouvez utiliser un briquet à silex ou une boule de feu.{*B*}{*B*}
 Des exemples de construction de portail sont illustrés à droite.
@@ -431,7 +430,7 @@ Lorsque vous chargez ou créez un monde, appuyez sur le bouton Plus d'options po
 	Lorsque cette option est activée, le TNT peut exploser lorsqu'il est activé. Vous pouvez aussi modifier cette option depuis le menu de jeu.{*B*}{*B*}
 	
 	{*T2*}Privilèges d'hôte{*ETW*}{*B*}
-	Lorsque cette option est activée, l'hôte peut activer/désactiver sa capacité à voler, désactiver la fatigue et se rendre invisible depuis le menu de jeu. {*DISABLES ACHIEVEMENTS}{*.{*B*}{*B*}
+	Lorsque cette option est activée, l'hôte peut activer/désactiver sa capacité à voler, désactiver la fatigue et se rendre invisible depuis le menu de jeu. {*DISABLES_ACHIEVEMENTS*}{*B*}{*B*}
 
 {*T1*}Options de création de monde{*ETW*}{*B*}
 Lorsque vous créez un monde, vous disposez d'options supplémentaires.{*B*}{*B*}
@@ -449,7 +448,7 @@ Lorsque vous créez un monde, vous disposez d'options supplémentaires.{*B*}{*B*
 	Quand activé, le Nether sera généré de nouveau. Ceci est utile si vous avez une sauvegarde plus ancienne sans forteresse du Nether.{*B*}{*B*}
 
 	{*T1*}Options de jeu{*ETW*}{*B*}
-	Appuyez sur {*BACK BUTTON*} pour afficher le menu de jeu et accéder à diverses options.{*B*}{*B*}
+	Appuyez sur {*CONTROLLER_VK_BACK*} pour afficher le menu de jeu et accéder à diverses options.{*B*}{*B*}
 	
 	{*T2*}Options de l'hôte{*ETW*}{*B*}
 	Le joueur hôte et les joueurs au statut de modérateur peuvent accéder au menu Options de l'hôte. Depuis ce menu, ils peuvent activer/désactiver la propagation du feu et l'explosion de TNT.{*B*}{*B*}
@@ -595,7 +594,7 @@ Les premiers peuvent être atteints par des flèches, mais les derniers sont pro
 Ce faisant, le dragon de l'Ender vous attaquera en volant vers vous et en crachant des boules d'acide de l'Ender !{*B*}
 Si vous vous approchez du podium aux œufs au centre des pics, le dragon volera vers vous pour vous attaquer, ce qui vous donnera une bonne occasion de le blesser !{*B*} 
 Évitez son souffle acide et visez ses yeux pour de meilleurs résultats. Si possible, demandez à des amis de vous suivre dans l'Ender pour vous aider dans votre combat !{*B*}{*B*}
-Une fois que vous serez dans l'Ender, vos amis pourront voir l'emplacement du portail de l'Ender dans le fort sur leurs cartes,
+Une fois que vous serez dans l'Ender, vos amis pourront voir l'emplacement du portail de l'Ender dans le fort sur leurs cartes, 
 et ils pourront facilement vous rejoindre.
   </value>
 	</data>	
@@ -610,7 +609,6 @@ et ils pourront facilement vous rejoindre.
 
 	<data name="IDS_HOW_TO_PLAY_WHATSNEW">
 		<value>
-{*T3*}{*TITLE_UPDATE_NAME*} {*ETW*}{*B*}{*B*}
 {*T3*}Modifications et ajouts {*ETW*}{*B*}{*B*}
 - Ajout de nouveaux objets : émeraude, minerai d'émeraude, bloc d'émeraude, coffre du Néant, crochet, pomme dorée enchantée, enclume, pot de fleurs, murets, murets moussus, peinture de Wither, pomme de terre, pomme de terre cuite, pomme de terre empoisonnée, carotte, carotte dorée, carotte sur un bâton, 
 tarte à la citrouille, potion de vision nocturne, potion d'invisibilité, quartz du Nether, minerai de quartz du Nether, bloc de quartz du Nether, dalle de quartz, escalier en quartz, bloc de quartz taillé, pilier de blocs de quartz, livre enchanté, tapis.{*B*}
@@ -696,25 +694,101 @@ tarte à la citrouille, potion de vision nocturne, potion d'invisibilité, quart
 
 	<data name="IDS_DESC_DOOR_IRON">
 		<value>Les portes en fer ne peuvent s'ouvrir qu'au moyen d'une redstone, de boutons ou d'interrupteurs.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET">
+    <value>Confère au porteur une armure de 1,5.</value>
+  </data>
+  <data name="IDS_DESC_CHESTPLATE">
+    <value>Confère au porteur une armure de 4.</value>
+  </data>
+  <data name="IDS_DESC_LEGGINGS">
+    <value>Confère au porteur une armure de 3.</value>
+  </data>
+  <data name="IDS_DESC_BOOTS">
+    <value>Confère au porteur une armure de 1,5.</value>
+  </data>
+	<data name="IDS_DESC_HELMET_LEATHER">
+		<value>Confère au porteur une armure de 1.</value>
 	</data>	
 
-	<data name="IDS_DESC_HELMET">
-		<value>Confère au porteur une armure de 1,5.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHESTPLATE">
-		<value>Confère au porteur une armure de 4.</value>
-	</data>	
-
-	<data name="IDS_DESC_LEGGINGS">
+	<data name="IDS_DESC_CHESTPLATE_LEATHER">
 		<value>Confère au porteur une armure de 3.</value>
 	</data>	
 
-	<data name="IDS_DESC_BOOTS">
-		<value>Confère au porteur une armure de 1,5.</value>
+	<data name="IDS_DESC_LEGGINGS_LEATHER">
+		<value>Confère au porteur une armure de 2.</value>
 	</data>	
 
-	<data name="IDS_DESC_INGOT">
+	<data name="IDS_DESC_BOOTS_LEATHER">
+		<value>Confère au porteur une armure de 1.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET_CHAIN">
+    <value>Confère au porteur une armure de 2.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_CHAIN">
+    <value>Confère au porteur une armure de 5.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_CHAIN">
+    <value>Confère au porteur une armure de 4.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_CHAIN">
+    <value>Confère au porteur une armure de 1.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_IRON">
+    <value>Confère au porteur une armure de 2.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_IRON">
+    <value>Confère au porteur une armure de 6.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_IRON">
+    <value>Confère au porteur une armure de 5.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_IRON">
+    <value>Confère au porteur une armure de 2.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_GOLD">
+    <value>Confère au porteur une armure de 2.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_GOLD">
+    <value>Confère au porteur une armure de 5.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_GOLD">
+    <value>Confère au porteur une armure de 3.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_GOLD">
+    <value>Confère au porteur une armure de 1.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_DIAMOND">
+    <value>Confère au porteur une armure de 3.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_DIAMOND">
+    <value>Confère au porteur une armure de 8.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_DIAMOND">
+    <value>Confère au porteur une armure de 6.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_DIAMOND">
+    <value>Confère au porteur une armure de 3.</value>
+  </data>
+
+  <data name="IDS_DESC_INGOT">
 		<value>Un lingot étincelant qui sert à la confection d'outils. Créé en fondant du minerai dans le four.</value>
 	</data>	
 
@@ -761,7 +835,7 @@ des poignées d'armes et manches d'outils.</value>
 	</data>	
 
 	<data name="IDS_DESC_BED">
-		<value>Permet d'accélérer le cycle nuit/jour jusqu'à l'aube suivante pourvu que tous les joueurs soient couchés ; modifie également le point d'apparition du joueur.
+		<value>Permet d'accélérer le cycle nuit/jour jusqu'à l'aube suivante pourvu que tous les joueurs soient couchés ; modifie également le point d'apparition du joueur. 
 La couleur des lits est toujours la même.</value>
 	</data>	
 
@@ -854,11 +928,11 @@ La couleur des lits est toujours la même.</value>
 	</data>	
 
 	<data name="IDS_DESC_CAKE">
-		<value>Restitue 1{*ICON_SHANK_01*}.. Peut s'utiliser jusqu'à 6 fois.</value>
+		<value>Restitue 1{*ICON_SHANK_01*}. Peut s'utiliser jusqu'à 6 fois.</value>
 	</data>	
 
 	<data name="IDS_DESC_COOKIE">
-		<value>Restitue 0,5{*ICON_SHANK_01*}.</value>
+		<value>Restitue 1{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SLICE">
@@ -866,7 +940,7 @@ La couleur des lits est toujours la même.</value>
 	</data>	
 
 	<data name="IDS_DESC_MUSHROOMSTEW">
-		<value>Restitue 4{*ICON_SHANK_01*}.</value>
+		<value>Restitue 3{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_CHICKEN_RAW">
@@ -874,7 +948,7 @@ La couleur des lits est toujours la même.</value>
 	</data>	
 
 	<data name="IDS_DESC_CHICKEN_COOKED">
-		<value>Restitue 3{*ICON_SHANK_01*}.</value>
+		<value>Restitue 3{*ICON_SHANK_01*}. Obtenu en cuisinant de la viande crue de poulet dans un four.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_RAW">
@@ -882,23 +956,23 @@ La couleur des lits est toujours la même.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_COOKED">
-		<value>Restitue 4{*ICON_SHANK_01*}.</value>
+		<value>Restitue 4{*ICON_SHANK_01*}. Obtenu en cuisinant de la viande de bœuf crue dans un four. </value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_RAW">
-		<value>Prélevée sur les cadavres de cochons, restitue 1,5{*ICON_SHANK_01*} et se cuisine dans un four.</value>
+		<value>Restitue 1,5{*ICON_SHANK_01*} ou se cuisine dans un four.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_COOKED">
-		<value>Obtenue en cuisinant de la viande de porc dans un four. Restitue 4{*ICON_SHANK_01*}.</value>
+		<value>Restitue 4{*ICON_SHANK_01*}. Obtenue en cuisinant de la viande de porc crue dans un four. </value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_RAW">
-		<value>Se mange pour récupérer 1{*ICON_SHANK_01*} ou se cuisine dans un four. Sert également à nourrir un ocelot pour l'apprivoiser.</value>
+		<value>Restitue 1{*ICON_SHANK_01*} ou se cuisine dans un four. Sert également à nourrir un ocelot pour l'apprivoiser.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_COOKED">
-		<value>Résulte de la cuisson de poisson cru dans un four. Se mange pour récupérer 2,5{*ICON_SHANK_01*}.</value>
+		<value>Restituer 2,5{*ICON_SHANK_01*}. Résulte de la cuisson de poisson cru dans un four. </value>
 	</data>	
 
 	<data name="IDS_DESC_APPLE">
@@ -906,7 +980,7 @@ La couleur des lits est toujours la même.</value>
 	</data>	
 
 	<data name="IDS_DESC_GOLDENAPPLE">
-		<value>Restitue 2{*ICON_SHANK_01*} et régénère la santé pendant 4 secondes.</value>
+		<value>Restitue 2{*ICON_SHANK_01*} et régénère la santé pendant 4 secondes. Se fabrique avec une carotte et des pépites d'or. </value>
 	</data>	
 
 	<data name="IDS_DESC_ROTTEN_FLESH">
@@ -923,7 +997,7 @@ La couleur des lits est toujours la même.</value>
 
 	<data name="IDS_DESC_REDSTONETORCH">
 		<value>Produit une décharge électrique constante ; peut aussi servir de récepteur/
-transmetteur si connectée à la façade d'un bloc.
+transmetteur si connectée à la façade d'un bloc. 
 Génère également une faible luminosité.</value>
 	</data>	
 
@@ -988,7 +1062,7 @@ Génère également une faible luminosité.</value>
 	</data>	
 
 	<data name="IDS_DESC_DYE_BROWN">
-		<value>Utilisé comme colorant pour la confection de laine marron, d'ingrédient pour la préparation de cookies et pour faire pousser des fèves de chocolat.</value>
+		<value>Utilisées comme colorant pour la confection de laine marron. Servent d'ingrédient pour la préparation de cookies et pour faire pousser des fèves de chocolat.</value>
 	</data>	
 
 	<data name="IDS_DESC_DYE_SILVER">
@@ -1024,7 +1098,7 @@ Génère également une faible luminosité.</value>
 	</data>	
 
 	<data name="IDS_DESC_DYE_LIGHTGRAY">
-		<value>Sert de colorant pour créer de la laine gris clair.
+		<value>Sert de colorant pour créer de la laine gris clair. 
 Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produire. Vous pouvez ainsi en confectionner quatre par poche d'encre au lieu de trois.</value>
 	</data>	
 
@@ -1069,7 +1143,7 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 	</data>	
 
 	<data name="IDS_DESC_BOOKSHELF">
-		<value>Placée dans la table d'enchantement, permet de créer des enchantements encore plus puissants.</value>
+		<value>Placée autour de la table d'enchantement, permet de créer des enchantements encore plus puissants.</value>
 	</data>	
 
 	<data name="IDS_DESC_PICTURE">
@@ -1225,7 +1299,7 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 	</data>	
 
 	<data name="IDS_DESC_FEATHER">
-		<value>Prélevé sur les cadavres de poulets ; sert à la confection des flèches.</value>
+		<value>Prélevée sur les cadavres de poulets ; sert à la confection des flèches.</value>
 	</data>	
 
 	<data name="IDS_DESC_SULPHUR">
@@ -1481,7 +1555,7 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 	</data>	
 
 	<data name="IDS_DESC_ITEM_NETHERBRICK">
-		<value>Créé en fusionnant du netherrack dans un fourneau. Peut être transformés en blocs de briques du Nether.</value>
+		<value>Créée en fusionnant du netherrack dans un fourneau. Peut être transformée en blocs de briques du Nether.</value>
 	</data>	
 
 	<data name="IDS_DESC_REDSTONE_LIGHT">
@@ -1713,7 +1787,7 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 	</data>	
 
 	<data name="IDS_CREDITS_LEADPC">
-		<value>Lead game programmer Minecraft PC</value>
+		<value>Lead Game Programmer Minecraft PC</value>
 	</data>	
 
 	<data name="IDS_CREDITS_CODENINJA">
@@ -2810,13 +2884,21 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 
 	<data name="IDS_TILE_BLOCK_GOLD">
 		<value>Bloc d'or</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_BLOCK_IRON">
+  <data name="IDS_DESC_BLOCK_GOLD">
+    <value>Un moyen peu encombrant d'entreposer de l'or.</value>
+  </data>
+
+  <data name="IDS_TILE_BLOCK_IRON">
 		<value>Bloc de fer</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_STONESLAB">
+  <data name="IDS_DESC_BLOCK_IRON">
+    <value>Un moyen peu encombrant d'entreposer du fer.</value>
+  </data>
+
+  <data name="IDS_TILE_STONESLAB">
 		<value>Dalle de pierre</value>
 	</data>	
 
@@ -2922,9 +3004,13 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 
 	<data name="IDS_TILE_BLOCK_DIAMOND">
 		<value>Bloc de diamant</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_WORKBENCH">
+  <data name="IDS_DESC_BLOCK_DIAMOND">
+    <value>Un moyen peu encombrant d'entreposer des diamants.</value>
+  </data>
+
+  <data name="IDS_TILE_WORKBENCH">
 		<value>Atelier</value>
 	</data>	
 
@@ -3050,9 +3136,13 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 
 	<data name="IDS_TILE_BLOCK_LAPIS">
 		<value>Bloc de lapis-lazuli</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_DISPENSER">
+  <data name="IDS_DESC_BLOCK_LAPIS">
+    <value>Un moyen peu encombrant d'entreposer du Lapis-lazuli.</value>
+  </data>
+
+  <data name="IDS_TILE_DISPENSER">
 		<value>Distributeur</value>
 	</data>	
 
@@ -3285,7 +3375,7 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 	</data>	
 
 	<data name="IDS_CONTROLS_PAUSE">
-		<value>Pause</value>
+		<value>Menu</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_JUMP">
@@ -3442,7 +3532,7 @@ Remarque : vous pouvez aussi combiner colorant gris et poudre d'os pour en produ
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_OVERVIEW">
-		<value>Le principe de Minecraft consiste à placer des blocs pour construire tout ce qu'on peut imaginer.
+		<value>Le principe de Minecraft consiste à placer des blocs pour construire tout ce qu'on peut imaginer. 
 La nuit, les monstres sont de sortie ; tâchez donc d'aménager un abri avant le coucher du soleil.</value>
 	</data>	
 
@@ -4640,7 +4730,7 @@ La nuit, les monstres sont de sortie ; tâchez donc d'aménager un abri avant l
 	</data>	
 
 	<data name="IDS_TOOLTIPS_WHAT_IS_THIS">
-		<value>?</value>
+		<value>Qu'est ce que c'est ?</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SHARE">
@@ -4864,7 +4954,7 @@ La nuit, les monstres sont de sortie ; tâchez donc d'aménager un abri avant l
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SAVEOPTIONS">
-		<value>Enregistrer options</value>
+		<value>Options de sauv.</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_EXECUTE_COMMAND">
@@ -4955,10 +5045,6 @@ La nuit, les monstres sont de sortie ; tâchez donc d'aménager un abri avant l
 		<value>Magasin Minecraft</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
-		<value>Voulez-vous vraiment quitter la partie en cours et rejoindre la nouvelle ? Toute progression non sauvegardée sera perdue.</value>
-	</data>	
-
 	<data name="IDS_EXIT_GAME">
 		<value>Quitter le jeu</value>
 	</data>	
@@ -5003,10 +5089,6 @@ La nuit, les monstres sont de sortie ; tâchez donc d'aménager un abri avant l
 		<value>Quitter sans sauvegarder</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_EXIT_GAME">
-		<value>Voulez-vous vraiment retourner au menu principal ? Toute progression non sauvegardée sera perdue.</value>
-	</data>	
-
 	<data name="IDS_CONFIRM_EXIT_GAME_PROGRESS_LOST">
 		<value>Voulez-vous vraiment retourner au menu principal ? Votre progression sera perdue !</value>
 	</data>	
@@ -5040,7 +5122,7 @@ La nuit, les monstres sont de sortie ; tâchez donc d'aménager un abri avant l
 	</data>	
 
 	<data name="IDS_PRESS_START_TO_JOIN">
-		<value>Appuyez sur START pour rejoindre la partie</value>
+		<value>Appuyez sur {*CONTROLLER_VK_START*} pour rejoindre la partie</value>
 	</data>	
 
 	<data name="IDS_EXITING_GAME">
@@ -5951,7 +6033,7 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 	</data>	
 
 	<data name="IDS_CHECKBOX_CUSTOM_SKIN_ANIM">
-		<value>Animations personnalisée pour skin</value>
+		<value>Animation personnalisée pour skin</value>
 	</data>	
 
 	<data name="IDS_PRIV_MINE_TOGGLE_ON">
@@ -6126,7 +6208,7 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 {*C2*}Et le joueur était une nouvelle histoire, jamais racontée avant, écrite en lettres ADN. Et le joueur était un nouveau programme, jamais utilisé auparavant, généré par un code source d'un milliard d'années. Et le joueur était un nouvel humain n'ayant encore jamais vécu, uniquement fait d'amour et de lait.{*EF*}{*B*}{*B*}
 {*C3*}Vous êtes le joueur. L'histoire. Le programme. L'humain. Uniquement fait d'amour et de lait.{*EF*}{*B*}{*B*}
 {*C2*}Allons un peu plus loin.{*EF*}{*B*}{*B*}
-{*C2*}Les sept quadrilliards d'atomes qui forment le corps du joueur ont été créés, bien longtemps avant ce jeu, au cœur d'une étoile. Le joueur est donc, lui aussi, les données d'une étoile. Et le joueur évolue dans une histoire, faite d'une forêt de données plantées par un home nommé Julian, dans un monde plat et infini, créé par un homme nommé Markus, qui existe dans un petit monde privé créé par le joueur qui habite lui-même un univers créé par...{*EF*}{*B*}{*B*}
+{*C2*}Les sept quadrilliards d'atomes qui forment le corps du joueur ont été créés, bien longtemps avant ce jeu, au cœur d'une étoile. Le joueur est donc, lui aussi, les données d'une étoile. Et le joueur évolue dans une histoire, faite d'une forêt de données plantées par un homme nommé Julian, dans un monde plat et infini, créé par un homme nommé Markus, qui existe dans un petit monde privé créé par le joueur qui habite lui-même un univers créé par...{*EF*}{*B*}{*B*}
 {*C3*}Chut. Parfois, le joueur créait un petit monde privé doux, simple et chaleureux. Parfois difficile, froid et compliqué. Parfois, il construisait le modèle d'un univers dans sa tête ; éclats d'énergie se déplaçant dans de vastes espaces vides. Parfois, il appelait ces éclats « électrons » et « protons ».{*EF*}{*B*}{*B*}
 </value>
 	</data>	
@@ -7089,7 +7171,7 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 	</data>	
 
 	<data name="IDS_DESC_CARROTS">
-		<value>Restitue 2{*ICON_SHANK_01*}. À planter dans une terre labourée.</value>
+		<value>Restitue 2{*ICON_SHANK_01*} ; transformable en carotte dorée. À planter dans une terre labourée.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO">
@@ -7097,7 +7179,7 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 	</data>	
 
 	<data name="IDS_DESC_POTATO_BAKED">
-		<value>Restitue 3{*ICON_SHANK_01*}.</value>
+		<value>Restitue 3{*ICON_SHANK_01*}. Obtenu en cuisinant une pomme de terre dans un four.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_POISONOUS">
@@ -7105,7 +7187,7 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 	</data>	
 
 	<data name="IDS_DESC_CARROT_GOLDEN">
-		<value>Se fabrique avec une carotte et des pépites d'or. Restitue 3{*ICON_SHANK_01*}.</value>
+		<value>Restitue 3{*ICON_SHANK_01*}. Se fabrique avec une carotte et des pépites d'or.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_ON_A_STICK">
@@ -7385,7 +7467,7 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 	</data>	
 
 	<data name="IDS_REQUIRED_ITEMS_FOR_TRADE">
-		<value>Objets nécessaires à la transaction</value>
+		<value>Objets requis</value>
 	</data>	
 
 	<data name="IDS_VILLAGER_OFFERS_ITEM">
@@ -7631,7 +7713,7 @@ Voulez-vous installer le pack mash-up ou le pack de textures maintenant ?</valu
 	</data>	
 
 	<data name="IDS_DESC_ENCHANTED_GOLDENAPPLE">
-		<value>Restitue 2{*ICON_SHANK_01*}, régénère la santé pendant 30 secondes et octroie une résistance au feu ainsi qu'aux dégâts pendant 5 minutes.</value>
+		<value>Restitue 2{*ICON_SHANK_01*}, régénère la santé pendant 30 secondes et octroie une résistance au feu ainsi qu'aux dégâts pendant 5 minutes. Fabriqué avec une pomme et des blocs d'or.</value>
 	</data>	
 
 	<data name="IDS_ENABLE_TELEPORT">
@@ -7784,5 +7866,8 @@ Tous les coffres du Néant d'un monde sont liés. Les objets placés dans un cof
 
 	<data name="IDS_TOOLTIPS_CURE">
 		<value>Guérison</value>
-	</data>	
+	</data>
+  <data name="IDS_PROGRESS_NEW_WORLD_SEED">
+    <value>Recherche de graines pour le générateur de monde</value>
+  </data>
 </root>

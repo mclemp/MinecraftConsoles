@@ -84,7 +84,7 @@
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_21">
-		<value>Premi{*CONTROLLER_VK_B*} per far cadere l'oggetto che stai tenendo in mano!</value>
+		<value>Premi {*CONTROLLER_VK_B*} per far cadere l'oggetto che stai tenendo in mano!</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_22">
@@ -116,7 +116,7 @@
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_29">
-		<value>I ciottoli non subiscono danni dalle sfere di fuoco dei ghast, quindi sono utili per proteggere i portali.</value>
+		<value>I ciottoli non subiscono danni dalle palle di fuoco dei ghast, quindi sono utili per proteggere i portali.</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_30">
@@ -276,7 +276,7 @@ Se tieni un oggetto in mano, usa{*CONTROLLER_ACTION_USE*} per utilizzarlo, oppur
 
 	<data name="IDS_HOW_TO_PLAY_HUD">
 		<value>{*T3*}COME GIOCARE: INTERFACCIA{*ETW*}{*B*}{*B*}
-L'interfaccia mostra informazioni sul tuo stato: salute, ossigeno rimasto (quando sei sott'acqua), livello di fame (devi mangiare per reintegrare la barra) e armatura (se la indossi).
+L'interfaccia mostra informazioni sul tuo stato: salute, ossigeno rimasto (quando sei sott'acqua), livello di fame (devi mangiare per reintegrare la barra) e armatura (se la indossi).{*B*}
 Se subisci dei danni, ma nella tua barra del cibo ci sono 9 o più{*ICON_SHANK_01*}, la tua salute si ripristinerà automaticamente. Mangiare reintegrerà la barra del cibo.{*B*}
 Qui è visualizzata anche la barra dell'esperienza, che mostra il tuo livello di Esperienza corrente e quanti punti Esperienza ti mancano per raggiungere il livello successivo. 
 Guadagni punti Esperienza raccogliendo le sfere Esperienza abbandonate dai nemici uccisi, scavando certi tipi di blocchi, facendo riprodurre animali, pescando e fondendo minerali in una fornace.{*B*}{*B*}
@@ -336,11 +336,11 @@ Se il puntatore è posizionato su ingredienti o combustibili per la fornace, deg
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_DISPENSER">
-		<value>{*T3*}COME GIOCARE: DISPENSER{*ETW*}{*B*}{*B*}
-Il dispenser serve per far uscire gli oggetti. Per attivare il dispenser, dovrai collocarvi accanto un interruttore, per esempio una leva.{*B*}{*B*}
-Per riempire il dispenser di oggetti, premi{*CONTROLLER_ACTION_USE*}, quindi sposta gli oggetti desiderati dall'inventario al dispenser.{*B*}{*B*}
-Ora, quando userai l'interruttore, il dispenser farà uscire un oggetto.
-  </value>
+		<value>{*T3*}COME GIOCARE: DISTRIBUTORE{*ETW*}{*B*}{*B*}
+Il distributore serve per scagliare oggetti. Per attivare il distributore, dovrai collocarvi accanto un interruttore, per esempio una leva.{*B*}{*B*}
+Per riempire il distributore di oggetti, premi{*CONTROLLER_ACTION_USE*}, quindi sposta gli oggetti desiderati dall'inventario al distributore.{*B*}{*B*}
+Ora, quando userai l'interruttore, il distributore scaglierà un oggetto.
+ </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_BREWING">
@@ -351,7 +351,7 @@ Inserendo un ingrediente nella posizione più alta del Banco di distillazione si
 L'aggiunta di un terzo ingrediente può rendere l'effetto della pozione più durevole (se si usa Polvere di pietra rossa) o più intenso (se si usa Polvere di pietra brillante), o rendere nociva la pozione (se si usa un Occhio di ragno fermentato).{*B*}
 Aggiungendo della polvere da sparo, si può trasformare una qualsiasi pozione in una Bomba pozione che, una volta lanciata, diffonderà il suo effetto nell'area colpita.{*B*}
 
-Gli ingredienti utilizzabili nelle pozioni sono :{*B*}{*B*}
+Gli ingredienti utilizzabili nelle pozioni sono:{*B*}{*B*}
 * {*T2*}Verruca del Sottomondo{*ETW*}{*B*}
 * {*T2*}Occhio di ragno{*ETW*}{*B*}
 * {*T2*}Zucchero{*ETW*}{*B*}
@@ -364,7 +364,7 @@ Gli ingredienti utilizzabili nelle pozioni sono :{*B*}{*B*}
 * {*T2*}Occhio di ragno fermentato{*ETW*}{*B*}{*B*}
 
 Le combinazioni possibili sono numerose, e ognuna produce una pozione con un effetto diverso.
-  </value>
+ </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_ENCHANTMENT">
@@ -448,7 +448,7 @@ Quando crei un nuovo mondo, sono disponibili alcune opzioni aggiuntive.{*B*}{*B*
 	Quando è attivato, il Sottomondo sarà rigenerato. Questa funzionalità può essere molto utile se hai dei vecchi salvataggi in cui le Fortezze del Sottomondo non erano presenti.{*B*}{*B*}
 
 	{*T1*}Opzioni di gioco{*ETW*}{*B*}
-	Durante la partita, premi {*BACK_BUTTON*} per aprire il menu di gioco, dove potrai accedere a diverse opzioni.{*B*}{*B*}
+	Durante la partita, premi{*CONTROLLER_VK_BACK*}per aprire il menu di gioco, dove potrai accedere a diverse opzioni.{*B*}{*B*}
 	
 	{*T2*}Opzioni host{*ETW*}{*B*}
 	L'host e tutti i giocatori identificati come moderatori possono accedere al menu "Opzioni host", nel quale avranno la possibilità di abilitare o disabilitare le opzioni "Diffusione incendio" ed "Esplosione TNT".{*B*}{*B*}
@@ -475,7 +475,7 @@ Per modificare i privilegi di un giocatore, seleziona il suo nome e premi{*CONTR
 	Se quest'opzione è attivata, il giocatore potrà modificare i privilegi degli altri utenti, fatta eccezione per l'host, a patto che "Autorizza giocatori" sia disabilitata. Inoltre, il giocatore potrà espellere gli altri utenti e modificare le opzioni relative alla diffusione degli incendi e all'esplosione del TNT.{*B*}{*B*}
 	
 	{*T2*}Espelli giocatore{*ETW*}{*B*}
-	Selezionando quest'opzione, è possibile espellere qualsiasi giocatore che non si trova sulla console {*PLATFORM_NAME*} dell'host e tutti gli altri utenti eventualmente collegati tramite la console {*PLATFORM_NAME*} del giocatore espulso. I giocatori espulsi non potranno rientrare prima che la partita sia riavviata.{*B*}{*B*}
+	Selezionando quest'opzione, è possibile espellere qualsiasi giocatore che non si trova sulla console Xbox One dell'host e tutti gli altri utenti eventualmente collegati tramite la console Xbox One del giocatore espulso. I giocatori espulsi non potranno rientrare prima che la partita sia riavviata.{*B*}{*B*}
 
 {*T1*}Opzioni del giocatore host{*ETW*}{*B*}
 Se l'opzione "Privilegi dell'host" è attivata, l'host può modificare da solo alcuni privilegi. Per modificare i privilegi di un giocatore, seleziona il suo nome e premi {*CONTROLLER_VK_A*} per aprire il menu dei privilegi del giocatore e accedere alle seguenti opzioni.{*B*}{*B*}
@@ -488,8 +488,8 @@ Se l'opzione "Privilegi dell'host" è attivata, l'host può modificare da solo a
 	
 	{*T2*}Invisibile{*ETW*}{*B*}
 	Se l'opzione è abilitata, il giocatore è invulnerabile e gli altri utenti non possono vederlo.{*B*}{*B*}
-    
-    {*T2*}Può usare il teletrasporto{*ETW*}{*B*}
+	
+	{*T2*}Può usare il teletrasporto{*ETW*}{*B*}
 	Permette al giocatore di spostare sé stesso o gli altri utenti, raggiungendo altri giocatori presenti nel mondo.
 </value>
 	</data>	
@@ -527,7 +527,7 @@ Se l'opzione "Privilegi dell'host" è attivata, l'host può modificare da solo a
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MENU_DISPENSER">
-		<value>Dispenser</value>
+		<value>Distributore</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MENU_FARMANIMALS">
@@ -579,24 +579,24 @@ Se l'opzione "Privilegi dell'host" è attivata, l'host può modificare da solo a
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MENU_THEEND">
-		<value>Limite</value>
+		<value>End</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_THEEND">
-		<value>{*T3*}COME GIOCARE : IL LIMITE{*ETW*}{*B*}{*B*}
-Il Limite è un'altra dimensione del gioco, che può essere raggiunta tramite un Portale del Limite attivo. Il Portale del Limite si trova in una fortezza posta nelle profondità sotterranee del Sopramondo.{*B*}
-Per attivare il portale è necessario inserire un Occhio di Ender nei Telai del Portale del Limite che non ne hanno uno.{*B*}
-Una volta che il Portale del Limite è attivo, ti basterà attraversarlo per raggiungere il Limite.{*B*}{*B*}
-Nel Limite incontrerai il Drago di Ender, nemico forte e fiero, oltre agli Enderman, quindi dovrai prepararti a dovere prima di intraprendere il viaggio!{*B*}{*B*}
+		<value>{*T3*}COME GIOCARE : L'END{*ETW*}{*B*}{*B*}
+L'End è un'altra dimensione del gioco, che può essere raggiunta tramite un Portale dell'End attivo. Il Portale dell'End si trova in una fortezza posta nelle profondità sotterranee del Sopramondo.{*B*}
+Per attivare il portale è necessario inserire un Occhio di Ender nei Telai del Portale dell'End che non ne hanno uno.{*B*}
+Una volta che il Portale dell'End è attivo, ti basterà attraversarlo per raggiungere l'End.{*B*}{*B*}
+Nell'End incontrerai il Drago di Ender, nemico forte e fiero, oltre agli Enderman, quindi dovrai prepararti a dovere prima di intraprendere il viaggio!{*B*}{*B*}
 Scoprirai che, per rigenerarsi, il Drago di Ender usa i Cristalli di Ender che si trovano su otto punte di ossidiana, 
 quindi la prima cosa che dovrai fare è distruggere tutti i cristalli.{*B*}
 Puoi colpire i primi con le frecce, ma i successivi sono protetti da una gabbia di metallo, e quindi dovrai trovare il modo di avvicinarti.{*B*}{*B*}
 Nel frattempo, il Drago di Ender ti attaccherà dall'alto e ti lancerà contro delle sfere di acido!{*B*}
 Se ti avvicini al piedistallo dell'uovo posto al centro delle punte, il Drago di Ender scenderà in picchiata per affrontarti: quello sarà il momento giusto per attaccarlo e infliggergli pesanti danni!{*B*} 
-Evita l'acido e mira agli occhi del Drago di Ender per ottenere i risultati migliori. Se puoi, porta degli amici con te nel Limite, così ti aiuteranno a trionfare in questa difficile battaglia!{*B*}{*B*}
-Una volta che sarai nel Limite, i tuoi amici potranno vedere sulla loro mappa l'ubicazione del Portale del Limite nella Fortezza, 
+Evita l'acido e mira agli occhi del Drago di Ender per ottenere i risultati migliori. Se puoi, porta degli amici con te nell'End, così ti aiuteranno a trionfare in questa difficile battaglia!{*B*}{*B*}
+Una volta che sarai nell'End, i tuoi amici potranno vedere sulla loro mappa l'ubicazione del Portale dell'End nella Fortezza, 
 così saranno in grado di raggiungerti facilmente.
-  </value>
+</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MENU_SPRINT">
@@ -609,7 +609,6 @@ così saranno in grado di raggiungerti facilmente.
 
 	<data name="IDS_HOW_TO_PLAY_WHATSNEW">
 		<value>
-{*T3*}{*TITLE_UPDATE_NAME*}{*ETW*}{*B*}{*B*}
 {*T3*}Modifiche e aggiunte{*ETW*}{*B*}{*B*}
 - Nuovi oggetti: smeraldi, minerale di smeraldo, blocco di smeraldo, forziere di Ender, gancio a filo, mela d'oro incantata, incudine, vaso di fiori, muro di ciottoli, muro di ciottoli coperto di muschio, quadro sbiadito, patata, patata arrostita, patata velenosa, carota, carota d'oro, carota e bastone, 
 torta di zucca, pozione della visione notturna, pozione dell'invisibilità, quarzo del Sottomondo, minerale di quarzo del Sottomondo, blocco di quarzo, lastra di quarzo, scala di quarzo, blocco cesellato di quarzo, blocco portante di quarzo, libro incantato, tappeto.{*B*}
@@ -639,7 +638,7 @@ torta di zucca, pozione della visione notturna, pozione dell'invisibilità, quar
 - I calderoni si riempiono d'acqua sotto la pioggia.{*B*}
 - I pistoni impiegano il doppio del tempo per tornare al punto di partenza.{*B*}
 - In caso siano sellati, i maiali lasciano cadere la sella quando sono uccisi.{*B*}
-- Il colore del cielo nel Limite è stato cambiato.{*B*}
+- Il colore del cielo nell'End è stato cambiato.{*B*}
 - È possibile posizionare corde (per i ganci a filo).{*B*}
 - Le gocce di pioggia filtrano tra le foglie.{*B*}
 - Le leve possono essere posizionate sulla parte inferiore dei blocchi.{*B*}
@@ -650,7 +649,7 @@ torta di zucca, pozione della visione notturna, pozione dell'invisibilità, quar
 - Sono generati meno slime nei mondi superpiatti.{*B*}
 - I creeper infliggono una quantità di danni variabile in base al livello di difficoltà, ma l'atterramento è aumentato.{*B*}
 - È stato risolto il problema degli Enderman che non aprono le mascelle.{*B*}
-- È stato aggiunto il teletrasporto per i giocatori (usando il menu {*BACK_BUTTON*} durante il gioco).{*B*}
+- È stato aggiunto il teletrasporto per i giocatori (usando il menu{*CONTROLLER_VK_BACK*}durante il gioco).{*B*}
 - Sono state aggiunte opzioni host per il volo, l'invisibilità e l'invulnerabilità per i giocatori in remoto.{*B*}
 - Nel mondo tutorial sono stati aggiunti altri tutorial che spiegano nuovi oggetti e caratteristiche del gioco.{*B*}
 - Le posizioni dei forzieri dei dischi nel mondo tutorial sono state aggiornate.{*B*}
@@ -695,25 +694,101 @@ torta di zucca, pozione della visione notturna, pozione dell'invisibilità, quar
 
 	<data name="IDS_DESC_DOOR_IRON">
 		<value>Le porte di ferro si aprono solo con pietra rossa, pulsanti o interruttori.</value>
+	</data>
+
+  <data name="IDS_DESC_HELMET">
+    <value>Si indossa per ottenere 1,5 punti armatura.</value>
+  </data>
+  <data name="IDS_DESC_CHESTPLATE">
+    <value>Si indossa per ottenere 4 punti armatura.</value>
+  </data>
+  <data name="IDS_DESC_LEGGINGS">
+    <value>Si indossano per ottenere 3 punti armatura.</value>
+  </data>
+  <data name="IDS_DESC_BOOTS">
+    <value>Si indossano per ottenere 1,5 punti armatura.</value>
+  </data>
+	<data name="IDS_DESC_HELMET_LEATHER">
+		<value>Protezione che assegna 1 punto armatura a chi la indossa.</value>
 	</data>	
 
-	<data name="IDS_DESC_HELMET">
-		<value>Si indossa per ottenere 1,5 punti armatura.</value>
+	<data name="IDS_DESC_CHESTPLATE_LEATHER">
+		<value>Protezione che assegna 3 punti armatura a chi la indossa.</value>
 	</data>	
 
-	<data name="IDS_DESC_CHESTPLATE">
-		<value>Si indossa per ottenere 4 punti armatura.</value>
+	<data name="IDS_DESC_LEGGINGS_LEATHER">
+		<value>Protezione che assegna 2 punti armatura a chi la indossa.</value>
 	</data>	
 
-	<data name="IDS_DESC_LEGGINGS">
-		<value>Si indossano per ottenere 3 punti armatura.</value>
-	</data>	
+	<data name="IDS_DESC_BOOTS_LEATHER">
+		<value>Protezione che assegna 1 punto armatura a chi la indossa.</value>
+	</data>
 
-	<data name="IDS_DESC_BOOTS">
-		<value>Si indossano per ottenere 1,5 punti armatura.</value>
-	</data>	
+  <data name="IDS_DESC_HELMET_CHAIN">
+    <value>Protezione che assegna 2 punti armatura a chi la indossa.</value>
+  </data>
 
-	<data name="IDS_DESC_INGOT">
+  <data name="IDS_DESC_CHESTPLATE_CHAIN">
+    <value>Protezione che assegna 5 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_CHAIN">
+    <value>Protezione che assegna 4 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_CHAIN">
+    <value>Protezione che assegna 1 punto armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_IRON">
+    <value>Protezione che assegna 2 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_IRON">
+    <value>Protezione che assegna 6 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_IRON">
+    <value>Protezione che assegna 5 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_IRON">
+    <value>Protezione che assegna 2 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_GOLD">
+    <value>Protezione che assegna 2 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_GOLD">
+    <value>Protezione che assegna 5 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_GOLD">
+    <value>Protezione che assegna 3 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_GOLD">
+    <value>Protezione che assegna 1 punto armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_HELMET_DIAMOND">
+    <value>Protezione che assegna 3 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_CHESTPLATE_DIAMOND">
+    <value>Protezione che assegna 8 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_LEGGINGS_DIAMOND">
+    <value>Protezione che assegna 6 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_BOOTS_DIAMOND">
+    <value>Protezione che assegna 3 punti armatura a chi la indossa.</value>
+  </data>
+
+  <data name="IDS_DESC_INGOT">
 		<value>Lingotto lucente utilizzabile per creare oggetti di questo materiale. Si crea fondendo minerali nella fornace.</value>
 	</data>	
 
@@ -855,7 +930,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_COOKIE">
-		<value>Reintegra 0,5{*ICON_SHANK_01*}.</value>
+		<value>Reintegra 1{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SLICE">
@@ -863,39 +938,39 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_MUSHROOMSTEW">
-		<value>Reintegra 4{*ICON_SHANK_01*}.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_RAW">
-		<value>Reintegra 1{*ICON_SHANK_01*}, ma può farti star male. Cucinare in una fornace.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_COOKED">
 		<value>Reintegra 3{*ICON_SHANK_01*}.</value>
 	</data>	
 
+	<data name="IDS_DESC_CHICKEN_RAW">
+		<value>Reintegra 1{*ICON_SHANK_01*}, o può essere cucinato nella fornace. Può avvelenarti.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHICKEN_COOKED">
+		<value>Reintegra 3{*ICON_SHANK_01*}. Si crea cucinando il pollo crudo nella fornace.</value>
+	</data>	
+
 	<data name="IDS_DESC_BEEF_RAW">
-		<value>Reintegra 1,5{*ICON_SHANK_01*}, ma può farti star male. Cucinare in una fornace.</value>
+		<value>Reintegra 1,5{*ICON_SHANK_01*}, o può essere cucinato in una fornace.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_COOKED">
-		<value>Reintegra 4{*ICON_SHANK_01*}.</value>
+		<value>Reintegra 4{*ICON_SHANK_01*}. Si crea cucinando il manzo crudo nella fornace.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_RAW">
-		<value>Si ottiene uccidendo un maiale e si può cucinare nella fornace. Reintegra 1,5{*ICON_SHANK_01*}.</value>
+		<value>Reintegra 1,5{*ICON_SHANK_01*} o si può cucinare nella fornace.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_COOKED">
-		<value>Si crea cucinando una costoletta di maiale in una fornace. Reintegra 4{*ICON_SHANK_01*}.</value>
+		<value>Reintegra 4{*ICON_SHANK_01*}. Si crea cucinando una costoletta di maiale in una fornace.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_RAW">
-		<value>Si può mangiare per reintegrare 1{*ICON_SHANK_01*} o cuocere in una fornace. Può essere dato a un ocelot per ammansirlo.</value>
+		<value>Reintegra 1{*ICON_SHANK_01*} o si può cucinare in una fornace. Può essere dato a un ocelot per ammansirlo.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_COOKED">
-		<value>Si crea cucinando pesce crudo in una fornace. Si può mangiare per reintegrare 2,5{*ICON_SHANK_01*}.</value>
+		<value>Reintegra 2,5{*ICON_SHANK_01*}. Si crea cucinando pesce crudo in una fornace.</value>
 	</data>	
 
 	<data name="IDS_DESC_APPLE">
@@ -903,7 +978,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_GOLDENAPPLE">
-		<value>Reintegra 2{*ICON_SHANK_01*} e rigenera la salute per 4 secondi.</value>
+		<value>Reintegra 2{*ICON_SHANK_01*} e rigenera la salute per 4 secondi. Si crea usando una mela e dalle pepite d'oro.</value>
 	</data>	
 
 	<data name="IDS_DESC_ROTTEN_FLESH">
@@ -1309,7 +1384,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_BLOCK">
-		<value>Può essere creato usando Fette di melone.</value>
+		<value>Può essere creato usando Fette di cocomero.</value>
 	</data>	
 
 	<data name="IDS_DESC_THIN_GLASS">
@@ -1321,7 +1396,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SEEDS">
-		<value>Si possono piantare per far crescere dei meloni.</value>
+		<value>Si possono piantare per far crescere dei cocomeri.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENDER_PEARL">
@@ -1405,7 +1480,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_EYE_OF_ENDER">
-		<value>Quando viene lanciato, l'Occhio di Ender mostra la posizione di un Portale del Limite. Dodici Occhi inseriti nel Telaio di un portale del Limite attivano il Portale stesso.</value>
+		<value>Quando viene lanciato, l'Occhio di Ender mostra la posizione di un Portale dell'End. Dodici Occhi inseriti nel Telaio di un portale dell'End attivano il Portale stesso.</value>
 	</data>	
 
 	<data name="IDS_DESC_SPECKLED_MELON">
@@ -1437,19 +1512,19 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_END_PORTAL">
-		<value>Si attiva usando dodici Occhi di Ender e permette di raggiungere la dimensione Limite.</value>
+		<value>Si attiva usando dodici Occhi di Ender e permette di raggiungere la dimensione End.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENDPORTALFRAME">
-		<value>Si usa per costruire un Portale del Limite.</value>
+		<value>Si usa per costruire un Portale dell'End.</value>
 	</data>	
 
 	<data name="IDS_DESC_WHITESTONE">
-		<value>Un tipo di blocco che si trova nel Limite. Estremamente resistente alle esplosioni, è molto utile per costruire.</value>
+		<value>Un tipo di blocco che si trova nell'End. Estremamente resistente alle esplosioni, è molto utile per costruire.</value>
 	</data>	
 
 	<data name="IDS_DESC_DRAGONEGG">
-		<value>Questo blocco si crea dopo aver sconfitto il Drago nel Limite.</value>
+		<value>Questo blocco si crea dopo aver sconfitto il Drago nell'End.</value>
 	</data>	
 
 	<data name="IDS_DESC_EXP_BOTTLE">
@@ -1457,7 +1532,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_FIREBALL">
-		<value>Utile per appiccare il fuoco alle cose. Se si spara da un dispenser può scatenare incendi tutt'intorno in modo casuale.</value>
+		<value>Utile per appiccare il fuoco alle cose. Se si spara da un distributore può scatenare incendi tutt'intorno in modo casuale.</value>
 	</data>	
 
 	<data name="IDS_DESC_ITEMFRAME">
@@ -1585,7 +1660,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_GHAST">
-		<value>Ti lancia sfere di fuoco che esplodono al contatto.</value>
+		<value>Ti lancia palle di fuoco fiammeggianti che esplodono al contatto.</value>
 	</data>	
 
 	<data name="IDS_SLIME">
@@ -1641,7 +1716,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENDERDRAGON">
-		<value>Grosso drago nero che si trova nel Limite.</value>
+		<value>Grosso drago nero che si trova nell'End.</value>
 	</data>	
 
 	<data name="IDS_BLAZE">
@@ -1709,7 +1784,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_CREDITS_LEADPC">
-		<value>Lead game programmer Minecraft PC</value>
+		<value>Capo programmatore Minecraft PC</value>
 	</data>	
 
 	<data name="IDS_CREDITS_CODENINJA">
@@ -2429,7 +2504,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SEEDS">
-		<value>Semi di melone</value>
+		<value>Semi di cocomero</value>
 	</data>	
 
 	<data name="IDS_ITEM_CHICKEN_RAW">
@@ -2453,11 +2528,11 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_ITEM_ENDER_PEARL">
-		<value>Ender Pearl</value>
+		<value>Perla di Ender</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SLICE">
-		<value>Fetta di melone</value>
+		<value>Fetta di cocomero</value>
 	</data>	
 
 	<data name="IDS_ITEM_BLAZE_ROD">
@@ -2517,7 +2592,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_ITEM_SPECKLED_MELON">
-		<value>Melone scintillante</value>
+		<value>Cocomero scintillante</value>
 	</data>	
 
 	<data name="IDS_ITEM_EXP_BOTTLE">
@@ -2806,13 +2881,21 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 
 	<data name="IDS_TILE_BLOCK_GOLD">
 		<value>Blocco d'oro</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_BLOCK_IRON">
+  <data name="IDS_DESC_BLOCK_GOLD">
+    <value>Per conservare l'oro in poco spazio.</value>
+  </data>
+
+  <data name="IDS_TILE_BLOCK_IRON">
 		<value>Blocco di ferro</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_STONESLAB">
+  <data name="IDS_DESC_BLOCK_IRON">
+    <value>Per conservare il ferro in poco spazio.</value>
+  </data>
+
+  <data name="IDS_TILE_STONESLAB">
 		<value>Lastra di pietra</value>
 	</data>	
 
@@ -2918,9 +3001,13 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 
 	<data name="IDS_TILE_BLOCK_DIAMOND">
 		<value>Blocco di diamante</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_WORKBENCH">
+  <data name="IDS_DESC_BLOCK_DIAMOND">
+    <value>Per conservare i diamanti in poco spazio.</value>
+  </data>
+
+  <data name="IDS_TILE_WORKBENCH">
 		<value>Tavolo da lavoro</value>
 	</data>	
 
@@ -3046,10 +3133,14 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 
 	<data name="IDS_TILE_BLOCK_LAPIS">
 		<value>Blocco lapislazzulo</value>
-	</data>	
+	</data>
 
-	<data name="IDS_TILE_DISPENSER">
-		<value>Dispenser</value>
+  <data name="IDS_DESC_BLOCK_LAPIS">
+    <value>Per conservare i lapislazzuli in poco spazio.</value>
+  </data>
+
+  <data name="IDS_TILE_DISPENSER">
+		<value>Distributore</value>
 	</data>	
 
 	<data name="IDS_TILE_MUSIC_BLOCK">
@@ -3137,7 +3228,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON">
-		<value>Melone</value>
+		<value>Cocomero</value>
 	</data>	
 
 	<data name="IDS_TILE_PUMPKIN_STEM">
@@ -3145,7 +3236,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON_STEM">
-		<value>Picciolo di melone</value>
+		<value>Picciolo di cocomero</value>
 	</data>	
 
 	<data name="IDS_TILE_VINE">
@@ -3213,15 +3304,15 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_TILE_END_PORTAL">
-		<value>Portale del Limite</value>
+		<value>Portale dell'End</value>
 	</data>	
 
 	<data name="IDS_TILE_ENDPORTALFRAME">
-		<value>Telaio per portale del Limite</value>
+		<value>Telaio per portale dell'End</value>
 	</data>	
 
 	<data name="IDS_TILE_WHITESTONE">
-		<value>Pietra del Limite</value>
+		<value>Pietra dell'End</value>
 	</data>	
 
 	<data name="IDS_TILE_DRAGONEGG">
@@ -3281,7 +3372,7 @@ I colori sono sempre gli stessi, qualunque sia la lana usata.</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_PAUSE">
-		<value>Pausa</value>
+		<value>Menu</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_JUMP">
@@ -3953,7 +4044,7 @@ Di notte, i mostri vagano in libertà, quindi costruisci un riparo per tempo.</v
 
 	<data name="IDS_TUTORIAL_TASK_BREWING_USE_POTION">
 		<value>
-      Prendi una pozione e tieni premuto{*CONTROLLER_ACTION_USE*} per usarla. Le pozioni normali vengono ingerite e producono i propri effetti sul giocatore stesso; le pozioni Area, invece, vengono lanciate e il loro effetto si applica alle creature che si trovano nella zona dell'impatto. 
+      Prendi una pozione e tieni premuto{*CONTROLLER_ACTION_USE*} per usarla. Le pozioni normali vengono ingerite e producono i propri effetti sul giocatore stesso; le Bombe pozione , invece, vengono lanciate e il loro effetto si applica alle creature che si trovano nella zona dell'impatto. 
 	  È possibile creare delle Bombe pozione aggiungendo polvere da sparo a una pozione normale.
     </value>
 	</data>	
@@ -4309,7 +4400,7 @@ Di notte, i mostri vagano in libertà, quindi costruisci un riparo per tempo.</v
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SEEDS">
-		<value>Grano, Zucche e Meloni crescono a partire dai semi. I Semi di grano si ottengono tagliando l'Erba alta o raccogliendo Grano maturo, mentre quelli di Zucca e di Melone si ricavano dai rispettivi ortaggi.</value>
+		<value>Grano, Zucche e Cocomeri crescono a partire dai semi. I Semi di grano si ottengono tagliando l'Erba alta o raccogliendo Grano maturo, mentre quelli di Zucca e di Cocomero si ricavano dai rispettivi ortaggi.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_FARMLAND">
@@ -4321,7 +4412,7 @@ Di notte, i mostri vagano in libertà, quindi costruisci un riparo per tempo.</v
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_PUMPKIN_AND_MELON">
-		<value>Zucche e Meloni richiedono un blocco libero accanto a quello in cui sono stati piantati i semi in modo che il frutto abbia spazio per crescere una volta che il picciolo è giunto a maturazione.</value>
+		<value>Zucche e Cocomeri richiedono un blocco libero accanto a quello in cui sono stati piantati i semi in modo che il frutto abbia spazio per crescere una volta che il picciolo è giunto a maturazione.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SUGARCANE">
@@ -4951,10 +5042,6 @@ Di notte, i mostri vagano in libertà, quindi costruisci un riparo per tempo.</v
 		<value>Negozio di Minecraft</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
-		<value>Vuoi davvero uscire dalla partita attuale e accedere a quella nuova? Tutti i progressi non salvati andranno persi.</value>
-	</data>	
-
 	<data name="IDS_EXIT_GAME">
 		<value>Esci dal gioco</value>
 	</data>	
@@ -4999,10 +5086,6 @@ Di notte, i mostri vagano in libertà, quindi costruisci un riparo per tempo.</v
 		<value>Esci senza salvare</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_EXIT_GAME">
-		<value>Vuoi davvero tornare al menu principale? Tutti i progressi non salvati andranno persi.</value>
-	</data>	
-
 	<data name="IDS_CONFIRM_EXIT_GAME_PROGRESS_LOST">
 		<value>Vuoi davvero tornare al menu principale? I progressi andranno persi!</value>
 	</data>	
@@ -5036,7 +5119,7 @@ Di notte, i mostri vagano in libertà, quindi costruisci un riparo per tempo.</v
 	</data>	
 
 	<data name="IDS_PRESS_START_TO_JOIN">
-		<value>Premi START per accedere alla partita</value>
+		<value>Premi {*CONTROLLER_VK_START*} per accedere alla partita</value>
 	</data>	
 
 	<data name="IDS_EXITING_GAME">
@@ -5229,11 +5312,11 @@ Vuoi sbloccare il gioco completo ora?</value>
 	</data>	
 
 	<data name="IDS_PROGRESS_ENTERING_END">
-		<value>Ingresso nel LIMITE</value>
+		<value>Ingresso nell'END</value>
 	</data>	
 
 	<data name="IDS_PROGRESS_LEAVING_END">
-		<value>Uscita dal LIMITE</value>
+		<value>Uscita dall'END</value>
 	</data>	
 
 	<data name="IDS_TILE_BED_OCCUPIED">
@@ -5453,7 +5536,7 @@ Vuoi sbloccare il gioco completo ora?</value>
 	</data>	
 
 	<data name="IDS_DISPENSER">
-		<value>Dispenser</value>
+		<value>Distributore</value>
 	</data>	
 
 	<data name="IDS_NO_DLCOFFERS">
@@ -6055,11 +6138,11 @@ Vuoi installare uno dei due pacchetti ora?</value>
 	</data>	
 
 	<data name="IDS_PLAYER_ENTERED_END">
-		<value>%s si trova ora nel Limite</value>
+		<value>%s si trova ora nell'End</value>
 	</data>	
 
 	<data name="IDS_PLAYER_LEFT_END">
-		<value>%s ha lasciato il Limite</value>
+		<value>%s ha lasciato l'End</value>
 	</data>	
 
 	<data name="IDS_WIN_TEXT">
@@ -7083,23 +7166,23 @@ Vuoi installare uno dei due pacchetti ora?</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROTS">
-		<value>Fa recuperare 2 {*ICON_SHANK_01*}. Si può piantare sulle zolle.</value>
+		<value>Fa recuperare 2 {*ICON_SHANK_01*} e si può creare da una carota d'oro. Si può piantare sulle zolle.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO">
-		<value>Fa recuperare 0,5 {*ICON_SHANK_01*}. Si può cuocere nelle fornaci o piantare sulle zolle.</value>
+		<value>Fa recuperare 0,5 {*ICON_SHANK_01*} o si può cuocere nelle fornaci. Si può piantare sulle zolle.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_BAKED">
-		<value>Fa recuperare 3 {*ICON_SHANK_01*}.</value>
+		<value>Fa recuperare 3 {*ICON_SHANK_01*}. Si crea cucinando una patata nella fornace.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_POISONOUS">
-		<value>Fa recuperare 1 {*ICON_SHANK_01*}, ma può avvelenarti.</value>
+		<value>Reintegra 1 {*ICON_SHANK_01*}, o si può cucinare nella fornace. Può avvelenarti.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_GOLDEN">
-		<value>Si realizza usando una carota e delle pepite d'oro. Fa recuperare 3 {*ICON_SHANK_01*}.</value>
+		<value>Reintegra 3 {*ICON_SHANK_01*}. Si realizza usando una carota e delle pepite d'oro.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_ON_A_STICK">
@@ -7625,7 +7708,7 @@ Vuoi installare uno dei due pacchetti ora?</value>
 	</data>	
 
 	<data name="IDS_DESC_ENCHANTED_GOLDENAPPLE">
-		<value>Fa recuperare 2 {*ICON_SHANK_01*}, rigenera la salute per 30 secondi e dona resistenza al fuoco e resistenza ai danni per 5 minuti.</value>
+		<value>Fa recuperare 2 {*ICON_SHANK_01*}, rigenera la salute per 30 secondi e dona resistenza al fuoco e resistenza ai danni per 5 minuti. Si crea usando una mela e dei blocchi d'oro.</value>
 	</data>	
 
 	<data name="IDS_ENABLE_TELEPORT">
@@ -7778,5 +7861,8 @@ Tutti i forzieri di Ender presenti in un mondo sono collegati tra loro, quindi p
 
 	<data name="IDS_TOOLTIPS_CURE">
 		<value>Cura</value>
-	</data>	
+	</data>
+  <data name="IDS_PROGRESS_NEW_WORLD_SEED">
+    <value>Trova il Seme per generatore mondo</value>
+  </data>
 </root>

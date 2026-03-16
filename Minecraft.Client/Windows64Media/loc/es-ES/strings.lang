@@ -52,7 +52,7 @@
 	</data>	
 
 	<data name="IDS_OVERWRITESAVE_TITLE">
-		<value>¿Sobrescribir archivo guardado?</value>
+		<value>¿Sobrescribir archivo de guardado?</value>
 	</data>	
 
 	<data name="IDS_OVERWRITESAVE_TEXT">
@@ -119,10 +119,6 @@
 		<value>Escribe un nombre para tu archivo de guardado.</value>
 	</data>	
 
-	<data name="IDS_WARNING_ARCADE_TITLE">
-		<value>Volver a la Interfaz Xbox</value>
-	</data>	
-
 	<data name="IDS_WARNING_ARCADE_TEXT">
 		<value>¿Seguro que quieres salir del juego?</value>
 	</data>	
@@ -131,60 +127,12 @@
 		<value>Sesión cerrada</value>
 	</data>	
 
-	<data name="IDS_PRO_RETURNEDTOTITLESCREEN_TEXT">
-		<value>Has vuelto a la pantalla de título porque tu perfil de jugador ha cerrado la sesión.</value>
-	</data>	
-
-	<data name="IDS_PRO_RETURNEDTOMENU_TEXT">
-		<value>La partida ha finalizado porque un perfil de jugador ha cerrado la sesión.</value>
-	</data>	
-
 	<data name="IDS_PRO_RETURNEDTOMENU_ACCEPT">
 		<value>Seguir jugando</value>
 	</data>	
 
-	<data name="IDS_PRO_NOTONLINE_TITLE">
-		<value>Perfil de jugador no en línea</value>
-	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_TEXT">
-		<value>Este juego ofrece características que requieren un perfil de jugador habilitado para Xbox LIVE, pero en estos momentos estás desconectado.</value>
-	</data>	
-
-	<data name="IDS_PRO_XBOXLIVE_NOTIFICATION">
-		<value>Esta característica requiere un perfil de jugador con sesión iniciada en Xbox LIVE.</value>
-	</data>	
-
-	<data name="IDS_PRO_NOTONLINE_ACCEPT">
-		<value>Conectarse a Xbox LIVE</value>
-	</data>	
-
 	<data name="IDS_PRO_NOTONLINE_DECLINE">
 		<value>Seguir jugando sin conexión</value>
-	</data>	
-
-	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TITLE">
-		<value>Problema con el premio de logro</value>
-	</data>	
-
-	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TEXT">
-		<value> Se ha producido un problema al acceder a tu perfil de jugador. No se puede conceder tu logro en este momento.</value>
-	</data>	
-
-	<data name="IDS_PRO_NOPROFILE_TITLE">
-		<value>Problema con perfil de jugador</value>
-	</data>	
-
-	<data name="IDS_PRO_NOPROFILEOPTIONS_TEXT">
-		<value>Se ha producido un error al guardar la configuración en el perfil de jugador.</value>
-	</data>	
-
-	<data name="IDS_PRO_GUESTPROFILE_TITLE">
-		<value>Perfil de jugador de invitado</value>
-	</data>	
-
-	<data name="IDS_PRO_GUESTPROFILE_TEXT">
-		<value>El perfil de jugador de invitado no puede acceder a esta característica. Usa un perfil de jugador diferente.</value>
 	</data>	
 
 	<data name="IDS_STO_SAVING_SHORT">
@@ -201,12 +149,12 @@
 
 	<data name="IDS_PRO_UNLOCKGAME_TEXT">
 		<value>Esta es la versión de prueba de Minecraft. Si tuvieras el juego completo, ¡habrías conseguido un logro! 
-Desbloquea el juego completo para vivir toda la emoción de Minecraft y jugar con amigos de todo el mundo a través de Xbox LIVE.
+Desbloquea el juego completo para vivir toda la emoción de Minecraft y jugar con amigos de todo el mundo a través de Xbox Live.
 ¿Te gustaría desbloquear el juego completo?</value>
 	</data>	
 
-	<data name="IDS_PRO_PROFILEPROBLEM_TEXT">
-		<value>Volverás al menú principal porque se ha producido un error al leer tu perfil.</value>
+	<data name="IDS_ERROR_NETWORK">
+		<value>Ha ocurrido un error de red.</value>
 	</data>	
 
 	<data name="IDS_NOFREESPACE_TEXT">
@@ -214,7 +162,7 @@ Desbloquea el juego completo para vivir toda la emoción de Minecraft y jugar co
 	</data>	
 
 	<data name="IDS_OVERWRITESAVE_TEXT">
-		<value>El dispositivo de almacenamiento seleccionado ya contiene este archivo guardado. ¿Te parece bien sobrescribirlo?</value>
+		<value>El dispositivo de almacenamiento seleccionado ya contiene este archivo de guardado. ¿Te parece bien sobrescribirlo?</value>
 	</data>	
 
 	<data name="IDS_STORAGEDEVICEPROBLEM_TITLE">
@@ -250,31 +198,31 @@ Desbloquea el juego completo para vivir toda la emoción de Minecraft y jugar co
 	</data>	
 
 	<data name="IDS_WARNING_ARCADE_TITLE">
-		<value>Volver a la Interfaz Xbox</value>
+		<value>Salir del juego</value>
 	</data>	
 
 	<data name="IDS_PRO_RETURNEDTOTITLESCREEN_TEXT">
-		<value>Has vuelto a la pantalla de título porque tu perfil de jugador ha cerrado la sesión.</value>
+		<value>Has vuelto a la pantalla de título porque tu perfil de Xbox ha cerrado la sesión.</value>
 	</data>	
 
 	<data name="IDS_PRO_RETURNEDTOMENU_TEXT">
-		<value>La partida ha finalizado porque un perfil de jugador ha cerrado la sesión.</value>
+		<value>La partida ha finalizado porque un perfil de Xbox ha cerrado la sesión.</value>
 	</data>	
 
 	<data name="IDS_PRO_NOTONLINE_TITLE">
-		<value>Perfil de jugador no en línea</value>
+		<value>Perfil de Xbox no en línea</value>
 	</data>	
 
 	<data name="IDS_PRO_NOTONLINE_TEXT">
-		<value>Este juego ofrece características que requieren un perfil de jugador habilitado para Xbox LIVE, pero en estos momentos estás desconectado.</value>
+		<value>Este juego ofrece características que requieren un perfil de Xbox habilitado para Xbox Live, pero en estos momentos estás desconectado.</value>
 	</data>	
 
 	<data name="IDS_PRO_XBOXLIVE_NOTIFICATION">
-		<value>Esta característica requiere un perfil de jugador con sesión iniciada en Xbox LIVE.</value>
+		<value>Esta característica requiere un perfil de Xbox con sesión iniciada en Xbox Live.</value>
 	</data>	
 
 	<data name="IDS_PRO_NOTONLINE_ACCEPT">
-		<value>Conectarse a Xbox LIVE</value>
+		<value>Conectarse a Xbox Live</value>
 	</data>	
 
 	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TITLE">
@@ -282,33 +230,35 @@ Desbloquea el juego completo para vivir toda la emoción de Minecraft y jugar co
 	</data>	
 
 	<data name="IDS_PRO_ACHIEVEMENTPROBLEM_TEXT">
-		<value> Se ha producido un problema al acceder a tu perfil de jugador. No se puede conceder tu logro en este momento.</value>
+		<value> Se ha producido un problema al acceder a tu perfil de Xbox. No se puede conceder tu logro en este momento.</value>
 	</data>	
 
 	<data name="IDS_PRO_NOPROFILE_TITLE">
-		<value>Problema con perfil de jugador</value>
+		<value>Problema con perfil de Xbox</value>
 	</data>	
 
 	<data name="IDS_PRO_NOPROFILEOPTIONS_TEXT">
-		<value>Se ha producido un error al guardar la configuración en el perfil de jugador.</value>
+		<value>Se ha producido un error al guardar la configuración en el perfil de Xbox.</value>
 	</data>	
 
 	<data name="IDS_PRO_GUESTPROFILE_TITLE">
-		<value>Perfil de jugador de invitado</value>
+		<value>Perfil de Xbox de invitado</value>
 	</data>	
 
 	<data name="IDS_PRO_GUESTPROFILE_TEXT">
-		<value>El perfil de jugador de invitado no puede acceder a esta característica. Usa un perfil de jugador diferente.</value>
+		<value>El perfil de Xbox de invitado no puede acceder a esta característica. Usa un perfil de Xbox diferente.</value>
 	</data>	
 
 	<data name="IDS_PRO_UNLOCKGAME_TEXT">
-		<value>Esta es la versión de prueba de Minecraft. Si tuvieras el juego completo, ¡habrías conseguido un logro! 
-Desbloquea el juego completo para vivir toda la emoción de Minecraft y jugar con amigos de todo el mundo a través de Xbox LIVE.
-¿Te gustaría desbloquear el juego completo?</value>
+		<value>
+      Esta es la versión de prueba de Minecraft. Si tuvieras el juego completo, ¡habrías conseguido un logro! 
+      Desbloquea el juego completo para vivir toda la emoción de Minecraft y jugar con amigos de todo el mundo a través de Xbox Live.
+      ¿Te gustaría desbloquear el juego completo?
+    </value>
 	</data>	
 
 	<data name="IDS_PRO_PROFILEPROBLEM_TEXT">
-		<value>Volverás al menú principal porque se ha producido un error al leer tu perfil.</value>
+		<value>Volverás al menú principal porque se ha producido un error al leer tu perfil de Xbox.</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_NEWDLC">
@@ -588,7 +538,7 @@ Si tienes un objeto en la mano, usa{*CONTROLLER_ACTION_USE*} para utilizar ese o
 
 	<data name="IDS_HOW_TO_PLAY_HUD">
 		<value>{*T3*}CÓMO SE JUEGA: HUD{*ETW*}{*B*}{*B*}
-El HUD muestra información sobre tu estado, tu salud, el oxígeno que te queda cuando estás bajo el agua, tu nivel de hambre (para llenarlo tienes que comer) y la armadura, si la llevas.
+El HUD muestra información sobre tu estado, tu salud, el oxígeno que te queda cuando estás bajo el agua, tu nivel de hambre (para llenarlo tienes que comer) y la armadura, si la llevas. 
 Si pierdes salud pero tienes una barra de comida con 9 o más{*ICON_SHANK_01*}, tu salud se recargará automáticamente. Si comes, se recargará la barra de comida.{*B*}
 Aquí también aparece la barra de experiencia, con un valor numérico que indica tu nivel de experiencia y la barra que señala los puntos de experiencia que necesitas para subir de nivel. 
 Los puntos de experiencia se obtienen al recoger los orbes de experiencia que sueltan los enemigos al morir, al extraer cierto tipo de bloques, al criar nuevos animales, al pescar y al fundir mineral en un horno.{*B*}{*B*}
@@ -663,14 +613,14 @@ Si colocas un ingrediente de poción en la posición superior del puesto de dest
 Cuando obtengas esa poción, podrás añadir un tercer ingrediente para que el efecto sea más duradero (usando polvo de piedra rojiza), más intenso (con polvo de piedra brillante) o convertirlo en una poción perjudicial (con un ojo de araña fermentado).{*B*}
 También puedes añadir pólvora a cualquier poción para convertirla en una poción de salpicadura, que después podrás arrojar. Si lanzas una poción de salpicadura, su efecto se aplicará sobre toda la zona donde caiga.{*B*}
 
-Los ingredientes originales de las pociones son :{*B*}{*B*}
+Los ingredientes originales de las pociones son:{*B*}{*B*}
 * {*T2*}Verruga del mundo inferior{*ETW*}{*B*}
 * {*T2*}Ojo de araña{*ETW*}{*B*}
 * {*T2*}Azúcar{*ETW*}{*B*}
-* {*T2*}Lágrima de espectro{*ETW*}{*B*}
+* {*T2*}Lágrima de Ghast{*ETW*}{*B*}
 * {*T2*}Polvo de llama{*ETW*}{*B*}
 * {*T2*}Crema de magma{*ETW*}{*B*}
-* {*T2*}Melón resplandeciente{*ETW*}{*B*}
+* {*T2*}Sandía resplandeciente{*ETW*}{*B*}
 * {*T2*}Polvo de piedra rojiza{*ETW*}{*B*}
 * {*T2*}Polvo de piedra brillante{*ETW*}{*B*}
 * {*T2*}Ojo de araña fermentado{*ETW*}{*B*}{*B*}
@@ -710,10 +660,10 @@ Existe un límite para la cantidad de animales que puedes tener en un mundo, por
 	<data name="IDS_HOW_TO_PLAY_NETHERPORTAL">
 		<value>{*T3*}CÓMO SE JUEGA: PORTAL INFERIOR{*ETW*}{*B*}{*B*}
 El portal inferior permite al jugador viajar entre el mundo superior y el mundo inferior. El mundo inferior sirve para viajar a toda velocidad por el mundo superior, ya que un bloque de distancia en el mundo inferior equivale a 3 bloques en el mundo superior, así que cuando construyas un portal
-en el mundo inferior y salgas por él, estarás 3 veces más lejos del punto de entrada.{*B*}{*B*}
+ en el mundo inferior y salgas por él, estarás 3 veces más lejos del punto de entrada.{*B*}{*B*}
 Se necesita un mínimo de 10 bloques de obsidiana para construir el portal, y el portal tiene que tener 5 bloques de alto, 4 de ancho y 1 de profundidad. Una vez construida la estructura del portal, tendrás que prender fuego al espacio interior para activarlo. Para ello, usa el objeto "chisquero de pedernal" o "descarga de fuego".{*B*}{*B*}
 En la imagen de la derecha dispones de ejemplos de construcción de un portal.
-</value>
+  </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_BANLIST">
@@ -760,7 +710,7 @@ Cuando se crea un mundo existen opciones adicionales.{*B*}{*B*}
 	Si está habilitada, el mundo inferior se regenará. Esta opción te será útil si tienes una partida guardada en la que no aparecían fortalezas del mundo inferior.{*B*}{*B*}
 
 	{*T1*}Opciones del juego{*ETW*}{*B*}
-	Dentro del juego se pueden acceder a varias opciones pulsando BACK para mostrar el menú del juego.{*B*}{*B*}
+	Dentro del juego se pueden acceder a varias opciones pulsando {*CONTROLLER_VK_BACK*} para mostrar el menú del juego.{*B*}{*B*}
 	
 	{*T2*}Opciones de host{*ETW*}{*B*}
 	El host y cualquier jugador establecido como moderador pueden acceder al menú "Opciones de host". En este menú se puede habilitar y deshabilitar la propagación del fuego y la explosión de dinamita.{*B*}{*B*}
@@ -787,7 +737,7 @@ Para modificar los privilegios de un jugador, selecciona su nombre y pulsa{*CONT
 	Cuando esta opción está habilitada, el jugador puede cambiar los privilegios de otros jugadores (excepto los del host) si "Confiar en jugadores" está desactivada, expulsar jugadores, y activar y desactivar "El fuego se propaga" y "La dinamita explota".{*B*}{*B*}
 	
 	{*T2*}Expulsar jugador{*ETW*}{*B*}
-	En el caso de jugadores que no estén en la misma Consola Xbox 360 que el host, si se selecciona esta opción se expulsará al jugador de la partida y a cualquier otro jugador en la misma Consola Xbox 360. El jugador no podrá volver a unirse al juego hasta que se reinicie.{*B*}{*B*}
+	En el caso de jugadores que no estén en la misma Consola Xbox One que el host, si se selecciona esta opción se expulsará al jugador de la partida y a cualquier otro jugador en la misma Consola Xbox One. El jugador no podrá volver a unirse al juego hasta que se reinicie.{*B*}{*B*}
 
 {*T1*}Opciones de host{*ETW*}{*B*}
 Si "Privilegios de host" está habilitado, el host podrá modificar algunos privilegios para sí mismo. Para modificar los privilegios de un jugador, selecciona su nombre y pulsa{*CONTROLLER_VK_A*} para mostrar el menú de privilegios donde podrás usar las siguientes opciones.{*B*}{*B*}
@@ -801,7 +751,7 @@ Si "Privilegios de host" está habilitado, el host podrá modificar algunos priv
 	{*T2*}Invisible{*ETW*}{*B*}
 	Cuando esta opción está habilitada, el jugador es invisible para otros jugadores y es invulnerable.{*B*}{*B*}
     
-    {*T2*}Puede teletransportarse{*ETW*}{*B*}
+   {*T2*}Puede teletransportarse{*ETW*}{*B*}
 	Permite al jugador desplazarse o desplazar a otros hasta la posición de otros jugadores en el mundo.
 </value>
 	</data>	
@@ -899,15 +849,15 @@ Si "Privilegios de host" está habilitado, el host podrá modificar algunos priv
 El Fin es otra dimensión del juego, a la que se llega a través de un portal final activo. Puedes encontrar el portal final en una fortaleza, en lo más profundo del mundo superior.{*B*}
 Para activar el portal final, debes colocar un ojo de Ender en la estructura de un portal final que no tenga uno.{*B*}
 Una vez que el portal esté activo, introdúcete en él para ir a El fin.{*B*}{*B*}
-En El Fin te encontrarás con el dragón de Ender, un feroz y poderoso enemigo, además de muchos finalizadores, por lo que tendrás que estar preparado para la batalla antes de ir allí.{*B*}{*B*}
-En lo alto de ocho pilares obsidianos, verás cristales finalizadores que el dragón de Ender usa para curarse,
-así que lo primero que deberás hacer será destruirlos todos.{*B*}
+En El Fin te encontrarás con el dragón de Ender, un feroz y poderoso enemigo, además de muchos Enderman, por lo que tendrás que estar preparado para la batalla antes de ir allí.{*B*}{*B*}
+En lo alto de ocho pilares obsidianos, verás cristales de Ender que el dragón de Ender usa para curarse,
+ así que lo primero que deberás hacer será destruirlos todos.{*B*}
 Podrás alcanzar a los primeros con flechas, pero los últimos están en una jaula con barrotes de hierro. Tendrás que subir a lo alto para llegar a ellos.{*B*}{*B*}
 Mientras lo haces, el dragón de Ender volará hacia ti y te atacará escupiendo bolas de ácido de Ender.{*B*}
-Si te acercas al nido de huevos en el centro de los pilares, el dragón de Ender irá hacia abajo y te atacará. ¡Tienes que aprovechar ese momento para hacerle daño!{*B*} 
+Si te acercas al nido de huevos en el centro de los pilares, el dragón de Ender irá hacia abajo y te atacará. ¡Tienes que aprovechar ese momento para hacerle daño!{*B*}
 Esquiva su aliento de ácido y apunta a los ojos del dragón de Ender para hacerle el máximo daño posible. Si puedes, ¡tráete amigos a El Fin para que te echen una mano en la batalla!{*B*}{*B*}
 En cuanto hayas llegado a El Fin, tus amigos podrán ver la ubicación del portal final dentro de la fortaleza en sus mapas,
-para que puedan unirse a ti con facilidad.
+ para que puedan unirse a ti con facilidad.
   </value>
 	</data>	
 
@@ -921,10 +871,9 @@ para que puedan unirse a ti con facilidad.
 
 	<data name="IDS_HOW_TO_PLAY_WHATSNEW">
 		<value>
-{*T3*}{*TITLE_UPDATE_NAME*}{*ETW*}{*B*}{*B*}
 {*T3*}Cambios e incorporaciones{*ETW*}{*B*}{*B*}
 - Se han añadido nuevos objetos: esmeralda, mena de esmeralda, bloque de esmeralda, cofre de Ender, gancho de cable trampa, manzana dorada hechizada, yunque, maceta, paredes de adoquines, paredes de adoquines musgosas, pintura de Wither, patata, patata asada, patata venenosa, zanahoria, zanahoria dorada, palo y zanahoria, 
-Pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarzo del mundo inferior, mena de cuarzo del mundo inferior, bloque de cuarzo, losa de cuarzo, escaleras de cuarzo, bloque de cuarzo cincelado, pilar de cuarzo,, libro hechizado, alfombra.{*B*}
+pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarzo del mundo inferior, mena de cuarzo del mundo inferior, bloque de cuarzo, losa de cuarzo, escaleras de cuarzo, bloque de cuarzo cincelado, pilar de cuarzo, libro hechizado, alfombra.{*B*}
 - Se han añadido nuevas recetas de arenisca lisa y arenisca cincelada.{*B*}
 - Se han añadido nuevos enemigos: aldeanos zombis.{*B*}
 - Se han añadido nuevas funciones de generación de terrenos: templos del desierto, aldeas del desierto, templos de la jungla.{*B*}
@@ -962,7 +911,7 @@ Pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarz
 - La generación de limos es menor en los mundos superplanos.{*B*}
 - Los Creepers causan daños variables en función del nivel de dificultad; más derribo.{*B*}
 - Se ha corregido el error que hacía que los Finalizadores no abrieran sus mandíbulas.{*B*}
-- Se ha añadido el teletransporte de jugadores (usando el menú {*BACK_BUTTON*} del juego).{*B*}
+- Se ha añadido el teletransporte de jugadores (usando el menú {*CONTROLLER_VK_BACK*} del juego).{*B*}
 - Se han añadido nuevas opciones de host que permiten a los jugadores remotos volar, volverse invisibles e invulnerables.{*B*}
 - Se han añadido nuevos tutoriales al mundo tutorial sobre nuevos objetos y funciones.{*B*}
 - Se han actualizado las posiciones de los cofres de discos en el mundo tutorial.{*B*}
@@ -1023,6 +972,86 @@ Pastel de calabaza, poción de visión nocturna, poción de invisibilidad, cuarz
 
 	<data name="IDS_DESC_BOOTS">
 		<value>Cuando lo lleva puesto, el usuario recibe 1,5 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_HELMET_LEATHER">
+		<value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHESTPLATE_LEATHER">
+		<value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_LEGGINGS_LEATHER">
+		<value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_BOOTS_LEATHER">
+		<value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_HELMET_CHAIN">
+		<value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHESTPLATE_CHAIN">
+		<value>Cuando lo lleva puesto, el usuario recibe 5 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_LEGGINGS_CHAIN">
+		<value>Cuando lo lleva puesto, el usuario recibe 4 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_BOOTS_CHAIN">
+		<value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_HELMET_IRON">
+		<value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHESTPLATE_IRON">
+		<value>Cuando lo lleva puesto, el usuario recibe 6 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_LEGGINGS_IRON">
+		<value>Cuando lo lleva puesto, el usuario recibe 5 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_BOOTS_IRON">
+		<value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_HELMET_GOLD">
+		<value>Cuando lo lleva puesto, el usuario recibe 2 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHESTPLATE_GOLD">
+		<value>Cuando lo lleva puesto, el usuario recibe 5 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_LEGGINGS_GOLD">
+		<value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_BOOTS_GOLD">
+		<value>Cuando lo lleva puesto, el usuario recibe 1 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_HELMET_DIAMOND">
+		<value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHESTPLATE_DIAMOND">
+		<value>Cuando lo lleva puesto, el usuario recibe 8 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_LEGGINGS_DIAMOND">
+		<value>Cuando lo lleva puesto, el usuario recibe 6 de armadura.</value>
+	</data>	
+
+	<data name="IDS_DESC_BOOTS_DIAMOND">
+		<value>Cuando lo lleva puesto, el usuario recibe 3 de armadura.</value>
 	</data>	
 
 	<data name="IDS_DESC_INGOT">
@@ -1167,7 +1196,7 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 	</data>	
 
 	<data name="IDS_DESC_COOKIE">
-		<value>Restablece 0,5{*ICON_SHANK_01*}.</value>
+		<value>Restablece 1{*ICON_SHANK_01*}.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SLICE">
@@ -1175,39 +1204,39 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 	</data>	
 
 	<data name="IDS_DESC_MUSHROOMSTEW">
-		<value>Restablece 4{*ICON_SHANK_01*}.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_RAW">
-		<value>Restablece 1{*ICON_SHANK_01*}, pero puede hacerte enfermar. Cocinar en un horno.</value>
-	</data>	
-
-	<data name="IDS_DESC_CHICKEN_COOKED">
 		<value>Restablece 3{*ICON_SHANK_01*}.</value>
 	</data>	
 
+	<data name="IDS_DESC_CHICKEN_RAW">
+		<value>Restablece 1{*ICON_SHANK_01*}o se puede cocinar en el horno. Si comes esto puede que te envenene.</value>
+	</data>	
+
+	<data name="IDS_DESC_CHICKEN_COOKED">
+		<value>Restablece 3{*ICON_SHANK_01*}. Se crea cocinando pollo crudo en el horno.</value>
+	</data>	
+
 	<data name="IDS_DESC_BEEF_RAW">
-		<value>Restablece 1,5{*ICON_SHANK_01*}, pero puede hacerte enfermar. Cocinar en un horno.</value>
+		<value>Restablece 1.5{*ICON_SHANK_01*}, o se puede cocinar en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_BEEF_COOKED">
-		<value>Restablece 4{*ICON_SHANK_01*}.</value>
+		<value>Restablece {*ICON_SHANK_01*}. Se crea cocinando ternera cruda en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_RAW">
-		<value>Se consigue al matar un cerdo, restablece 1,5{*ICON_SHANK_01*} y se puede cocinar en un horno.</value>
+		<value>Restablece 1.5{*ICON_SHANK_01*}, o se puede cocinar en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_PORKCHOP_COOKED">
-		<value>Se crea cocinando una chuleta de cerdo en el horno. Restablece 4{*ICON_SHANK_01*}.</value>
+		<value>Restablece 4{*ICON_SHANK_01*}. Se crea cocinando una chuleta de cerdo cruda en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_RAW">
-		<value>Se puede comer para restablecer 1{*ICON_SHANK_01*} o cocinar en un horno. También se puede dar de comer a un ocelote para domarlo.</value>
+		<value>Restablece 1{*ICON_SHANK_01*}o se puede cocinar en el horno. Se puede dar de comer a un ocelote para domarlo.</value>
 	</data>	
 
 	<data name="IDS_DESC_FISH_COOKED">
-		<value>Se crea cocinando pescado crudo en el horno. Se puede comer para restablecer 2,5{*ICON_SHANK_01*}.</value>
+		<value>Restablece 2,5{*ICON_SHANK_01*}. Se crea cocinando pescado crudo en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_APPLE">
@@ -1215,15 +1244,15 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 	</data>	
 
 	<data name="IDS_DESC_GOLDENAPPLE">
-		<value>Restablece 2{*ICON_SHANK_01*} y regenera la salud durante 4 segundos.</value>
+		<value>Restablece 2{*ICON_SHANK_01*} y regenera la salud durante 4 segundos. Creada con una manzana y pepitas de oro.</value>
 	</data>	
 
 	<data name="IDS_DESC_ROTTEN_FLESH">
-		<value>Restablece 2{*ICON_SHANK_01*}, pero puede hacerte enfermar.</value>
+		<value>Restablece 2{*ICON_SHANK_01*}. Si comes esto puede que te envenene.</value>
 	</data>	
 
 	<data name="IDS_DESC_SUGAR">
-		<value>Se usa en la receta de pasteles como ingrediente para destilar pociones.</value>
+		<value>Se usa en la receta de pasteles y como ingrediente para destilar pociones.</value>
 	</data>	
 
 	<data name="IDS_DESC_LEVER">
@@ -1232,13 +1261,13 @@ Los colores de la cama siempre son los mismos, independientemente del color de l
 
 	<data name="IDS_DESC_REDSTONETORCH">
 		<value>Da una descarga eléctrica
-constante o puede usarse
-de receptor/transmisor si
-se conecta al lateral de
-un bloque. También puede
-usarse de iluminación
-de nivel bajo.
-</value>
+ constante o puede usarse
+ de receptor/transmisor si
+ se conecta al lateral de
+ un bloque. También puede
+ usarse de iluminación
+ de nivel bajo.
+ </value>
 	</data>	
 
 	<data name="IDS_DESC_REDSTONEREPEATER">
@@ -1339,14 +1368,14 @@ de nivel bajo.
 
 	<data name="IDS_DESC_DYE_LIGHTGRAY">
 		<value>Se usa como tinte para
-crear lana gris clara.
+ crear lana gris clara.
 
-(Nota: También se obtiene
-combinando tinte gris con
-carne de hueso, lo que
-permite crear 4 tintes
-gris claro de cada bolsa
-de tinta en vez de 3).</value>
+ (Nota: También se obtiene
+ combinando tinte gris con
+ carne de hueso, lo que
+ permite crear 4 tintes
+ grises claro de cada bolsa
+ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_DYE_LIGHTBLUE">
@@ -1634,7 +1663,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_BLOCK">
-		<value>Se puede crear a partir de rodajas de melón.</value>
+		<value>Se puede crear a partir de rodajas de sandía.</value>
 	</data>	
 
 	<data name="IDS_DESC_THIN_GLASS">
@@ -1642,15 +1671,15 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_PUMPKIN_SEEDS">
-		<value>Se puede plantar para cultivar calabazas.</value>
+		<value>Se pueden plantar para cultivar calabazas.</value>
 	</data>	
 
 	<data name="IDS_DESC_MELON_SEEDS">
-		<value>Se puede plantar para cultivar melones.</value>
+		<value>Se puede plantar para cultivar sandías.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENDER_PEARL">
-		<value>Lo suelta el Finalizador cuando muere. Cuando se lanza, el jugador se teletransporta a la posición donde cae la perla finalizadora y pierde parte de la salud.</value>
+		<value>La suelta el Enderman cuando muere. Cuando se lanza, el jugador se teletransporta a la posición donde cae la perla Perla de Ender y pierde parte de la salud.</value>
 	</data>	
 
 	<data name="IDS_DESC_GRASS">
@@ -1686,7 +1715,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_GHAST_TEAR">
-		<value>Se usa para destilar pociones. Lo sueltan los espectros cuando mueren.</value>
+		<value>Se usa para destilar pociones. Lo sueltan los Ghasts cuando mueren.</value>
 	</data>	
 
 	<data name="IDS_DESC_GOLD_NUGGET">
@@ -1746,7 +1775,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_DESC_NETHERBRICK">
-		<value>Se usa para construir fortalezas del mundo inferior. Inmume a las bolas de fuego del espectro.</value>
+		<value>Se usa para construir fortalezas del mundo inferior. Inmume a las bolas de fuego del Ghast.</value>
 	</data>	
 
 	<data name="IDS_DESC_NETHERFENCE">
@@ -2754,7 +2783,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SEEDS">
-		<value>Semillas de melón</value>
+		<value>Semillas de sandía</value>
 	</data>	
 
 	<data name="IDS_ITEM_CHICKEN_RAW">
@@ -2778,11 +2807,11 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_ENDER_PEARL">
-		<value>Ender Pearl</value>
+		<value>Perla de Ender</value>
 	</data>	
 
 	<data name="IDS_ITEM_MELON_SLICE">
-		<value>Rodaja de melón</value>
+		<value>Rodaja de sandía</value>
 	</data>	
 
 	<data name="IDS_ITEM_BLAZE_ROD">
@@ -2790,7 +2819,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_GHAST_TEAR">
-		<value>Lágrima de espectro</value>
+		<value>Lágrima de Ghast</value>
 	</data>	
 
 	<data name="IDS_ITEM_GOLD_NUGGET">
@@ -2842,7 +2871,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_ITEM_SPECKLED_MELON">
-		<value>Melón resplandeciente</value>
+		<value>Sandía resplandeciente</value>
 	</data>	
 
 	<data name="IDS_ITEM_EXP_BOTTLE">
@@ -3133,8 +3162,16 @@ de tinta en vez de 3).</value>
 		<value>Bloque de oro</value>
 	</data>	
 
+	<data name="IDS_DESC_BLOCK_GOLD">
+		<value>Una manera de almacenar oro de forma compacta.</value>
+	</data>	
+
 	<data name="IDS_TILE_BLOCK_IRON">
 		<value>Bloque de hierro</value>
+	</data>	
+
+	<data name="IDS_DESC_BLOCK_IRON">
+		<value>Una manera de almacenar hierro de forma compacta.</value>
 	</data>	
 
 	<data name="IDS_TILE_STONESLAB">
@@ -3243,6 +3280,10 @@ de tinta en vez de 3).</value>
 
 	<data name="IDS_TILE_BLOCK_DIAMOND">
 		<value>Bloque de diamante</value>
+	</data>	
+
+	<data name="IDS_DESC_BLOCK_DIAMOND">
+		<value>Una manera de almacenar diamantes de forma compacta.</value>
 	</data>	
 
 	<data name="IDS_TILE_WORKBENCH">
@@ -3373,6 +3414,10 @@ de tinta en vez de 3).</value>
 		<value>Bloque lapislázuli</value>
 	</data>	
 
+	<data name="IDS_DESC_BLOCK_LAPIS">
+		<value>Una manera de almacenar lapislázuli de forma compacta.</value>
+	</data>	
+
 	<data name="IDS_TILE_DISPENSER">
 		<value>Dispensador</value>
 	</data>	
@@ -3462,7 +3507,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON">
-		<value>Melón</value>
+		<value>Sandía</value>
 	</data>	
 
 	<data name="IDS_TILE_PUMPKIN_STEM">
@@ -3470,7 +3515,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_TILE_MELON_STEM">
-		<value>Tallo de melón</value>
+		<value>Tallo de sandía</value>
 	</data>	
 
 	<data name="IDS_TILE_VINE">
@@ -3606,7 +3651,7 @@ de tinta en vez de 3).</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_PAUSE">
-		<value>Pausa</value>
+		<value>Menú</value>
 	</data>	
 
 	<data name="IDS_CONTROLS_JUMP">
@@ -3759,7 +3804,7 @@ de tinta en vez de 3).</value>
 
 	<data name="IDS_TUTORIAL_PROMPT_START_TUTORIAL">
 		<value>{*B*}Pulsa{*CONTROLLER_VK_A*} para comenzar el tutorial.{*B*}
-    Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.</value>
+   Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_OVERVIEW">
@@ -3797,7 +3842,7 @@ De noche salen los monstruos, así que procura construir un refugio antes de que
 
 	<data name="IDS_TUTORIAL_TASK_INVENTORY">
 		<value>A medida que recojas y crees más objetos, llenarás tu inventario.{*B*}
-    Pulsa{*CONTROLLER_ACTION_INVENTORY*} para abrir el inventario.</value>
+   Pulsa{*CONTROLLER_ACTION_INVENTORY*} para abrir el inventario.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FOOD_BAR_DEPLETE">
@@ -3920,7 +3965,7 @@ De noche salen los monstruos, así que procura construir un refugio antes de que
 		<value>
       {*B*}
 Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.
+     Pulsa{*CONTROLLER_VK_B*} si crees que ya estás listo para jugar tú solo.
     </value>
 	</data>	
 
@@ -4027,26 +4072,26 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_CRAFT_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo crear.
+     Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo crear.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_DESCRIPTION">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_X*} para mostrar la descripción del objeto.
+     Pulsa{*CONTROLLER_VK_X*} para mostrar la descripción del objeto.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_INGREDIENTS">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_X*} para mostrar los ingredientes necesarios para fabricar el objeto actual.
+     Pulsa{*CONTROLLER_VK_X*} para mostrar los ingredientes necesarios para fabricar el objeto actual.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_PROMPT_PRESS_X_TO_TOGGLE_INVENTORY">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_X*} para mostrar de nuevo el inventario.
+     Pulsa{*CONTROLLER_VK_X*} para mostrar de nuevo el inventario.
     </value>
 	</data>	
 
@@ -4093,7 +4138,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_TASK_CRAFT_EXIT_AND_PLACE_TABLE">
 		<value>
       Ahora que has construido una mesa de creación, deberías colocarla en el mundo para poder construir una selección mayor de objetos.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
+     Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
     </value>
 	</data>	
 
@@ -4124,7 +4169,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_TASK_CRAFT_TOOLS_BUILT">
 		<value>
       Con las herramientas que has creado ya estás listo para empezar y podrás recoger varios materiales de forma más eficaz.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
+     Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
     </value>
 	</data>	
 
@@ -4137,7 +4182,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_TASK_CRAFT_EXIT_AND_PLACE_FURNACE">
 		<value>
       Coloca el horno que has creado en el mundo. Te conviene colocarlo en el interior del refugio.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
+     Pulsa{*CONTROLLER_VK_B*} ahora para salir de la interfaz de creación.
     </value>
 	</data>	
 
@@ -4149,8 +4194,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_FURNACE_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el horno.
+     Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el horno.
     </value>
 	</data>	
 
@@ -4198,8 +4243,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_BREWING_MENU_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el puesto de destilado.
+     Pulsa{*CONTROLLER_VK_A*} para continuar.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo usar el puesto de destilado.
     </value>
 	</data>	
 
@@ -4247,8 +4292,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_BREWING_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre el destilado y las pociones.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo destilar y crear pociones.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre el destilado y las pociones.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo destilar y crear pociones.
     </value>
 	</data>	
 
@@ -4302,8 +4347,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_ENCHANTING_MENU_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la interfaz de hechizos.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo utilizar la interfaz de hechizos.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la interfaz de hechizos.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo utilizar la interfaz de hechizos.
     </value>
 	</data>	
 
@@ -4345,8 +4390,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_ENCHANTING_OVERVIEW">
 		<value>{*B*}
-      Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre los hechizos.{*B*}
-      Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo utilizar los hechizos.
+     Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre los hechizos.{*B*}
+     Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo utilizar los hechizos.
     </value>
 	</data>	
 
@@ -4388,8 +4433,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_PROMPT_MINECART_OVERVIEW">
 		<value>{*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las vagonetas.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las vagonetas.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las vagonetas.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las vagonetas.
     </value>
 	</data>	
 
@@ -4437,8 +4482,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_FISHING_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la pesca.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo pescar.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre la pesca.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo pescar.
     </value>
 	</data>	
 
@@ -4472,8 +4517,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_BED_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las camas.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las camas.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre las camas.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan las camas.
     </value>
 	</data>	
 
@@ -4500,8 +4545,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_REDSTONE_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los circuitos de piedra rojiza y los pistones.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya tienes información sobre los circuitos de piedra rojiza y los pistones.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los circuitos de piedra rojiza y los pistones.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya tienes información sobre los circuitos de piedra rojiza y los pistones.
     </value>
 	</data>	
 
@@ -4553,8 +4598,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_PORTAL_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los portales y el mundo inferior.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya conoces los portales y el mundo inferior.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los circuitos de piedra rojiza y los pistones.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya tienes información sobre los circuitos de piedra rojiza y los pistones.
     </value>
 	</data>	
 
@@ -4566,7 +4611,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_TUTORIAL_TASK_ACTIVATE_PORTAL">
 		<value>
-      Para activar el portal inferior, prende fuego a los bloques de obsidiana del interior de la estructura con eslabón y pedernal. Los portales se pueden desactivar si se rompe la estructura, si se produce una explosión cerca y si fluye un líquido a través de ellos.
+      Para activar el portal inferior, prende fuego a los bloques de obsidiana del interior de la estructura con el chisquero de pedernal. Los portales se pueden desactivar si se rompe la estructura, si se produce una explosión cerca y si fluye un líquido a través de ellos.
     </value>
 	</data>	
 
@@ -4627,13 +4672,13 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_FARMING_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los cultivos.{*B*}
-      Pulsa{*CONTROLLER_VK_B*}si ya sabes cómo funcionan los cultivos.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los cultivos.{*B*}
+     Pulsa{*CONTROLLER_VK_B*}si ya sabes cómo funcionan los cultivos.
     </value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SEEDS">
-		<value>El trigo, las calabazas y los melones se cultivan a partir de semillas. Las semillas de trigo se obtienen al romper hierba alta o al cosechar trigo, y las semillas de calabaza y melón se consiguen a partir de calabazas y melones respectivamente.</value>
+		<value>El trigo, las calabazas y las sandías se cultivan a partir de semillas. Las semillas de trigo se obtienen al romper hierba alta o al cosechar trigo, y las semillas de calabaza y sandía se consiguen a partir de calabazas y sandías respectivamente.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_FARMLAND">
@@ -4645,7 +4690,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_PUMPKIN_AND_MELON">
-		<value>Las calabazas y los melones también necesitan un bloque cerca de donde hayas plantado la semilla para que el fruto crezca cuando el tallo se haya desarrollado por completo.</value>
+		<value>Las calabazas y las sandías también necesitan un bloque cerca de donde hayas plantado la semilla para que el fruto crezca cuando el tallo se haya desarrollado por completo.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FARMING_SUGARCANE">
@@ -4677,8 +4722,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_BREEDING_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre la reproducción de animales.{*B*}
-      Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo funciona la reproducción de animales.
+     Pulsa {*CONTROLLER_VK_A*} para obtener más información sobre la reproducción de animales.{*B*}
+     Pulsa {*CONTROLLER_VK_B*} si ya sabes cómo funciona la reproducción de animales.
     </value>
 	</data>	
 
@@ -4721,8 +4766,8 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	<data name="IDS_TUTORIAL_PROMPT_GOLEM_OVERVIEW">
 		<value>
       {*B*}
-      Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los gólems.{*B*}
-      Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan los gólems.
+     Pulsa{*CONTROLLER_VK_A*} para obtener más información sobre los gólems.{*B*}
+     Pulsa{*CONTROLLER_VK_B*} si ya sabes cómo funcionan los gólems.
     </value>
 	</data>	
 
@@ -4960,7 +5005,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_WHAT_IS_THIS">
-		<value>?</value>
+		<value>¿Qué es?</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SHARE">
@@ -5028,7 +5073,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_EMPTY">
-		<value>Vacío</value>
+		<value>Vaciar</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SADDLE">
@@ -5044,7 +5089,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_MILK">
-		<value>Leche</value>
+		<value>Ordeñar</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_COLLECT">
@@ -5128,7 +5173,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_DELETESAVE">
-		<value>Borrar juego guardado</value>
+		<value>Borrar archivo de guardado</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_DELETE">
@@ -5148,7 +5193,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SHEAR">
-		<value>Tijera</value>
+		<value>Esquilar</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_BANLEVEL">
@@ -5184,7 +5229,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_SAVEOPTIONS">
-		<value>Opciones de guardado</value>
+		<value>Opc. guardado</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_EXECUTE_COMMAND">
@@ -5232,7 +5277,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TOOLTIPS_BLOCK">
-		<value>Bloque</value>
+		<value>Bloquear</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_PAGEUP">
@@ -5273,10 +5318,6 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 
 	<data name="IDS_DOWNLOADABLECONTENT">
 		<value>Tienda de Minecraft</value>
-	</data>	
-
-	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
-		<value>¿Seguro que quieres salir del juego actual y unirte al nuevo? Se perderán todos los progresos no guardados.</value>
 	</data>	
 
 	<data name="IDS_EXIT_GAME">
@@ -5323,10 +5364,6 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 		<value>Salir sin guardar</value>
 	</data>	
 
-	<data name="IDS_CONFIRM_EXIT_GAME">
-		<value>¿Seguro que quieres salir al menú principal? Se perderán todos los progresos no guardados.</value>
-	</data>	
-
 	<data name="IDS_CONFIRM_EXIT_GAME_PROGRESS_LOST">
 		<value>¿Seguro que quieres salir al menú principal? ¡Se perderán tus progresos!</value>
 	</data>	
@@ -5360,7 +5397,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_PRESS_START_TO_JOIN">
-		<value>Pulsa START para unirte al juego.</value>
+		<value>Pulsa {*CONTROLLER_VK_START*} para unirte al juego.</value>
 	</data>	
 
 	<data name="IDS_EXITING_GAME">
@@ -5797,7 +5834,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_TEXT_DELETE_SAVE">
-		<value>¿Seguro que quieres borrar este juego guardado?</value>
+		<value>¿Seguro que quieres borrar este archivo de guardado?</value>
 	</data>	
 
 	<data name="IDS_STRINGVERIFY_AWAITING_APPROVAL">
@@ -5809,7 +5846,7 @@ Pulsa{*CONTROLLER_VK_A*} para continuar el tutorial.{*B*}
 	</data>	
 
 	<data name="IDS_NOWPLAYING">
-		<value>Ahora jugando: </value>
+		<value>Reproduciendo: </value>
 	</data>	
 
 	<data name="IDS_DEFAULTS_TITLE">
@@ -6079,11 +6116,11 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_TEXT_SAVEOPTIONS">
-		<value>¿Qué quieres hacer con este juego guardado?</value>
+		<value>¿Qué quieres hacer con este archivo de guardado?</value>
 	</data>	
 
 	<data name="IDS_TITLE_RENAMESAVE">
-		<value>Cambiar nombre a juego guardado</value>
+		<value>Cambiar nombre a archivo de guardado</value>
 	</data>	
 
 	<data name="IDS_AUTOSAVE_COUNTDOWN">
@@ -6135,7 +6172,7 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_GAMEOPTION_RESET_NETHER">
-		<value>Si se activa, el mundo inferior se regenerará. Esto es útil si tienes una partida guardada antigua donde no está presente la fortaleza del mundo inferior.</value>
+		<value>Si se activa, el mundo inferior se regenerará. Esto es útil si tienes una partida guardada donde no está presente la fortaleza del mundo inferior.</value>
 	</data>	
 
 	<data name="IDS_GAMEOPTION_STRUCTURES">
@@ -6439,13 +6476,13 @@ Selecciona ACEPTAR para salir del juego.</value>
 {*C2*}A veces, el jugador soñaba que era otras cosas, en otros lugares. A veces, esos sueños eran perturbadores. A veces, realmente bellos. A veces, el jugador se despertaba de un sueño en otro, y después de ese en un tercero.{*EF*}{*B*}{*B*}
 {*C3*}A veces, el jugador soñaba que veía palabras en una pantalla.{*EF*}{*B*}{*B*}
 {*C2*}Retrocedamos.{*EF*}{*B*}{*B*}
-{*C2*}Los átomos del jugador estaban esparcidos en la hierba, en los ríos, en el aire, en la tierra. Una mujer recogió los átomos, bebió y comió y respiró; y la mujer ensamblo al jugador en su cuerpo.{*EF*}{*B*}{*B*}
+{*C2*}Los átomos del jugador estaban esparcidos en la hierba, en los ríos, en el aire, en la tierra. Una mujer recogió los átomos, bebió y comió y respiró; y la mujer ensambló al jugador en su cuerpo.{*EF*}{*B*}{*B*}
 {*C2*}Y el jugador despertó del mundo oscuro y cálido del cuerpo de su madre en el sueño largo.{*EF*}{*B*}{*B*}
 {*C2*}Y el jugador fue una nueva historia, nunca antes contada, escrita con ADN. Y el jugador era un nuevo programa, que nunca se había ejecutado, generado por un código fuente con un billón de años. Y el jugador era un nuevo ser humano, que nunca había vivido antes, hecho tan solo de leche y amor.{*EF*}{*B*}{*B*}
 {*C3*}Tú eres el jugador. La historia. El programa. El humano. Hecho tan solo de leche y amor.{*EF*}{*B*}{*B*}
 {*C2*}Retrocedamos más.{*EF*}{*B*}{*B*}
 {*C2*}Los siete trillones de trillones de trillones de átomos del jugador se crearon, mucho antes de este juego, en el corazón de una estrella. Así que el jugador también es información de una estrella. Y el jugador se mueve a través de una historia que es un bosque de información colocada por un tipo llamado Julian, en un mundo infinito y plano creado por un hombre llamado Markus que existe en un mundo pequeño y privado creado por el jugador que habita un universo creado por...{*EF*}{*B*}{*B*}
-{*C3*}Sssh. A veces, el jugador creaba un mundo pequeño y privado que era suave, cálido y sencillo. A veces, frío, duro y complicado. A veces, creaba un modelo del universo en su cabeza; motas de energía moviéndose a través de vastos espacios vacíos. A veces llamaba a esas motas "electrones" y "protones".{*EF*}{*B*}{*B*}
+{*C3*}Sssh. A veces, el jugador creaba un mundo pequeño y privado que era suave, cálido y sencillo. A veces, frío, duro y complicado. A veces, creaba un modelo del universo en su cabeza; motas de energía moviéndose a través de vastos espacios vacíos. A veces, llamaba a esas motas "electrones" y "protones".{*EF*}{*B*}{*B*}
 </value>
 	</data>	
 
@@ -7211,11 +7248,11 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_POTION_DESC_DAMAGEBOOST">
-		<value>Aumenta el daño causado por los jugadores y monstruos afectados cuanto atacan.</value>
+		<value>Aumenta el daño causado por los jugadores y monstruos afectados cuando atacan.</value>
 	</data>	
 
 	<data name="IDS_POTION_DESC_WEAKNESS">
-		<value>Disminuye el daño causado por los jugadores y monstruos afectados cuanto atacan.</value>
+		<value>Disminuye el daño causado por los jugadores y monstruos afectados cuando atacan.</value>
 	</data>	
 
 	<data name="IDS_POTION_DESC_HEAL">
@@ -7407,23 +7444,23 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROTS">
-		<value>Restablece 2{*ICON_SHANK_01*}. Se puede plantar en tierras de cultivo.</value>
+		<value>Restablece 2{*ICON_SHANK_01*} y se puede convertir en una zanahoria dorada. Se puede plantar en tierras de cultivo.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO">
-		<value>Restablece 0,5{*ICON_SHANK_01*}. Se puede asar en un horno o plantar en tierras de cultivo.</value>
+		<value>Restablece 0.5{*ICON_SHANK_01*}o se puede cocinar en el horno. Se puede plantar en tierras de cultivo.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_BAKED">
-		<value>Restablece 3{*ICON_SHANK_01*}.</value>
+		<value>Restablece 3{*ICON_SHANK_01*}. Se crea cocinando una patata en el horno.</value>
 	</data>	
 
 	<data name="IDS_DESC_POTATO_POISONOUS">
-		<value>Restablece 1{*ICON_SHANK_01*}, pero hay una posibilidad de provocar envenenamiento.</value>
+		<value>Restablece 1{*ICON_SHANK_01*}o se puede cocinar en el horno. Si comes esto puede que te envenene.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_GOLDEN">
-		<value>Se produce a partir de una zanahoria y pepitas de oro. Restablece 3{*ICON_SHANK_01*}.</value>
+		<value>Restablece 3{*ICON_SHANK_01*}. Se produce a partir de una zanahoria y pepitas de oro. Restablece 3.</value>
 	</data>	
 
 	<data name="IDS_DESC_CARROT_ON_A_STICK">
@@ -7949,7 +7986,7 @@ Selecciona ACEPTAR para salir del juego.</value>
 	</data>	
 
 	<data name="IDS_DESC_ENCHANTED_GOLDENAPPLE">
-		<value>Restablece 2{*ICON_SHANK_01*}, regenera la salud durante 30 segundos y concede resistencia al fuego y al daño durante 5 minutos.</value>
+		<value>Restablece 2{*ICON_SHANK_01*}, regenera la salud durante 30 segundos y concede resistencia al fuego y al daño durante 5 minutos. Creada con una manzana y bloques de oro.</value>
 	</data>	
 
 	<data name="IDS_ENABLE_TELEPORT">
@@ -8104,64 +8141,68 @@ Todos los cofres de Ender de un mundo están vinculados, y los objetos que conti
 		<value>Curar</value>
 	</data>	
 
+	<data name="IDS_PROGRESS_NEW_WORLD_SEED">
+		<value>Buscando semilla para el generador de mundos</value>
+	</data>	
+
 	<data name="IDS_LEADERBOARD_KILLS_EASY">
-		<value>Kills Easy</value>
+		<value>Muertes (fácil)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_KILLS_NORMAL">
-		<value>Kills Normal</value>
+		<value>Muertes (normal)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_KILLS_HARD">
-		<value>Kills Hard</value>
+		<value>Muertes (difícil)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_MINING_BLOCKS_PEACEFUL">
-		<value>Mining Blocks Peaceful</value>
+		<value>Perforación de bloques (pacífico)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_MINING_BLOCKS_EASY">
-		<value>Mining Blocks Easy</value>
+		<value>Perforación de bloques (fácil)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_MINING_BLOCKS_NORMAL">
-		<value>Mining Blocks Normal</value>
+		<value>Perforación de bloques (normal)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_MINING_BLOCKS_HARD">
-		<value>Mining Blocks Hard</value>
+		<value>Perforación de bloques (difícil)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_FARMING_PEACEFUL">
-		<value>Farming Peaceful</value>
+		<value>Agricultura (pacífico)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_FARMING_EASY">
-		<value>Farming Easy</value>
+		<value>Agricultura (fácil)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_FARMING_NORMAL">
-		<value>Farming Normal</value>
+		<value>Agricultura (normal)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_FARMING_HARD">
-		<value>Farming Hard</value>
+		<value>Agricultura (difícil)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_TRAVELLING_PEACEFUL">
-		<value>Traveling Peaceful</value>
+		<value>Viajes (pacífico)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_TRAVELLING_EASY">
-		<value>Traveling Easy</value>
+		<value>Viajes (fácil)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_TRAVELLING_NORMAL">
-		<value>Traveling Normal</value>
+		<value>Viajes (normal)</value>
 	</data>	
 
 	<data name="IDS_LEADERBOARD_TRAVELLING_HARD">
-		<value>Traveling Hard</value>
+		<value>Viajes (difícil)</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_0">
@@ -8169,40 +8210,40 @@ Todos los cofres de Ender de un mundo están vinculados, y los objetos que conti
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_1">
-		<value>Conecta más mandos a tu consola y pulsa START sobre ellos para unirte al juego en cualquier momento.</value>
-	</data>	
-
-	<data name="IDS_TIPS_GAMETIP_44">
-		<value>¡En Twitter obtendrás la información más reciente sobre 4J Studios y Kappische!</value>
-	</data>	
-
-	<data name="IDS_TIPS_GAMETIP_45">
-		<value>¡Impresiona a tus amigos publicando capturas de pantalla de tus creaciones de Minecraft en Facebook desde el menú de pausa del juego!</value>
+		<value>Conecta más mandos a tu consola y pulsa{*CONTROLLER_VK_START*} sobre ellos para unirte al juego en cualquier momento.</value>
 	</data>	
 
 	<data name="IDS_TIPS_GAMETIP_48">
-		<value>minecraftforum cuenta con una sección dedicada a la edición para Xbox 360.</value>
+		<value>minecraftforum cuenta con una sección dedicada a la Xbox One Edition.</value>
+	</data>	
+
+	<data name="IDS_TIPS_GAMETIP_44">
+		<value>¡En Twitter obtendrás la información más reciente sobre 4JStudios y Kappische!</value>
+	</data>	
+
+	<data name="IDS_TIPS_GAMETIP_45">
+		<value>¡No mires al Enderman a los ojos!</value>
 	</data>	
 
 	<data name="IDS_TIPS_TRIVIA_4">
-		<value>Creemos que 4J Studios ha eliminado a Herobrine del juego para la Consola Xbox 360, pero no estamos seguros.</value>
+		<value>Creemos que 4J Studios ha eliminado a Herobrine del juego para la Consola Xbox One, pero no estamos seguros.</value>
 	</data>	
 
 	<data name="IDS_TIPS_TRIVIA_17">
-		<value>¡Minecraft: Xbox 360 Edition ha batido todos los récords!</value>
+		<value>¡Minecraft: Xbox One Edition ha batido todos los récords!</value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_MULTIPLAYER">
 		<value>{*T3*}CÓMO SE JUEGA: MULTIJUGADOR{*ETW*}{*B*}{*B*}
-Minecraft para la consola Xbox 360 es, de forma predeterminada, un juego multijugador. En el modo de alta definición los jugadores locales pueden unirse a tu partida conectando un mando y pulsando el Botón START en cualquier momento del juego.{*B*}{*B*}
-Si inicias o te unes a una partida en línea, los miembros de tu lista de amigos podrán verla (a menos que selecciones Solo por invitación cuando crees la partida), y si ellos se unen a la partida, los miembros de su lista de amigos también podrán verla (a menos que selecciones la opción Permitir amigos de amigos).
-Una vez en la partida, pulsa el Botón BACK para mostrar la lista de todos los jugadores, ver sus tarjetas de jugador, expulsar a jugadores de la partida e invitar a otros miembros a la partida.
+Minecraft para la consola Xbox One es, de forma predeterminada, un juego multijugador. En el modo de alta definición los jugadores locales pueden unirse a tu partida conectando un mando y pulsando{*CONTROLLER_VK_START*} en cualquier momento del juego.{*B*}{*B*}
+Si inicias o te unes a una partida en línea, los miembros de tu lista de amigos podrán verla (a menos que selecciones Solo por invitación cuando crees la partida), y si ellos se unen a la partida, los miembros de su lista de amigos también podrán verla (a menos que selecciones la opción Permitir amigos de amigos). 
+Una vez en la partida, pulsa{*CONTROLLER_VK_BACK*} para mostrar la lista de todos los jugadores, ver sus tarjetas de jugador, expulsar a jugadores de la partida e invitar a otros miembros a la partida.
   </value>
 	</data>	
 
 	<data name="IDS_HOW_TO_PLAY_SOCIALMEDIA">
 		<value>{*T3*}CÓMO SE JUEGA: COMPARTIR CAPTURAS DE PANTALLA{*ETW*}{*B*}{*B*}
-Si quieres realizar una captura de pantalla de tu partida, ve al menú de pausa y pulsa {*CONTROLLER_VK_Y*} para compartirla en Facebook. Obtendrás una versión en miniatura de tu captura y podrás editar el texto asociado a la publicación de Facebook.{*B*}{*B*}
+Si quieres realizar una captura de pantalla de tu partida, ve al menú de pausa y pulsa{*CONTROLLER_VK_Y*} para compartirla en Facebook. Obtendrás una versión en miniatura de tu captura y podrás editar el texto asociado a la publicación de Facebook.{*B*}{*B*}
 Existe un modo de cámara especial para tomar estas capturas, de forma que podrás ver la parte frontal de tu personaje en la imagen. Pulsa{*CONTROLLER_ACTION_CAMERA*} hasta que veas la parte frontal del personaje y después pulsa{*CONTROLLER_VK_Y*} para compartir.{*B*}{*B*}
 En la captura de pantalla no se mostrarán los gamertags.
   </value>
@@ -8213,9 +8254,9 @@ En la captura de pantalla no se mostrarán los gamertags.
 La interfaz de modo Creativo del juego permite mover cualquier objeto del juego al inventario del jugador sin tener que extraerlo o crearlo. 
 Los objetos del inventario del jugador no se eliminan cuando se colocan o se usan en el mundo, lo que permite al jugador centrarse en la construcción más que en la recolección de recursos.{*B*}
 Si creas, cargas o guardas un mundo en el modo Creativo, ese mundo tendrá deshabilitado los logros y las actualizaciones de marcador, aunque después lo cargues en el modo Supervivencia.{*B*}
-Para volar en el modo Creativo, pulsa {*CONTROLLER_ACTION_JUMP*} dos veces con rapidez. Para dejar de volar, repite la acción. Para volar más rápido, pulsa{*CONTROLLER_ACTION_MOVE*} dos veces en una sucesión rápida mientras vuelas. 
+Para volar en el modo Creativo, pulsa{*CONTROLLER_ACTION_JUMP*} dos veces con rapidez. Para dejar de volar, repite la acción. Para volar más rápido, pulsa{*CONTROLLER_ACTION_MOVE*} dos veces en una sucesión rápida mientras vuelas. 
 En modo de vuelo, puedes mantener pulsado{*CONTROLLER_ACTION_JUMP*} para subir y{*CONTROLLER_ACTION_SNEAK*} para bajar, o usa{*CONTROLLER_ACTION_DPAD_UP*} para subir, {*CONTROLLER_ACTION_DPAD_DOWN*} para bajar, 
-{*CONTROLLER_ACTION_DPAD_LEFT*} para ir a la izquierda y {*CONTROLLER_ACTION_DPAD_RIGHT*} para ir a la derecha.</value>
+{*CONTROLLER_ACTION_DPAD_LEFT*} para ir a la izquierda y{*CONTROLLER_ACTION_DPAD_RIGHT*} para ir a la derecha.</value>
 	</data>	
 
 	<data name="IDS_TUTORIAL_TASK_FLY">
@@ -8232,15 +8273,15 @@ En el modo de vuelo, mantén pulsado{*CONTROLLER_ACTION_JUMP*} para moverte haci
 	</data>	
 
 	<data name="IDS_TOOLTIPS_VIEW_GAMERCARD">
-		<value>Ver tarjeta de jugador</value>
+		<value>Tarjeta de jugador</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_VIEW_GAMERPROFILE">
-		<value>Ver perfil de jugador</value>
+		<value>Tarjeta de jugador</value>
 	</data>	
 
 	<data name="IDS_TOOLTIPS_INVITE_PARTY">
-		<value>Invitar a Xbox Live Party</value>
+		<value>Invitar a grupo de Xbox Live</value>
 	</data>	
 
 	<data name="IDS_CONFIRM_START_CREATIVE">
@@ -8268,48 +8309,52 @@ En el modo de vuelo, mantén pulsado{*CONTROLLER_ACTION_JUMP*} para moverte haci
 	</data>	
 
 	<data name="IDS_AWARD_AVATAR1">
-		<value>¡Hurra! ¡Has obtenido un objeto de avatar: una camiseta de Minecraft: Xbox 360 Edition!
-Ve a la Interfaz para ponerle la camiseta a tu avatar.</value>
+		<value>¡Hurra! ¡Has obtenido un objeto de avatar: una camiseta de Minecraft: Xbox One Edition!
+Ve a Inicio para ponerle la camiseta a tu avatar.</value>
 	</data>	
 
 	<data name="IDS_AWARD_AVATAR2">
-		<value>¡Hurra! ¡Has obtenido un objeto de avatar: un reloj de Minecraft: Xbox 360 Edition!
-Ve a la Interfaz para ponerle el reloj a tu avatar.</value>
+		<value>¡Hurra! ¡Has obtenido un objeto de avatar: un reloj de Minecraft: Xbox One Edition!
+Ve a Inicio para ponerle el reloj a tu avatar.</value>
 	</data>	
 
 	<data name="IDS_AWARD_AVATAR3">
 		<value>¡Hurra! ¡Has obtenido un objeto de avatar: una gorra de béisbol de Creeper!
-Ve a la Interfaz para ponerle la gorra a tu avatar.</value>
+Ve a Inicio para ponerle la gorra a tu avatar.</value>
 	</data>	
 
 	<data name="IDS_AWARD_THEME">
-		<value>¡Hurra! ¡Has obtenido el tema de Minecraft: Xbox 360 Edition!
-Ve a la Interfaz para seleccionar este tema.</value>
+		<value>¡Hurra! ¡Has obtenido el tema de Minecraft: Xbox One Edition!
+Ve a Inicio para seleccionar este tema.</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_ACHIEVEMENT_TEXT">
-		<value>Esta es la versión de prueba de Minecraft: Xbox 360 Edition. Si tuvieras el juego completo, ¡habrías conseguido un logro!
+		<value>Esta es la versión de prueba de Minecraft: Xbox One Edition. Si tuvieras el juego completo, ¡habrías conseguido un logro! 
+Desbloquea el juego completo para vivir toda la emoción de Minecraft: Xbox One Edition y jugar con amigos de todo el mundo a través de Xbox Live.
 ¿Te gustaría desbloquear el juego completo?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_AVATAR_TEXT">
-		<value>Esta es la versión de prueba de Minecraft: Xbox 360 Edition. Si tuvieras el juego completo, ¡habrías conseguido un premio de avatar!
+		<value>Esta es la versión de prueba de Minecraft: Xbox One Edition. Si tuvieras el juego completo, ¡habrías conseguido un premio de avatar! 
+Desbloquea el juego completo para vivir toda la emoción de Minecraft: Xbox One Edition y jugar con amigos de todo el mundo a través de Xbox Live.
 ¿Te gustaría desbloquear el juego completo?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_GAMERPIC_TEXT">
-		<value>Esta es la versión de prueba de Minecraft: Xbox 360 Edition. Si tuvieras el juego completo, ¡habrías conseguido una imagen de jugador!
+		<value>Esta es la versión de prueba de Minecraft: Xbox One Edition. Si tuvieras el juego completo, ¡habrías conseguido una imagen de jugador! 
+Desbloquea el juego completo para vivir toda la emoción de Minecraft: Xbox One Edition y jugar con amigos de todo el mundo a través de Xbox Live.
 ¿Te gustaría desbloquear el juego completo?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_THEME_TEXT">
-		<value>Esta es la versión de prueba de Minecraft: Xbox 360 Edition. Si tuvieras el juego completo, ¡habrías conseguido un tema!
+		<value>Esta es la versión de prueba de Minecraft: Xbox One Edition. Si tuvieras el juego completo, ¡habrías conseguido un tema! 
+Desbloquea el juego completo para vivir toda la emoción de Minecraft: Xbox One Edition y jugar con amigos de todo el mundo a través de Xbox Live.
 ¿Te gustaría desbloquear el juego completo?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_ACCEPT_INVITE">
-		<value>Esta es la versión de prueba de Minecraft: Xbox 360 Edition. Necesitas la versión completa para aceptar esta invitación.
-¿Quieres desbloquear la versión completa del juego?</value>
+		<value>Esta es la versión de prueba de Minecraft: Xbox One Edition. Necesitas la versión completa para aceptar esta invitación.
+¿Te gustaría desbloquear el juego completo?</value>
 	</data>	
 
 	<data name="IDS_UNLOCK_GUEST_TEXT">
@@ -8321,7 +8366,7 @@ Ve a la Interfaz para seleccionar este tema.</value>
 	</data>	
 
 	<data name="IDS_GROUPNAME_POTIONS_480">
-		<value>Destilado</value>
+		<value>Destilación</value>
 	</data>	
 
 	<data name="IDS_RETURNEDTOTITLESCREEN_TEXT">
@@ -8329,11 +8374,11 @@ Ve a la Interfaz para seleccionar este tema.</value>
 	</data>	
 
 	<data name="IDS_TRIALOVER_TEXT">
-		<value>Has jugado a la versión de prueba de Minecraft: Xbox 360 Edition durante la cantidad máxima de tiempo permitida. Para continuar divirtiéndote, ¿quieres desbloquear el juego completo? </value>
+		<value>Has jugado a la versión de prueba de Minecraft: Xbox One Edition durante la cantidad máxima de tiempo permitida. Para continuar divirtiéndote, ¿quieres desbloquear el juego completo? </value>
 	</data>	
 
 	<data name="IDS_FATAL_ERROR_TEXT">
-		<value>Minecraft: Xbox 360 Edition ha experimentado un error al cargar y no puede continuar.</value>
+		<value>Minecraft: Xbox One Edition ha experimentado un error al cargar y no puede continuar.</value>
 	</data>	
 
 	<data name="IDS_NO_MULTIPLAYER_PRIVILEGE_JOIN_TEXT">
@@ -8345,7 +8390,7 @@ Ve a la Interfaz para seleccionar este tema.</value>
 	</data>	
 
 	<data name="IDS_NO_USER_CREATED_CONTENT_PRIVILEGE_SINGLE_LOCAL">
-		<value>No te puedes unir a esta sesión de juego porque la configuración de privilegios de Contenido de miembro es demasiado restrictiva. Cambia esta configuración en la sección Privacidad, Privacidad y conexión de la Interfaz Xbox si quieres unirte a la sesión.</value>
+		<value>No te puedes unir a esta sesión de juego porque la configuración de privilegios de Contenido de miembro es demasiado restrictiva. Cambia esta configuración en la sección Privacidad, Privacidad y conexión de Inicio si quieres unirte a la sesión.</value>
 	</data>	
 
 	<data name="IDS_NO_USER_CREATED_CONTENT_PRIVILEGE_ALL_LOCAL">
@@ -8357,16 +8402,16 @@ Ve a la Interfaz para seleccionar este tema.</value>
 	</data>	
 
 	<data name="IDS_NO_USER_CREATED_CONTENT_PRIVILEGE_CREATE">
-		<value>No puedes crear esta sesión de juego porque uno de los jugadores locales tiene una configuración de privilegios de Contenido de miembro demasiado restrictiva. Desmarca la casilla "Juego en línea" para iniciar un juego sin conexión o cambia este ajuste en la sección Privacidad, Privacidad y conexión de la Interfaz Xbox</value>
+		<value>No puedes crear esta sesión de juego porque uno de los jugadores locales tiene una configuración de privilegios de Contenido de miembro demasiado restrictiva. Desmarca la casilla "Juego en línea" para iniciar un juego sin conexión o cambia este ajuste en la sección Privacidad, Privacidad y conexión de Inicio.</value>
 	</data>	
 
 	<data name="IDS_SAVE_ICON_MESSAGE">
 		<value>Este juego utiliza la función de autoguardado. Si ves este icono, el juego está guardando los datos.
-No apagues la Consola Xbox 360 cuando aparezca este icono en pantalla.</value>
+No apagues la Consola Xbox One cuando aparezca este icono en pantalla.</value>
 	</data>	
 
 	<data name="IDS_GAMEOPTION_HOST_PRIVILEGES">
-		<value>Si está habilitado, el host puede volar, deshabilitar la extenuación y hacerse invisible desde el menú de juego. Deshabilita los logros y las actualizaciones del marcador.</value>
+		<value>Si está habilitado, el host puede activar su habilidad para volar, deshabilitar la extenuación y hacerse invisible desde el menú de juego. Deshabilita los logros y las actualizaciones del marcador.</value>
 	</data>	
 
 	<data name="IDS_CHECKBOX_DISPLAY_SPLITSCREENGAMERTAGS">
@@ -8386,15 +8431,11 @@ No apagues la Consola Xbox 360 cuando aparezca este icono en pantalla.</value>
 	</data>	
 
 	<data name="IDS_SOCIAL_DEFAULT_DESCRIPTION">
-		<value>¡Mira lo que he hecho en Minecraft: Xbox 360 Edition!</value>
-	</data>	
-
-	<data name="IDS_TITLE_UPDATE_NAME">
-		<value>Actualización de título 14</value>
+		<value>¡Mira lo que he hecho en Minecraft: Xbox One Edition!</value>
 	</data>	
 
 	<data name="IDS_PLATFORM_NAME">
-		<value>Xbox 360</value>
+		<value>Xbox One</value>
 	</data>	
 
 	<data name="IDS_BACK_BUTTON">
@@ -8403,5 +8444,199 @@ No apagues la Consola Xbox 360 cuando aparezca este icono en pantalla.</value>
 
 	<data name="IDS_HOST_OPTION_DISABLES_ACHIEVEMENTS">
 		<value>Esta opción deshabilita los logros y las actualizaciones del marcador de este mundo cuando se juega y si se vuelve a cargar después de guardarlo con esta opción activada.</value>
+	</data>	
+
+	<data name="IDS_KICK_PLAYER_DESCRIPTION">
+		<value>En el caso de jugadores que no estén en la misma Consola Xbox One que el host, si se selecciona esta opción se expulsará al jugador de la partida y a cualquier otro jugador en la misma Consola Xbox One. El jugador no podrá volver a unirse al juego hasta que se reinicie.</value>
+	</data>	
+
+	<data name="IDS_USING_TRIAL_TEXUREPACK_WARNING">
+		<value>Estás usando una versión de prueba del pack de textura. Tendrás acceso a todos los contenidos del pack de textura, pero no podrás guardar tus progresos.
+Si intentas guardar en la versión de prueba, se te dará la opción de comprar la versión completa.
+    </value>
+	</data>	
+
+	<data name="IDS_XBOX_STORE">
+		<value>Tienda Xbox</value>
+	</data>	
+
+	<data name="IDS_WORLD_SIZE_TITLE_SMALL">
+		<value>Pequeño</value>
+	</data>	
+
+	<data name="IDS_WORLD_SIZE_TITLE_MEDIUM">
+		<value>Mediano</value>
+	</data>	
+
+	<data name="IDS_WORLD_SIZE_TITLE_LARGE">
+		<value>Grande</value>
+	</data>	
+
+	<data name="IDS_WORLD_SIZE_TITLE_CLASSIC">
+		<value>Clásico</value>
+	</data>	
+
+	<data name="IDS_GAME_OPTIONS">
+		<value>Opciones de juego</value>
+	</data>	
+
+	<data name="IDS_WORLD_SIZE">
+		<value>Tamaño del mundo</value>
+	</data>	
+
+	<data name="IDS_GAMEOPTION_SEED">
+		<value>Introduce una semilla para volver a generar el mismo terreno. Déjalo vacío para un mundo aleatorio.</value>
+	</data>	
+
+	<data name="IDS_GAMEOPTION_WORLD_SIZE">
+		<value>Selecciona un tamaño del mundo para cambiar la extensión de mundo que puedes explorar.</value>
+	</data>	
+
+	<data name="IDS_DISABLE_SAVING">
+		<value>Desactivar autoguardado</value>
+	</data>	
+
+	<data name="IDS_GAMEOPTION_DISABLE_SAVING">
+		<value>Desactiva el guardado automático y constante del mundo. Si luego decides guardar, puede que tarde más tiempo.</value>
+	</data>	
+
+	<data name="IDS_XBOX_HELP_APP">
+		<value>Ayuda</value>
+	</data>	
+
+	<data name="IDS_CONFIRM_EXIT_GAME">
+		<value>¿Seguro que quieres salir al menú principal?</value>
+	</data>	
+
+	<data name="IDS_CONFIRM_LEAVE_VIA_INVITE">
+		<value>¿Seguro que quieres salir del juego actual y unirte al nuevo?</value>
+	</data>	
+
+	<data name="IDS_CONFIRM_EXIT_GAME_CONFIRM_DISCONNECT">
+		<value>¿Seguro que quieres salir al menú principal y desconectar a todos los jugadores del juego?</value>
+	</data>	
+
+	<data name="IDS_TOOLTIPS_CHOOSE_USER">
+		<value>Elegir usuario</value>
+	</data>	
+
+	<data name="IDS_TOOLTIPS_SAVETRANSFER_DOWNLOAD">
+		<value>Rec. datos guardados de Xbox 360</value>
+	</data>	
+
+	<data name="IDS_SAVETRANSFER_TITLE_GET">
+		<value>Recuperando datos guardados de Xbox 360</value>
+	</data>	
+
+	<data name="IDS_SAVETRANSFER_STAGE_GET_DETAILS">
+		<value>Recibiendo detalles del archivo</value>
+	</data>	
+
+	<data name="IDS_SAVETRANSFER_STAGE_GET_DATA">
+		<value>Descargando datos del archivo (%.2fMB/%.2fMB)</value>
+	</data>	
+
+	<data name="IDS_SAVETRANSFER_STAGE_CONVERTING">
+		<value>Convirtiendo datos guardados para Xbox One</value>
+	</data>	
+
+	<data name="IDS_SAVETRANSFER_STAGE_SAVING">
+		<value>Guardando</value>
+	</data>	
+
+	<data name="IDS_SAVETRANSFER_NONE_FOUND">
+		<value>No se han encontrado datos guardados de Xbox 360</value>
+	</data>	
+
+	<data name="IDS_SAVE_INCOMPLETE_TITLE">
+		<value>Datos guardados incompletos</value>
+	</data>	
+
+	<data name="IDS_SAVE_INCOMPLETE_EXPLANATION_QUOTA">
+		<value>Minecraft: Xbox One Edition se ha quedado sin espacio para guardar datos. Para liberar espacio, elimina otros mundos de Minecraft: Xbox One Edition y pulsa reintentar para continuar, o desactiva el guardado automático para continuar sin guardar la partida.</value>
+	</data>	
+
+	<data name="IDS_SAVE_INCOMPLETE_EXPLANATION_LOCAL_STORAGE">
+		<value>Intenta volver a guardar la partida o desactiva el guardado automático para continuar sin guardar.</value>
+	</data>	
+
+	<data name="IDS_SAVE_INCOMPLETE_RETRY_SAVING">
+		<value>Reintentar guardar</value>
+	</data>	
+
+	<data name="IDS_SAVE_INCOMPLETE_DISABLE_SAVING">
+		<value>Desactivar guardado</value>
+	</data>	
+
+	<data name="IDS_SAVE_INCOMPLETE_DELETE_SAVES">
+		<value>Eliminar datos guardados</value>
+	</data>	
+
+	<data name="IDS_PLAY_TRIAL_GAME">
+		<value>Jugar a la versión de prueba</value>
+	</data>	
+
+	<data name="IDS_TITLE_ENABLE_AUTOSAVE">
+		<value>Activar autoguardado</value>
+	</data>	
+
+	<data name="IDS_CONFIRM_ENABLE_AUTOSAVE">
+		<value>¿Quieres activar el guardado automático y constante del mundo?</value>
+	</data>	
+
+	<data name="IDS_DISABLE_AUTOSAVE">
+		<value>Desactivar autoguardado</value>
+	</data>	
+
+	<data name="IDS_TITLE_DISABLE_AUTOSAVE">
+		<value>Desactivar autoguardado</value>
+	</data>	
+
+	<data name="IDS_CONFIRM_DISABLE_AUTOSAVE">
+		<value>¿Seguro que quieres desactivar el guardado automático y constante del mundo?</value>
+	</data>	
+
+	<data name="IDS_CONFIRM_SYNC_REQUIRED">
+		<value>Se necesita sincronizar este mundo para que puedas jugar en él. Esto puede llevar un rato. ¿Quieres iniciar la sincronización y jugar?</value>
+	</data>	
+
+	<data name="IDS_CONFIRM_SYNC">
+		<value>Sincronizar</value>
+	</data>	
+
+	<data name="IDS_SAVE_TRANSFER_DOWNLOAD_AND_CONVERT_COMPLETE">
+		<value>¡Descarga y conversión al formato de Xbox One completados!</value>
+	</data>	
+
+	<data name="IDS_SAVE_TRANSFER_DOWNLOAD_CANCELLING">
+		<value>Cancelando descarga. Espera...</value>
+	</data>	
+
+	<data name="IDS_SAVE_TRANSFER_DOWNLOAD_CANCELLED">
+		<value>Descarga cancelada.</value>
+	</data>	
+
+	<data name="IDS_DISCONNECTED_EXITED_GAME">
+		<value>Has salido del juego.</value>
+	</data>	
+
+	<data name="IDS_IN_PARTY_SESSION_FULL">
+		<value>La sesión de juego a la que te has unido está llena. Recibirás una notificación cuando haya sitio libre.</value>
+	</data>	
+
+	<data name="IDS_LEADERBOARD_SCORE_HIDDEN">
+		<value>Oculto debido a la configuración de privacidad del jugador.</value>
+	</data>	
+
+	<data name="IDS_TEXT_COPY_SAVE">
+		<value>¿Seguro que quieres copiar este archivo de guardado?</value>
+	</data>	
+
+	<data name="IDS_COPYSAVE">
+		<value>Copiar archivo de guardado</value>
+	</data>	
+
+	<data name="IDS_PROGRESS_COPYING_SAVE">
+		<value>Copiando archivo de guardado</value>
 	</data>	
 </root>
