@@ -56,6 +56,6 @@ foreach ($dir in $deleteDirs) {
 $delDir = Join-Path $OutDir "Common\Media"
 
 if (Test-Path $delDir) {
-    Get-ChildItem -Path "$delDir\*" -Recurse -Include *.swf,*.txt,*.resx,*.xml,*.loc,*.lang,*.col -File |
+    Get-ChildItem -Path "$delDir\*" -Recurse -Include *.swf,*.txt,*.resx,*.xml,*.loc,*.lang,*.col,MediaDurango.arc,MediaOrbis.arc,MediaPS3.arc,MediaPSVita.arc -File |
         Remove-Item -Force -ErrorAction SilentlyContinue
 }
