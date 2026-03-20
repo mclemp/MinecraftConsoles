@@ -66,10 +66,10 @@ bool g_Win64DedicatedServer = false;
 int g_Win64DedicatedServerPort = WIN64_NET_DEFAULT_PORT;
 char g_Win64DedicatedServerBindIP[256] = "";
 
-char g_Win64RelayServerIP[256] = "p2p.goonchamber.gay";
-wchar_t g_Win64RelayServerIP_Wide[256] = L"p2p.goonchamber.gay";
+char g_Win64RelayServerIP[256] = "relay.mclegacyedition.xyz";
+wchar_t g_Win64RelayServerIP_Wide[256] = L"relay.mclegacyedition.xyz";
 int g_Win64RelayServerPort = 2052;
-wchar_t g_Win64AuthIP[256] = L"auth.goonchamber.gay";
+wchar_t g_Win64AuthIP[256] = L"auth.mclegacyedition.xyz";
 
 bool WinsockNetLayer::Initialize()
 {
