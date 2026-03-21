@@ -181,27 +181,6 @@ static bool LoadFullscreenOption()
 }
 // ------------------------------------------------------------------
 
-static void ApplyScreenMode(int screenMode)
-{
-	switch (screenMode)
-	{
-	case 1:
-		g_iScreenWidth = 1280;
-		g_iScreenHeight = 720;
-		break;
-	case 2:
-		g_iScreenWidth = 640;
-		g_iScreenHeight = 480;
-		break;
-	case 3:
-		g_iScreenWidth = 720;
-		g_iScreenHeight = 408;
-		break;
-	default:
-		break;
-	}
-}
-
 static Win64LaunchOptions ParseLaunchOptions()
 {
 	Win64LaunchOptions options = {};
@@ -215,15 +194,8 @@ static Win64LaunchOptions ParseLaunchOptions()
 	if (argv == nullptr)
 		return options;
 
-	if (argc > 1 && lstrlenW(argv[1]) == 1)
-	{
-		if (argv[1][0] >= L'1' && argv[1][0] <= L'3')
-			options.screenMode = argv[1][0] - L'0';
-	}
-
-	for (int i = 1; i < argc; ++i)
-	{
-		if (_wcsicmp(argv[i], L"-name") == 0 && (i + 1) < argc)
+	/*
+	if (_wcsicmp(argv[i], L"-name") == 0 && (i + 1) < argc)
 		{
 			CopyWideArgToAnsi(argv[++i], g_Win64Username, sizeof(g_Win64Username));
 		}
@@ -243,7 +215,10 @@ static Win64LaunchOptions ParseLaunchOptions()
 				g_Win64MultiplayerPort = static_cast<int>(port);
 			}
 		}
-		else if (_wcsicmp(argv[i], L"-fullscreen") == 0)
+		else*/
+	for (int i = 1; i < argc; ++i)
+	{
+		if (_wcsicmp(argv[i], L"-fullscreen") == 0)
 			options.fullscreen = true;
 	}
 
@@ -1319,41 +1294,8 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	g_rScreenWidth = GetSystemMetrics(SM_CXSCREEN);
 	g_rScreenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-	// Load username from username.txt
-    char exePath[MAX_PATH] = {};
-    GetModuleFileNameA(nullptr, exePath, MAX_PATH);
-    char *lastSlash = strrchr(exePath, '\\');
-    if (lastSlash)
-    {
-        *(lastSlash + 1) = '\0';
-    }
-
-    char filePath[MAX_PATH] = {};
-    _snprintf_s(filePath, sizeof(filePath), _TRUNCATE, "%susername.txt", exePath);
-
-    FILE *f = nullptr;
-    if (fopen_s(&f, filePath, "r") == 0 && f)
-    {
-        char buf[128] = {};
-        if (fgets(buf, sizeof(buf), f))
-        {
-            int len = static_cast<int>(strlen(buf));
-            while (len > 0 && (buf[len - 1] == '\n' || buf[len - 1] == '\r' || buf[len - 1] == ' '))
-            {
-                buf[--len] = '\0';
-            }
-
-            if (len > 0)
-            {
-                strncpy_s(g_Win64Username, sizeof(g_Win64Username), buf, _TRUNCATE);
-            }
-        }
-        fclose(f);
-    }
-
 	// Load stuff from launch options, including username
 	const Win64LaunchOptions launchOptions = ParseLaunchOptions();
-	ApplyScreenMode(launchOptions.screenMode);
 
 	// Ensure uid.dat exists from startup (before any multiplayer/login path).
 	Win64Xuid::ResolvePersistentXuid();
@@ -1366,72 +1308,6 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	}
 
 	MultiByteToWideChar(CP_ACP, 0, g_Win64Username, -1, g_Win64UsernameW, 17);
-
-	// convert servers.txt to servers.db
-	if (GetFileAttributesA("servers.txt") != INVALID_FILE_ATTRIBUTES &&
-		GetFileAttributesA("servers.db") == INVALID_FILE_ATTRIBUTES)
-	{
-		FILE* txtFile = nullptr;
-		if (fopen_s(&txtFile, "servers.txt", "r") == 0 && txtFile)
-		{
-			struct MigEntry { std::string ip; uint16_t port; std::string name; };
-			std::vector<MigEntry> migEntries;
-			char line[512];
-
-			while (fgets(line, sizeof(line), txtFile))
-			{
-				int l = (int)strlen(line);
-				while (l > 0 && (line[l - 1] == '\n' || line[l - 1] == '\r' || line[l - 1] == ' '))
-					line[--l] = '\0';
-				if (l == 0) continue;
-
-				std::string srvIP = line;
-
-				if (!fgets(line, sizeof(line), txtFile)) break;
-				l = (int)strlen(line);
-				while (l > 0 && (line[l - 1] == '\n' || line[l - 1] == '\r' || line[l - 1] == ' '))
-					line[--l] = '\0';
-				uint16_t srvPort = (uint16_t)atoi(line);
-
-				std::string srvName;
-				if (fgets(line, sizeof(line), txtFile))
-				{
-					l = (int)strlen(line);
-					while (l > 0 && (line[l - 1] == '\n' || line[l - 1] == '\r' || line[l - 1] == ' '))
-						line[--l] = '\0';
-					srvName = line;
-				}
-
-				if (!srvIP.empty() && srvPort > 0)
-					migEntries.push_back({srvIP, srvPort, srvName});
-			}
-			fclose(txtFile);
-
-			if (!migEntries.empty())
-			{
-				FILE* dbFile = nullptr;
-				if (fopen_s(&dbFile, "servers.db", "wb") == 0 && dbFile)
-				{
-					fwrite("MCSV", 1, 4, dbFile);
-					uint32_t ver = 1;
-					uint32_t cnt = (uint32_t)migEntries.size();
-					fwrite(&ver, sizeof(uint32_t), 1, dbFile);
-					fwrite(&cnt, sizeof(uint32_t), 1, dbFile);
-					for (size_t i = 0; i < migEntries.size(); i++)
-					{
-						uint16_t ipLen = (uint16_t)migEntries[i].ip.length();
-						fwrite(&ipLen, sizeof(uint16_t), 1, dbFile);
-						fwrite(migEntries[i].ip.c_str(), 1, ipLen, dbFile);
-						fwrite(&migEntries[i].port, sizeof(uint16_t), 1, dbFile);
-						uint16_t nameLen = (uint16_t)migEntries[i].name.length();
-						fwrite(&nameLen, sizeof(uint16_t), 1, dbFile);
-						fwrite(migEntries[i].name.c_str(), 1, nameLen, dbFile);
-					}
-					fclose(dbFile);
-				}
-			}
-		}
-	}
 
 	// Initialize global strings
 	MyRegisterClass(hInstance);
