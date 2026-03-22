@@ -1,1 +1,77 @@
 name: TU19 Release
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'tu19'
+    paths-ignore:
+      - '.gitignore'
+      - '*.md'
+      - '.github/**'
+      - '!.github/workflows/tu19.yml'
+permissions:
+  contents: write
+concurrency:
+  group: tu19
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        platform: [Windows64]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set platform lowercase
+        run: echo "MATRIX_PLATFORM=$('${{ matrix.platform }}'.ToLower())" >> $env:GITHUB_ENV
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Run CMake
+        uses: lukka/run-cmake@v10
+        env:
+          VCPKG_ROOT: ""
+        with:
+          configurePreset: ${{ env.MATRIX_PLATFORM }}
+          buildPreset: ${{ env.MATRIX_PLATFORM }}-release
+          buildPresetAdditionalArgs: "['--target', 'Minecraft.Client']"
+
+      - name: Remove useless files
+        run: |
+          del .\build\${{ env.MATRIX_PLATFORM }}\Minecraft.Client\Release\*.iobj
+          del .\build\${{ env.MATRIX_PLATFORM }}\Minecraft.Client\Release\*.ipdb
+
+      - name: Zip Build
+        run: 7z a -r MCLE${{ matrix.platform }}.zip .\build\${{ env.MATRIX_PLATFORM }}\Minecraft.Client\Release\* "-x!*.ipdb" "-x!*.iobj"
+
+      - name: Stage artifacts
+        run: |
+          New-Item -ItemType Directory -Force -Path staging
+          Copy-Item LCE${{ matrix.platform }}.zip staging/
+
+
+      - name: Stage exe and pdb
+        if: matrix.platform == 'Windows64'
+        run: |
+          Copy-Item .\build\${{ env.MATRIX_PLATFORM }}\Minecraft.Client\Release\Minecraft.Client.exe staging/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-${{ matrix.platform }}
+          path: staging/*
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
