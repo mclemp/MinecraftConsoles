@@ -9,7 +9,7 @@ on:
       - '.gitignore'
       - '*.md'
       - '.github/*.md'
-
+      - '!.github/workflows/tu19.yml'
 jobs:
   build:
     name: Build Windows64
