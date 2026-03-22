@@ -9,7 +9,6 @@ on:
       - '.gitignore'
       - '*.md'
       - '.github/**'
-      - '!.github/workflows/tu19.yml'
 
 permissions:
   contents: write
