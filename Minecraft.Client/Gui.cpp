@@ -918,7 +918,7 @@ void Gui::render(float a, bool mouseFree, int xMouse, int yMouse)
 		//font->drawShadow(minecraft->gatherStats3(), // RTT
 		//font->drawShadow(minecraft->gatherStats5(), iSafezoneXHalf+2, 32 + 10, 0xffffff);
 
-#ifndef _CONTENT_PACKAGE
+#ifndef _DEBUG_MENUS_ENABLED
 		int iYPos = debugTop + 112;
 		if(minecraft->level->dimension->id==0)
 		{
